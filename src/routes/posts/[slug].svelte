@@ -1,24 +1,28 @@
 <script context="module">
 	export async function load({ page }) {
-		const post = {
-			title: page.params.slug,
-			date: new Date(),
-			body: 'lorem ipsum'
-		};
-		return {
-			props: {
-				post
-			}
-		};
+		try {
+			const Post = await import(`../../posts/${page.params.slug}.md`);
+
+			return {
+				props: {
+					Post: Post.default
+				}
+			};
+		} catch (e) {
+			// return {
+			// 	status: 307,
+			// 	redirect: '/posts'
+			// };
+			return {
+				status: 404,
+				error: 'Post not found'
+			};
+		}
 	}
 </script>
 
 <script>
-	import Hello from '../../posts/hello.md';
-	export let post;
+	export let Post;
 </script>
 
-<Hello />
-
-<h3>{post.title}</h3>
-<p>{post.body}</p>
+<Post />
