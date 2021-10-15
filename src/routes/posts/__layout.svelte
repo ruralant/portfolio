@@ -1,12 +1,28 @@
+<script context="module">
+	export async function load() {
+		const posts = import.meta.globEager('../../posts/*.md');
+		const postList = Object.values(posts);
+		const postsMeta = postList.map((post) => post.metadata);
+		return {
+			props: {
+				posts: postsMeta
+			}
+		};
+	}
+</script>
+
+<script>
+	export let posts;
+</script>
+
 <div>
 	<slot />
 	<aside>
 		<h5>Archive</h5>
 		<ui>
-			<li><a href="/posts">Home</a></li>
-			<li><a href="/posts/about">About</a></li>
-			<li><a href="">Three</a></li>
-			<li><a href="">Four</a></li>
+			{#each posts as post}
+				<li><a href={`/posts/${posts.slug}`}>{post.title}</a></li>
+			{/each}
 		</ui>
 	</aside>
 </div>
