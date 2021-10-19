@@ -1,4 +1,8 @@
-<div class="container bg-white dark:bg-grey-800">
+<script>
+	import meImage from '/images/me-b-and-w-small.jpg';
+</script>
+
+<div class="main-container bg-spaceWhite dark:bg-spaceGrey">
 	<div class="text-container">
 		<div class="title-container">
 			<h1 class="title">
@@ -6,11 +10,32 @@
 				<span class="title-emoji">👋</span>
 			</h1>
 		</div>
+		<div class="subtitle">
+			<p class="text-black dark:text-white">I'm a full stack developer in Reading, UK.</p>
+			{' '}
+			<p class="text-black dark:text-white">
+				I'm interested in{' '}
+				<span class="interactive-text">energy efficiency</span> of the web and{' '}
+				<span class="interactive-text">open source</span>.
+			</p>
+			<p class="text-black dark:text-white">
+				I write about those things plus I love to share what I lean while working.
+			</p>
+		</div>
+	</div>
+	<div class="image-container">
+		<img
+			src={meImage}
+			alt="myself speaking in public"
+			width={400}
+			height={400}
+			placeholder="blur"
+		/>
 	</div>
 </div>
 
 <style>
-	.container {
+	.main-container {
 		height: 80vh;
 		display: flex;
 		flex-direction: row;
@@ -47,9 +72,42 @@
 		font-size: 5rem;
 		margin-left: 30px;
 	}
+	.subtitle {
+		font-weight: 500;
+		margin-top: 10px;
+		line-height: 1.7;
+		font-size: 2.5rem;
+		transition: all 0.2s ease-in-out;
+		/* padding: 5% 5% 5% 10%; */
+	}
+	.subtitle span {
+		width: 200;
+	}
+	.interactive-text {
+		font-size: 2.6rem;
+		font-weight: 600;
+		color: var(--color-text-primary);
+		-webkit-text-fill-color: transparent;
+		-webkit-text-stroke-width: 1.5px;
+		-webkit-text-stroke-color: var(--color-text-primary);
+	}
+	.interactive-text:hover {
+		-webkit-text-fill-color: var(--color-text-primary);
+	}
+	.image-container {
+		width: fit-content;
+		border-radius: 50%;
+		overflow: hidden;
+		height: 400px;
+		width: 400px;
+		margin-right: 5%;
+	}
 	@media (max-width: 1000px) {
-		.container {
+		.main-container {
 			height: auto;
+		}
+		.image-container {
+			margin: 2rem 3rem;
 		}
 	}
 	@media (max-width: 800px) {
@@ -60,10 +118,23 @@
 			font-size: 3rem;
 			margin-left: 10px;
 		}
+		.subtitle {
+			font-size: 1.5rem;
+		}
+		.interactive-text {
+			font-weight: 500;
+			font-size: 1.5rem;
+			-webkit-text-fill-color: var(--color-text-primary);
+			-webkit-text-stroke-color: transparent;
+		}
 	}
 	@media (max-width: 600px) {
 		.text-container {
 			min-width: unset;
+		}
+		.image-container {
+			height: 300px;
+			width: 300px;
 		}
 	}
 	@media (max-width: 550px) {
@@ -78,6 +149,11 @@
 		}
 		.title-emoji {
 			align-self: center;
+		}
+	}
+	@media (max-width: 375px) {
+		.image-container {
+			margin: 2rem 0;
 		}
 	}
 </style>

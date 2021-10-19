@@ -6,13 +6,20 @@ module.exports = {
 	darkMode: 'class',
 	theme: {
 		screens: {
-			sm: '480px',
-			md: '768px',
-			lg: '976px',
-			xl: '1440px'
+			sm: '375px',
+			md: '550px',
+			md2: '600px',
+			md3: '800px',
+			lg: '1000px',
+			xl: '1500px',
+			xl2: '3000px'
 		},
 		colors: {
+			white: colors.white,
+			black: colors.black,
 			grey: colors.coolGray,
+			spaceGrey: '#111111',
+			spaceWhite: '#FAFAFC',
 			blue: colors.sky,
 			red: colors.rose,
 			pink: colors.fuchsia
