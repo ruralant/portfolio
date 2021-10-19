@@ -1,5 +1,5 @@
 <script>
-  import meImage from '/images/me-b-and-w-small.jpg';
+  import meImage from '../../../static/images/me-b-and-w-small.jpg';
 </script>
 
 <div class="main-container bg-spaceWhite dark:bg-spaceGrey">
