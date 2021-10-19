@@ -4,13 +4,13 @@
   import { Sun, Moon } from '$lib/components/icons/index.js';
 </script>
 
-<header class="flex flex-row justify-between mx-8">
+<header class="flex flex-row justify-between px-8 bg-spaceWhite dark:bg-spaceGrey">
   <div class="flex">
-    <p class="mr-8">Logo</p>
+    <p class="mr-8 text-black dark:text-white">Logo</p>
     <nav class="flex flex-row">
       <div class="flex space-x-4">
-        <a href="/">Home</a>
-        <a href="/about">About</a>
+        <a class="text-black dark:text-white" href="/">Home</a>
+        <a class="text-black dark:text-white" href="/about">About</a>
       </div>
     </nav>
   </div>
@@ -24,10 +24,10 @@
       }}
     >
       <div class="hidden dark:block">
-        <Sun />
+        <Sun class="fill-current text-green-800" />
       </div>
       <div class="dark:hidden">
-        <Moon />
+        <Moon class="fill-current text-green-800" />
       </div>
     </a>
   </div>
