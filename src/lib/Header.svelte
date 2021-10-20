@@ -4,7 +4,7 @@
   import { Sun, Moon } from '$lib/components/icons/index.js';
 </script>
 
-<header class="flex flex-row justify-between px-8 bg-spaceWhite dark:bg-spaceGrey">
+<header class="flex flex-row justify-between px-8 pt-8 bg-spaceWhite dark:bg-spaceGrey">
   <div class="flex">
     <p class="mr-8 text-black dark:text-white">Logo</p>
     <nav class="flex flex-row">
@@ -24,10 +24,10 @@
       }}
     >
       <div class="hidden dark:block">
-        <Sun class="fill-current text-green-800" />
+        <Sun />
       </div>
       <div class="dark:hidden">
-        <Moon class="fill-current text-green-800" />
+        <Moon />
       </div>
     </a>
   </div>
