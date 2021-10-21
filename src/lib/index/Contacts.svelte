@@ -2,14 +2,14 @@
   <div class="title">
     <h3 class="title-text text-black dark:text-white">I'm always up for a chat.</h3>
   </div>
-  <div class="subtitle text-black dark:text-white">
+  <div class="subtitle mt-10 text-black dark:text-white">
     <p>
       Pop me an email at{' '}
       <a class="email" href="mailto:hello@antoniorossi.net">hello@antoniorossi.net</a>
     </p>
     {' '}
     <p>or give me a shout on social media</p>
-    <div class="social-container">
+    <div class="social-container mt-5">
       <a
         class="social-media-container text-black dark:text-white"
         href="https://twitter.com/ilreddo"
@@ -46,7 +46,7 @@
       </a>
     </div>
   </div>
-  <div class="emoji">😃</div>
+  <div class="emoji mt-10">😃</div>
 </div>
 
 <style>
@@ -75,15 +75,13 @@
     font-size: 3rem;
   }
   .subtitle {
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
+      Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     text-align: center;
     font-weight: 500;
-    margin-top: 10px;
     line-height: 1.7;
     font-size: 1.8rem;
     transition: all 0.2s ease-in-out;
-  }
-  .subtitle span {
-    width: 200;
   }
   .email {
     font-size: 2.6rem;
@@ -105,7 +103,6 @@
   }
   .emoji {
     font-size: 2rem;
-    margin-top: 1.5rem;
   }
   @media (max-width: 1000px) {
     .main-container {

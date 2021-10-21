@@ -1,12 +1,10 @@
 <script>
   import Article from './Article.svelte';
-  export let posts;
+  export let lastProPost;
+  export let lastLifePost;
 </script>
 
 <div>
-  <ul>
-    {#each posts as post}
-      <li><Article {post} /></li>
-    {/each}
-  </ul>
+  <Article postsData={lastProPost} />
+  <Article postsData={lastLifePost} />
 </div>

@@ -1,11 +1,32 @@
 <script context="module">
+  const convertDate = (date) => {
+    const dateArray = date.split('-');
+    return new Date(dateArray[2], dateArray[1], dateArray[0]);
+  };
+  const processPostData = (data) => {
+    const postsData = Object.values(data);
+    const posts = postsData.map((post) => post.metadata);
+    const lastPost = postsData.reduce((post, next) =>
+      convertDate(post.date) > convertDate(next.date) ? post : next
+    );
+    return {
+      posts,
+      lastPost
+    };
+  };
+
   export async function load() {
-    const posts = import.meta.globEager('../posts/*.md');
-    const latestPosts = Object.values(posts).slice(0, 6);
-    const postsMeta = latestPosts.map((post) => post.metadata);
+    const pro = import.meta.globEager('../posts/pro/*.md');
+    const life = import.meta.globEager('../posts/life/*.md');
+    const proData = processPostData(pro);
+    const lifeData = processPostData(life);
+    console.log('PRO', proData);
+    console.log('LIFE', lifeData);
+
     return {
       props: {
-        posts: postsMeta
+        proData,
+        lifeData
       }
     };
   }
@@ -15,9 +36,9 @@
   import Hero from '$lib/index/Hero.svelte';
   import Contacts from '$lib/index/Contacts.svelte';
   import Articles from '$lib/index/Articles/Articles.svelte';
-  export let posts;
+  export let proData, lifeData;
 </script>
 
 <Hero />
-<Articles {posts} />
+<Articles lastProPost={proData.lastPost} lastLifePost={lifeData.lastPost} />
 <Contacts />

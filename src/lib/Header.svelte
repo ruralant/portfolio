@@ -18,7 +18,7 @@
     <a
       href="/app/theme"
       class="block"
-      aria-label="Toggle Light and Dark mode"
+      aria-label="toggle light and dark mode"
       on:click|preventDefault={() => {
         toggleTheme(theme, $theme);
       }}
