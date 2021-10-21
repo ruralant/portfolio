@@ -11,6 +11,7 @@
   import Header from '$lib/Header.svelte';
   import '../tailwind.css';
   export let localTheme;
+  export let year = new Date().getFullYear();
 
   onMount(() => {
     if (!('theme' in localStorage)) {
@@ -54,4 +55,4 @@
   </main>
 </div>
 
-<footer>Copyright 2021</footer>
+<footer>© {year} Antonio Rossi</footer>

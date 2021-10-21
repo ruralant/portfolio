@@ -73,6 +73,8 @@
     margin-left: 30px;
   }
   .subtitle {
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
+      Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     font-weight: 500;
     margin-top: 10px;
     line-height: 1.7;

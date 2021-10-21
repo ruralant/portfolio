@@ -1,7 +1,8 @@
 <script>
-  export let post;
+  export let postsData;
+  export let { metadata } = postsData;
 </script>
 
 <div>
-  <p>{post.title}</p>
+  <p>{metadata.title}</p>
 </div>
