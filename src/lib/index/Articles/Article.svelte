@@ -3,6 +3,6 @@
   export let { metadata } = postsData;
 </script>
 
-<div>
+<div class="w-60 h-60 rounded shadow-md">
   <p>{metadata.title}</p>
 </div>

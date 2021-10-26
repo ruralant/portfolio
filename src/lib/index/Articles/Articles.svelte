@@ -4,7 +4,9 @@
   export let lastLifePost;
 </script>
 
-<div>
+<div
+  class="w-full flex flex-row flex-wrap justify-around items-center bg-spaceWhite dark:bg-spaceGrey pb-10"
+>
   <Article postsData={lastProPost} />
   <Article postsData={lastLifePost} />
 </div>
