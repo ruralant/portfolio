@@ -20,9 +20,6 @@
     const life = import.meta.globEager('../posts/life/*.md');
     const proData = processPostData(pro);
     const lifeData = processPostData(life);
-    console.log('PRO', proData);
-    console.log('LIFE', lifeData);
-
     return {
       props: {
         proData,

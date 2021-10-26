@@ -1,4 +1,4 @@
-<div class="main-container bg-spaceWhite dark:bg-spaceGrey">
+<div class="main-container bg-spaceWhite dark:bg-spaceGrey pb-10">
   <div class="title">
     <h3 class="title-text text-black dark:text-white">I'm always up for a chat.</h3>
   </div>

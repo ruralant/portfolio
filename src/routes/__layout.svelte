@@ -9,9 +9,9 @@
   import { onMount } from 'svelte';
   import { theme } from '$lib/shared/store';
   import Header from '$lib/Header.svelte';
+  import Footer from '$lib/Footer.svelte';
   import '../tailwind.css';
   export let localTheme;
-  export let year = new Date().getFullYear();
 
   onMount(() => {
     if (!('theme' in localStorage)) {
@@ -55,4 +55,4 @@
   </main>
 </div>
 
-<footer>© {year} Antonio Rossi</footer>
+<Footer />

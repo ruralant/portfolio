@@ -1,8 +1,8 @@
 <script>
-  import meImage from '../../../static/images/me-b-and-w-small.jpg';
+  import meImage from '/images/me-b-and-w-small.jpg';
 </script>
 
-<div class="main-container bg-spaceWhite dark:bg-spaceGrey">
+<div class="main-container bg-spaceWhite dark:bg-spaceGrey pb-10">
   <div class="text-container">
     <div class="title-container">
       <h1 class="title">
@@ -23,7 +23,7 @@
       </p>
     </div>
   </div>
-  <div class="image-container">
+  <div class="image-container mt-5 mx-5">
     <img
       src={meImage}
       alt="myself speaking in public"
@@ -109,7 +109,7 @@
       height: auto;
     }
     .image-container {
-      margin: 2rem 3rem;
+      /* margin: 2rem 3rem; */
     }
   }
   @media (max-width: 800px) {
