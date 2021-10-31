@@ -1,17 +1,27 @@
-<div class="main-container bg-spaceWhite dark:bg-spaceGrey pb-10">
+<div
+  class="main-container bg-spaceWhite dark:bg-spaceGrey transition duration-501 ease-in-out pb-10"
+>
   <div class="title">
-    <h3 class="title-text text-black dark:text-white">I'm always up for a chat.</h3>
+    <h3
+      class="title-text text-black dark:text-white transition duration-501 ease-in-out"
+    >
+      I'm always up for a chat.
+    </h3>
   </div>
-  <div class="subtitle mt-10 text-black dark:text-white">
+  <div
+    class="subtitle mt-10 text-black dark:text-white transition duration-501 ease-in-out"
+  >
     <p>
       Pop me an email at{' '}
-      <a class="email" href="mailto:hello@antoniorossi.net">hello@antoniorossi.net</a>
+      <a class="email" href="mailto:hello@antoniorossi.net"
+        >hello@antoniorossi.net</a
+      >
     </p>
     {' '}
     <p>or give me a shout on social media</p>
     <div class="social-container mt-5">
       <a
-        class="social-media-container text-black dark:text-white"
+        class="social-media-container text-black dark:text-white transition duration-501 ease-in-out"
         href="https://twitter.com/ilreddo"
         aria-label="Twitter logo"
       >
@@ -28,7 +38,7 @@
         </svg>
       </a>
       <a
-        class="social-media-container text-black dark:text-white"
+        class="social-media-container text-black dark:text-white transition duration-501 ease-in-out"
         href="https://www.linkedin.com/in/antoniorossii/"
         aria-label="LinkedIn logo"
       >
@@ -51,7 +61,7 @@
 
 <style>
   .main-container {
-    height: 80vh;
+    height: 50vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -62,10 +72,17 @@
     display: flex;
   }
   .title-text {
-    font-family: 'Cormorant Garamond', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-      Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: 'Cormorant Garamond', -apple-system, BlinkMacSystemFont,
+      'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
+      'Helvetica Neue', sans-serif;
     color: #fff;
-    background: linear-gradient(271deg, #8797e8 30%, #a162e8 50%, #f093b0 70%, #dab56c 94%);
+    background: linear-gradient(
+      271deg,
+      #8797e8 30%,
+      #a162e8 50%,
+      #f093b0 70%,
+      #dab56c 94%
+    );
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -75,8 +92,9 @@
     font-size: 3rem;
   }
   .subtitle {
-    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
-      Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+      Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
+      sans-serif;
     text-align: center;
     font-weight: 500;
     line-height: 1.7;

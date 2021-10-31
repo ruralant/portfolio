@@ -5,14 +5,10 @@
   };
   const processPostData = (data) => {
     const postsData = Object.values(data);
-    const posts = postsData.map((post) => post.metadata);
-    const lastPost = postsData.reduce((post, next) =>
-      convertDate(post.date) > convertDate(next.date) ? post : next
-    );
-    return {
-      posts,
-      lastPost
-    };
+    const posts = postsData
+      .map((post) => post.metadata)
+      .sort((post, next) => convertDate(next.date) - convertDate(post.date));
+    return posts;
   };
 
   export async function load() {
@@ -23,8 +19,8 @@
     return {
       props: {
         proData,
-        lifeData
-      }
+        lifeData,
+      },
     };
   }
 </script>
@@ -33,9 +29,10 @@
   import Hero from '$lib/index/Hero.svelte';
   import Contacts from '$lib/index/Contacts.svelte';
   import Articles from '$lib/index/Articles/Articles.svelte';
+  import '../global.css';
   export let proData, lifeData;
 </script>
 
 <Hero />
-<Articles lastProPost={proData.lastPost} lastLifePost={lifeData.lastPost} />
+<Articles lastProPost={proData} lastLifePost={lifeData} />
 <Contacts />
