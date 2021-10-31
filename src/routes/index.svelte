@@ -1,4 +1,4 @@
-<!-- <script context="module">
+<script context="module">
   const convertDate = (date) => {
     const dateArray = date.split('-');
     return new Date(dateArray[2], dateArray[1], dateArray[0]);
@@ -23,7 +23,8 @@
       },
     };
   }
-</script> -->
+</script>
+
 <script>
   import Hero from '$lib/index/Hero.svelte';
   import Contacts from '$lib/index/Contacts.svelte';
@@ -33,5 +34,5 @@
 </script>
 
 <Hero />
-<!-- <Articles lastProPost={proData} lastLifePost={lifeData} /> -->
+<Articles lastProPost={proData} lastLifePost={lifeData} />
 <Contacts />
