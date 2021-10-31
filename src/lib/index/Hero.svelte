@@ -2,7 +2,7 @@
   import meImage from '../../../static/images/me-b-and-w-small.jpg';
 </script>
 
-<div class="main-container bg-spaceWhite dark:bg-spaceGrey pb-10">
+<div class="main-container pb-10">
   <div class="text-container">
     <div class="title-container">
       <h1 class="title">
@@ -11,15 +11,18 @@
       </h1>
     </div>
     <div class="subtitle">
-      <p class="text-black dark:text-white">I'm a full stack developer in Reading, UK.</p>
+      <p class="text-black dark:text-white transition duration-501 ease-in-out">
+        I'm a full stack developer in Reading, UK.
+      </p>
       {' '}
-      <p class="text-black dark:text-white">
+      <p class="text-black dark:text-white transition duration-501 ease-in-out">
         I'm interested in{' '}
         <span class="interactive-text">energy efficiency</span> of the web and{' '}
         <span class="interactive-text">open source</span>.
       </p>
-      <p class="text-black dark:text-white">
-        I write about those things plus I love to share what I lean while working.
+      <p class="text-black dark:text-white transition duration-501 ease-in-out">
+        I write about those things plus I love to share what I lean while
+        working.
       </p>
     </div>
   </div>
@@ -46,7 +49,6 @@
   .text-container {
     flex: 2;
     min-width: 600px;
-    padding: 0 5%;
   }
   .title-container {
     display: flex;
@@ -56,10 +58,17 @@
     display: flex;
   }
   .title-text {
-    font-family: 'Cormorant Garamond', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
-      Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: 'Cormorant Garamond', -apple-system, BlinkMacSystemFont,
+      'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
+      'Helvetica Neue', sans-serif;
     color: #fff;
-    background: linear-gradient(271deg, #8797e8 30%, #a162e8 50%, #f093b0 70%, #dab56c 94%);
+    background: linear-gradient(
+      271deg,
+      #8797e8 30%,
+      #a162e8 50%,
+      #f093b0 70%,
+      #dab56c 94%
+    );
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     font-weight: 500;
@@ -73,8 +82,9 @@
     margin-left: 30px;
   }
   .subtitle {
-    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu,
-      Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+      Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
+      sans-serif;
     font-weight: 500;
     margin-top: 10px;
     line-height: 1.7;

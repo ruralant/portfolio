@@ -50,7 +50,9 @@
 <div id="core" class={localTheme}>
   <Header />
 
-  <main>
+  <main
+    class="bg-spaceWhite dark:bg-spaceGrey transition duration-501 ease-in-out px-5"
+  >
     <slot />
   </main>
 </div>
