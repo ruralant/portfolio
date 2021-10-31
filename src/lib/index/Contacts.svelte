@@ -2,11 +2,11 @@
   class="main-container bg-spaceWhite dark:bg-spaceGrey transition duration-501 ease-in-out pb-10"
 >
   <div class="title">
-    <h3
+    <h2
       class="title-text text-black dark:text-white transition duration-501 ease-in-out"
     >
       I'm always up for a chat.
-    </h3>
+    </h2>
   </div>
   <div
     class="subtitle mt-10 text-black dark:text-white transition duration-501 ease-in-out"
