@@ -1,4 +1,5 @@
 <script context="module">
+  // necessary to load before render
   export async function load() {
     const posts = import.meta.globEager('../../posts/*.md');
     const postList = Object.values(posts);
