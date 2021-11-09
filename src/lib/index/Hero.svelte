@@ -2,7 +2,7 @@
   import meImage from '../../../static/images/me-b-and-w-small-opt.jpg';
 </script>
 
-<div class="main-container pb-10">
+<div class="main-container py-10">
   <div class="text-container">
     <div class="title-container">
       <h1 class="title">
@@ -26,7 +26,7 @@
       </p>
     </div>
   </div>
-  <div class="image-container mt-5 mx-5">
+  <div class="image-container mt-5 mx-5 sm:m-5 lg:ml-20">
     <img
       src={meImage}
       alt="myself speaking in public"
@@ -112,7 +112,7 @@
     overflow: hidden;
     height: 400px;
     width: 400px;
-    margin-right: 5%;
+    /* margin-right: 5%; */
   }
   @media (max-width: 1000px) {
     .main-container {
