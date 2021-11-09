@@ -51,7 +51,7 @@
   <Header />
 
   <main
-    class="bg-spaceWhite dark:bg-spaceGrey transition duration-501 ease-in-out px-5"
+    class="bg-spaceWhite dark:bg-spaceGrey transition duration-501 ease-in-out px-5 md:px-10"
   >
     <slot />
   </main>
