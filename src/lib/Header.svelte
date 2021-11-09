@@ -8,11 +8,13 @@
   class="flex flex-row justify-between px-5 pt-8 bg-spaceWhite dark:bg-spaceGrey transition duration-501 ease-in-out"
 >
   <div class="flex">
-    <p
-      class="mr-8 text-black dark:text-white transition duration-501 ease-in-out"
-    >
-      Logo
-    </p>
+    <div>
+      <p
+        class="logo-text mr-8 text-black dark:text-white transition duration-501 ease-in-out"
+      >
+        Ar
+      </p>
+    </div>
     <nav class="flex flex-row">
       <div class="flex space-x-4">
         <a
@@ -44,3 +46,11 @@
     </a>
   </div>
 </header>
+
+<style>
+  .logo-text {
+    font-family: 'Cormorant Garamond', -apple-system, BlinkMacSystemFont,
+      'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
+      'Helvetica Neue', sans-serif;
+  }
+</style>
