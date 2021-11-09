@@ -9,6 +9,7 @@
   import { onMount } from 'svelte';
   import { theme } from '$lib/shared/store';
   import Header from '$lib/Header.svelte';
+  import Footer from '$lib/Footer.svelte';
   import '../tailwind.css';
   export let localTheme;
 
@@ -49,9 +50,11 @@
 <div id="core" class={localTheme}>
   <Header />
 
-  <main>
+  <main
+    class="bg-spaceWhite dark:bg-spaceGrey transition duration-501 ease-in-out px-5 md:px-10"
+  >
     <slot />
   </main>
 </div>
 
-<footer>Copyright 2021</footer>
+<Footer />
