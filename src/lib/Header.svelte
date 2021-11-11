@@ -2,25 +2,22 @@
   import { theme } from '$lib/shared/store';
   import { toggleTheme } from '$lib/shared/theme';
   import { Sun, Moon } from '$lib/components/icons/index.js';
+  import Logo from './components/Logo.svelte';
 </script>
 
 <header
   class="flex flex-row justify-between px-5 pt-8 bg-spaceWhite dark:bg-spaceGrey transition duration-501 ease-in-out"
 >
   <div class="flex">
-    <p
-      class="mr-8 text-black dark:text-white transition duration-501 ease-in-out"
-    >
-      Logo
-    </p>
+    <Logo />
     <nav class="flex flex-row">
       <div class="flex space-x-4">
         <a
-          class="text-black dark:text-white transition duration-501 ease-in-out"
+          class="flex items-center text-black dark:text-white transition duration-501 ease-in-out"
           href="/">Home</a
         >
         <a
-          class="text-black dark:text-white transition duration-501 ease-in-out"
+          class="flex items-center text-black dark:text-white transition duration-501 ease-in-out"
           href="/about">About</a
         >
       </div>
