@@ -12,9 +12,9 @@
 </script>
 
 <div
-  class="w-full flex flex-col bg-spaceWhite dark:bg-spaceGrey transition duration-501 ease-in-out max-w-2xl m-auto pb-10"
+  class="w-full flex flex-col bg-spaceWhite dark:bg-spaceGrey transition duration-501 ease-in-out max-w-6xl m-auto pb-10"
 >
-  <ul class="articles-container">
+  <ul class="articles-container gap-3 lg:gap-6">
     {#each posts as post}
       <Article postsData={post} />
     {/each}
@@ -26,7 +26,6 @@
     list-style: none;
     padding: 0;
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 15px;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   }
 </style>
