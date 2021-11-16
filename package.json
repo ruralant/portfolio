@@ -17,9 +17,12 @@
     "eslint-plugin-svelte3": "^3.2.1",
     "mdsvex": "^0.9.8",
     "prettier": "^2.4.1",
-    "prettier-plugin-svelte": "^2.4.0",
+    "prettier-plugin-svelte": "^2.5.0",
     "svelte": "^3.44.1",
     "tailwindcss": "^2.2.19"
   },
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "svelte-click-outside": "^1.0.0"
+  }
 }
