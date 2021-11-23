@@ -1,0 +1,36 @@
+{
+  "companies": [
+    {
+      "name": "Fika Community",
+      "from": "January 2021",
+      "to": "Present",
+      "position": "Software Engineer",
+      "techStack": {
+        "frontEnd": ["react", "react native", "next js", "gatsby js", "redux"],
+        "backEnd": [
+          "firebase",
+          "gcp",
+          "firestore",
+          "pub-sub",
+          "cloud functions"
+        ],
+        "tools": ["jest", "chai", "sanity", "puppeteer"]
+      },
+      "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. At maxime molestiae, velit deleniti dolorum accusantium sed adipisci magnam esse praesentium quisquam corporis ad tempore dolorem laborum tenetur explicabo laudantium nisi.",
+      "logoUrl": "https://"
+    },
+    {
+      "name": "Jayex Technology",
+      "from": "November 2016",
+      "to": "January 2021",
+      "position": "Full Stack Developer",
+      "techStack": {
+        "frontEnd": ["angular", "nativescript"],
+        "backEnd": ["node", "express", "mongoDB"],
+        "tools": ["typescript", "puppeteer"]
+      },
+      "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. At maxime molestiae, velit deleniti dolorum accusantium sed adipisci magnam esse praesentium quisquam corporis ad tempore dolorem laborum tenetur explicabo laudantium nisi.",
+      "logoUrl": "https://"
+    }
+  ]
+}

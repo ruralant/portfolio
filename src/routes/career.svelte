@@ -1,7 +1,11 @@
-<h1>About Me</h1>
+<script>
+  import { companies } from '$lib/data/companies.json';
+  import Company from '$lib/career/company.svelte';
+</script>
 
-<p>
-  Lorem ipsum dolor sit amet consectetur, adipisicing elit. At maxime molestiae, velit deleniti
-  dolorum accusantium sed adipisci magnam esse praesentium quisquam corporis ad tempore dolorem
-  laborum tenetur explicabo laudantium nisi.
-</p>
+<h4 class="py-10">Where I worked</h4>
+<div class="flex flex-col pb-10 px-10">
+  {#each companies as company}
+    <Company {company} />
+  {/each}
+</div>
