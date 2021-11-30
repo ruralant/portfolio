@@ -14,7 +14,7 @@
 <div
   class="w-full flex flex-col bg-spaceWhite dark:bg-spaceGrey transition duration-501 ease-in-out max-w-6xl m-auto pb-10"
 >
-  <ul class="articles-container gap-3 lg:gap-6">
+  <ul class="articles-container gap-3 lg:gap-10">
     {#each posts as post}
       <Article postsData={post} />
     {/each}

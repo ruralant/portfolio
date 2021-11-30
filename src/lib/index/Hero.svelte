@@ -17,7 +17,8 @@
       {' '}
       <p class="text-black dark:text-white transition duration-501 ease-in-out">
         I'm interested in{' '}
-        <span class="interactive-text">energy efficiency</span> of the web and{' '}
+        <span class="interactive-text">energy efficiency</span> of the web,
+        <span class="interactive-text">soil regeneration</span>{' '}and{' '}
         <span class="interactive-text">open source</span>.
       </p>
       <p class="text-black dark:text-white transition duration-501 ease-in-out">
