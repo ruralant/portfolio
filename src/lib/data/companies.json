@@ -2,7 +2,7 @@
   "companies": [
     {
       "name": "Fika Community",
-      "from": "January 2021",
+      "from": "Jan 2021",
       "to": "Present",
       "position": "Software Engineer",
       "techStack": {
@@ -17,17 +17,67 @@
         "tools": ["jest", "chai", "sanity", "puppeteer"]
       },
       "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. At maxime molestiae, velit deleniti dolorum accusantium sed adipisci magnam esse praesentium quisquam corporis ad tempore dolorem laborum tenetur explicabo laudantium nisi.",
-      "logoUrl": "https://"
+      "logoUrl": "/static/images/fika-logo.svg"
     },
     {
       "name": "Jayex Technology",
-      "from": "November 2016",
-      "to": "January 2021",
+      "from": "Nov 2016",
+      "to": "Jan 2021",
       "position": "Full Stack Developer",
       "techStack": {
         "frontEnd": ["angular", "nativescript"],
         "backEnd": ["node", "express", "mongoDB"],
         "tools": ["typescript", "puppeteer"]
+      },
+      "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. At maxime molestiae, velit deleniti dolorum accusantium sed adipisci magnam esse praesentium quisquam corporis ad tempore dolorem laborum tenetur explicabo laudantium nisi.",
+      "logoUrl": "https://"
+    },
+    {
+      "name": "Seedrs",
+      "from": "Jul 2017",
+      "to": "Sep 2017",
+      "position": "Software Engineer",
+      "techStack": {
+        "frontEnd": ["react", "haml", "sass"],
+        "backEnd": ["ruby on rails", "mysql"],
+        "tools": [
+          "Stripe",
+          "MailChimp",
+          "Delayed Jobs",
+          "OmniAuth",
+          "Thinking-Sphinx",
+          "Salesforce",
+          "Vimeo",
+          "rspec",
+          "Cucumber",
+          "Capibara"
+        ]
+      },
+      "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. At maxime molestiae, velit deleniti dolorum accusantium sed adipisci magnam esse praesentium quisquam corporis ad tempore dolorem laborum tenetur explicabo laudantium nisi.",
+      "logoUrl": "https://"
+    },
+    {
+      "name": "Booking.com",
+      "from": "Aug 2014",
+      "to": "Jul 2016",
+      "position": "Partner Support Representative",
+      "techStack": {
+        "frontEnd": [],
+        "backEnd": [],
+        "tools": []
+      },
+      "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. At maxime molestiae, velit deleniti dolorum accusantium sed adipisci magnam esse praesentium quisquam corporis ad tempore dolorem laborum tenetur explicabo laudantium nisi.",
+      "logoUrl": "https://"
+    },
+    {
+      "name": "Anglia Ruskin University",
+      "from": "Jan 2014",
+      "to": "Aug 2014",
+      "position": "Research Assistant",
+      "techStack": {
+        "frontEnd": [],
+        "backEnd": [],
+        "tools": []
       },
       "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. At maxime molestiae, velit deleniti dolorum accusantium sed adipisci magnam esse praesentium quisquam corporis ad tempore dolorem laborum tenetur explicabo laudantium nisi.",
       "logoUrl": "https://"
