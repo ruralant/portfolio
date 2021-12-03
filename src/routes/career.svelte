@@ -1,6 +1,6 @@
 <script>
   import { companies } from '$lib/data/companies.json';
-  import Company from '$lib/career/company.svelte';
+  import Company from '$lib/career/Company.svelte';
 </script>
 
 <h4 class="py-10">Where I worked</h4>

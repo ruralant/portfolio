@@ -4,17 +4,18 @@
       "name": "Fika Community",
       "from": "Jan 2021",
       "to": "Present",
+      "location": "UK (Remote)",
       "position": "Software Engineer",
       "techStack": {
-        "frontEnd": ["react", "react native", "next js", "gatsby js", "redux"],
+        "frontEnd": ["React", "React Native", "NextJS", "GatsbyJS", "Redux"],
         "backEnd": [
-          "firebase",
-          "gcp",
-          "firestore",
-          "pub-sub",
-          "cloud functions"
+          "Firebase",
+          "GCP",
+          "Firestore",
+          "Pub-Sub",
+          "Cloud Functions"
         ],
-        "tools": ["jest", "chai", "sanity", "puppeteer"]
+        "tools": ["Jest", "Chai", "Sanity", "Playwright"]
       },
       "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. At maxime molestiae, velit deleniti dolorum accusantium sed adipisci magnam esse praesentium quisquam corporis ad tempore dolorem laborum tenetur explicabo laudantium nisi.",
       "logoUrl": "/static/images/fika-logo.svg"
@@ -23,43 +24,50 @@
       "name": "Jayex Technology",
       "from": "Nov 2016",
       "to": "Jan 2021",
+      "location": "London (Remote)",
       "position": "Full Stack Developer",
       "techStack": {
-        "frontEnd": ["angular", "nativescript"],
-        "backEnd": ["node", "express", "mongoDB"],
-        "tools": ["typescript", "puppeteer"]
+        "frontEnd": ["Angular", "PWA", "RxJs", "Nativescript", "UiKit"],
+        "backEnd": [
+          "Node",
+          "Express",
+          "PM2",
+          "MongoDB",
+          "Docker",
+          "Kubernetes"
+        ],
+        "tools": ["Typescript", "Puppeteer", "Mailgun", "Twilio", "Stripe"]
       },
       "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. At maxime molestiae, velit deleniti dolorum accusantium sed adipisci magnam esse praesentium quisquam corporis ad tempore dolorem laborum tenetur explicabo laudantium nisi.",
-      "logoUrl": "https://"
+      "logoUrl": "/static/images/jayex-logo.jpeg"
     },
     {
       "name": "Seedrs",
+      "location": "London",
       "from": "Jul 2017",
       "to": "Sep 2017",
       "position": "Software Engineer",
       "techStack": {
-        "frontEnd": ["react", "haml", "sass"],
-        "backEnd": ["ruby on rails", "mysql"],
+        "frontEnd": ["React", "Haml", "Sass"],
+        "backEnd": ["Ruby on Rails", "MySQL"],
         "tools": [
           "Stripe",
           "MailChimp",
-          "Delayed Jobs",
           "OmniAuth",
-          "Thinking-Sphinx",
           "Salesforce",
           "Vimeo",
-          "rspec",
           "Cucumber",
           "Capibara"
         ]
       },
       "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. At maxime molestiae, velit deleniti dolorum accusantium sed adipisci magnam esse praesentium quisquam corporis ad tempore dolorem laborum tenetur explicabo laudantium nisi.",
-      "logoUrl": "https://"
+      "logoUrl": "/static/images/seedrs-logo.jpeg"
     },
     {
       "name": "Booking.com",
       "from": "Aug 2014",
       "to": "Jul 2016",
+      "location": "Cambridge",
       "position": "Partner Support Representative",
       "techStack": {
         "frontEnd": [],
@@ -67,12 +75,13 @@
         "tools": []
       },
       "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. At maxime molestiae, velit deleniti dolorum accusantium sed adipisci magnam esse praesentium quisquam corporis ad tempore dolorem laborum tenetur explicabo laudantium nisi.",
-      "logoUrl": "https://"
+      "logoUrl": "/static/images/booking-logo.jpeg"
     },
     {
       "name": "Anglia Ruskin University",
       "from": "Jan 2014",
       "to": "Aug 2014",
+      "location": "Cambridge",
       "position": "Research Assistant",
       "techStack": {
         "frontEnd": [],
@@ -80,7 +89,7 @@
         "tools": []
       },
       "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. At maxime molestiae, velit deleniti dolorum accusantium sed adipisci magnam esse praesentium quisquam corporis ad tempore dolorem laborum tenetur explicabo laudantium nisi.",
-      "logoUrl": "https://"
+      "logoUrl": "/static/images/aru-logo.jpeg"
     }
   ]
 }
