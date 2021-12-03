@@ -20,7 +20,7 @@
     <p class="text-sm text-black dark:text-white">{subtitle}</p>
   </div> -->
   <!-- <div class=""> -->
-  <img class="w-full" src="/mountain.jpg" alt="Mountain" />
+  <!-- <img class="w-full" src="/mountain.jpg" alt="Mountain" /> -->
   <div class="px-6 py-4">
     <div class="text-black dark:text-white font-bold text-xl mb-2">
       Mountain
