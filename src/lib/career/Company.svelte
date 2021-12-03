@@ -38,13 +38,12 @@
       </div>
       <div class="w-8 h-8 ">
         <img
-          class="w-full rounded-full"
           src={logoUrl}
-          loading="lazy"
-          decoding="async"
-          height="20"
-          width="20"
           alt=""
+          class="w-full rounded-full"
+          height={20}
+          width={20}
+          placeholder="blur"
         />
       </div>
     </div>
