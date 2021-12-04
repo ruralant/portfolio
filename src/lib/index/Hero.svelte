@@ -1,4 +1,4 @@
-<script context="module">
+<script>
   import meImage from '/images/me-b-and-w-small-opt.jpg';
 </script>
 
