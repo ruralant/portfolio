@@ -1,5 +1,5 @@
 <script>
-  import meImage from '/images/me-b-and-w-small-opt.jpg';
+  import meImage from '$lib/assets/images/me-b-and-w-small.jpg';
 </script>
 
 <div class="main-container py-10">
