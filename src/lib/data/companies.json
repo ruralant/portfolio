@@ -18,7 +18,7 @@
         "tools": ["Jest", "Chai", "Sanity", "Playwright"]
       },
       "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. At maxime molestiae, velit deleniti dolorum accusantium sed adipisci magnam esse praesentium quisquam corporis ad tempore dolorem laborum tenetur explicabo laudantium nisi.",
-      "logoUrl": "../../../static/images/fika-logo.svg"
+      "logoUrl": "$lib/assets/logos/fika-logo.svg"
     },
     {
       "name": "Jayex Technology",
@@ -39,7 +39,7 @@
         "tools": ["Typescript", "Puppeteer", "Mailgun", "Twilio", "Stripe"]
       },
       "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. At maxime molestiae, velit deleniti dolorum accusantium sed adipisci magnam esse praesentium quisquam corporis ad tempore dolorem laborum tenetur explicabo laudantium nisi.",
-      "logoUrl": "../../../static/images/jayex-logo.jpeg"
+      "logoUrl": "$lib/assets/logos/jayex-logo.jpeg"
     },
     {
       "name": "Seedrs",
@@ -61,7 +61,7 @@
         ]
       },
       "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. At maxime molestiae, velit deleniti dolorum accusantium sed adipisci magnam esse praesentium quisquam corporis ad tempore dolorem laborum tenetur explicabo laudantium nisi.",
-      "logoUrl": "../../../static/images/seedrs-logo.jpeg"
+      "logoUrl": "$lib/assets/logos/seedrs-logo.jpeg"
     },
     {
       "name": "Booking.com",
@@ -75,7 +75,7 @@
         "tools": []
       },
       "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. At maxime molestiae, velit deleniti dolorum accusantium sed adipisci magnam esse praesentium quisquam corporis ad tempore dolorem laborum tenetur explicabo laudantium nisi.",
-      "logoUrl": "../../../static/images/booking-logo.jpeg"
+      "logoUrl": "$lib/assets/logos/booking-logo.jpeg"
     },
     {
       "name": "Anglia Ruskin University",
@@ -89,7 +89,7 @@
         "tools": []
       },
       "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. At maxime molestiae, velit deleniti dolorum accusantium sed adipisci magnam esse praesentium quisquam corporis ad tempore dolorem laborum tenetur explicabo laudantium nisi.",
-      "logoUrl": "../../../static/images/aru-logo.jpeg"
+      "logoUrl": "$lib/assets/logos/aru-logo.jpeg"
     }
   ]
 }

@@ -1,7 +1,3 @@
-<script context="module">
-  import fikaLogo from '/images/fika-logo.svg';
-</script>
-
 <script>
   import Calendar from '$lib/components/icons/Calendar.svelte';
   import Database from '$lib/components/icons/Database.svelte';
@@ -42,7 +38,7 @@
       </div>
       <div class="w-8 h-8 ">
         <img
-          src={fikaLogo}
+          src={logoUrl}
           alt=""
           class="w-full rounded-full"
           height={20}
