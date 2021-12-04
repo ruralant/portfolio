@@ -5,14 +5,10 @@
   import Location from '$lib/components/icons/Location.svelte';
   import Server from '$lib/components/icons/Server.svelte';
   import User from '$lib/components/icons/User.svelte';
-  import AruLogo from '$lib/assets/logos/aru-logo.jpeg';
-  import BookingLogo from '$lib/assets/logos/booking-logo.jpeg';
-  import FikaLogo from '$lib/assets/logos/fika-logo.svg';
-  import JayexLogo from '$lib/assets/logos/jayex-logo.jpeg';
-  import SeedrsLogo from '$lib/assets/logos/seedrs-logo.jpeg';
 
   export let company;
-  const { name, from, to, position, techStack, description, location, logo } =
+  export let logo;
+  const { name, from, to, position, techStack, description, location } =
     company;
   const { frontEnd, backEnd, tools } = techStack;
 </script>

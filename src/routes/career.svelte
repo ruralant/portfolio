@@ -7,25 +7,26 @@
   import JayexLogo from '$lib/assets/logos/jayex-logo.jpeg';
   import SeedrsLogo from '$lib/assets/logos/seedrs-logo.jpeg';
 
+  let logo;
   companies.map((company) => {
     switch (company.name) {
       case 'Fika Community':
-        company.logo = FikaLogo;
+        logo = FikaLogo;
         break;
       case 'Booking.com':
-        company.logo = BookingLogo;
+        logo = BookingLogo;
         break;
       case 'Anglia Ruskin University':
-        company.logo = AruLogo;
+        logo = AruLogo;
         break;
       case 'Jayex Technology':
-        company.logo = JayexLogo;
+        logo = JayexLogo;
         break;
       case 'Seedrs':
-        company.logo = SeedrsLogo;
+        logo = SeedrsLogo;
         break;
       default:
-        company.logo = null;
+        logo = null;
     }
   });
 </script>
@@ -33,6 +34,6 @@
 <h4 class="py-10">Where I worked</h4>
 <div class="flex flex-col pb-10 px-10">
   {#each companies as company}
-    <Company {company} />
+    <Company {company} {logo} />
   {/each}
 </div>
