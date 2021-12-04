@@ -21,7 +21,7 @@
     />
   </div>
   <div class="career-step-container w-full">
-    <div class="flex mb-1 items-center">
+    <div class="flex mb-2 items-center">
       <div class="flex flex-row">
         <User />
         <p class="text-black dark:text-white ml-1 mr-3">
@@ -41,51 +41,55 @@
     </div>
     <div class="flex flex-row">
       <Location />
-      <p class="ml-1 mb-3 text-black dark:text-white">{`${location}`}</p>
+      <p class="ml-1 mb-4 text-black dark:text-white">{`${location}`}</p>
     </div>
     <div class="flex flex-row">
       <Calendar />
-      <p class="ml-1 mb-3 text-black dark:text-white">{`${from} - ${to}`}</p>
+      <p class="ml-1 mb-4 text-black dark:text-white">{`${from} - ${to}`}</p>
     </div>
-    <div class="flex flex-row justify-between flex-wrap mb-3">
+    <div class="flex flex-row justify-between flex-wrap mb-4">
       {#if frontEnd.length}
-        <div>
+        <div class="flex-1">
           <div class="flex flex-row">
             <Desktop />
-            <p class="ml-1 text-black dark:text-white">Front End</p>
+            <p class="icon-text ml-1 text-black dark:text-white">Front End</p>
           </div>
           <ul class="flex">
             {#each frontEnd as tech}
-              <li class="mr-3 mt-1 text-black dark:text-white">{tech}</li>
+              <li class="mr-3 mt-2 text-black dark:text-white ">{tech}</li>
             {/each}
           </ul>
         </div>
       {/if}
       {#if backEnd.length}
-        <div class="text-black dark:text-white">
+        <div class="flex-1">
           <div class="flex flex-row">
             <Server />
-            <p class="ml-1 text-black dark:text-white">Back End</p>
+            <p class="backend-icon-text ml-1 text-black dark:text-white">
+              Back End
+            </p>
           </div>
           <ul class="flex">
             {#each backEnd as tech}
-              <li class="mr-3 mt-1 text-black dark:text-white">{tech}</li>
+              <li class="mr-3 mt-2 text-black dark:text-white">{tech}</li>
             {/each}
           </ul>
         </div>
       {/if}
       {#if tools.length}
-        <div>
-          <div class="flex flex-row">
+        <divc class="flex-1">
+          <div class="flex flex-row items-center">
             <Database />
-            <p class="ml-1 text-black dark:text-white">Other Tools</p>
+            <p class="tools-icon-text ml-1 text-black dark:text-white">
+              Other Tools
+            </p>
           </div>
           <ul class="flex">
             {#each tools as tech}
-              <li class="mr-3 mt-1 text-black dark:text-white">{tech}</li>
+              <li class="mr-3 mt-2 text-black dark:text-white">{tech}</li>
             {/each}
           </ul>
-        </div>
+        </divc>
       {/if}
     </div>
     <!-- <p class="text-black dark:text-white">{description}</p> -->
@@ -93,6 +97,12 @@
 </div>
 
 <style>
+  .backend-icon-text {
+    margin-top: 1px;
+  }
+  .tools-icon-text {
+    margin-top: 2px;
+  }
   .career-step-container {
     margin-top: -9px;
   }

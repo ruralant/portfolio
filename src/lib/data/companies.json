@@ -50,15 +50,7 @@
       "techStack": {
         "frontEnd": ["React", "Haml", "Sass"],
         "backEnd": ["Ruby on Rails", "MySQL"],
-        "tools": [
-          "Stripe",
-          "MailChimp",
-          "OmniAuth",
-          "Salesforce",
-          "Vimeo",
-          "Cucumber",
-          "Capibara"
-        ]
+        "tools": ["Stripe", "MailChimp", "Salesforce", "Vimeo", "Cucumber"]
       },
       "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. At maxime molestiae, velit deleniti dolorum accusantium sed adipisci magnam esse praesentium quisquam corporis ad tempore dolorem laborum tenetur explicabo laudantium nisi.",
       "logoUrl": "$lib/assets/logos/seedrs-logo.jpeg"
