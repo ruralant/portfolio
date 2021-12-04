@@ -38,7 +38,7 @@
           href="/">Home</a
         >
         <Dropdown title={'Work'} items={workSections} />
-        <Dropdown title={'Personal'} items={personalSections} />
+        <!-- <Dropdown title={'Personal'} items={personalSections} /> -->
       </div>
     </nav>
   </div>
