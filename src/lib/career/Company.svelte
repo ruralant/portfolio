@@ -7,8 +7,7 @@
   import User from '$lib/components/icons/User.svelte';
 
   export let company;
-  export let logo;
-  const { name, from, to, position, techStack, description, location } =
+  const { name, from, to, position, techStack, description, location, logo } =
     company;
   const { frontEnd, backEnd, tools } = techStack;
 </script>
