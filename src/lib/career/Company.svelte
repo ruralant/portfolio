@@ -1,7 +1,7 @@
 <script>
-  import Calendar from '$lib/components/icons/Calendar.svelte';
+  import Calendar from '../components/icons/Calendar.svelte';
   import Database from '$lib/components/icons/Database.svelte';
-  import Desktop from '$lib/components/icons/Desktop.svelte';
+  import Desktop from '../components/icons/Desktop.svelte';
   import Location from '$lib/components/icons/Location.svelte';
   import Server from '$lib/components/icons/Server.svelte';
   import User from '$lib/components/icons/User.svelte';
@@ -21,7 +21,7 @@
     />
   </div>
   <div class="career-step-container w-full">
-    <div class="flex mb-2 items-center">
+    <div class="flex mb-2 items-center mb-3">
       <div class="flex flex-row">
         <User />
         <p class="text-black dark:text-white ml-1 mr-3">
@@ -39,30 +39,30 @@
         />
       </div>
     </div>
-    <div class="flex flex-row">
+    <div class="flex flex-row mb-3">
       <Location />
       <p class="ml-1 mb-4 text-black dark:text-white">{`${location}`}</p>
     </div>
-    <div class="flex flex-row">
+    <div class="flex flex-row mb-3">
       <Calendar />
       <p class="ml-1 mb-4 text-black dark:text-white">{`${from} - ${to}`}</p>
     </div>
-    <div class="flex flex-row justify-between flex-wrap mb-4">
+    <div class="flex flex-row justify-between flex-wrap">
       {#if frontEnd.length}
-        <div class="flex-1">
+        <div class="flex-1 mb-3">
           <div class="flex flex-row">
             <Desktop />
             <p class="icon-text ml-1 text-black dark:text-white">Front End</p>
           </div>
           <ul class="flex">
             {#each frontEnd as tech}
-              <li class="mr-3 mt-2 text-black dark:text-white ">{tech}</li>
+              <li class="ml-1 mr-3 mt-2 text-black dark:text-white">{tech}</li>
             {/each}
           </ul>
         </div>
       {/if}
       {#if backEnd.length}
-        <div class="flex-1">
+        <div class="flex-1 mb-3">
           <div class="flex flex-row">
             <Server />
             <p class="backend-icon-text ml-1 text-black dark:text-white">
