@@ -1,9 +1,8 @@
 <svg
   width="24"
   height="24"
-  class="h-6 w-6 stroke-current text-white"
+  class="h-6 w-6 stroke-white"
   viewBox="0 0 24 24"
-  fill="none"
   xmlns="http://www.w3.org/2000/svg"
 >
   <title id="sun-title">Sun icon</title>
