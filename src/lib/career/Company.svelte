@@ -10,6 +10,35 @@
   const { name, from, to, position, techStack, description, location, logo } =
     company;
   const { frontEnd, backEnd, tools } = techStack;
+
+  const setSkillBackgroundColor = (skill) => {
+    let backgroundColor;
+    switch (skill) {
+      case 'Angular':
+      case 'RxJS':
+        backgroundColor = 'bg-red-600';
+        break;
+      case 'React':
+      case 'React Native':
+      case 'NativeScript':
+      case 'UiKit':
+        backgroundColor = 'bg-sky-500';
+        break;
+      case 'NextJS':
+      case 'Haml':
+        backgroundColor = 'bg-grey-500';
+        break;
+      case 'PWA':
+      case 'GatsbyJS':
+      case 'Redux':
+      case 'Sass':
+        backgroundColor = 'bg-indigo-500';
+        break;
+      default:
+        '';
+    }
+    return backgroundColor;
+  };
 </script>
 
 <div
@@ -25,7 +54,7 @@
       <div class="flex flex-row">
         <User />
         <p class="text-black dark:text-white ml-1 mr-3">
-          <span>{position} </span><span>@ {name}</span>
+          <span class="font-bold">{position} </span><span>@ {name}</span>
         </p>
       </div>
       <div class="w-8 h-8 ">
@@ -56,7 +85,15 @@
           </div>
           <ul class="flex">
             {#each frontEnd as tech}
-              <li class="ml-1 mr-3 mt-2 text-black dark:text-white">{tech}</li>
+              <li class="ml-1 mr-3 mt-2 text-black dark:text-white">
+                <div
+                  class={`${setSkillBackgroundColor(
+                    tech
+                  )} rounded-lg py-0.5 px-2`}
+                >
+                  {tech}
+                </div>
+              </li>
             {/each}
           </ul>
         </div>
@@ -86,7 +123,11 @@
           </div>
           <ul class="flex">
             {#each tools as tech}
-              <li class="mr-3 mt-2 text-black dark:text-white">{tech}</li>
+              <li class="mr-3 mt-2 text-black dark:text-white">
+                <div class={setSkillBackgroundColor(tech)}>
+                  {tech}
+                </div>
+              </li>
             {/each}
           </ul>
         </divc>
