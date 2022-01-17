@@ -24,6 +24,8 @@ module.exports = {
       sky: colors.sky,
       red: colors.red,
       pink: colors.fuchsia,
+      yellow: colors.yellow,
+      slate: colors.slate,
     },
     fontFamily: {
       sans: ['Graphik', 'sans-serif'],
