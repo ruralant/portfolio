@@ -10,35 +10,6 @@
   const { name, from, to, position, techStack, description, location, logo } =
     company;
   const { frontEnd, backEnd, tools } = techStack;
-
-  const setSkillBackgroundColor = (skill) => {
-    let backgroundColor;
-    switch (skill) {
-      case 'Angular':
-      case 'RxJS':
-        backgroundColor = 'bg-red-600';
-        break;
-      case 'React':
-      case 'React Native':
-      case 'NativeScript':
-      case 'UiKit':
-        backgroundColor = 'bg-sky-500';
-        break;
-      case 'NextJS':
-      case 'Haml':
-        backgroundColor = 'bg-grey-500';
-        break;
-      case 'PWA':
-      case 'GatsbyJS':
-      case 'Redux':
-      case 'Sass':
-        backgroundColor = 'bg-indigo-500';
-        break;
-      default:
-        '';
-    }
-    return backgroundColor;
-  };
 </script>
 
 <div
@@ -49,7 +20,9 @@
       class="w-3 h-3 rounded-full bg-spaceGrey dark:bg-white career-step-dot"
     />
   </div>
-  <div class="career-step-container w-full">
+  <div
+    class="career-step-container w-full shadow-md border border-grey-200 rounded-lg dark:bg-grey-800 dark:border-grey-700 p-3"
+  >
     <div class="flex mb-2 items-center mb-3">
       <div class="flex flex-row">
         <User />
@@ -68,7 +41,7 @@
         />
       </div>
     </div>
-    <div class="flex flex-row mb-3">
+    <div class="flex flex-row mb-1">
       <Location />
       <p class="ml-1 mb-4 text-black dark:text-white">{`${location}`}</p>
     </div>
@@ -78,7 +51,7 @@
     </div>
     <div class="flex flex-row justify-between flex-wrap">
       {#if frontEnd.length}
-        <div class="flex-1 mb-3">
+        <div class="flex-1 mb-4">
           <div class="flex flex-row">
             <Desktop />
             <p class="icon-text ml-1 text-black dark:text-white">Front End</p>
@@ -87,9 +60,7 @@
             {#each frontEnd as tech}
               <li class="ml-1 mr-3 mt-2 text-black dark:text-white">
                 <div
-                  class={`${setSkillBackgroundColor(
-                    tech
-                  )} rounded-lg py-0.5 px-2`}
+                  class="bg-slate-300 dark:bg-slate-600 rounded-lg py-0.5 px-2"
                 >
                   {tech}
                 </div>
@@ -99,7 +70,7 @@
         </div>
       {/if}
       {#if backEnd.length}
-        <div class="flex-1 mb-3">
+        <div class="flex-1 mb-4">
           <div class="flex flex-row">
             <Server />
             <p class="backend-icon-text ml-1 text-black dark:text-white">
@@ -108,7 +79,13 @@
           </div>
           <ul class="flex">
             {#each backEnd as tech}
-              <li class="mr-3 mt-2 text-black dark:text-white">{tech}</li>
+              <li class="mr-3 mt-2 text-black dark:text-white">
+                <div
+                  class="bg-slate-300 dark:bg-slate-600 rounded-lg py-0.5 px-2"
+                >
+                  {tech}
+                </div>
+              </li>
             {/each}
           </ul>
         </div>
@@ -124,7 +101,9 @@
           <ul class="flex">
             {#each tools as tech}
               <li class="mr-3 mt-2 text-black dark:text-white">
-                <div class={setSkillBackgroundColor(tech)}>
+                <div
+                  class="bg-slate-300 dark:bg-slate-600 rounded-lg py-0.5 px-2"
+                >
                   {tech}
                 </div>
               </li>
@@ -145,7 +124,7 @@
     margin-top: 2px;
   }
   .career-step-container {
-    margin-top: -9px;
+    margin-top: -7px;
   }
   .career-step-dot {
     margin-left: -7px;
