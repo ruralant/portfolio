@@ -9,7 +9,6 @@ const config = {
   preprocess: [mdsvex(mdsvexConfig)],
   kit: {
     adapter: adapter(),
-    target: '#svelte',
   },
 };
 

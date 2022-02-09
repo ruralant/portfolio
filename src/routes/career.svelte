@@ -31,7 +31,7 @@
 </script>
 
 <h4 class="py-10">Where I worked</h4>
-<div class="flex flex-col pb-10 px-10">
+<div class="flex flex-col pb-10 pb-10">
   {#each companies as company}
     <Company {company} />
   {/each}
