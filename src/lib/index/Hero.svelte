@@ -17,9 +17,10 @@
       {' '}
       <p class="text-black dark:text-white transition duration-501 ease-in-out">
         I'm interested in{' '}
+        <span class="interactive-text">open source</span>,
         <span class="interactive-text">energy efficiency</span> of the web,
-        <span class="interactive-text">soil regeneration</span>{' '}and{' '}
-        <span class="interactive-text">open source</span>.
+        <span class="interactive-text">homesteading</span>{' '}and{' '}
+        <span class="interactive-text">soil regeneration</span>.
       </p>
       <p class="text-black dark:text-white transition duration-501 ease-in-out">
         I write about those things plus I love to share what I lean while
@@ -40,7 +41,6 @@
 
 <style>
   .main-container {
-    height: 80vh;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -91,7 +91,6 @@
     line-height: 1.7;
     font-size: 2.5rem;
     transition: all 0.2s ease-in-out;
-    /* padding: 5% 5% 5% 10%; */
   }
   .subtitle span {
     width: 200;

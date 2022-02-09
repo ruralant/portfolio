@@ -49,14 +49,14 @@
       <Calendar />
       <p class="ml-1 mb-4 text-black dark:text-white">{`${from} - ${to}`}</p>
     </div>
-    <div class="flex flex-row justify-between flex-wrap">
+    <div class="flex flex-col">
       {#if frontEnd.length}
         <div class="flex-1 mb-4">
           <div class="flex flex-row">
             <Desktop />
             <p class="icon-text ml-1 text-black dark:text-white">Front End</p>
           </div>
-          <ul class="flex">
+          <ul class="flex flex-wrap">
             {#each frontEnd as tech}
               <li class="ml-1 mr-3 mt-2 text-black dark:text-white">
                 <div
@@ -77,7 +77,7 @@
               Back End
             </p>
           </div>
-          <ul class="flex">
+          <ul class="flex flex-wrap">
             {#each backEnd as tech}
               <li class="mr-3 mt-2 text-black dark:text-white">
                 <div
@@ -98,7 +98,7 @@
               Other Tools
             </p>
           </div>
-          <ul class="flex">
+          <ul class="flex flex-wrap">
             {#each tools as tech}
               <li class="mr-3 mt-2 text-black dark:text-white">
                 <div
