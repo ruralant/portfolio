@@ -1,6 +1,6 @@
 <script>
   import { companies } from '$lib/data/companies.json';
-  import Company from '$lib/career/Company.svelte';
+  import Company from '$lib/career/Company2.svelte';
   import AruLogo from '$lib/assets/logos/aru-logo.jpeg';
   import BookingLogo from '$lib/assets/logos/booking-logo.jpeg';
   import FikaLogo from '$lib/assets/logos/fika-logo.svg';
