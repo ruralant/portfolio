@@ -3,19 +3,19 @@
     {
       "name": "Fika Community",
       "from": "Jan 2021",
-      "to": "February 2022",
+      "to": "Feb 2022",
       "location": "UK (Remote)",
       "position": "Software Engineer",
       "techStack": {
         "frontEnd": ["React", "React Native", "NextJS", "GatsbyJS", "Redux"],
         "backEnd": [
-          "Firebase",
           "GCP",
-          "Firestore",
+          "Cloud Functions",
           "Pub-Sub",
-          "Cloud Functions"
+          "Firebase",
+          "Firestore"
         ],
-        "tools": ["Jest", "Chai", "Sanity", "Playwright"]
+        "tools": ["Jest", "Chai", "Playwright", "Sanity"]
       },
       "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. At maxime molestiae, velit deleniti dolorum accusantium sed adipisci magnam esse praesentium quisquam corporis ad tempore dolorem laborum tenetur explicabo laudantium nisi.",
       "logoUrl": "$lib/assets/logos/fika-logo.svg"
