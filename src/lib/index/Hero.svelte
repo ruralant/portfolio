@@ -96,11 +96,11 @@
     width: 200;
   }
   .interactive-text {
-    font-size: 2.6rem;
-    font-weight: 600;
+    font-size: 2.5rem;
+    font-weight: 500;
     color: var(--color-text-primary);
     -webkit-text-fill-color: transparent;
-    -webkit-text-stroke-width: 1.5px;
+    -webkit-text-stroke-width: 1.4px;
     -webkit-text-stroke-color: var(--color-text-primary);
   }
   .interactive-text:hover {

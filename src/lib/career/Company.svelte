@@ -5,51 +5,46 @@
   import Location from '$lib/components/icons/Location.svelte';
   import Server from '$lib/components/icons/Server.svelte';
   import User from '$lib/components/icons/User.svelte';
+  import fikaProduct from '$lib/assets/images/fika-product.png';
 
   export let company;
+  export let index;
+  const even = index % 2 == 0;
   const { name, from, to, position, techStack, description, location, logo } =
     company;
   const { frontEnd, backEnd, tools } = techStack;
 </script>
 
 <div
-  class="flex pb-20 border-l-2 border-spaceGray dark:border-white boder-solid"
+  class="flex w-4/5 justify-between items-center subtitle m-auto mb-24 p-8 rounded-md overflow-hidden shadow-md bg-white dark:bg-grey-800 {even
+    ? ''
+    : 'flex-row-reverse'}"
 >
-  <div class="flex w-10">
-    <div
-      class="w-3 h-3 rounded-full bg-spaceGrey dark:bg-white career-step-dot"
-    />
-  </div>
-  <div
-    class="career-step-container w-full shadow-md border border-grey-200 rounded-lg dark:bg-grey-800 dark:border-grey-700 p-3"
-  >
-    <div class="flex mb-2 items-center mb-3">
-      <div class="flex flex-row">
-        <User />
-        <p class="text-black dark:text-white ml-1 mr-3">
-          <span class="font-bold">{position} </span><span>@ {name}</span>
-        </p>
+  <div>
+    <div>
+      <div class="flex items-center">
+        <span class="title-text text-black dark:text-white">{name}</span>
+        <div class="w-11 h-11 ml-4">
+          <img
+            src={logo}
+            alt=""
+            class="w-full rounded-full"
+            height={20}
+            width={20}
+            placeholder="blur"
+          />
+        </div>
       </div>
-      <div class="w-8 h-8 ">
-        <img
-          src={logo}
-          alt=""
-          class="w-full rounded-full"
-          height={20}
-          width={20}
-          placeholder="blur"
-        />
-      </div>
+      <p class="text-black dark:text-white transition duration-501 ease-in-out">
+        {position}, {location}
+      </p>
+      <p
+        class="text-black dark:text-white transition duration-501 ease-in-out text-xl mb-6"
+      >
+        {from} - {to}
+      </p>
     </div>
-    <div class="flex flex-row mb-1">
-      <Location />
-      <p class="ml-1 mb-4 text-black dark:text-white">{`${location}`}</p>
-    </div>
-    <div class="flex flex-row mb-3">
-      <Calendar />
-      <p class="ml-1 mb-4 text-black dark:text-white">{`${from} - ${to}`}</p>
-    </div>
-    <div class="flex flex-col">
+    <div class="flex flex-col text-base">
       {#if frontEnd.length}
         <div class="flex-1 mb-4">
           <div class="flex flex-row">
@@ -112,21 +107,48 @@
         </divc>
       {/if}
     </div>
-    <!-- <p class="text-black dark:text-white">{description}</p> -->
+  </div>
+  <div>
+    <img
+      class="align-middle"
+      src={fikaProduct}
+      alt="myself speaking in public"
+      width={400}
+      height={400}
+      placeholder="blur"
+    />
   </div>
 </div>
 
+<!-- <div class="w-1/3 h-0.5 m-auto bg-spaceGrey dark:bg-white mb-20" /> -->
 <style>
-  .backend-icon-text {
-    margin-top: 1px;
+  .title-text {
+    font-family: 'Cormorant Garamond', -apple-system, BlinkMacSystemFont,
+      'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
+      'Helvetica Neue', sans-serif;
+    /* background: linear-gradient(
+      271deg,
+      #8797e8 30%,
+      #a162e8 50%,
+      #f093b0 70%,
+      #dab56c 94%
+    ); */
+    /* -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; */
+    font-weight: 500;
+    margin: 0;
+    line-height: 1.15;
+    font-size: 3.5rem;
+    /* padding-left: 10%; */
   }
-  .tools-icon-text {
-    margin-top: 2px;
-  }
-  .career-step-container {
-    margin-top: -7px;
-  }
-  .career-step-dot {
-    margin-left: -7px;
+  .subtitle {
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+      Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
+      sans-serif;
+    font-weight: 500;
+    margin-top: 10px;
+    line-height: 1.7;
+    font-size: 1.5rem;
+    transition: all 0.2s ease-in-out;
   }
 </style>

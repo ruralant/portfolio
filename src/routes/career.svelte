@@ -1,6 +1,6 @@
 <script>
   import { companies } from '$lib/data/companies.json';
-  import Company from '$lib/career/Company2.svelte';
+  import Company from '$lib/career/Company.svelte';
   import AruLogo from '$lib/assets/logos/aru-logo.jpeg';
   import BookingLogo from '$lib/assets/logos/booking-logo.jpeg';
   import FikaLogo from '$lib/assets/logos/fika-logo.svg';
@@ -30,9 +30,11 @@
   });
 </script>
 
-<h4 class="py-10">Where I worked</h4>
+<h4 class="w-full flex justify-center pt-10 pb-20">
+  <span class="text-5xl">👨‍💻</span>
+</h4>
 <div class="flex flex-col pb-10 pb-10">
-  {#each companies as company}
-    <Company {company} />
+  {#each companies as company, i}
+    <Company {company} index={i} />
   {/each}
 </div>
