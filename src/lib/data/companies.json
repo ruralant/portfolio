@@ -1,0 +1,87 @@
+{
+  "companies": [
+    {
+      "name": "Fika Community",
+      "from": "Jan 2021",
+      "to": "Feb 2022",
+      "location": "UK (Remote)",
+      "position": "Software Engineer",
+      "techStack": {
+        "frontEnd": ["React", "React Native", "NextJS", "GatsbyJS", "Redux"],
+        "backEnd": [
+          "GCP",
+          "Cloud Functions",
+          "Pub-Sub",
+          "Firebase",
+          "Firestore"
+        ],
+        "tools": ["Jest", "Chai", "Playwright", "Sanity"]
+      },
+      "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. At maxime molestiae, velit deleniti dolorum accusantium sed adipisci magnam esse praesentium quisquam corporis ad tempore dolorem laborum tenetur explicabo laudantium nisi.",
+      "logoUrl": "$lib/assets/logos/fika-logo.svg"
+    },
+    {
+      "name": "Jayex Technology",
+      "from": "Nov 2016",
+      "to": "Jan 2021",
+      "location": "London (Remote)",
+      "position": "Full Stack Developer",
+      "techStack": {
+        "frontEnd": ["Angular", "PWA", "RxJS", "NativeScript", "UiKit"],
+        "backEnd": [
+          "Node",
+          "Express",
+          "PM2",
+          "MongoDB",
+          "Docker",
+          "Kubernetes"
+        ],
+        "tools": ["Typescript", "Puppeteer", "Mailgun", "Twilio", "Stripe"]
+      },
+      "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. At maxime molestiae, velit deleniti dolorum accusantium sed adipisci magnam esse praesentium quisquam corporis ad tempore dolorem laborum tenetur explicabo laudantium nisi.",
+      "logoUrl": "$lib/assets/logos/jayex-logo.jpeg"
+    },
+    {
+      "name": "Seedrs",
+      "location": "London",
+      "from": "Jul 2017",
+      "to": "Sep 2017",
+      "position": "Software Engineer",
+      "techStack": {
+        "frontEnd": ["React", "Haml", "Sass"],
+        "backEnd": ["Ruby on Rails", "MySQL"],
+        "tools": ["Stripe", "MailChimp", "Salesforce", "Vimeo", "Cucumber"]
+      },
+      "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. At maxime molestiae, velit deleniti dolorum accusantium sed adipisci magnam esse praesentium quisquam corporis ad tempore dolorem laborum tenetur explicabo laudantium nisi.",
+      "logoUrl": "$lib/assets/logos/seedrs-logo.jpeg"
+    },
+    {
+      "name": "Booking.com",
+      "from": "Aug 2014",
+      "to": "Jul 2016",
+      "location": "Cambridge",
+      "position": "Partner Support Representative",
+      "techStack": {
+        "frontEnd": [],
+        "backEnd": [],
+        "tools": []
+      },
+      "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. At maxime molestiae, velit deleniti dolorum accusantium sed adipisci magnam esse praesentium quisquam corporis ad tempore dolorem laborum tenetur explicabo laudantium nisi.",
+      "logoUrl": "$lib/assets/logos/booking-logo.jpeg"
+    },
+    {
+      "name": "Anglia Ruskin University",
+      "from": "Jan 2014",
+      "to": "Aug 2014",
+      "location": "Cambridge",
+      "position": "Research Assistant",
+      "techStack": {
+        "frontEnd": [],
+        "backEnd": [],
+        "tools": []
+      },
+      "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. At maxime molestiae, velit deleniti dolorum accusantium sed adipisci magnam esse praesentium quisquam corporis ad tempore dolorem laborum tenetur explicabo laudantium nisi.",
+      "logoUrl": "$lib/assets/logos/aru-logo.jpeg"
+    }
+  ]
+}

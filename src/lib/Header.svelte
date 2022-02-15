@@ -3,10 +3,31 @@
   import { toggleTheme } from '$lib/shared/theme';
   import { Sun, Moon } from '$lib/components/icons/index.js';
   import Logo from './components/Logo.svelte';
+  import Dropdown from './components/Dropdown.svelte';
+  export let workSections = [
+    {
+      title: 'Career',
+      url: '/career',
+    },
+    {
+      title: 'Blog',
+      url: '/blog/work',
+    },
+  ];
+  export let personalSections = [
+    {
+      title: 'What I am up to',
+      url: '/myself',
+    },
+    {
+      title: 'Blog',
+      url: '/blog/pesonal',
+    },
+  ];
 </script>
 
 <header
-  class="flex flex-row justify-between px-5 pt-8 bg-spaceWhite dark:bg-spaceGrey transition duration-501 ease-in-out"
+  class="flex flex-row justify-between px-5 pt-8 pb-20 bg-spaceWhite dark:bg-spaceGrey transition duration-501 ease-in-out"
 >
   <div class="flex">
     <Logo />
@@ -16,10 +37,8 @@
           class="flex items-center text-black dark:text-white transition duration-501 ease-in-out"
           href="/">Home</a
         >
-        <a
-          class="flex items-center text-black dark:text-white transition duration-501 ease-in-out"
-          href="/about">About</a
-        >
+        <Dropdown title={'Work'} items={workSections} />
+        <!-- <Dropdown title={'Personal'} items={personalSections} /> -->
       </div>
     </nav>
   </div>
