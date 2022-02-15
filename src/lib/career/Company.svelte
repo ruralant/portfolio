@@ -16,7 +16,7 @@
 </script>
 
 <div
-  class="flex w-4/5 justify-between items-center subtitle m-auto mb-24 p-8 rounded-md overflow-hidden shadow-md bg-white dark:bg-grey-800 {even
+  class="flex w-4/5 justify-between items-center subtitle m-auto mb-24 p-8 rounded-md overflow-hidden shadow-md bg-white dark:bg-neutral-900 {even
     ? ''
     : 'flex-row-reverse'}"
 >
@@ -55,7 +55,7 @@
             {#each frontEnd as tech}
               <li class="ml-1 mr-3 mt-2 text-black dark:text-white">
                 <div
-                  class="bg-slate-300 dark:bg-slate-600 rounded-lg py-0.5 px-2"
+                  class="bg-slate-200 dark:bg-slate-700 rounded-lg py-0.5 px-2"
                 >
                   {tech}
                 </div>
@@ -76,7 +76,7 @@
             {#each backEnd as tech}
               <li class="mr-3 mt-2 text-black dark:text-white">
                 <div
-                  class="bg-slate-300 dark:bg-slate-600 rounded-lg py-0.5 px-2"
+                  class="bg-slate-200 dark:bg-slate-700 rounded-lg py-0.5 px-2"
                 >
                   {tech}
                 </div>
@@ -97,7 +97,7 @@
             {#each tools as tech}
               <li class="mr-3 mt-2 text-black dark:text-white">
                 <div
-                  class="bg-slate-300 dark:bg-slate-600 rounded-lg py-0.5 px-2"
+                  class="bg-slate-200 dark:bg-slate-700 rounded-lg py-0.5 px-2"
                 >
                   {tech}
                 </div>
@@ -123,9 +123,12 @@
 <!-- <div class="w-1/3 h-0.5 m-auto bg-spaceGrey dark:bg-white mb-20" /> -->
 <style>
   .title-text {
-    font-family: 'Cormorant Garamond', -apple-system, BlinkMacSystemFont,
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+      Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
+      sans-serif;
+    /* font-family: 'Cormorant Garamond', -apple-system, BlinkMacSystemFont,
       'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
-      'Helvetica Neue', sans-serif;
+      'Helvetica Neue', sans-serif; */
     /* background: linear-gradient(
       271deg,
       #8797e8 30%,
@@ -138,7 +141,7 @@
     font-weight: 500;
     margin: 0;
     line-height: 1.15;
-    font-size: 3.5rem;
+    font-size: 3rem;
     /* padding-left: 10%; */
   }
   .subtitle {
