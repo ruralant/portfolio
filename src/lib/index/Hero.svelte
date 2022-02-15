@@ -1,5 +1,5 @@
 <script>
-  import meImage from '../../../static/images/me-b-and-w-small-opt.jpg';
+  import meImage from '$lib/assets/images/me-b-and-w-small.jpg';
 </script>
 
 <div class="main-container py-10">
@@ -17,8 +17,10 @@
       {' '}
       <p class="text-black dark:text-white transition duration-501 ease-in-out">
         I'm interested in{' '}
-        <span class="interactive-text">energy efficiency</span> of the web and{' '}
-        <span class="interactive-text">open source</span>.
+        <span class="interactive-text">open source</span>,
+        <span class="interactive-text">energy efficiency</span> of the web,
+        <span class="interactive-text">homesteading</span>{' '}and{' '}
+        <span class="interactive-text">soil regeneration</span>.
       </p>
       <p class="text-black dark:text-white transition duration-501 ease-in-out">
         I write about those things plus I love to share what I lean while
@@ -39,7 +41,6 @@
 
 <style>
   .main-container {
-    height: 80vh;
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -90,17 +91,16 @@
     line-height: 1.7;
     font-size: 2.5rem;
     transition: all 0.2s ease-in-out;
-    /* padding: 5% 5% 5% 10%; */
   }
   .subtitle span {
     width: 200;
   }
   .interactive-text {
-    font-size: 2.6rem;
-    font-weight: 600;
+    font-size: 2.5rem;
+    font-weight: 500;
     color: var(--color-text-primary);
     -webkit-text-fill-color: transparent;
-    -webkit-text-stroke-width: 1.5px;
+    -webkit-text-stroke-width: 1.4px;
     -webkit-text-stroke-color: var(--color-text-primary);
   }
   .interactive-text:hover {

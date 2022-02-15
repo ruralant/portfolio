@@ -4,6 +4,13 @@ subtitle: This is the post description used on the post lists as a preview of th
 tags: [react, front end]
 date: 9-10-2021
 icon: front
+layout: blog
 ---
 
-# This is the second post
+<script>
+  import Title from '../../lib/components/posts/title.svelte'
+</script>
+
+<Title>{title}</Title>
+
+## Testing

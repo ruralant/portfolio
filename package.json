@@ -1,6 +1,6 @@
 {
   "name": "personal-website",
-  "version": "0.3.7",
+  "version": "0.5.0",
   "scripts": {
     "dev": "svelte-kit dev",
     "build": "svelte-kit build",
@@ -11,15 +11,19 @@
   "devDependencies": {
     "@sveltejs/adapter-netlify": "^1.0.0-next.35",
     "@sveltejs/kit": "^1.0.0-next.192",
-    "autoprefixer": "^10.4.0",
-    "eslint": "^8.2.0",
+    "autoprefixer": "^10.4.2",
+    "eslint": "^8.8.0",
     "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-svelte3": "^3.2.1",
-    "mdsvex": "^0.9.8",
-    "prettier": "^2.4.1",
-    "prettier-plugin-svelte": "^2.4.0",
-    "svelte": "^3.44.1",
-    "tailwindcss": "^2.2.19"
+    "eslint-plugin-svelte3": "^3.4.0",
+    "mdsvex": "^0.10.5",
+    "prettier": "^2.5.1",
+    "prettier-plugin-svelte": "^2.6.0",
+    "serve": "^13.0.2",
+    "svelte": "^3.46.3",
+    "tailwindcss": "^3.0.18"
   },
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "svelte-click-outside": "^1.0.0"
+  }
 }
