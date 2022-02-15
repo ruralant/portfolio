@@ -7,6 +7,7 @@
     return {
       props: {
         posts: postsMeta,
+        // params,
       },
     };
   }
@@ -19,11 +20,13 @@
 <div class="text-black dark:text-white">
   <slot />
   <aside>
-    <h5>Archive</h5>
+    <h5>Blog Main</h5>
     <ui>
-      {#each posts as post}
-        <li><a href={`/blog/${posts.slug}`}>{post.title}</a></li>
-      {/each}
+      <!-- {#each posts as post}
+        <li>
+          <a href={`/blog/${params.type}/${posts.slug}`}>{post.title}mmm</a>
+        </li>
+      {/each} -->
     </ui>
   </aside>
 </div>
