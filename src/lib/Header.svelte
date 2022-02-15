@@ -11,7 +11,7 @@
     },
     {
       title: 'Blog',
-      url: '/blog/work',
+      url: '/blog/development/hello1',
     },
   ];
   export let personalSections = [

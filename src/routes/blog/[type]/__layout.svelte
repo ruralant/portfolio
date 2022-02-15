@@ -1,13 +1,13 @@
 <script context="module">
-  // necessary to load before render
-  export async function load() {
-    const posts = import.meta.globEager('../../blog/*.svx');
+  export async function load({ params }) {
+    const posts = import.meta.globEager(`../../../posts/development/*.svx`);
     const postList = Object.values(posts);
     const postsMeta = postList.map((post) => post.metadata);
+
     return {
       props: {
         posts: postsMeta,
-        // params,
+        params,
       },
     };
   }
@@ -15,18 +15,20 @@
 
 <script>
   export let posts;
+  export let params;
 </script>
 
 <div class="text-black dark:text-white">
   <slot />
   <aside>
-    <h5>Blog Main</h5>
+    <h5>Archive</h5>
     <ui>
-      <!-- {#each posts as post}
-        <li>
-          <a href={`/blog/${params.type}/${posts.slug}`}>{post.title}mmm</a>
-        </li>
-      {/each} -->
+      {#each posts as post}
+        <div>
+          <p>{post.title}</p>
+          <a href={`/blog/${params.type}/${post.slug}`}>More...</a>
+        </div>
+      {/each}
     </ui>
   </aside>
 </div>
