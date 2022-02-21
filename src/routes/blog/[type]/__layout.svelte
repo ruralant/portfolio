@@ -1,6 +1,6 @@
 <script context="module">
   export async function load({ params }) {
-    const posts = import.meta.globEager(`../../../posts/development/*.svx`);
+    const posts = import.meta.globEager(`../../../posts/development/*.md`);
     const postList = Object.values(posts);
     const postsMeta = postList.map((post) => post.metadata);
 
