@@ -5,13 +5,21 @@
   import Location from '$lib/components/icons/Location.svelte';
   import Server from '$lib/components/icons/Server.svelte';
   import User from '$lib/components/icons/User.svelte';
-  import fikaProduct from '$lib/assets/images/fika-product.png';
 
   export let company;
   export let index;
   const even = index % 2 == 0;
-  const { name, from, to, position, techStack, description, location, logo } =
-    company;
+  const {
+    name,
+    from,
+    to,
+    position,
+    techStack,
+    description,
+    location,
+    logo,
+    image,
+  } = company;
   const { frontEnd, backEnd, tools } = techStack;
 </script>
 
@@ -110,11 +118,11 @@
   </div>
   <div>
     <img
-      class="align-middle"
-      src={fikaProduct}
+      class="align-middle rounded-lg shadow-sm"
+      src={image}
       alt="myself speaking in public"
-      width={400}
-      height={400}
+      width={450}
+      height={450}
       placeholder="blur"
     />
   </div>
