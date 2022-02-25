@@ -3,16 +3,16 @@ title: 'Using Deferred Static Generation with Analytics Tools'
 date: 2021-11-18
 lastUpdated: 2021-11-18
 description: 'Only want to build out the most popular pages as static pages? No problem, you can use your analytics tool to control the usage of Deferred Static Generation in Gatsby.'
-type: 'tutorial'
 category: 'Gatsby'
 image: /og-images/dsg-analytics.png?v=1
 published: true
-slug: test
+slug: gatsby
 subtitle: This is the post description used on the post lists as a preview of the content. I assume it'll be the fist paragraph of the post.
 tags: [react, front end]
 icon: front
 layout: development
 author: Antonio
+type: 'development'
 ---
 
 ## Introduction
