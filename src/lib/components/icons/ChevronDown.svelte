@@ -7,7 +7,7 @@
 >
   <title id="chev-r-title">Chevron down icon</title>
   <desc id="chev-r-desc"
-    >A minimalistis icon representing a chevron poining down.</desc
+    >A minimalistis icon representing a chevron poining down</desc
   >
   <path
     fill-rule="evenodd"
