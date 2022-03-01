@@ -20,21 +20,15 @@
 
 <div class="text-black dark:text-white">
   <slot />
-  <aside>
-    <h5>Archive</h5>
-    <ui>
-      {#each posts as post}
-        <div>
-          <p>{post.title}</p>
-          <a href={`/blog/${params.type}/${post.slug}`}>More...</a>
-        </div>
-      {/each}
-    </ui>
-  </aside>
+  <!-- <aside> -->
+  <h5>Archive</h5>
+  <ui>
+    {#each posts as post}
+      <div>
+        <p>{post.title}</p>
+        <a href={`/blog/${params.type}/${post.slug}`}>More...</a>
+      </div>
+    {/each}
+  </ui>
+  <!-- </aside> -->
 </div>
-
-<style>
-  h1 {
-    font-size: 5em;
-  }
-</style>
