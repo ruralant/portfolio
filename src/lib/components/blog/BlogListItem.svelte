@@ -4,29 +4,34 @@
   export let post;
 </script>
 
-<li
-  class="flex w-4/5 m-4 p-4 justify-between rounded-md overflow-hidden shadow-md bg-white dark:bg-neutral-900"
->
-  <div class="">
-    <a href={`/blog/${post.type}/${post.slug}`}>
-      <span class="title-text">{post.title}</span>
-    </a>
-    <p
-      class="text-black dark:text-white mt-4 transition duration-501 ease-in-out"
-    >
-      {post.subtitle}
-    </p>
-
-    <div class="flex mt-4">
-      <span class="capitalize mr-2">{post.type}</span>
-      <p class="text-black dark:text-white transition duration-501 ease-in-out">
-        {post.date}
+<li class="w-4/5">
+  <a
+    class="flex w-full m-4 p-4 justify-between text-left items-center rounded-md overflow-hidden shadow-md bg-white dark:bg-neutral-900 hover:scale-110 duration-300 ease-in-out"
+    href={`/blog/${post.type}/${post.slug}`}
+  >
+    <div>
+      <a href={`/blog/${post.type}/${post.slug}`}>
+        <span class="title-text">{post.title}</span>
+      </a>
+      <p
+        class="text-black dark:text-white mt-4 transition duration-501 ease-in-out"
+      >
+        {post.subtitle}
       </p>
+
+      <div class="flex mt-4">
+        <span class="capitalize mr-2">{post.type}</span>
+        <p
+          class="text-black dark:text-white transition duration-501 ease-in-out"
+        >
+          {post.date}
+        </p>
+      </div>
     </div>
-  </div>
-  <div class="flex w-10 flex-col justify-center items-center">
-    <ArrowRight />
-  </div>
+    <div class="w-10">
+      <ArrowRight />
+    </div>
+  </a>
 </li>
 
 <style>

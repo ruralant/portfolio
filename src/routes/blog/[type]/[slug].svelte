@@ -4,7 +4,7 @@
     console.log('PARAMS', params);
 
     const Post = await import(
-      `../../../posts/${params.type}/${params.slug}.svx`
+      `../../../posts/${params.type}/${params.slug}.md`
     );
 
     return {
