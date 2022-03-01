@@ -7,6 +7,8 @@
   fill="none"
   xmlns="http://www.w3.org/2000/svg"
 >
+  <title id="right-arrow-title">Right arrow</title>
+  <desc id="right-arrow-desc">Arrow icon pointing to the right</desc>
   <path
     d="M6 12H18.5M18.5 12L12.5 6M18.5 12L12.5 18"
     stroke="currentColor"
