@@ -1,8 +1,5 @@
 <script context="module">
   export async function load({ params, url }) {
-    console.log('URL', url);
-    console.log('PARAMS', params);
-
     const Post = await import(
       `../../../posts/${params.type}/${params.slug}.md`
     );

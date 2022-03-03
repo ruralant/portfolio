@@ -11,4 +11,6 @@ layout: blog
 type: 'development'
 ---
 
-# This is the second post
+# { title }
+
+## { subtitle }
