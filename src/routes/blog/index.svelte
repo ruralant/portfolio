@@ -2,8 +2,10 @@
   export async function load() {
     const posts = import.meta.globEager(`../../posts/*/*.md`);
     const postList = Object.values(posts);
-    const postsMeta = postList.map((post) => post.metadata);
-    console.log('POSTS META', postsMeta);
+    const postsMeta = postList.reduce((posts, next) => {
+      next.metadata.published && posts.push(next.metadata);
+      return posts;
+    }, []);
 
     return {
       props: {
@@ -19,9 +21,14 @@
   export let posts;
 </script>
 
-<div class="text-black dark:text-white w-full pb-20">
-  <p class="title-text">Posts list</p>
-  <ul class="flex flex-col items-center mt-10">
+<div class="text-black dark:text-white w-full sm:mt-9">
+  <div class="flex items-center md:justify-center">
+    <p class="title-text text-3xl pl-4">Latest Articles</p>
+    <a class="ml-6 inline-flex rounded-md shadow-sm px-2 py-1 bg-white text-sm">
+      <span class="text-black">Archive</span>
+    </a>
+  </div>
+  <ul class="flex flex-col items-center md:mt-5">
     {#each posts as post}
       <BlogListItem {post} />
     {/each}
@@ -33,20 +40,8 @@
     font-family: 'Cormorant Garamond', -apple-system, BlinkMacSystemFont,
       'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
       'Helvetica Neue', sans-serif;
-    color: #fff;
-    background: linear-gradient(
-      271deg,
-      #8797e8 30%,
-      #a162e8 50%,
-      #f093b0 70%,
-      #dab56c 94%
-    );
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
     font-weight: 500;
     margin: 0;
     line-height: 1.15;
-    font-size: 6rem;
-    /* padding-left: 10%; */
   }
 </style>
