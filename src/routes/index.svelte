@@ -1,4 +1,4 @@
-<script context="module">
+<!-- <script context="module">
   const convertDate = (date) => {
     const dateArray = date.split('-');
     return new Date(dateArray[2], dateArray[1], dateArray[0]);
@@ -12,27 +12,26 @@
   };
 
   export async function load() {
-    const pro = import.meta.globEager('../posts/pro/*.md');
-    const life = import.meta.globEager('../posts/life/*.md');
-    const proData = processPostData(pro);
-    const lifeData = processPostData(life);
+    const development = import.meta.globEager('../posts/development/*.md');
+    const personal = import.meta.globEager('../posts/personal/*.md');
+    const developmentData = processPostData(development);
+    const personalData = processPostData(personal);
     return {
       props: {
-        proData,
-        lifeData,
+        developmentData,
+        personalData,
       },
     };
   }
-</script>
-
+</script> -->
 <script>
   import Hero from '$lib/index/Hero.svelte';
   import Contacts from '$lib/index/Contacts.svelte';
-  import Articles from '$lib/index/Articles/Articles.svelte';
+  // import Articles from '$lib/index/Articles/Articles.svelte';
   import '../global.css';
-  export let proData, lifeData;
+  // export let proData, lifeData;
 </script>
 
 <Hero />
-<Articles lastProPost={proData} lastLifePost={lifeData} />
+<!-- <Articles lastProPost={proData} lastLifePost={lifeData} /> -->
 <Contacts />

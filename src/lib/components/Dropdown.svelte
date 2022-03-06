@@ -1,5 +1,5 @@
 <script>
-  import { clickOutside } from '../utils/clickOutside';
+  import ClickOutside from '../components/ClickOutside.svelte';
   import { fly } from 'svelte/transition';
   import ChevronDown from './icons/ChevronDown.svelte';
 
@@ -32,11 +32,7 @@
     </button>
   </div>
   {#if menuVisible}
-    <div
-      use:clickOutside
-      on:click_outside={closeModal}
-      exclude={[modalButtonRef]}
-    >
+    <ClickOutside on:clickoutside={closeModal} exclude={[modalButtonRef]}>
       <div
         transition:fly={{ y: -20, duration: 200 }}
         class="origin-top-right absolute left-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 divide-y divide-gray-100 focus:outline-none"
@@ -50,13 +46,15 @@
             <a
               on:click={toggleDropDown}
               href={item.url}
-              class="text-gray-700 block px-4 py-2 text-sm"
+              class={`block px-4 py-2 text-sm ${
+                item.active ? 'text-grey-700' : 'text-grey-500'
+              }`}
               role="menuitem"
               tabindex="-1">{item.title}</a
             >
           {/each}
         </div>
       </div>
-    </div>
+    </ClickOutside>
   {/if}
 </div>
