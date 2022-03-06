@@ -17,7 +17,6 @@
 
 <script>
   import BlogListItem from '$lib/components/blog/BlogListItem.svelte';
-
   export let posts;
 </script>
 
