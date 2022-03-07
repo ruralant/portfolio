@@ -1,15 +1,23 @@
+<script>
+  import ArrowLeft from '../../../../lib/components/icons/ArrowLeft.svelte';
+
+  const goBack = () => {
+    window.history.back();
+  };
+</script>
+
 <div class="text-black dark:text-white">
   <slot />
-  <!-- <aside> -->
-  <!-- <h5>Archive</h5>
-  <ui>
-    {#each posts as post}
-      <div>
-        <p />
-        <a href={`/blog/${params.type}/${post.slug}`}>{post.title}</a>
-      </div>
-    {/each}
-  </ui> -->
-  <!-- </aside> -->
-  <p>footer</p>
+  <div class="flex mt-5 underline">
+    <ArrowLeft />
+    <button class="back-text ml-2" on:click={goBack}>Go back</button>
+  </div>
 </div>
+
+<style>
+  .back-text {
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+      Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
+      sans-serif;
+  }
+</style>
