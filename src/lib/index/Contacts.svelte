@@ -96,7 +96,7 @@
       Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
       sans-serif;
     text-align: center;
-    font-weight: 500;
+    font-weight: 300;
     line-height: 1.7;
     font-size: 1.8rem;
     transition: all 0.2s ease-in-out;

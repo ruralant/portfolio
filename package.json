@@ -1,6 +1,6 @@
 {
   "name": "personal-website",
-  "version": "0.5.0",
+  "version": "0.6.4",
   "scripts": {
     "dev": "svelte-kit dev",
     "build": "svelte-kit build",
@@ -22,8 +22,5 @@
     "svelte": "^3.46.3",
     "tailwindcss": "^3.0.18"
   },
-  "type": "module",
-  "dependencies": {
-    "svelte-click-outside": "^1.0.0"
-  }
+  "type": "module"
 }

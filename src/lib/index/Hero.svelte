@@ -2,15 +2,15 @@
   import meImage from '$lib/assets/images/me-b-and-w-small.jpg';
 </script>
 
-<div class="main-container py-10">
+<div class="main-container py-10 sm:pt-9">
   <div class="text-container">
     <div class="title-container">
       <h1 class="title">
         <span class="title-text">Hi, I&apos;m Antonio</span>
-        <span class="title-emoji">👋</span>
+        <span class="text-5xl ml-7 sm:ml-1">👋</span>
       </h1>
     </div>
-    <div class="subtitle">
+    <div class="subtitle text-3xl">
       <p class="text-black dark:text-white transition duration-501 ease-in-out">
         I'm a full stack developer in Reading, UK.
       </p>
@@ -22,10 +22,10 @@
         <span class="interactive-text">homesteading</span>{' '}and{' '}
         <span class="interactive-text">soil regeneration</span>.
       </p>
-      <p class="text-black dark:text-white transition duration-501 ease-in-out">
+      <!-- <p class="text-black dark:text-white transition duration-501 ease-in-out">
         I write about those things plus I love to share what I lean while
         working.
-      </p>
+      </p> -->
     </div>
   </div>
   <div class="image-container mt-5 mx-5 sm:m-5 lg:ml-20">
@@ -78,18 +78,13 @@
     font-size: 6rem;
     /* padding-left: 10%; */
   }
-  .title-emoji {
-    font-size: 5rem;
-    margin-left: 30px;
-  }
   .subtitle {
     font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI',
       Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
       sans-serif;
-    font-weight: 500;
+    font-weight: 300;
     margin-top: 10px;
     line-height: 1.7;
-    font-size: 2.5rem;
     transition: all 0.2s ease-in-out;
   }
   .subtitle span {
@@ -156,7 +151,7 @@
       align-items: center;
     }
     .title {
-      flex-direction: column;
+      /* flex-direction: column; */
       align-items: center;
     }
     .title-emoji {

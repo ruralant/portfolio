@@ -18,7 +18,8 @@
         "tools": ["Jest", "Chai", "Playwright", "Sanity"]
       },
       "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. At maxime molestiae, velit deleniti dolorum accusantium sed adipisci magnam esse praesentium quisquam corporis ad tempore dolorem laborum tenetur explicabo laudantium nisi.",
-      "logoUrl": "$lib/assets/logos/fika-logo.svg"
+      "logoUrl": "$lib/assets/logos/fika-logo.svg",
+      "imageUrl": "$lib/assets/images/fika.png"
     },
     {
       "name": "Jayex Technology",
@@ -39,7 +40,8 @@
         "tools": ["Typescript", "Puppeteer", "Mailgun", "Twilio", "Stripe"]
       },
       "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. At maxime molestiae, velit deleniti dolorum accusantium sed adipisci magnam esse praesentium quisquam corporis ad tempore dolorem laborum tenetur explicabo laudantium nisi.",
-      "logoUrl": "$lib/assets/logos/jayex-logo.jpeg"
+      "logoUrl": "$lib/assets/logos/jayex-logo.jpeg",
+      "imageUrl": "$lib/assets/images/jayex.png"
     },
     {
       "name": "Seedrs",
@@ -53,7 +55,8 @@
         "tools": ["Stripe", "MailChimp", "Salesforce", "Vimeo", "Cucumber"]
       },
       "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. At maxime molestiae, velit deleniti dolorum accusantium sed adipisci magnam esse praesentium quisquam corporis ad tempore dolorem laborum tenetur explicabo laudantium nisi.",
-      "logoUrl": "$lib/assets/logos/seedrs-logo.jpeg"
+      "logoUrl": "$lib/assets/logos/seedrs-logo.jpeg",
+      "imageUrl": "$lib/assets/images/seedrs.png"
     },
     {
       "name": "Booking.com",
@@ -67,7 +70,8 @@
         "tools": []
       },
       "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. At maxime molestiae, velit deleniti dolorum accusantium sed adipisci magnam esse praesentium quisquam corporis ad tempore dolorem laborum tenetur explicabo laudantium nisi.",
-      "logoUrl": "$lib/assets/logos/booking-logo.jpeg"
+      "logoUrl": "$lib/assets/logos/booking-logo.jpeg",
+      "imageUrl": "$lib/assets/images/booking.png"
     },
     {
       "name": "Anglia Ruskin University",
@@ -81,7 +85,8 @@
         "tools": []
       },
       "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. At maxime molestiae, velit deleniti dolorum accusantium sed adipisci magnam esse praesentium quisquam corporis ad tempore dolorem laborum tenetur explicabo laudantium nisi.",
-      "logoUrl": "$lib/assets/logos/aru-logo.jpeg"
+      "logoUrl": "$lib/assets/logos/aru-logo.jpeg",
+      "imageUrl": "$lib/assets/images/aru.png"
     }
   ]
 }

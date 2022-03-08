@@ -1,6 +1,14 @@
 <script context="module">
-  export async function load() {
-    const posts = import.meta.globEager(`../../posts/*/*.md`);
+  export async function load({ params, url }) {
+    // TODO sveltekit bug? refactor when fixed
+    const urlArray = url.href.split('/');
+    const type = urlArray[urlArray.length - 1];
+    let posts;
+    if (type === 'development') {
+      posts = import.meta.globEager(`../../../posts/development/*.md`);
+    } else if (type === 'personal') {
+      posts = import.meta.globEager(`../../../posts/personal/*.md`);
+    }
     const postList = Object.values(posts);
     const postsMeta = postList.reduce((posts, next) => {
       next.metadata.published && posts.push(next.metadata);
@@ -10,6 +18,7 @@
     return {
       props: {
         posts: postsMeta,
+        type: params.type,
       },
     };
   }
@@ -17,7 +26,11 @@
 
 <script>
   import BlogListItem from '$lib/components/blog/BlogListItem.svelte';
+  export let type;
+  console.log('PARAMS 2', type);
+
   export let posts;
+  console.log(posts);
 </script>
 
 <div class="text-black dark:text-white w-full sm:mt-9">

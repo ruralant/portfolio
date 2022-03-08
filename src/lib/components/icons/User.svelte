@@ -7,7 +7,7 @@
   xmlns="http://www.w3.org/2000/svg"
 >
   <title id="user-icon-title">User icon</title>
-  <desc id="user-icon-desc">A minimalistis icon representing a person.</desc>
+  <desc id="user-icon-desc">A minimalistis icon representing a person</desc>
   <path
     stroke-width="1.5"
     fill-rule="evenodd"

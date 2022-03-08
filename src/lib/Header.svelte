@@ -6,39 +6,44 @@
   import Dropdown from './components/Dropdown.svelte';
   export let workSections = [
     {
-      title: 'Career',
-      url: '/career',
+      title: 'Articles',
+      url: '/blog/development',
+      active: true,
     },
     {
-      title: 'Blog',
-      url: '/blog/work',
+      title: 'Career (coming soon)',
+      url: '/career',
+      active: false,
     },
   ];
   export let personalSections = [
     {
-      title: 'What I am up to',
-      url: '/myself',
+      title: 'Blog',
+      url: '/blog/personal',
+      active: true,
     },
     {
-      title: 'Blog',
-      url: '/blog/pesonal',
+      title: 'What I am up to (coming soon)',
+      url: '/myself',
+      active: false,
     },
   ];
 </script>
 
 <header
-  class="flex flex-row justify-between px-5 pt-8 pb-20 bg-spaceWhite dark:bg-spaceGrey transition duration-501 ease-in-out"
+  class="flex flex-row justify-between px-5 pt-8 pb-1 md:pb-20 bg-spaceWhite dark:bg-spaceGrey transition duration-501 ease-in-out"
 >
-  <div class="flex">
-    <Logo />
+  <div class="flex items-center">
+    <a
+      class="flex items-center text-black dark:text-white transition duration-501 ease-in-out"
+      href="/"
+    >
+      <Logo />
+    </a>
     <nav class="flex flex-row">
       <div class="flex space-x-4">
-        <a
-          class="flex items-center text-black dark:text-white transition duration-501 ease-in-out"
-          href="/">Home</a
-        >
         <Dropdown title={'Work'} items={workSections} />
-        <!-- <Dropdown title={'Personal'} items={personalSections} /> -->
+        <Dropdown title={'Personal'} items={personalSections} />
       </div>
     </nav>
   </div>
