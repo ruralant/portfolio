@@ -1,9 +1,7 @@
 <script context="module">
-  export async function load({ page }) {
-    console.log('PARAMS', page);
-
+  export async function load({ params, url }) {
     const Post = await import(
-      `../../../posts/${page.params.type}/${page.params.slug}.svx`
+      `../../../../posts/${params.type}/${params.slug}.md`
     );
 
     return {

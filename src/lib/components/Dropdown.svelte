@@ -1,5 +1,5 @@
 <script>
-  import ClickOutside from 'svelte-click-outside';
+  import ClickOutside from '../components/ClickOutside.svelte';
   import { fly } from 'svelte/transition';
   import ChevronDown from './icons/ChevronDown.svelte';
 
@@ -21,7 +21,7 @@
     <button
       bind:this={modalButtonRef}
       type="button"
-      class="inline-flex justify-center w-full rounded-md  shadow-sm px-4 py-2 bg-white text-sm font-medium "
+      class="inline-flex justify-center w-full rounded-md  shadow-sm px-4 py-2 bg-white text-sm font-medium"
       id="menu-button"
       aria-expanded="true"
       aria-haspopup="true"
@@ -46,7 +46,9 @@
             <a
               on:click={toggleDropDown}
               href={item.url}
-              class="text-gray-700 block px-4 py-2 text-sm"
+              class={`block px-4 py-2 text-sm ${
+                item.active ? 'text-grey-700' : 'text-grey-500'
+              }`}
               role="menuitem"
               tabindex="-1">{item.title}</a
             >
