@@ -11,18 +11,18 @@
       </h1>
     </div>
     <div class="subtitle text-3xl">
-      <p class="text-black dark:text-white transition duration-501 ease-in-out">
+      <p class="text-black dark:text-white transition duration-300 ease-in-out">
         I'm a full stack developer in Reading, UK.
       </p>
       {' '}
-      <p class="text-black dark:text-white transition duration-501 ease-in-out">
+      <p class="text-black dark:text-white transition duration-300 ease-in-out">
         I'm interested in{' '}
         <span class="interactive-text">open source</span>,
         <span class="interactive-text">energy efficiency</span> of the web,
         <span class="interactive-text">homesteading</span>{' '}and{' '}
         <span class="interactive-text">soil regeneration</span>.
       </p>
-      <!-- <p class="text-black dark:text-white transition duration-501 ease-in-out">
+      <!-- <p class="text-black dark:text-white transition duration-300 ease-in-out">
         I write about those things plus I love to share what I lean while
         working.
       </p> -->

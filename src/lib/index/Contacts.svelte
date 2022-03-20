@@ -1,15 +1,15 @@
 <div
-  class="main-container bg-spaceWhite dark:bg-spaceGrey transition duration-501 ease-in-out pb-10"
+  class="main-container bg-spaceWhite dark:bg-spaceGrey transition duration-300 ease-in-out pb-10"
 >
   <div class="title">
     <h2
-      class="title-text text-black dark:text-white transition duration-501 ease-in-out"
+      class="title-text text-black dark:text-white transition duration-300 ease-in-out"
     >
       I'm always up for a chat.
     </h2>
   </div>
   <div
-    class="subtitle mt-10 text-black dark:text-white transition duration-501 ease-in-out"
+    class="subtitle mt-10 text-black dark:text-white transition duration-300 ease-in-out"
   >
     <p>
       Pop me an email at{' '}
@@ -21,7 +21,7 @@
     <p>or give me a shout on social media</p>
     <div class="social-container mt-5">
       <a
-        class="social-media-container text-black dark:text-white transition duration-501 ease-in-out"
+        class="social-media-container text-black dark:text-white transition duration-300 ease-in-out"
         href="https://twitter.com/ilreddo"
         aria-label="Twitter logo"
       >
@@ -38,7 +38,7 @@
         </svg>
       </a>
       <a
-        class="social-media-container text-black dark:text-white transition duration-501 ease-in-out"
+        class="social-media-container text-black dark:text-white transition duration-300 ease-in-out"
         href="https://www.linkedin.com/in/antoniorossii/"
         aria-label="LinkedIn logo"
       >

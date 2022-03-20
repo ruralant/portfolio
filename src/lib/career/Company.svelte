@@ -43,11 +43,11 @@
           />
         </div>
       </div>
-      <p class="text-black dark:text-white transition duration-501 ease-in-out">
+      <p class="text-black dark:text-white transition duration-300 ease-in-out">
         {position}, {location}
       </p>
       <p
-        class="text-black dark:text-white transition duration-501 ease-in-out text-xl mb-6"
+        class="text-black dark:text-white transition duration-300 ease-in-out text-xl mb-6"
       >
         {from} - {to}
       </p>
