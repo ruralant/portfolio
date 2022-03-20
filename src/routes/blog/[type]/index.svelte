@@ -27,10 +27,7 @@
 <script>
   import BlogListItem from '$lib/components/blog/BlogListItem.svelte';
   export let type;
-  console.log('PARAMS 2', type);
-
   export let posts;
-  console.log(posts);
 </script>
 
 <div class="text-black dark:text-white w-full sm:mt-9">

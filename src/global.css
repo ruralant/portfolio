@@ -1,5 +1,5 @@
 body {
-  transition: background 0.25s ease-in-out;
+  transition: background 0.501s ease-in-out;
 }
 
 @media (prefers-reduced-motion: reduce) {
