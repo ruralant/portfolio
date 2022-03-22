@@ -1,7 +1,7 @@
 <script>
   import Article from './Article.svelte';
   export let posts;
-  console.log('POSTS', posts);
+  // console.log('POSTS', posts);
 </script>
 
 <div class="w-full flex flex-col max-w-6xl m-auto">
