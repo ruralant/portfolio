@@ -1,8 +1,6 @@
 <script context="module">
   export async function load({ params, url }) {
-    // TODO sveltekit bug? refactor when fixed
-    const urlArray = url.href.split('/');
-    const type = urlArray[urlArray.length - 1];
+    const { type } = params;
     let posts;
     if (type === 'development') {
       posts = import.meta.globEager(`../../../posts/development/*.md`);
@@ -26,7 +24,6 @@
 
 <script>
   import BlogListItem from '$lib/components/blog/BlogListItem.svelte';
-  export let type;
   export let posts;
 </script>
 
