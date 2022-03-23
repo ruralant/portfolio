@@ -20,7 +20,7 @@
   export let posts;
 </script>
 
-<div class="text-black dark:text-white w-full sm:mt-9">
+<div class="text-neutral-800 dark:text-white w-full sm:mt-9">
   <div class="flex items-center md:justify-center">
     <p class="title-text text-3xl pl-4">Latest Articles</p>
     <a class="ml-6 inline-flex rounded-md shadow-sm px-2 py-1 bg-white text-sm">

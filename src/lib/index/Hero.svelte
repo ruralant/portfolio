@@ -6,26 +6,29 @@
   <div class="text-container">
     <div class="title-container">
       <h1 class="title">
-        <span class="title-text">Hi, I&apos;m Antonio</span>
+        <span
+          class="title-text bg-gradient-271 from-darkFromColor via-darkViaColor1 via-lightViaColor2 to-lightToColor dark:from-darkFromColor dark:via-darkViaColor1 dark:via-darkViaColor2 dark:to-darkToColor transition duration-300 ease-in-out"
+          >Hi, I&apos;m Antonio</span
+        >
         <span class="text-5xl ml-7 sm:ml-1">👋</span>
       </h1>
     </div>
     <div class="subtitle text-3xl">
-      <p class="text-black dark:text-white transition duration-300 ease-in-out">
+      <p
+        class="text-neutral-800 dark:text-white transition duration-300 ease-in-out"
+      >
         I'm a full stack developer in Reading, UK.
       </p>
       {' '}
-      <p class="text-black dark:text-white transition duration-300 ease-in-out">
+      <p
+        class="text-neutral-800 dark:text-white transition duration-300 ease-in-out"
+      >
         I'm interested in{' '}
         <span class="interactive-text">open source</span>,
         <span class="interactive-text">energy efficiency</span> of the web,
         <span class="interactive-text">homesteading</span>{' '}and{' '}
         <span class="interactive-text">soil regeneration</span>.
       </p>
-      <!-- <p class="text-black dark:text-white transition duration-300 ease-in-out">
-        I write about those things plus I love to share what I lean while
-        working.
-      </p> -->
     </div>
   </div>
   <div class="image-container mt-5 mx-5 sm:m-5 lg:ml-20">
@@ -63,20 +66,10 @@
       'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
       'Helvetica Neue', sans-serif;
     color: #fff;
-    background: linear-gradient(
-      271deg,
-      #8797e8 30%,
-      #a162e8 50%,
-      #f093b0 70%,
-      #dab56c 94%
-    );
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
     font-weight: 500;
     margin: 0;
     line-height: 1.15;
     font-size: 6rem;
-    /* padding-left: 10%; */
   }
   .subtitle {
     font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI',

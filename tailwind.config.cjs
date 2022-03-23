@@ -1,4 +1,5 @@
 const colors = require('tailwindcss/colors');
+const plugin = require('tailwindcss/plugin');
 
 module.exports = {
   content: ['./src/**/*.svelte'],
@@ -16,17 +17,20 @@ module.exports = {
     colors: {
       white: colors.white,
       neutral: colors.neutral,
-      stone: colors.stone,
       black: colors.black,
       grey: colors.gray,
       indigo: colors.indigo,
       spaceGrey: '#111111',
       spaceWhite: '#FAFAFC',
-      sky: colors.sky,
       red: colors.red,
-      pink: colors.fuchsia,
-      yellow: colors.yellow,
+      purple: colors.purple,
       slate: colors.slate,
+      darkFromColor: `#8797e8 30%`,
+      darkViaColor1: `#a162e8 50%`,
+      darkViaColor2: `#f093b0 70%`,
+      darkToColor: `#dab56c 94%`,
+      lightViaColor2: `#e47c9d 70%`,
+      lightToColor: `#dd9f22 94%`,
     },
     fontFamily: {
       sans: ['Graphik', 'sans-serif'],
@@ -42,4 +46,28 @@ module.exports = {
       },
     },
   },
+  plugins: [
+    plugin(function ({ matchUtilities, theme }) {
+      matchUtilities(
+        {
+          'bg-gradient': (angle) => ({
+            'background-image': `linear-gradient(${angle}, var(--tw-gradient-stops))`,
+            '-webkit-background-clip': 'text',
+            '-webkit-text-fill-color': 'transparent',
+          }),
+        },
+        {
+          // values from config and defaults you wish to use most
+          values: Object.assign(
+            theme('bgGradientDeg', {}), // name of config key. Must be unique
+            {
+              0: '0deg',
+              90: '90deg',
+              271: '271deg',
+            }
+          ),
+        }
+      );
+    }),
+  ],
 };

@@ -35,7 +35,7 @@
 >
   <div class="flex items-center">
     <a
-      class="flex items-center text-black dark:text-white transition duration-300 ease-in-out"
+      class="flex items-center text-neutral-800 dark:text-white transition duration-300 ease-in-out"
       href="/"
     >
       <Logo />

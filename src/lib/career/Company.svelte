@@ -31,7 +31,7 @@
   <div>
     <div>
       <div class="flex items-center">
-        <span class="title-text text-black dark:text-white">{name}</span>
+        <span class="title-text text-neutral-800 dark:text-white">{name}</span>
         <div class="w-11 h-11 ml-4">
           <img
             src={logo}
@@ -43,11 +43,13 @@
           />
         </div>
       </div>
-      <p class="text-black dark:text-white transition duration-300 ease-in-out">
+      <p
+        class="text-neutral-800 dark:text-white transition duration-300 ease-in-out"
+      >
         {position}, {location}
       </p>
       <p
-        class="text-black dark:text-white transition duration-300 ease-in-out text-xl mb-6"
+        class="text-neutral-800 dark:text-white transition duration-300 ease-in-out text-xl mb-6"
       >
         {from} - {to}
       </p>
@@ -57,11 +59,13 @@
         <div class="flex-1 mb-4">
           <div class="flex flex-row">
             <Desktop />
-            <p class="icon-text ml-1 text-black dark:text-white">Front End</p>
+            <p class="icon-text ml-1 text-neutral-800 dark:text-white">
+              Front End
+            </p>
           </div>
           <ul class="flex flex-wrap">
             {#each frontEnd as tech}
-              <li class="ml-1 mr-3 mt-2 text-black dark:text-white">
+              <li class="ml-1 mr-3 mt-2 text-neutral-800 dark:text-white">
                 <div
                   class="bg-slate-200 dark:bg-slate-700 rounded-lg py-0.5 px-2"
                 >
@@ -76,13 +80,13 @@
         <div class="flex-1 mb-4">
           <div class="flex flex-row">
             <Server />
-            <p class="backend-icon-text ml-1 text-black dark:text-white">
+            <p class="backend-icon-text ml-1 text-neutral-800 dark:text-white">
               Back End
             </p>
           </div>
           <ul class="flex flex-wrap">
             {#each backEnd as tech}
-              <li class="mr-3 mt-2 text-black dark:text-white">
+              <li class="mr-3 mt-2 text-neutral-800 dark:text-white">
                 <div
                   class="bg-slate-200 dark:bg-slate-700 rounded-lg py-0.5 px-2"
                 >
@@ -97,13 +101,13 @@
         <divc class="flex-1">
           <div class="flex flex-row items-center">
             <Database />
-            <p class="tools-icon-text ml-1 text-black dark:text-white">
+            <p class="tools-icon-text ml-1 text-neutral-800 dark:text-white">
               Other Tools
             </p>
           </div>
           <ul class="flex flex-wrap">
             {#each tools as tech}
-              <li class="mr-3 mt-2 text-black dark:text-white">
+              <li class="mr-3 mt-2 text-neutral-800 dark:text-white">
                 <div
                   class="bg-slate-200 dark:bg-slate-700 rounded-lg py-0.5 px-2"
                 >
@@ -134,23 +138,10 @@
     font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI',
       Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
       sans-serif;
-    /* font-family: 'Cormorant Garamond', -apple-system, BlinkMacSystemFont,
-      'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
-      'Helvetica Neue', sans-serif; */
-    /* background: linear-gradient(
-      271deg,
-      #8797e8 30%,
-      #a162e8 50%,
-      #f093b0 70%,
-      #dab56c 94%
-    ); */
-    /* -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent; */
     font-weight: 500;
     margin: 0;
     line-height: 1.15;
     font-size: 3rem;
-    /* padding-left: 10%; */
   }
   .subtitle {
     font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI',
