@@ -3,13 +3,13 @@
 >
   <div class="title">
     <h2
-      class="title-text text-black dark:text-white transition duration-300 ease-in-out"
+      class="title-text bg-gradient-271 from-darkFromColor via-darkViaColor1 via-darkViaColor2 to-lightToColor dark:from-darkFromColor dark:via-darkViaColor1 dark:via-darkViaColor2 dark:to-darkToColor transition duration-300 ease-in-out"
     >
       I'm always up for a chat.
     </h2>
   </div>
   <div
-    class="subtitle mt-10 text-black dark:text-white transition duration-300 ease-in-out"
+    class="subtitle mt-10 text-neutral-800 dark:text-white transition duration-300 ease-in-out"
   >
     <p>
       Pop me an email at{' '}
@@ -21,7 +21,7 @@
     <p>or give me a shout on social media</p>
     <div class="social-container mt-5">
       <a
-        class="social-media-container text-black dark:text-white transition duration-300 ease-in-out"
+        class="social-media-container text-neutral-800 dark:text-white transition duration-300 ease-in-out"
         href="https://twitter.com/ilreddo"
         aria-label="Twitter logo"
       >
@@ -38,7 +38,7 @@
         </svg>
       </a>
       <a
-        class="social-media-container text-black dark:text-white transition duration-300 ease-in-out"
+        class="social-media-container text-neutral-800 dark:text-white transition duration-300 ease-in-out"
         href="https://www.linkedin.com/in/antoniorossii/"
         aria-label="LinkedIn logo"
       >
@@ -76,16 +76,7 @@
       'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
       'Helvetica Neue', sans-serif;
     color: #fff;
-    background: linear-gradient(
-      271deg,
-      #8797e8 30%,
-      #a162e8 50%,
-      #f093b0 70%,
-      #dab56c 94%
-    );
     background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
     font-weight: 500;
     margin: 0;
     line-height: 1.15;
