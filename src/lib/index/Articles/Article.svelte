@@ -1,49 +1,28 @@
 <script>
   import Laptop from '$lib/components/icons/Laptop.svelte';
   export let postsData;
-  export let { title, subtitle, tags, icon } = postsData;
+  export let { title, subtitle, tags, icon, date } = postsData;
 </script>
 
-<li class="max-w-sm rounded overflow-hidden shadow-lg">
-  <!-- <div>
-    <div class="flex justify-between mb-4">
-      <Laptop />
-      <ul class="flex text-xs">
-        {#each tags as tag}
-          <li class="ml-2">
-            <p class="text-black dark:text-white">{tag}</p>
-          </li>
-        {/each}
-      </ul>
+<li
+  class="max-w-sm h-60 rounded-md overflow-hidden bg-white dark:bg-neutral-900 duration-300 ease-in-out shadow-lg flex flex-col justify-between p-6"
+>
+  <div>
+    <div
+      class="text-neutral-800 dark:text-white bg-gradient-90 from-purple-600 to-red-500 dark:from-purple-500 dark:to-red-400 font-bold text-xl mb-2 transition duration-300 ease-in-out"
+    >
+      {title}
     </div>
-    <h6 class="text-base text-black dark:text-white">{title}</h6>
-    <p class="text-sm text-black dark:text-white">{subtitle}</p>
-  </div> -->
-  <!-- <div class=""> -->
-  <!-- <img class="w-full" src="/mountain.jpg" alt="Mountain" /> -->
-  <div class="px-6 py-4">
-    <div class="text-black dark:text-white font-bold text-xl mb-2">
-      Mountain
-    </div>
-    <p class="text-black dark:text-white">
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus
-      quia, Nonea! Maiores et perferendis eaque, exercitationem praesentium
-      nihil.
+    <p class="text-neutral-800 dark:text-white">
+      {subtitle}
     </p>
   </div>
-  <div class="px-6 pt-4 pb-2">
-    <span
-      class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-black dark:text-white mr-2 mb-2"
-      >photography</span
-    >
-    <span
-      class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-black dark:text-white mr-2 mb-2"
-      >travel</span
-    >
-    <span
-      class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-black dark:text-white mr-2 mb-2"
-      >winter</span
-    >
+  <div>
+    {#each tags as tag}
+      <span
+        class="capitalize mr-2 inline-flex rounded-md shadow-sm px-2 py-1 bg-white text-xs text-neutral-600 bg-neutral-200 dark:text-neutral-300 dark:bg-neutral-800 duration-300 ease-in-out"
+        >{tag}</span
+      >
+    {/each}
   </div>
-  <!-- </div> -->
 </li>
