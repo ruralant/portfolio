@@ -22,7 +22,6 @@
       bind:this={modalButtonRef}
       type="button"
       class="inline-flex justify-center w-full rounded-md  shadow-sm px-4 py-2 bg-white text-sm font-medium"
-      id="menu-button"
       aria-expanded="true"
       aria-haspopup="true"
       on:click={toggleDropDown}
