@@ -2,8 +2,6 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link rel="icon" href="/static/favicon.svg" />
     <link rel="apple-touch-icon" href="/static/apple-touch-icon.png" />
     <title>Antonio Rossi Website</title>
@@ -22,10 +20,25 @@
       content="https://res.cloudinary.com/antonio-rossi/image/upload/v1633877706/myself.jpg"
     />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
+      rel="preload"
+      as="style"
       href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&family=Poppins:wght@300&family=Roboto+Serif:ital,wght@0,400;0,500;1,400&display=swap"
-      rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      media="print"
+      onload="this.onload=null;this.removeAttribute('media');"
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&family=Poppins:wght@300&family=Roboto+Serif:ital,wght@0,400;0,500;1,400&display=swap"
+    />
+    <noscript>
+      <link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&family=Poppins:wght@300&family=Roboto+Serif:ital,wght@0,400;0,500;1,400&display=swap"
+      />
+    </noscript>
     %svelte.head%
   </head>
   <body
