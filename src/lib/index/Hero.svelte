@@ -10,7 +10,7 @@
           class="title-text bg-gradient-271 from-darkFromColor via-darkViaColor1 via-lightViaColor2 to-lightToColor dark:from-darkFromColor dark:via-darkViaColor1 dark:via-darkViaColor2 dark:to-darkToColor transition duration-300 ease-in-out"
           >Hi, I&apos;m Antonio</span
         >
-        <span class="text-5xl ml-7 sm:ml-1">👋</span>
+        <!-- <span class="text-5xl ml-7 sm:ml-1">👋</span> -->
       </h1>
     </div>
     <div class="subtitle text-3xl">
@@ -86,10 +86,11 @@
   .interactive-text {
     font-size: 2.5rem;
     font-weight: 500;
-    color: var(--color-text-primary);
+    /* /* font-weight: 500; */
+    /* color: var(--color-text-primary);
     -webkit-text-fill-color: transparent;
     -webkit-text-stroke-width: 1.4px;
-    -webkit-text-stroke-color: var(--color-text-primary);
+    -webkit-text-stroke-color: var(--color-text-primary); */
   }
   .interactive-text:hover {
     -webkit-text-fill-color: var(--color-text-primary);
