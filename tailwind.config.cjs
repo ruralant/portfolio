@@ -33,9 +33,9 @@ module.exports = {
       lightToColor: `#dd9f22 94%`,
     },
     fontFamily: {
-      Cormorant: ['Cormorant Garamond', 'sans-serif'],
+      Cormorant: ['Cormorant', 'serif'],
       Poppins: ['Poppins', 'sans-serif'],
-      Roboto: ['Roboto Serif', 'sans-serif'],
+      Roboto: ['Roboto Serif', 'serif'],
     },
     extend: {
       spacing: {
