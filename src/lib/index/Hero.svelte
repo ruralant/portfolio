@@ -7,13 +7,13 @@
     <div class="title-container">
       <h1 class="title">
         <span
-          class="title-text bg-gradient-271 from-darkFromColor via-darkViaColor1 via-lightViaColor2 to-lightToColor dark:from-darkFromColor dark:via-darkViaColor1 dark:via-darkViaColor2 dark:to-darkToColor transition duration-300 ease-in-out"
+          class="title-text font-Cormorant bg-gradient-271 from-darkFromColor via-darkViaColor1 via-lightViaColor2 to-lightToColor dark:from-darkFromColor dark:via-darkViaColor1 dark:via-darkViaColor2 dark:to-darkToColor transition duration-300 ease-in-out"
           >Hi, I&apos;m Antonio</span
         >
         <!-- <span class="text-5xl ml-7 sm:ml-1">👋</span> -->
       </h1>
     </div>
-    <div class="subtitle text-3xl">
+    <div class="subtitle font-Poppins text-3xl">
       <p
         class="text-neutral-800 dark:text-white transition duration-300 ease-in-out"
       >
@@ -62,9 +62,6 @@
     display: flex;
   }
   .title-text {
-    font-family: 'Cormorant Garamond', -apple-system, BlinkMacSystemFont,
-      'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
-      'Helvetica Neue', sans-serif;
     color: #fff;
     /* font-weight: 500; */
     margin: 0;
@@ -72,9 +69,6 @@
     font-size: 6rem;
   }
   .subtitle {
-    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-      Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
-      sans-serif;
     font-weight: 300;
     margin-top: 10px;
     line-height: 1.7;

@@ -3,13 +3,13 @@
 >
   <div class="title">
     <h2
-      class="title-text bg-gradient-271 from-darkFromColor via-darkViaColor1 via-darkViaColor2 to-lightToColor dark:from-darkFromColor dark:via-darkViaColor1 dark:via-darkViaColor2 dark:to-darkToColor transition duration-300 ease-in-out"
+      class="title-text font-Cormorant bg-gradient-271 from-darkFromColor via-darkViaColor1 via-darkViaColor2 to-lightToColor dark:from-darkFromColor dark:via-darkViaColor1 dark:via-darkViaColor2 dark:to-darkToColor transition duration-300 ease-in-out"
     >
       I'm always up for a chat.
     </h2>
   </div>
   <div
-    class="subtitle mt-10 text-neutral-800 dark:text-white transition duration-300 ease-in-out"
+    class="subtitle font-Poppins mt-10 text-neutral-800 dark:text-white transition duration-300 ease-in-out"
   >
     <p>
       Pop me an email at{' '}
@@ -72,9 +72,6 @@
     display: flex;
   }
   .title-text {
-    font-family: 'Cormorant Garamond', -apple-system, BlinkMacSystemFont,
-      'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
-      'Helvetica Neue', sans-serif;
     color: #fff;
     background-clip: text;
     /* font-weight: 500; */
@@ -83,9 +80,6 @@
     font-size: 3rem;
   }
   .subtitle {
-    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-      Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
-      sans-serif;
     text-align: center;
     font-weight: 300;
     line-height: 1.7;

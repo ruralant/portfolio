@@ -1,37 +1,27 @@
 <script>
-  import Calendar from '../components/icons/Calendar.svelte';
   import Database from '$lib/components/icons/Database.svelte';
   import Desktop from '../components/icons/Desktop.svelte';
-  import Location from '$lib/components/icons/Location.svelte';
   import Server from '$lib/components/icons/Server.svelte';
-  import User from '$lib/components/icons/User.svelte';
 
   export let company;
   export let index;
   const even = index % 2 == 0;
-  const {
-    name,
-    from,
-    to,
-    position,
-    techStack,
-    description,
-    location,
-    logo,
-    image,
-  } = company;
+  const { name, from, to, position, techStack, location, logo, image } =
+    company;
   const { frontEnd, backEnd, tools } = techStack;
 </script>
 
 <div
-  class="flex w-4/5 justify-between items-center subtitle m-auto mb-24 p-8 rounded-md overflow-hidden shadow-md bg-white dark:bg-neutral-900 {even
+  class="flex w-4/5 justify-between items-center font-Poppins subtitle m-auto mb-24 p-8 rounded-md overflow-hidden shadow-md bg-white dark:bg-neutral-900 {even
     ? ''
     : 'flex-row-reverse'}"
 >
   <div>
     <div>
       <div class="flex items-center">
-        <span class="title-text text-neutral-800 dark:text-white">{name}</span>
+        <span class="title-text font-Poppins text-neutral-800 dark:text-white"
+          >{name}</span
+        >
         <div class="w-11 h-11 ml-4">
           <img
             src={logo}
@@ -135,18 +125,12 @@
 <!-- <div class="w-1/3 h-0.5 m-auto bg-spaceGrey dark:bg-white mb-20" /> -->
 <style>
   .title-text {
-    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-      Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
-      sans-serif;
     font-weight: 500;
     margin: 0;
     line-height: 1.15;
     font-size: 3rem;
   }
   .subtitle {
-    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-      Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
-      sans-serif;
     font-weight: 500;
     margin-top: 10px;
     line-height: 1.7;
