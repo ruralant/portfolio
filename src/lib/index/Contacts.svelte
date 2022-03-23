@@ -77,7 +77,7 @@
       'Helvetica Neue', sans-serif;
     color: #fff;
     background-clip: text;
-    font-weight: 500;
+    /* font-weight: 500; */
     margin: 0;
     line-height: 1.15;
     font-size: 3rem;
