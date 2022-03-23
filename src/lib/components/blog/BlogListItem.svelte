@@ -3,7 +3,7 @@
   export let post;
 </script>
 
-<li class="container md:w-full mt-5">
+<li class="font-Poppins md:w-full mt-5">
   <a
     class="flex w-full p-4 justify-between text-left items-center rounded-md overflow-hidden shadow-md bg-white dark:bg-neutral-900 hover:scale-110 duration-300 ease-in-out"
     href={`/blog/${post.type}/${post.slug}`}
@@ -11,7 +11,7 @@
     <div>
       <a href={`/blog/${post.type}/${post.slug}`}>
         <span
-          class="title-text bg-gradient-271 from-darkFromColor via-lightViaColor1 via-darkViaColor2 to-lightToColor dark:from-darkFromColor dark:via-darkViaColor1 dark:via-darkViaColor2 dark:to-darkToColor"
+          class="title-text font-Cormorant bg-gradient-271 from-darkFromColor via-lightViaColor1 via-darkViaColor2 to-lightToColor dark:from-darkFromColor dark:via-darkViaColor1 dark:via-darkViaColor2 dark:to-darkToColor"
           >{post.title}</span
         >
       </a>
@@ -43,15 +43,7 @@
 </li>
 
 <style>
-  .container {
-    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-      Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
-      sans-serif;
-  }
   .title-text {
-    font-family: 'Cormorant Garamond', -apple-system, BlinkMacSystemFont,
-      'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
-      'Helvetica Neue', sans-serif;
     color: #fff;
     /* font-weight: 500; */
     margin: 0;

@@ -10,14 +10,6 @@
   <slot />
   <div class="flex mt-5 underline">
     <ArrowLeft />
-    <button class="back-text ml-2" on:click={goBack}>Go back</button>
+    <button class="font-Poppins ml-2" on:click={goBack}>Go back</button>
   </div>
 </div>
-
-<style>
-  .back-text {
-    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-      Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
-      sans-serif;
-  }
-</style>
