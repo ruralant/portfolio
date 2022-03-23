@@ -66,7 +66,7 @@
       'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
       'Helvetica Neue', sans-serif;
     color: #fff;
-    font-weight: 500;
+    /* font-weight: 500; */
     margin: 0;
     line-height: 1.15;
     font-size: 6rem;
