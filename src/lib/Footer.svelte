@@ -3,9 +3,9 @@
 </script>
 
 <footer
-  class="w-full flex flex-col justify-center items-center bg-spaceWhite dark:bg-spaceGrey transition duration-501 ease-in-out pb-8 pt-20"
+  class="w-full flex flex-col justify-center items-center bg-spaceWhite dark:bg-spaceGrey transition duration-300 ease-in-out pb-8 pt-20"
 >
-  <p class="text-black dark:text-white">
+  <p class="text-neutral-800 dark:text-white">
     © {year} Made with ❤️ by Antonio Rossi
   </p>
 </footer>

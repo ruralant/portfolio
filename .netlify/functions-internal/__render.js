@@ -4,57 +4,79 @@ var __getOwnPropDesc = Object.getOwnPropertyDescriptor;
 var __getOwnPropNames = Object.getOwnPropertyNames;
 var __getProtoOf = Object.getPrototypeOf;
 var __hasOwnProp = Object.prototype.hasOwnProperty;
-var __markAsModule = (target) => __defProp(target, "__esModule", { value: true });
-var __esm = (fn, res) => function __init() {
-  return fn && (res = (0, fn[Object.keys(fn)[0]])(fn = 0)), res;
-};
+var __markAsModule = (target) =>
+  __defProp(target, '__esModule', { value: true });
+var __esm = (fn, res) =>
+  function __init() {
+    return fn && (res = (0, fn[Object.keys(fn)[0]])((fn = 0))), res;
+  };
 var __export = (target, all) => {
   __markAsModule(target);
   for (var name in all)
     __defProp(target, name, { get: all[name], enumerable: true });
 };
 var __reExport = (target, module2, desc) => {
-  if (module2 && typeof module2 === "object" || typeof module2 === "function") {
+  if (
+    (module2 && typeof module2 === 'object') ||
+    typeof module2 === 'function'
+  ) {
     for (let key of __getOwnPropNames(module2))
-      if (!__hasOwnProp.call(target, key) && key !== "default")
-        __defProp(target, key, { get: () => module2[key], enumerable: !(desc = __getOwnPropDesc(module2, key)) || desc.enumerable });
+      if (!__hasOwnProp.call(target, key) && key !== 'default')
+        __defProp(target, key, {
+          get: () => module2[key],
+          enumerable:
+            !(desc = __getOwnPropDesc(module2, key)) || desc.enumerable,
+        });
   }
   return target;
 };
 var __toModule = (module2) => {
-  return __reExport(__markAsModule(__defProp(module2 != null ? __create(__getProtoOf(module2)) : {}, "default", module2 && module2.__esModule && "default" in module2 ? { get: () => module2.default, enumerable: true } : { value: module2, enumerable: true })), module2);
+  return __reExport(
+    __markAsModule(
+      __defProp(
+        module2 != null ? __create(__getProtoOf(module2)) : {},
+        'default',
+        module2 && module2.__esModule && 'default' in module2
+          ? { get: () => module2.default, enumerable: true }
+          : { value: module2, enumerable: true }
+      )
+    ),
+    module2
+  );
 };
 
 // node_modules/@sveltejs/kit/dist/install-fetch.js
 function dataUriToBuffer(uri) {
   if (!/^data:/i.test(uri)) {
-    throw new TypeError('`uri` does not appear to be a Data URI (must begin with "data:")');
+    throw new TypeError(
+      '`uri` does not appear to be a Data URI (must begin with "data:")'
+    );
   }
-  uri = uri.replace(/\r?\n/g, "");
-  const firstComma = uri.indexOf(",");
+  uri = uri.replace(/\r?\n/g, '');
+  const firstComma = uri.indexOf(',');
   if (firstComma === -1 || firstComma <= 4) {
-    throw new TypeError("malformed data: URI");
+    throw new TypeError('malformed data: URI');
   }
-  const meta = uri.substring(5, firstComma).split(";");
-  let charset = "";
+  const meta = uri.substring(5, firstComma).split(';');
+  let charset = '';
   let base64 = false;
-  const type = meta[0] || "text/plain";
+  const type = meta[0] || 'text/plain';
   let typeFull = type;
   for (let i = 1; i < meta.length; i++) {
-    if (meta[i] === "base64") {
+    if (meta[i] === 'base64') {
       base64 = true;
     } else {
       typeFull += `;${meta[i]}`;
-      if (meta[i].indexOf("charset=") === 0) {
+      if (meta[i].indexOf('charset=') === 0) {
         charset = meta[i].substring(8);
       }
     }
   }
   if (!meta[0] && !charset.length) {
-    typeFull += ";charset=US-ASCII";
-    charset = "US-ASCII";
+    typeFull += ';charset=US-ASCII';
+    charset = 'US-ASCII';
   }
-  const encoding = base64 ? "base64" : "ascii";
+  const encoding = base64 ? 'base64' : 'ascii';
   const data = unescape(uri.substring(firstComma + 1));
   const buffer = Buffer.from(data, encoding);
   buffer.type = type;
@@ -64,7 +86,7 @@ function dataUriToBuffer(uri) {
 }
 async function* toIterator(parts, clone2 = true) {
   for (const part of parts) {
-    if ("stream" in part) {
+    if ('stream' in part) {
       yield* part.stream();
     } else if (ArrayBuffer.isView(part)) {
       if (clone2) {
@@ -82,7 +104,10 @@ async function* toIterator(parts, clone2 = true) {
     } else {
       let position = 0;
       while (position !== part.size) {
-        const chunk = part.slice(position, Math.min(part.size, position + POOL_SIZE));
+        const chunk = part.slice(
+          position,
+          Math.min(part.size, position + POOL_SIZE)
+        );
         const buffer = await chunk.arrayBuffer();
         position += buffer.byteLength;
         yield new Uint8Array(buffer);
@@ -91,15 +116,27 @@ async function* toIterator(parts, clone2 = true) {
   }
 }
 function isFormData(object) {
-  return typeof object === "object" && typeof object.append === "function" && typeof object.set === "function" && typeof object.get === "function" && typeof object.getAll === "function" && typeof object.delete === "function" && typeof object.keys === "function" && typeof object.values === "function" && typeof object.entries === "function" && typeof object.constructor === "function" && object[NAME] === "FormData";
+  return (
+    typeof object === 'object' &&
+    typeof object.append === 'function' &&
+    typeof object.set === 'function' &&
+    typeof object.get === 'function' &&
+    typeof object.getAll === 'function' &&
+    typeof object.delete === 'function' &&
+    typeof object.keys === 'function' &&
+    typeof object.values === 'function' &&
+    typeof object.entries === 'function' &&
+    typeof object.constructor === 'function' &&
+    object[NAME] === 'FormData'
+  );
 }
 function getHeader(boundary, name, field) {
-  let header = "";
+  let header = '';
   header += `${dashes}${boundary}${carriage}`;
   header += `Content-Disposition: form-data; name="${name}"`;
   if (isBlob(field)) {
     header += `; filename="${field.name}"${carriage}`;
-    header += `Content-Type: ${field.type || "application/octet-stream"}`;
+    header += `Content-Type: ${field.type || 'application/octet-stream'}`;
   }
   return `${header}${carriage.repeat(2)}`;
 }
@@ -151,7 +188,10 @@ async function consumeBody(data) {
   try {
     for await (const chunk of body) {
       if (data.size > 0 && accumBytes + chunk.length > data.size) {
-        const error2 = new FetchError(`content size at ${data.url} over limit: ${data.size}`, "max-size");
+        const error2 = new FetchError(
+          `content size at ${data.url} over limit: ${data.size}`,
+          'max-size'
+        );
         body.destroy(error2);
         throw error2;
       }
@@ -159,64 +199,95 @@ async function consumeBody(data) {
       accum.push(chunk);
     }
   } catch (error2) {
-    const error_ = error2 instanceof FetchBaseError ? error2 : new FetchError(`Invalid response body while trying to fetch ${data.url}: ${error2.message}`, "system", error2);
+    const error_ =
+      error2 instanceof FetchBaseError
+        ? error2
+        : new FetchError(
+            `Invalid response body while trying to fetch ${data.url}: ${error2.message}`,
+            'system',
+            error2
+          );
     throw error_;
   }
   if (body.readableEnded === true || body._readableState.ended === true) {
     try {
-      if (accum.every((c) => typeof c === "string")) {
-        return Buffer.from(accum.join(""));
+      if (accum.every((c) => typeof c === 'string')) {
+        return Buffer.from(accum.join(''));
       }
       return Buffer.concat(accum, accumBytes);
     } catch (error2) {
-      throw new FetchError(`Could not create Buffer from response body for ${data.url}: ${error2.message}`, "system", error2);
+      throw new FetchError(
+        `Could not create Buffer from response body for ${data.url}: ${error2.message}`,
+        'system',
+        error2
+      );
     }
   } else {
-    throw new FetchError(`Premature close of server response while trying to fetch ${data.url}`);
+    throw new FetchError(
+      `Premature close of server response while trying to fetch ${data.url}`
+    );
   }
 }
 function fromRawHeaders(headers = []) {
-  return new Headers(headers.reduce((result, value, index, array) => {
-    if (index % 2 === 0) {
-      result.push(array.slice(index, index + 2));
-    }
-    return result;
-  }, []).filter(([name, value]) => {
-    try {
-      validateHeaderName(name);
-      validateHeaderValue(name, String(value));
-      return true;
-    } catch {
-      return false;
-    }
-  }));
+  return new Headers(
+    headers
+      .reduce((result, value, index, array) => {
+        if (index % 2 === 0) {
+          result.push(array.slice(index, index + 2));
+        }
+        return result;
+      }, [])
+      .filter(([name, value]) => {
+        try {
+          validateHeaderName(name);
+          validateHeaderValue(name, String(value));
+          return true;
+        } catch {
+          return false;
+        }
+      })
+  );
 }
 async function fetch(url, options_) {
   return new Promise((resolve2, reject) => {
     const request = new Request(url, options_);
     const options2 = getNodeRequestOptions(request);
     if (!supportedSchemas.has(options2.protocol)) {
-      throw new TypeError(`node-fetch cannot load ${url}. URL scheme "${options2.protocol.replace(/:$/, "")}" is not supported.`);
+      throw new TypeError(
+        `node-fetch cannot load ${url}. URL scheme "${options2.protocol.replace(
+          /:$/,
+          ''
+        )}" is not supported.`
+      );
     }
-    if (options2.protocol === "data:") {
+    if (options2.protocol === 'data:') {
       const data = dataUriToBuffer$1(request.url);
-      const response2 = new Response(data, { headers: { "Content-Type": data.typeFull } });
+      const response2 = new Response(data, {
+        headers: { 'Content-Type': data.typeFull },
+      });
       resolve2(response2);
       return;
     }
-    const send = (options2.protocol === "https:" ? import_https.default : import_http.default).request;
+    const send = (
+      options2.protocol === 'https:'
+        ? import_https.default
+        : import_http.default
+    ).request;
     const { signal } = request;
     let response = null;
     const abort = () => {
-      const error2 = new AbortError("The operation was aborted.");
+      const error2 = new AbortError('The operation was aborted.');
       reject(error2);
-      if (request.body && request.body instanceof import_stream.default.Readable) {
+      if (
+        request.body &&
+        request.body instanceof import_stream.default.Readable
+      ) {
         request.body.destroy(error2);
       }
       if (!response || !response.body) {
         return;
       }
-      response.body.emit("error", error2);
+      response.body.emit('error', error2);
     };
     if (signal && signal.aborted) {
       abort();
@@ -228,58 +299,75 @@ async function fetch(url, options_) {
     };
     const request_ = send(options2);
     if (signal) {
-      signal.addEventListener("abort", abortAndFinalize);
+      signal.addEventListener('abort', abortAndFinalize);
     }
     const finalize = () => {
       request_.abort();
       if (signal) {
-        signal.removeEventListener("abort", abortAndFinalize);
+        signal.removeEventListener('abort', abortAndFinalize);
       }
     };
-    request_.on("error", (error2) => {
-      reject(new FetchError(`request to ${request.url} failed, reason: ${error2.message}`, "system", error2));
+    request_.on('error', (error2) => {
+      reject(
+        new FetchError(
+          `request to ${request.url} failed, reason: ${error2.message}`,
+          'system',
+          error2
+        )
+      );
       finalize();
     });
     fixResponseChunkedTransferBadEnding(request_, (error2) => {
       response.body.destroy(error2);
     });
-    if (process.version < "v14") {
-      request_.on("socket", (s2) => {
+    if (process.version < 'v14') {
+      request_.on('socket', (s2) => {
         let endedWithEventsCount;
-        s2.prependListener("end", () => {
+        s2.prependListener('end', () => {
           endedWithEventsCount = s2._eventsCount;
         });
-        s2.prependListener("close", (hadError) => {
+        s2.prependListener('close', (hadError) => {
           if (response && endedWithEventsCount < s2._eventsCount && !hadError) {
-            const error2 = new Error("Premature close");
-            error2.code = "ERR_STREAM_PREMATURE_CLOSE";
-            response.body.emit("error", error2);
+            const error2 = new Error('Premature close');
+            error2.code = 'ERR_STREAM_PREMATURE_CLOSE';
+            response.body.emit('error', error2);
           }
         });
       });
     }
-    request_.on("response", (response_) => {
+    request_.on('response', (response_) => {
       request_.setTimeout(0);
       const headers = fromRawHeaders(response_.rawHeaders);
       if (isRedirect(response_.statusCode)) {
-        const location = headers.get("Location");
-        const locationURL = location === null ? null : new URL(location, request.url);
+        const location = headers.get('Location');
+        const locationURL =
+          location === null ? null : new URL(location, request.url);
         switch (request.redirect) {
-          case "error":
-            reject(new FetchError(`uri requested responds with a redirect, redirect mode is set to error: ${request.url}`, "no-redirect"));
+          case 'error':
+            reject(
+              new FetchError(
+                `uri requested responds with a redirect, redirect mode is set to error: ${request.url}`,
+                'no-redirect'
+              )
+            );
             finalize();
             return;
-          case "manual":
+          case 'manual':
             if (locationURL !== null) {
-              headers.set("Location", locationURL);
+              headers.set('Location', locationURL);
             }
             break;
-          case "follow": {
+          case 'follow': {
             if (locationURL === null) {
               break;
             }
             if (request.counter >= request.follow) {
-              reject(new FetchError(`maximum redirect reached at: ${request.url}`, "max-redirect"));
+              reject(
+                new FetchError(
+                  `maximum redirect reached at: ${request.url}`,
+                  'max-redirect'
+                )
+              );
               finalize();
               return;
             }
@@ -292,34 +380,55 @@ async function fetch(url, options_) {
               method: request.method,
               body: request.body,
               signal: request.signal,
-              size: request.size
+              size: request.size,
             };
-            if (response_.statusCode !== 303 && request.body && options_.body instanceof import_stream.default.Readable) {
-              reject(new FetchError("Cannot follow redirect with body being a readable stream", "unsupported-redirect"));
+            if (
+              response_.statusCode !== 303 &&
+              request.body &&
+              options_.body instanceof import_stream.default.Readable
+            ) {
+              reject(
+                new FetchError(
+                  'Cannot follow redirect with body being a readable stream',
+                  'unsupported-redirect'
+                )
+              );
               finalize();
               return;
             }
-            if (response_.statusCode === 303 || (response_.statusCode === 301 || response_.statusCode === 302) && request.method === "POST") {
-              requestOptions.method = "GET";
+            if (
+              response_.statusCode === 303 ||
+              ((response_.statusCode === 301 || response_.statusCode === 302) &&
+                request.method === 'POST')
+            ) {
+              requestOptions.method = 'GET';
               requestOptions.body = void 0;
-              requestOptions.headers.delete("content-length");
+              requestOptions.headers.delete('content-length');
             }
             resolve2(fetch(new Request(locationURL, requestOptions)));
             finalize();
             return;
           }
           default:
-            return reject(new TypeError(`Redirect option '${request.redirect}' is not a valid value of RequestRedirect`));
+            return reject(
+              new TypeError(
+                `Redirect option '${request.redirect}' is not a valid value of RequestRedirect`
+              )
+            );
         }
       }
       if (signal) {
-        response_.once("end", () => {
-          signal.removeEventListener("abort", abortAndFinalize);
+        response_.once('end', () => {
+          signal.removeEventListener('abort', abortAndFinalize);
         });
       }
-      let body = (0, import_stream.pipeline)(response_, new import_stream.PassThrough(), reject);
-      if (process.version < "v12.10") {
-        response_.on("aborted", abortAndFinalize);
+      let body = (0, import_stream.pipeline)(
+        response_,
+        new import_stream.PassThrough(),
+        reject
+      );
+      if (process.version < 'v12.10') {
+        response_.on('aborted', abortAndFinalize);
       }
       const responseOptions = {
         url: request.url,
@@ -328,35 +437,64 @@ async function fetch(url, options_) {
         headers,
         size: request.size,
         counter: request.counter,
-        highWaterMark: request.highWaterMark
+        highWaterMark: request.highWaterMark,
       };
-      const codings = headers.get("Content-Encoding");
-      if (!request.compress || request.method === "HEAD" || codings === null || response_.statusCode === 204 || response_.statusCode === 304) {
+      const codings = headers.get('Content-Encoding');
+      if (
+        !request.compress ||
+        request.method === 'HEAD' ||
+        codings === null ||
+        response_.statusCode === 204 ||
+        response_.statusCode === 304
+      ) {
         response = new Response(body, responseOptions);
         resolve2(response);
         return;
       }
       const zlibOptions = {
         flush: import_zlib.default.Z_SYNC_FLUSH,
-        finishFlush: import_zlib.default.Z_SYNC_FLUSH
+        finishFlush: import_zlib.default.Z_SYNC_FLUSH,
       };
-      if (codings === "gzip" || codings === "x-gzip") {
-        body = (0, import_stream.pipeline)(body, import_zlib.default.createGunzip(zlibOptions), reject);
+      if (codings === 'gzip' || codings === 'x-gzip') {
+        body = (0, import_stream.pipeline)(
+          body,
+          import_zlib.default.createGunzip(zlibOptions),
+          reject
+        );
         response = new Response(body, responseOptions);
         resolve2(response);
         return;
       }
-      if (codings === "deflate" || codings === "x-deflate") {
-        const raw = (0, import_stream.pipeline)(response_, new import_stream.PassThrough(), reject);
-        raw.once("data", (chunk) => {
-          body = (chunk[0] & 15) === 8 ? (0, import_stream.pipeline)(body, import_zlib.default.createInflate(), reject) : (0, import_stream.pipeline)(body, import_zlib.default.createInflateRaw(), reject);
+      if (codings === 'deflate' || codings === 'x-deflate') {
+        const raw = (0, import_stream.pipeline)(
+          response_,
+          new import_stream.PassThrough(),
+          reject
+        );
+        raw.once('data', (chunk) => {
+          body =
+            (chunk[0] & 15) === 8
+              ? (0, import_stream.pipeline)(
+                  body,
+                  import_zlib.default.createInflate(),
+                  reject
+                )
+              : (0, import_stream.pipeline)(
+                  body,
+                  import_zlib.default.createInflateRaw(),
+                  reject
+                );
           response = new Response(body, responseOptions);
           resolve2(response);
         });
         return;
       }
-      if (codings === "br") {
-        body = (0, import_stream.pipeline)(body, import_zlib.default.createBrotliDecompress(), reject);
+      if (codings === 'br') {
+        body = (0, import_stream.pipeline)(
+          body,
+          import_zlib.default.createBrotliDecompress(),
+          reject
+        );
         response = new Response(body, responseOptions);
         resolve2(response);
         return;
@@ -368,71 +506,134 @@ async function fetch(url, options_) {
   });
 }
 function fixResponseChunkedTransferBadEnding(request, errorCallback) {
-  const LAST_CHUNK = Buffer.from("0\r\n\r\n");
+  const LAST_CHUNK = Buffer.from('0\r\n\r\n');
   let isChunkedTransfer = false;
   let properLastChunkReceived = false;
   let previousChunk;
-  request.on("response", (response) => {
+  request.on('response', (response) => {
     const { headers } = response;
-    isChunkedTransfer = headers["transfer-encoding"] === "chunked" && !headers["content-length"];
+    isChunkedTransfer =
+      headers['transfer-encoding'] === 'chunked' && !headers['content-length'];
   });
-  request.on("socket", (socket) => {
+  request.on('socket', (socket) => {
     const onSocketClose = () => {
       if (isChunkedTransfer && !properLastChunkReceived) {
-        const error2 = new Error("Premature close");
-        error2.code = "ERR_STREAM_PREMATURE_CLOSE";
+        const error2 = new Error('Premature close');
+        error2.code = 'ERR_STREAM_PREMATURE_CLOSE';
         errorCallback(error2);
       }
     };
-    socket.prependListener("close", onSocketClose);
-    request.on("abort", () => {
-      socket.removeListener("close", onSocketClose);
+    socket.prependListener('close', onSocketClose);
+    request.on('abort', () => {
+      socket.removeListener('close', onSocketClose);
     });
-    socket.on("data", (buf) => {
+    socket.on('data', (buf) => {
       properLastChunkReceived = Buffer.compare(buf.slice(-5), LAST_CHUNK) === 0;
       if (!properLastChunkReceived && previousChunk) {
-        properLastChunkReceived = Buffer.compare(previousChunk.slice(-3), LAST_CHUNK.slice(0, 3)) === 0 && Buffer.compare(buf.slice(-2), LAST_CHUNK.slice(3)) === 0;
+        properLastChunkReceived =
+          Buffer.compare(previousChunk.slice(-3), LAST_CHUNK.slice(0, 3)) ===
+            0 && Buffer.compare(buf.slice(-2), LAST_CHUNK.slice(3)) === 0;
       }
       previousChunk = buf;
     });
   });
 }
-var import_http, import_https, import_zlib, import_stream, import_util, import_crypto, import_url, commonjsGlobal, src, dataUriToBuffer$1, ponyfill_es2018, POOL_SIZE$1, POOL_SIZE, _Blob, Blob2, Blob$1, FetchBaseError, FetchError, NAME, isURLSearchParameters, isBlob, isAbortSignal, carriage, dashes, carriageLength, getFooter, getBoundary, INTERNALS$2, Body, clone, extractContentType, getTotalBytes, writeToStream, validateHeaderName, validateHeaderValue, Headers, redirectStatus, isRedirect, INTERNALS$1, Response, getSearch, INTERNALS, isRequest, Request, getNodeRequestOptions, AbortError, supportedSchemas;
+var import_http,
+  import_https,
+  import_zlib,
+  import_stream,
+  import_util,
+  import_crypto,
+  import_url,
+  commonjsGlobal,
+  src,
+  dataUriToBuffer$1,
+  ponyfill_es2018,
+  POOL_SIZE$1,
+  POOL_SIZE,
+  _Blob,
+  Blob2,
+  Blob$1,
+  FetchBaseError,
+  FetchError,
+  NAME,
+  isURLSearchParameters,
+  isBlob,
+  isAbortSignal,
+  carriage,
+  dashes,
+  carriageLength,
+  getFooter,
+  getBoundary,
+  INTERNALS$2,
+  Body,
+  clone,
+  extractContentType,
+  getTotalBytes,
+  writeToStream,
+  validateHeaderName,
+  validateHeaderValue,
+  Headers,
+  redirectStatus,
+  isRedirect,
+  INTERNALS$1,
+  Response,
+  getSearch,
+  INTERNALS,
+  isRequest,
+  Request,
+  getNodeRequestOptions,
+  AbortError,
+  supportedSchemas;
 var init_install_fetch = __esm({
-  "node_modules/@sveltejs/kit/dist/install-fetch.js"() {
+  'node_modules/@sveltejs/kit/dist/install-fetch.js'() {
     init_shims();
-    import_http = __toModule(require("http"));
-    import_https = __toModule(require("https"));
-    import_zlib = __toModule(require("zlib"));
-    import_stream = __toModule(require("stream"));
-    import_util = __toModule(require("util"));
-    import_crypto = __toModule(require("crypto"));
-    import_url = __toModule(require("url"));
-    commonjsGlobal = typeof globalThis !== "undefined" ? globalThis : typeof window !== "undefined" ? window : typeof global !== "undefined" ? global : typeof self !== "undefined" ? self : {};
+    import_http = __toModule(require('http'));
+    import_https = __toModule(require('https'));
+    import_zlib = __toModule(require('zlib'));
+    import_stream = __toModule(require('stream'));
+    import_util = __toModule(require('util'));
+    import_crypto = __toModule(require('crypto'));
+    import_url = __toModule(require('url'));
+    commonjsGlobal =
+      typeof globalThis !== 'undefined'
+        ? globalThis
+        : typeof window !== 'undefined'
+        ? window
+        : typeof global !== 'undefined'
+        ? global
+        : typeof self !== 'undefined'
+        ? self
+        : {};
     src = dataUriToBuffer;
     dataUriToBuffer$1 = src;
     ponyfill_es2018 = { exports: {} };
-    (function(module2, exports) {
-      (function(global2, factory) {
+    (function (module2, exports) {
+      (function (global2, factory) {
         factory(exports);
-      })(commonjsGlobal, function(exports2) {
-        const SymbolPolyfill = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? Symbol : (description) => `Symbol(${description})`;
+      })(commonjsGlobal, function (exports2) {
+        const SymbolPolyfill =
+          typeof Symbol === 'function' && typeof Symbol.iterator === 'symbol'
+            ? Symbol
+            : (description) => `Symbol(${description})`;
         function noop2() {
           return void 0;
         }
         function getGlobals() {
-          if (typeof self !== "undefined") {
+          if (typeof self !== 'undefined') {
             return self;
-          } else if (typeof window !== "undefined") {
+          } else if (typeof window !== 'undefined') {
             return window;
-          } else if (typeof commonjsGlobal !== "undefined") {
+          } else if (typeof commonjsGlobal !== 'undefined') {
             return commonjsGlobal;
           }
           return void 0;
         }
         const globals = getGlobals();
         function typeIsObject(x) {
-          return typeof x === "object" && x !== null || typeof x === "function";
+          return (
+            (typeof x === 'object' && x !== null) || typeof x === 'function'
+          );
         }
         const rethrowAssertionErrorRejection = noop2;
         const originalPromise = Promise;
@@ -452,7 +653,11 @@ var init_install_fetch = __esm({
           return originalPromiseThen.call(promise, onFulfilled, onRejected);
         }
         function uponPromise(promise, onFulfilled, onRejected) {
-          PerformPromiseThen(PerformPromiseThen(promise, onFulfilled, onRejected), void 0, rethrowAssertionErrorRejection);
+          PerformPromiseThen(
+            PerformPromiseThen(promise, onFulfilled, onRejected),
+            void 0,
+            rethrowAssertionErrorRejection
+          );
         }
         function uponFulfillment(promise, onFulfilled) {
           uponPromise(promise, onFulfilled);
@@ -460,23 +665,31 @@ var init_install_fetch = __esm({
         function uponRejection(promise, onRejected) {
           uponPromise(promise, void 0, onRejected);
         }
-        function transformPromiseWith(promise, fulfillmentHandler, rejectionHandler) {
-          return PerformPromiseThen(promise, fulfillmentHandler, rejectionHandler);
+        function transformPromiseWith(
+          promise,
+          fulfillmentHandler,
+          rejectionHandler
+        ) {
+          return PerformPromiseThen(
+            promise,
+            fulfillmentHandler,
+            rejectionHandler
+          );
         }
         function setPromiseIsHandledToTrue(promise) {
           PerformPromiseThen(promise, void 0, rethrowAssertionErrorRejection);
         }
         const queueMicrotask2 = (() => {
           const globalQueueMicrotask = globals && globals.queueMicrotask;
-          if (typeof globalQueueMicrotask === "function") {
+          if (typeof globalQueueMicrotask === 'function') {
             return globalQueueMicrotask;
           }
           const resolvedPromise = promiseResolvedWith(void 0);
           return (fn) => PerformPromiseThen(resolvedPromise, fn);
         })();
         function reflectCall(F, V, args) {
-          if (typeof F !== "function") {
-            throw new TypeError("Argument is not a function");
+          if (typeof F !== 'function') {
+            throw new TypeError('Argument is not a function');
           }
           return Function.prototype.apply.call(F, V, args);
         }
@@ -494,7 +707,7 @@ var init_install_fetch = __esm({
             this._size = 0;
             this._front = {
               _elements: [],
-              _next: void 0
+              _next: void 0,
             };
             this._back = this._front;
             this._cursor = 0;
@@ -509,7 +722,7 @@ var init_install_fetch = __esm({
             if (oldBack._elements.length === QUEUE_MAX_ARRAY_SIZE - 1) {
               newBack = {
                 _elements: [],
-                _next: void 0
+                _next: void 0,
               };
             }
             oldBack._elements.push(element);
@@ -564,12 +777,15 @@ var init_install_fetch = __esm({
         function ReadableStreamReaderGenericInitialize(reader, stream) {
           reader._ownerReadableStream = stream;
           stream._reader = reader;
-          if (stream._state === "readable") {
+          if (stream._state === 'readable') {
             defaultReaderClosedPromiseInitialize(reader);
-          } else if (stream._state === "closed") {
+          } else if (stream._state === 'closed') {
             defaultReaderClosedPromiseInitializeAsResolved(reader);
           } else {
-            defaultReaderClosedPromiseInitializeAsRejected(reader, stream._storedError);
+            defaultReaderClosedPromiseInitializeAsRejected(
+              reader,
+              stream._storedError
+            );
           }
         }
         function ReadableStreamReaderGenericCancel(reader, reason) {
@@ -577,16 +793,28 @@ var init_install_fetch = __esm({
           return ReadableStreamCancel(stream, reason);
         }
         function ReadableStreamReaderGenericRelease(reader) {
-          if (reader._ownerReadableStream._state === "readable") {
-            defaultReaderClosedPromiseReject(reader, new TypeError(`Reader was released and can no longer be used to monitor the stream's closedness`));
+          if (reader._ownerReadableStream._state === 'readable') {
+            defaultReaderClosedPromiseReject(
+              reader,
+              new TypeError(
+                `Reader was released and can no longer be used to monitor the stream's closedness`
+              )
+            );
           } else {
-            defaultReaderClosedPromiseResetToRejected(reader, new TypeError(`Reader was released and can no longer be used to monitor the stream's closedness`));
+            defaultReaderClosedPromiseResetToRejected(
+              reader,
+              new TypeError(
+                `Reader was released and can no longer be used to monitor the stream's closedness`
+              )
+            );
           }
           reader._ownerReadableStream._reader = void 0;
           reader._ownerReadableStream = void 0;
         }
         function readerLockException(name) {
-          return new TypeError("Cannot " + name + " a stream using a released reader");
+          return new TypeError(
+            'Cannot ' + name + ' a stream using a released reader'
+          );
         }
         function defaultReaderClosedPromiseInitialize(reader) {
           reader._closedPromise = newPromise((resolve2, reject) => {
@@ -594,7 +822,10 @@ var init_install_fetch = __esm({
             reader._closedPromise_reject = reject;
           });
         }
-        function defaultReaderClosedPromiseInitializeAsRejected(reader, reason) {
+        function defaultReaderClosedPromiseInitializeAsRejected(
+          reader,
+          reason
+        ) {
           defaultReaderClosedPromiseInitialize(reader);
           defaultReaderClosedPromiseReject(reader, reason);
         }
@@ -622,18 +853,22 @@ var init_install_fetch = __esm({
           reader._closedPromise_resolve = void 0;
           reader._closedPromise_reject = void 0;
         }
-        const AbortSteps = SymbolPolyfill("[[AbortSteps]]");
-        const ErrorSteps = SymbolPolyfill("[[ErrorSteps]]");
-        const CancelSteps = SymbolPolyfill("[[CancelSteps]]");
-        const PullSteps = SymbolPolyfill("[[PullSteps]]");
-        const NumberIsFinite = Number.isFinite || function(x) {
-          return typeof x === "number" && isFinite(x);
-        };
-        const MathTrunc = Math.trunc || function(v) {
-          return v < 0 ? Math.ceil(v) : Math.floor(v);
-        };
+        const AbortSteps = SymbolPolyfill('[[AbortSteps]]');
+        const ErrorSteps = SymbolPolyfill('[[ErrorSteps]]');
+        const CancelSteps = SymbolPolyfill('[[CancelSteps]]');
+        const PullSteps = SymbolPolyfill('[[PullSteps]]');
+        const NumberIsFinite =
+          Number.isFinite ||
+          function (x) {
+            return typeof x === 'number' && isFinite(x);
+          };
+        const MathTrunc =
+          Math.trunc ||
+          function (v) {
+            return v < 0 ? Math.ceil(v) : Math.floor(v);
+          };
         function isDictionary(x) {
-          return typeof x === "object" || typeof x === "function";
+          return typeof x === 'object' || typeof x === 'function';
         }
         function assertDictionary(obj, context) {
           if (obj !== void 0 && !isDictionary(obj)) {
@@ -641,12 +876,14 @@ var init_install_fetch = __esm({
           }
         }
         function assertFunction(x, context) {
-          if (typeof x !== "function") {
+          if (typeof x !== 'function') {
             throw new TypeError(`${context} is not a function.`);
           }
         }
         function isObject(x) {
-          return typeof x === "object" && x !== null || typeof x === "function";
+          return (
+            (typeof x === 'object' && x !== null) || typeof x === 'function'
+          );
         }
         function assertObject(x, context) {
           if (!isObject(x)) {
@@ -655,7 +892,9 @@ var init_install_fetch = __esm({
         }
         function assertRequiredArgument(x, position, context) {
           if (x === void 0) {
-            throw new TypeError(`Parameter ${position} is required in '${context}'.`);
+            throw new TypeError(
+              `Parameter ${position} is required in '${context}'.`
+            );
           }
         }
         function assertRequiredField(x, field, context) {
@@ -682,7 +921,9 @@ var init_install_fetch = __esm({
           }
           x = integerPart(x);
           if (x < lowerBound || x > upperBound) {
-            throw new TypeError(`${context} is outside the accepted range of ${lowerBound} to ${upperBound}, inclusive`);
+            throw new TypeError(
+              `${context} is outside the accepted range of ${lowerBound} to ${upperBound}, inclusive`
+            );
           }
           if (!NumberIsFinite(x) || x === 0) {
             return 0;
@@ -724,35 +965,43 @@ var init_install_fetch = __esm({
         }
         class ReadableStreamDefaultReader {
           constructor(stream) {
-            assertRequiredArgument(stream, 1, "ReadableStreamDefaultReader");
-            assertReadableStream(stream, "First parameter");
+            assertRequiredArgument(stream, 1, 'ReadableStreamDefaultReader');
+            assertReadableStream(stream, 'First parameter');
             if (IsReadableStreamLocked(stream)) {
-              throw new TypeError("This stream has already been locked for exclusive reading by another reader");
+              throw new TypeError(
+                'This stream has already been locked for exclusive reading by another reader'
+              );
             }
             ReadableStreamReaderGenericInitialize(this, stream);
             this._readRequests = new SimpleQueue();
           }
           get closed() {
             if (!IsReadableStreamDefaultReader(this)) {
-              return promiseRejectedWith(defaultReaderBrandCheckException("closed"));
+              return promiseRejectedWith(
+                defaultReaderBrandCheckException('closed')
+              );
             }
             return this._closedPromise;
           }
           cancel(reason = void 0) {
             if (!IsReadableStreamDefaultReader(this)) {
-              return promiseRejectedWith(defaultReaderBrandCheckException("cancel"));
+              return promiseRejectedWith(
+                defaultReaderBrandCheckException('cancel')
+              );
             }
             if (this._ownerReadableStream === void 0) {
-              return promiseRejectedWith(readerLockException("cancel"));
+              return promiseRejectedWith(readerLockException('cancel'));
             }
             return ReadableStreamReaderGenericCancel(this, reason);
           }
           read() {
             if (!IsReadableStreamDefaultReader(this)) {
-              return promiseRejectedWith(defaultReaderBrandCheckException("read"));
+              return promiseRejectedWith(
+                defaultReaderBrandCheckException('read')
+              );
             }
             if (this._ownerReadableStream === void 0) {
-              return promiseRejectedWith(readerLockException("read from"));
+              return promiseRejectedWith(readerLockException('read from'));
             }
             let resolvePromise;
             let rejectPromise;
@@ -761,22 +1010,25 @@ var init_install_fetch = __esm({
               rejectPromise = reject;
             });
             const readRequest = {
-              _chunkSteps: (chunk) => resolvePromise({ value: chunk, done: false }),
+              _chunkSteps: (chunk) =>
+                resolvePromise({ value: chunk, done: false }),
               _closeSteps: () => resolvePromise({ value: void 0, done: true }),
-              _errorSteps: (e) => rejectPromise(e)
+              _errorSteps: (e) => rejectPromise(e),
             };
             ReadableStreamDefaultReaderRead(this, readRequest);
             return promise;
           }
           releaseLock() {
             if (!IsReadableStreamDefaultReader(this)) {
-              throw defaultReaderBrandCheckException("releaseLock");
+              throw defaultReaderBrandCheckException('releaseLock');
             }
             if (this._ownerReadableStream === void 0) {
               return;
             }
             if (this._readRequests.length > 0) {
-              throw new TypeError("Tried to release a reader lock when that reader has pending read() calls un-settled");
+              throw new TypeError(
+                'Tried to release a reader lock when that reader has pending read() calls un-settled'
+              );
             }
             ReadableStreamReaderGenericRelease(this);
           }
@@ -785,19 +1037,23 @@ var init_install_fetch = __esm({
           cancel: { enumerable: true },
           read: { enumerable: true },
           releaseLock: { enumerable: true },
-          closed: { enumerable: true }
+          closed: { enumerable: true },
         });
-        if (typeof SymbolPolyfill.toStringTag === "symbol") {
-          Object.defineProperty(ReadableStreamDefaultReader.prototype, SymbolPolyfill.toStringTag, {
-            value: "ReadableStreamDefaultReader",
-            configurable: true
-          });
+        if (typeof SymbolPolyfill.toStringTag === 'symbol') {
+          Object.defineProperty(
+            ReadableStreamDefaultReader.prototype,
+            SymbolPolyfill.toStringTag,
+            {
+              value: 'ReadableStreamDefaultReader',
+              configurable: true,
+            }
+          );
         }
         function IsReadableStreamDefaultReader(x) {
           if (!typeIsObject(x)) {
             return false;
           }
-          if (!Object.prototype.hasOwnProperty.call(x, "_readRequests")) {
+          if (!Object.prototype.hasOwnProperty.call(x, '_readRequests')) {
             return false;
           }
           return x instanceof ReadableStreamDefaultReader;
@@ -805,19 +1061,22 @@ var init_install_fetch = __esm({
         function ReadableStreamDefaultReaderRead(reader, readRequest) {
           const stream = reader._ownerReadableStream;
           stream._disturbed = true;
-          if (stream._state === "closed") {
+          if (stream._state === 'closed') {
             readRequest._closeSteps();
-          } else if (stream._state === "errored") {
+          } else if (stream._state === 'errored') {
             readRequest._errorSteps(stream._storedError);
           } else {
             stream._readableStreamController[PullSteps](readRequest);
           }
         }
         function defaultReaderBrandCheckException(name) {
-          return new TypeError(`ReadableStreamDefaultReader.prototype.${name} can only be used on a ReadableStreamDefaultReader`);
+          return new TypeError(
+            `ReadableStreamDefaultReader.prototype.${name} can only be used on a ReadableStreamDefaultReader`
+          );
         }
-        const AsyncIteratorPrototype = Object.getPrototypeOf(Object.getPrototypeOf(async function* () {
-        }).prototype);
+        const AsyncIteratorPrototype = Object.getPrototypeOf(
+          Object.getPrototypeOf(async function* () {}).prototype
+        );
         class ReadableStreamAsyncIteratorImpl {
           constructor(reader, preventCancel) {
             this._ongoingPromise = void 0;
@@ -827,12 +1086,20 @@ var init_install_fetch = __esm({
           }
           next() {
             const nextSteps = () => this._nextSteps();
-            this._ongoingPromise = this._ongoingPromise ? transformPromiseWith(this._ongoingPromise, nextSteps, nextSteps) : nextSteps();
+            this._ongoingPromise = this._ongoingPromise
+              ? transformPromiseWith(this._ongoingPromise, nextSteps, nextSteps)
+              : nextSteps();
             return this._ongoingPromise;
           }
           return(value) {
             const returnSteps = () => this._returnSteps(value);
-            return this._ongoingPromise ? transformPromiseWith(this._ongoingPromise, returnSteps, returnSteps) : returnSteps();
+            return this._ongoingPromise
+              ? transformPromiseWith(
+                  this._ongoingPromise,
+                  returnSteps,
+                  returnSteps
+                )
+              : returnSteps();
           }
           _nextSteps() {
             if (this._isFinished) {
@@ -840,7 +1107,7 @@ var init_install_fetch = __esm({
             }
             const reader = this._reader;
             if (reader._ownerReadableStream === void 0) {
-              return promiseRejectedWith(readerLockException("iterate"));
+              return promiseRejectedWith(readerLockException('iterate'));
             }
             let resolvePromise;
             let rejectPromise;
@@ -851,7 +1118,9 @@ var init_install_fetch = __esm({
             const readRequest = {
               _chunkSteps: (chunk) => {
                 this._ongoingPromise = void 0;
-                queueMicrotask2(() => resolvePromise({ value: chunk, done: false }));
+                queueMicrotask2(() =>
+                  resolvePromise({ value: chunk, done: false })
+                );
               },
               _closeSteps: () => {
                 this._ongoingPromise = void 0;
@@ -864,7 +1133,7 @@ var init_install_fetch = __esm({
                 this._isFinished = true;
                 ReadableStreamReaderGenericRelease(reader);
                 rejectPromise(reason);
-              }
+              },
             };
             ReadableStreamDefaultReaderRead(reader, readRequest);
             return promise;
@@ -876,12 +1145,17 @@ var init_install_fetch = __esm({
             this._isFinished = true;
             const reader = this._reader;
             if (reader._ownerReadableStream === void 0) {
-              return promiseRejectedWith(readerLockException("finish iterating"));
+              return promiseRejectedWith(
+                readerLockException('finish iterating')
+              );
             }
             if (!this._preventCancel) {
               const result = ReadableStreamReaderGenericCancel(reader, value);
               ReadableStreamReaderGenericRelease(reader);
-              return transformPromiseWith(result, () => ({ value, done: true }));
+              return transformPromiseWith(result, () => ({
+                value,
+                done: true,
+              }));
             }
             ReadableStreamReaderGenericRelease(reader);
             return promiseResolvedWith({ value, done: true });
@@ -890,23 +1164,33 @@ var init_install_fetch = __esm({
         const ReadableStreamAsyncIteratorPrototype = {
           next() {
             if (!IsReadableStreamAsyncIterator(this)) {
-              return promiseRejectedWith(streamAsyncIteratorBrandCheckException("next"));
+              return promiseRejectedWith(
+                streamAsyncIteratorBrandCheckException('next')
+              );
             }
             return this._asyncIteratorImpl.next();
           },
           return(value) {
             if (!IsReadableStreamAsyncIterator(this)) {
-              return promiseRejectedWith(streamAsyncIteratorBrandCheckException("return"));
+              return promiseRejectedWith(
+                streamAsyncIteratorBrandCheckException('return')
+              );
             }
             return this._asyncIteratorImpl.return(value);
-          }
+          },
         };
         if (AsyncIteratorPrototype !== void 0) {
-          Object.setPrototypeOf(ReadableStreamAsyncIteratorPrototype, AsyncIteratorPrototype);
+          Object.setPrototypeOf(
+            ReadableStreamAsyncIteratorPrototype,
+            AsyncIteratorPrototype
+          );
         }
         function AcquireReadableStreamAsyncIterator(stream, preventCancel) {
           const reader = AcquireReadableStreamDefaultReader(stream);
-          const impl = new ReadableStreamAsyncIteratorImpl(reader, preventCancel);
+          const impl = new ReadableStreamAsyncIteratorImpl(
+            reader,
+            preventCancel
+          );
           const iterator = Object.create(ReadableStreamAsyncIteratorPrototype);
           iterator._asyncIteratorImpl = impl;
           return iterator;
@@ -915,26 +1199,35 @@ var init_install_fetch = __esm({
           if (!typeIsObject(x)) {
             return false;
           }
-          if (!Object.prototype.hasOwnProperty.call(x, "_asyncIteratorImpl")) {
+          if (!Object.prototype.hasOwnProperty.call(x, '_asyncIteratorImpl')) {
             return false;
           }
           try {
-            return x._asyncIteratorImpl instanceof ReadableStreamAsyncIteratorImpl;
+            return (
+              x._asyncIteratorImpl instanceof ReadableStreamAsyncIteratorImpl
+            );
           } catch (_a) {
             return false;
           }
         }
         function streamAsyncIteratorBrandCheckException(name) {
-          return new TypeError(`ReadableStreamAsyncIterator.${name} can only be used on a ReadableSteamAsyncIterator`);
+          return new TypeError(
+            `ReadableStreamAsyncIterator.${name} can only be used on a ReadableSteamAsyncIterator`
+          );
         }
-        const NumberIsNaN = Number.isNaN || function(x) {
-          return x !== x;
-        };
+        const NumberIsNaN =
+          Number.isNaN ||
+          function (x) {
+            return x !== x;
+          };
         function CreateArrayFromList(elements) {
           return elements.slice();
         }
         function CopyDataBlockBytes(dest, destOffset, src2, srcOffset, n) {
-          new Uint8Array(dest).set(new Uint8Array(src2, srcOffset, n), destOffset);
+          new Uint8Array(dest).set(
+            new Uint8Array(src2, srcOffset, n),
+            destOffset
+          );
         }
         function TransferArrayBuffer(O) {
           return O;
@@ -952,7 +1245,7 @@ var init_install_fetch = __esm({
           return slice;
         }
         function IsNonNegativeNumber(v) {
-          if (typeof v !== "number") {
+          if (typeof v !== 'number') {
             return false;
           }
           if (NumberIsNaN(v)) {
@@ -964,7 +1257,11 @@ var init_install_fetch = __esm({
           return true;
         }
         function CloneAsUint8Array(O) {
-          const buffer = ArrayBufferSlice(O.buffer, O.byteOffset, O.byteOffset + O.byteLength);
+          const buffer = ArrayBufferSlice(
+            O.buffer,
+            O.byteOffset,
+            O.byteOffset + O.byteLength
+          );
           return new Uint8Array(buffer);
         }
         function DequeueValue(container) {
@@ -977,7 +1274,9 @@ var init_install_fetch = __esm({
         }
         function EnqueueValueWithSize(container, value, size) {
           if (!IsNonNegativeNumber(size) || size === Infinity) {
-            throw new RangeError("Size must be a finite, non-NaN, non-negative number.");
+            throw new RangeError(
+              'Size must be a finite, non-NaN, non-negative number.'
+            );
           }
           container._queue.push({ value, size });
           container._queueTotalSize += size;
@@ -992,109 +1291,130 @@ var init_install_fetch = __esm({
         }
         class ReadableStreamBYOBRequest {
           constructor() {
-            throw new TypeError("Illegal constructor");
+            throw new TypeError('Illegal constructor');
           }
           get view() {
             if (!IsReadableStreamBYOBRequest(this)) {
-              throw byobRequestBrandCheckException("view");
+              throw byobRequestBrandCheckException('view');
             }
             return this._view;
           }
           respond(bytesWritten) {
             if (!IsReadableStreamBYOBRequest(this)) {
-              throw byobRequestBrandCheckException("respond");
+              throw byobRequestBrandCheckException('respond');
             }
-            assertRequiredArgument(bytesWritten, 1, "respond");
-            bytesWritten = convertUnsignedLongLongWithEnforceRange(bytesWritten, "First parameter");
+            assertRequiredArgument(bytesWritten, 1, 'respond');
+            bytesWritten = convertUnsignedLongLongWithEnforceRange(
+              bytesWritten,
+              'First parameter'
+            );
             if (this._associatedReadableByteStreamController === void 0) {
-              throw new TypeError("This BYOB request has been invalidated");
+              throw new TypeError('This BYOB request has been invalidated');
             }
-            if (IsDetachedBuffer(this._view.buffer))
-              ;
-            ReadableByteStreamControllerRespond(this._associatedReadableByteStreamController, bytesWritten);
+            if (IsDetachedBuffer(this._view.buffer));
+            ReadableByteStreamControllerRespond(
+              this._associatedReadableByteStreamController,
+              bytesWritten
+            );
           }
           respondWithNewView(view) {
             if (!IsReadableStreamBYOBRequest(this)) {
-              throw byobRequestBrandCheckException("respondWithNewView");
+              throw byobRequestBrandCheckException('respondWithNewView');
             }
-            assertRequiredArgument(view, 1, "respondWithNewView");
+            assertRequiredArgument(view, 1, 'respondWithNewView');
             if (!ArrayBuffer.isView(view)) {
-              throw new TypeError("You can only respond with array buffer views");
+              throw new TypeError(
+                'You can only respond with array buffer views'
+              );
             }
             if (this._associatedReadableByteStreamController === void 0) {
-              throw new TypeError("This BYOB request has been invalidated");
+              throw new TypeError('This BYOB request has been invalidated');
             }
-            if (IsDetachedBuffer(view.buffer))
-              ;
-            ReadableByteStreamControllerRespondWithNewView(this._associatedReadableByteStreamController, view);
+            if (IsDetachedBuffer(view.buffer));
+            ReadableByteStreamControllerRespondWithNewView(
+              this._associatedReadableByteStreamController,
+              view
+            );
           }
         }
         Object.defineProperties(ReadableStreamBYOBRequest.prototype, {
           respond: { enumerable: true },
           respondWithNewView: { enumerable: true },
-          view: { enumerable: true }
+          view: { enumerable: true },
         });
-        if (typeof SymbolPolyfill.toStringTag === "symbol") {
-          Object.defineProperty(ReadableStreamBYOBRequest.prototype, SymbolPolyfill.toStringTag, {
-            value: "ReadableStreamBYOBRequest",
-            configurable: true
-          });
+        if (typeof SymbolPolyfill.toStringTag === 'symbol') {
+          Object.defineProperty(
+            ReadableStreamBYOBRequest.prototype,
+            SymbolPolyfill.toStringTag,
+            {
+              value: 'ReadableStreamBYOBRequest',
+              configurable: true,
+            }
+          );
         }
         class ReadableByteStreamController {
           constructor() {
-            throw new TypeError("Illegal constructor");
+            throw new TypeError('Illegal constructor');
           }
           get byobRequest() {
             if (!IsReadableByteStreamController(this)) {
-              throw byteStreamControllerBrandCheckException("byobRequest");
+              throw byteStreamControllerBrandCheckException('byobRequest');
             }
             return ReadableByteStreamControllerGetBYOBRequest(this);
           }
           get desiredSize() {
             if (!IsReadableByteStreamController(this)) {
-              throw byteStreamControllerBrandCheckException("desiredSize");
+              throw byteStreamControllerBrandCheckException('desiredSize');
             }
             return ReadableByteStreamControllerGetDesiredSize(this);
           }
           close() {
             if (!IsReadableByteStreamController(this)) {
-              throw byteStreamControllerBrandCheckException("close");
+              throw byteStreamControllerBrandCheckException('close');
             }
             if (this._closeRequested) {
-              throw new TypeError("The stream has already been closed; do not close it again!");
+              throw new TypeError(
+                'The stream has already been closed; do not close it again!'
+              );
             }
             const state = this._controlledReadableByteStream._state;
-            if (state !== "readable") {
-              throw new TypeError(`The stream (in ${state} state) is not in the readable state and cannot be closed`);
+            if (state !== 'readable') {
+              throw new TypeError(
+                `The stream (in ${state} state) is not in the readable state and cannot be closed`
+              );
             }
             ReadableByteStreamControllerClose(this);
           }
           enqueue(chunk) {
             if (!IsReadableByteStreamController(this)) {
-              throw byteStreamControllerBrandCheckException("enqueue");
+              throw byteStreamControllerBrandCheckException('enqueue');
             }
-            assertRequiredArgument(chunk, 1, "enqueue");
+            assertRequiredArgument(chunk, 1, 'enqueue');
             if (!ArrayBuffer.isView(chunk)) {
-              throw new TypeError("chunk must be an array buffer view");
+              throw new TypeError('chunk must be an array buffer view');
             }
             if (chunk.byteLength === 0) {
-              throw new TypeError("chunk must have non-zero byteLength");
+              throw new TypeError('chunk must have non-zero byteLength');
             }
             if (chunk.buffer.byteLength === 0) {
-              throw new TypeError(`chunk's buffer must have non-zero byteLength`);
+              throw new TypeError(
+                `chunk's buffer must have non-zero byteLength`
+              );
             }
             if (this._closeRequested) {
-              throw new TypeError("stream is closed or draining");
+              throw new TypeError('stream is closed or draining');
             }
             const state = this._controlledReadableByteStream._state;
-            if (state !== "readable") {
-              throw new TypeError(`The stream (in ${state} state) is not in the readable state and cannot be enqueued to`);
+            if (state !== 'readable') {
+              throw new TypeError(
+                `The stream (in ${state} state) is not in the readable state and cannot be enqueued to`
+              );
             }
             ReadableByteStreamControllerEnqueue(this, chunk);
           }
           error(e = void 0) {
             if (!IsReadableByteStreamController(this)) {
-              throw byteStreamControllerBrandCheckException("error");
+              throw byteStreamControllerBrandCheckException('error');
             }
             ReadableByteStreamControllerError(this, e);
           }
@@ -1111,7 +1431,11 @@ var init_install_fetch = __esm({
               const entry = this._queue.shift();
               this._queueTotalSize -= entry.byteLength;
               ReadableByteStreamControllerHandleQueueDrain(this);
-              const view = new Uint8Array(entry.buffer, entry.byteOffset, entry.byteLength);
+              const view = new Uint8Array(
+                entry.buffer,
+                entry.byteOffset,
+                entry.byteLength
+              );
               readRequest._chunkSteps(view);
               return;
             }
@@ -1132,7 +1456,7 @@ var init_install_fetch = __esm({
                 bytesFilled: 0,
                 elementSize: 1,
                 viewConstructor: Uint8Array,
-                readerType: "default"
+                readerType: 'default',
               };
               this._pendingPullIntos.push(pullIntoDescriptor);
             }
@@ -1145,19 +1469,28 @@ var init_install_fetch = __esm({
           enqueue: { enumerable: true },
           error: { enumerable: true },
           byobRequest: { enumerable: true },
-          desiredSize: { enumerable: true }
+          desiredSize: { enumerable: true },
         });
-        if (typeof SymbolPolyfill.toStringTag === "symbol") {
-          Object.defineProperty(ReadableByteStreamController.prototype, SymbolPolyfill.toStringTag, {
-            value: "ReadableByteStreamController",
-            configurable: true
-          });
+        if (typeof SymbolPolyfill.toStringTag === 'symbol') {
+          Object.defineProperty(
+            ReadableByteStreamController.prototype,
+            SymbolPolyfill.toStringTag,
+            {
+              value: 'ReadableByteStreamController',
+              configurable: true,
+            }
+          );
         }
         function IsReadableByteStreamController(x) {
           if (!typeIsObject(x)) {
             return false;
           }
-          if (!Object.prototype.hasOwnProperty.call(x, "_controlledReadableByteStream")) {
+          if (
+            !Object.prototype.hasOwnProperty.call(
+              x,
+              '_controlledReadableByteStream'
+            )
+          ) {
             return false;
           }
           return x instanceof ReadableByteStreamController;
@@ -1166,13 +1499,19 @@ var init_install_fetch = __esm({
           if (!typeIsObject(x)) {
             return false;
           }
-          if (!Object.prototype.hasOwnProperty.call(x, "_associatedReadableByteStreamController")) {
+          if (
+            !Object.prototype.hasOwnProperty.call(
+              x,
+              '_associatedReadableByteStreamController'
+            )
+          ) {
             return false;
           }
           return x instanceof ReadableStreamBYOBRequest;
         }
         function ReadableByteStreamControllerCallPullIfNeeded(controller) {
-          const shouldPull = ReadableByteStreamControllerShouldCallPull(controller);
+          const shouldPull =
+            ReadableByteStreamControllerShouldCallPull(controller);
           if (!shouldPull) {
             return;
           }
@@ -1182,59 +1521,101 @@ var init_install_fetch = __esm({
           }
           controller._pulling = true;
           const pullPromise = controller._pullAlgorithm();
-          uponPromise(pullPromise, () => {
-            controller._pulling = false;
-            if (controller._pullAgain) {
-              controller._pullAgain = false;
-              ReadableByteStreamControllerCallPullIfNeeded(controller);
+          uponPromise(
+            pullPromise,
+            () => {
+              controller._pulling = false;
+              if (controller._pullAgain) {
+                controller._pullAgain = false;
+                ReadableByteStreamControllerCallPullIfNeeded(controller);
+              }
+            },
+            (e) => {
+              ReadableByteStreamControllerError(controller, e);
             }
-          }, (e) => {
-            ReadableByteStreamControllerError(controller, e);
-          });
+          );
         }
         function ReadableByteStreamControllerClearPendingPullIntos(controller) {
           ReadableByteStreamControllerInvalidateBYOBRequest(controller);
           controller._pendingPullIntos = new SimpleQueue();
         }
-        function ReadableByteStreamControllerCommitPullIntoDescriptor(stream, pullIntoDescriptor) {
+        function ReadableByteStreamControllerCommitPullIntoDescriptor(
+          stream,
+          pullIntoDescriptor
+        ) {
           let done = false;
-          if (stream._state === "closed") {
+          if (stream._state === 'closed') {
             done = true;
           }
-          const filledView = ReadableByteStreamControllerConvertPullIntoDescriptor(pullIntoDescriptor);
-          if (pullIntoDescriptor.readerType === "default") {
+          const filledView =
+            ReadableByteStreamControllerConvertPullIntoDescriptor(
+              pullIntoDescriptor
+            );
+          if (pullIntoDescriptor.readerType === 'default') {
             ReadableStreamFulfillReadRequest(stream, filledView, done);
           } else {
             ReadableStreamFulfillReadIntoRequest(stream, filledView, done);
           }
         }
-        function ReadableByteStreamControllerConvertPullIntoDescriptor(pullIntoDescriptor) {
+        function ReadableByteStreamControllerConvertPullIntoDescriptor(
+          pullIntoDescriptor
+        ) {
           const bytesFilled = pullIntoDescriptor.bytesFilled;
           const elementSize = pullIntoDescriptor.elementSize;
-          return new pullIntoDescriptor.viewConstructor(pullIntoDescriptor.buffer, pullIntoDescriptor.byteOffset, bytesFilled / elementSize);
+          return new pullIntoDescriptor.viewConstructor(
+            pullIntoDescriptor.buffer,
+            pullIntoDescriptor.byteOffset,
+            bytesFilled / elementSize
+          );
         }
-        function ReadableByteStreamControllerEnqueueChunkToQueue(controller, buffer, byteOffset, byteLength) {
+        function ReadableByteStreamControllerEnqueueChunkToQueue(
+          controller,
+          buffer,
+          byteOffset,
+          byteLength
+        ) {
           controller._queue.push({ buffer, byteOffset, byteLength });
           controller._queueTotalSize += byteLength;
         }
-        function ReadableByteStreamControllerFillPullIntoDescriptorFromQueue(controller, pullIntoDescriptor) {
+        function ReadableByteStreamControllerFillPullIntoDescriptorFromQueue(
+          controller,
+          pullIntoDescriptor
+        ) {
           const elementSize = pullIntoDescriptor.elementSize;
-          const currentAlignedBytes = pullIntoDescriptor.bytesFilled - pullIntoDescriptor.bytesFilled % elementSize;
-          const maxBytesToCopy = Math.min(controller._queueTotalSize, pullIntoDescriptor.byteLength - pullIntoDescriptor.bytesFilled);
-          const maxBytesFilled = pullIntoDescriptor.bytesFilled + maxBytesToCopy;
-          const maxAlignedBytes = maxBytesFilled - maxBytesFilled % elementSize;
+          const currentAlignedBytes =
+            pullIntoDescriptor.bytesFilled -
+            (pullIntoDescriptor.bytesFilled % elementSize);
+          const maxBytesToCopy = Math.min(
+            controller._queueTotalSize,
+            pullIntoDescriptor.byteLength - pullIntoDescriptor.bytesFilled
+          );
+          const maxBytesFilled =
+            pullIntoDescriptor.bytesFilled + maxBytesToCopy;
+          const maxAlignedBytes =
+            maxBytesFilled - (maxBytesFilled % elementSize);
           let totalBytesToCopyRemaining = maxBytesToCopy;
           let ready = false;
           if (maxAlignedBytes > currentAlignedBytes) {
-            totalBytesToCopyRemaining = maxAlignedBytes - pullIntoDescriptor.bytesFilled;
+            totalBytesToCopyRemaining =
+              maxAlignedBytes - pullIntoDescriptor.bytesFilled;
             ready = true;
           }
           const queue = controller._queue;
           while (totalBytesToCopyRemaining > 0) {
             const headOfQueue = queue.peek();
-            const bytesToCopy = Math.min(totalBytesToCopyRemaining, headOfQueue.byteLength);
-            const destStart = pullIntoDescriptor.byteOffset + pullIntoDescriptor.bytesFilled;
-            CopyDataBlockBytes(pullIntoDescriptor.buffer, destStart, headOfQueue.buffer, headOfQueue.byteOffset, bytesToCopy);
+            const bytesToCopy = Math.min(
+              totalBytesToCopyRemaining,
+              headOfQueue.byteLength
+            );
+            const destStart =
+              pullIntoDescriptor.byteOffset + pullIntoDescriptor.bytesFilled;
+            CopyDataBlockBytes(
+              pullIntoDescriptor.buffer,
+              destStart,
+              headOfQueue.buffer,
+              headOfQueue.byteOffset,
+              bytesToCopy
+            );
             if (headOfQueue.byteLength === bytesToCopy) {
               queue.shift();
             } else {
@@ -1242,12 +1623,20 @@ var init_install_fetch = __esm({
               headOfQueue.byteLength -= bytesToCopy;
             }
             controller._queueTotalSize -= bytesToCopy;
-            ReadableByteStreamControllerFillHeadPullIntoDescriptor(controller, bytesToCopy, pullIntoDescriptor);
+            ReadableByteStreamControllerFillHeadPullIntoDescriptor(
+              controller,
+              bytesToCopy,
+              pullIntoDescriptor
+            );
             totalBytesToCopyRemaining -= bytesToCopy;
           }
           return ready;
         }
-        function ReadableByteStreamControllerFillHeadPullIntoDescriptor(controller, size, pullIntoDescriptor) {
+        function ReadableByteStreamControllerFillHeadPullIntoDescriptor(
+          controller,
+          size,
+          pullIntoDescriptor
+        ) {
           pullIntoDescriptor.bytesFilled += size;
         }
         function ReadableByteStreamControllerHandleQueueDrain(controller) {
@@ -1262,23 +1651,38 @@ var init_install_fetch = __esm({
           if (controller._byobRequest === null) {
             return;
           }
-          controller._byobRequest._associatedReadableByteStreamController = void 0;
+          controller._byobRequest._associatedReadableByteStreamController =
+            void 0;
           controller._byobRequest._view = null;
           controller._byobRequest = null;
         }
-        function ReadableByteStreamControllerProcessPullIntoDescriptorsUsingQueue(controller) {
+        function ReadableByteStreamControllerProcessPullIntoDescriptorsUsingQueue(
+          controller
+        ) {
           while (controller._pendingPullIntos.length > 0) {
             if (controller._queueTotalSize === 0) {
               return;
             }
             const pullIntoDescriptor = controller._pendingPullIntos.peek();
-            if (ReadableByteStreamControllerFillPullIntoDescriptorFromQueue(controller, pullIntoDescriptor)) {
+            if (
+              ReadableByteStreamControllerFillPullIntoDescriptorFromQueue(
+                controller,
+                pullIntoDescriptor
+              )
+            ) {
               ReadableByteStreamControllerShiftPendingPullInto(controller);
-              ReadableByteStreamControllerCommitPullIntoDescriptor(controller._controlledReadableByteStream, pullIntoDescriptor);
+              ReadableByteStreamControllerCommitPullIntoDescriptor(
+                controller._controlledReadableByteStream,
+                pullIntoDescriptor
+              );
             }
           }
         }
-        function ReadableByteStreamControllerPullInto(controller, view, readIntoRequest) {
+        function ReadableByteStreamControllerPullInto(
+          controller,
+          view,
+          readIntoRequest
+        ) {
           const stream = controller._controlledReadableByteStream;
           let elementSize = 1;
           if (view.constructor !== DataView) {
@@ -1294,27 +1698,41 @@ var init_install_fetch = __esm({
             bytesFilled: 0,
             elementSize,
             viewConstructor: ctor,
-            readerType: "byob"
+            readerType: 'byob',
           };
           if (controller._pendingPullIntos.length > 0) {
             controller._pendingPullIntos.push(pullIntoDescriptor);
             ReadableStreamAddReadIntoRequest(stream, readIntoRequest);
             return;
           }
-          if (stream._state === "closed") {
-            const emptyView = new ctor(pullIntoDescriptor.buffer, pullIntoDescriptor.byteOffset, 0);
+          if (stream._state === 'closed') {
+            const emptyView = new ctor(
+              pullIntoDescriptor.buffer,
+              pullIntoDescriptor.byteOffset,
+              0
+            );
             readIntoRequest._closeSteps(emptyView);
             return;
           }
           if (controller._queueTotalSize > 0) {
-            if (ReadableByteStreamControllerFillPullIntoDescriptorFromQueue(controller, pullIntoDescriptor)) {
-              const filledView = ReadableByteStreamControllerConvertPullIntoDescriptor(pullIntoDescriptor);
+            if (
+              ReadableByteStreamControllerFillPullIntoDescriptorFromQueue(
+                controller,
+                pullIntoDescriptor
+              )
+            ) {
+              const filledView =
+                ReadableByteStreamControllerConvertPullIntoDescriptor(
+                  pullIntoDescriptor
+                );
               ReadableByteStreamControllerHandleQueueDrain(controller);
               readIntoRequest._chunkSteps(filledView);
               return;
             }
             if (controller._closeRequested) {
-              const e = new TypeError("Insufficient bytes to fill elements in the given buffer");
+              const e = new TypeError(
+                'Insufficient bytes to fill elements in the given buffer'
+              );
               ReadableByteStreamControllerError(controller, e);
               readIntoRequest._errorSteps(e);
               return;
@@ -1324,39 +1742,77 @@ var init_install_fetch = __esm({
           ReadableStreamAddReadIntoRequest(stream, readIntoRequest);
           ReadableByteStreamControllerCallPullIfNeeded(controller);
         }
-        function ReadableByteStreamControllerRespondInClosedState(controller, firstDescriptor) {
+        function ReadableByteStreamControllerRespondInClosedState(
+          controller,
+          firstDescriptor
+        ) {
           const stream = controller._controlledReadableByteStream;
           if (ReadableStreamHasBYOBReader(stream)) {
             while (ReadableStreamGetNumReadIntoRequests(stream) > 0) {
-              const pullIntoDescriptor = ReadableByteStreamControllerShiftPendingPullInto(controller);
-              ReadableByteStreamControllerCommitPullIntoDescriptor(stream, pullIntoDescriptor);
+              const pullIntoDescriptor =
+                ReadableByteStreamControllerShiftPendingPullInto(controller);
+              ReadableByteStreamControllerCommitPullIntoDescriptor(
+                stream,
+                pullIntoDescriptor
+              );
             }
           }
         }
-        function ReadableByteStreamControllerRespondInReadableState(controller, bytesWritten, pullIntoDescriptor) {
-          ReadableByteStreamControllerFillHeadPullIntoDescriptor(controller, bytesWritten, pullIntoDescriptor);
+        function ReadableByteStreamControllerRespondInReadableState(
+          controller,
+          bytesWritten,
+          pullIntoDescriptor
+        ) {
+          ReadableByteStreamControllerFillHeadPullIntoDescriptor(
+            controller,
+            bytesWritten,
+            pullIntoDescriptor
+          );
           if (pullIntoDescriptor.bytesFilled < pullIntoDescriptor.elementSize) {
             return;
           }
           ReadableByteStreamControllerShiftPendingPullInto(controller);
-          const remainderSize = pullIntoDescriptor.bytesFilled % pullIntoDescriptor.elementSize;
+          const remainderSize =
+            pullIntoDescriptor.bytesFilled % pullIntoDescriptor.elementSize;
           if (remainderSize > 0) {
-            const end = pullIntoDescriptor.byteOffset + pullIntoDescriptor.bytesFilled;
-            const remainder = ArrayBufferSlice(pullIntoDescriptor.buffer, end - remainderSize, end);
-            ReadableByteStreamControllerEnqueueChunkToQueue(controller, remainder, 0, remainder.byteLength);
+            const end =
+              pullIntoDescriptor.byteOffset + pullIntoDescriptor.bytesFilled;
+            const remainder = ArrayBufferSlice(
+              pullIntoDescriptor.buffer,
+              end - remainderSize,
+              end
+            );
+            ReadableByteStreamControllerEnqueueChunkToQueue(
+              controller,
+              remainder,
+              0,
+              remainder.byteLength
+            );
           }
           pullIntoDescriptor.bytesFilled -= remainderSize;
-          ReadableByteStreamControllerCommitPullIntoDescriptor(controller._controlledReadableByteStream, pullIntoDescriptor);
-          ReadableByteStreamControllerProcessPullIntoDescriptorsUsingQueue(controller);
+          ReadableByteStreamControllerCommitPullIntoDescriptor(
+            controller._controlledReadableByteStream,
+            pullIntoDescriptor
+          );
+          ReadableByteStreamControllerProcessPullIntoDescriptorsUsingQueue(
+            controller
+          );
         }
-        function ReadableByteStreamControllerRespondInternal(controller, bytesWritten) {
+        function ReadableByteStreamControllerRespondInternal(
+          controller,
+          bytesWritten
+        ) {
           const firstDescriptor = controller._pendingPullIntos.peek();
           ReadableByteStreamControllerInvalidateBYOBRequest(controller);
           const state = controller._controlledReadableByteStream._state;
-          if (state === "closed") {
+          if (state === 'closed') {
             ReadableByteStreamControllerRespondInClosedState(controller);
           } else {
-            ReadableByteStreamControllerRespondInReadableState(controller, bytesWritten, firstDescriptor);
+            ReadableByteStreamControllerRespondInReadableState(
+              controller,
+              bytesWritten,
+              firstDescriptor
+            );
           }
           ReadableByteStreamControllerCallPullIfNeeded(controller);
         }
@@ -1366,7 +1822,7 @@ var init_install_fetch = __esm({
         }
         function ReadableByteStreamControllerShouldCallPull(controller) {
           const stream = controller._controlledReadableByteStream;
-          if (stream._state !== "readable") {
+          if (stream._state !== 'readable') {
             return false;
           }
           if (controller._closeRequested) {
@@ -1375,13 +1831,20 @@ var init_install_fetch = __esm({
           if (!controller._started) {
             return false;
           }
-          if (ReadableStreamHasDefaultReader(stream) && ReadableStreamGetNumReadRequests(stream) > 0) {
+          if (
+            ReadableStreamHasDefaultReader(stream) &&
+            ReadableStreamGetNumReadRequests(stream) > 0
+          ) {
             return true;
           }
-          if (ReadableStreamHasBYOBReader(stream) && ReadableStreamGetNumReadIntoRequests(stream) > 0) {
+          if (
+            ReadableStreamHasBYOBReader(stream) &&
+            ReadableStreamGetNumReadIntoRequests(stream) > 0
+          ) {
             return true;
           }
-          const desiredSize = ReadableByteStreamControllerGetDesiredSize(controller);
+          const desiredSize =
+            ReadableByteStreamControllerGetDesiredSize(controller);
           if (desiredSize > 0) {
             return true;
           }
@@ -1393,7 +1856,7 @@ var init_install_fetch = __esm({
         }
         function ReadableByteStreamControllerClose(controller) {
           const stream = controller._controlledReadableByteStream;
-          if (controller._closeRequested || stream._state !== "readable") {
+          if (controller._closeRequested || stream._state !== 'readable') {
             return;
           }
           if (controller._queueTotalSize > 0) {
@@ -1403,7 +1866,9 @@ var init_install_fetch = __esm({
           if (controller._pendingPullIntos.length > 0) {
             const firstPendingPullInto = controller._pendingPullIntos.peek();
             if (firstPendingPullInto.bytesFilled > 0) {
-              const e = new TypeError("Insufficient bytes to fill elements in the given buffer");
+              const e = new TypeError(
+                'Insufficient bytes to fill elements in the given buffer'
+              );
               ReadableByteStreamControllerError(controller, e);
               throw e;
             }
@@ -1413,7 +1878,7 @@ var init_install_fetch = __esm({
         }
         function ReadableByteStreamControllerEnqueue(controller, chunk) {
           const stream = controller._controlledReadableByteStream;
-          if (controller._closeRequested || stream._state !== "readable") {
+          if (controller._closeRequested || stream._state !== 'readable') {
             return;
           }
           const buffer = chunk.buffer;
@@ -1422,29 +1887,51 @@ var init_install_fetch = __esm({
           const transferredBuffer = TransferArrayBuffer(buffer);
           if (controller._pendingPullIntos.length > 0) {
             const firstPendingPullInto = controller._pendingPullIntos.peek();
-            if (IsDetachedBuffer(firstPendingPullInto.buffer))
-              ;
-            firstPendingPullInto.buffer = TransferArrayBuffer(firstPendingPullInto.buffer);
+            if (IsDetachedBuffer(firstPendingPullInto.buffer));
+            firstPendingPullInto.buffer = TransferArrayBuffer(
+              firstPendingPullInto.buffer
+            );
           }
           ReadableByteStreamControllerInvalidateBYOBRequest(controller);
           if (ReadableStreamHasDefaultReader(stream)) {
             if (ReadableStreamGetNumReadRequests(stream) === 0) {
-              ReadableByteStreamControllerEnqueueChunkToQueue(controller, transferredBuffer, byteOffset, byteLength);
+              ReadableByteStreamControllerEnqueueChunkToQueue(
+                controller,
+                transferredBuffer,
+                byteOffset,
+                byteLength
+              );
             } else {
-              const transferredView = new Uint8Array(transferredBuffer, byteOffset, byteLength);
+              const transferredView = new Uint8Array(
+                transferredBuffer,
+                byteOffset,
+                byteLength
+              );
               ReadableStreamFulfillReadRequest(stream, transferredView, false);
             }
           } else if (ReadableStreamHasBYOBReader(stream)) {
-            ReadableByteStreamControllerEnqueueChunkToQueue(controller, transferredBuffer, byteOffset, byteLength);
-            ReadableByteStreamControllerProcessPullIntoDescriptorsUsingQueue(controller);
+            ReadableByteStreamControllerEnqueueChunkToQueue(
+              controller,
+              transferredBuffer,
+              byteOffset,
+              byteLength
+            );
+            ReadableByteStreamControllerProcessPullIntoDescriptorsUsingQueue(
+              controller
+            );
           } else {
-            ReadableByteStreamControllerEnqueueChunkToQueue(controller, transferredBuffer, byteOffset, byteLength);
+            ReadableByteStreamControllerEnqueueChunkToQueue(
+              controller,
+              transferredBuffer,
+              byteOffset,
+              byteLength
+            );
           }
           ReadableByteStreamControllerCallPullIfNeeded(controller);
         }
         function ReadableByteStreamControllerError(controller, e) {
           const stream = controller._controlledReadableByteStream;
-          if (stream._state !== "readable") {
+          if (stream._state !== 'readable') {
             return;
           }
           ReadableByteStreamControllerClearPendingPullIntos(controller);
@@ -1453,10 +1940,19 @@ var init_install_fetch = __esm({
           ReadableStreamError(stream, e);
         }
         function ReadableByteStreamControllerGetBYOBRequest(controller) {
-          if (controller._byobRequest === null && controller._pendingPullIntos.length > 0) {
+          if (
+            controller._byobRequest === null &&
+            controller._pendingPullIntos.length > 0
+          ) {
             const firstDescriptor = controller._pendingPullIntos.peek();
-            const view = new Uint8Array(firstDescriptor.buffer, firstDescriptor.byteOffset + firstDescriptor.bytesFilled, firstDescriptor.byteLength - firstDescriptor.bytesFilled);
-            const byobRequest = Object.create(ReadableStreamBYOBRequest.prototype);
+            const view = new Uint8Array(
+              firstDescriptor.buffer,
+              firstDescriptor.byteOffset + firstDescriptor.bytesFilled,
+              firstDescriptor.byteLength - firstDescriptor.bytesFilled
+            );
+            const byobRequest = Object.create(
+              ReadableStreamBYOBRequest.prototype
+            );
             SetUpReadableStreamBYOBRequest(byobRequest, controller, view);
             controller._byobRequest = byobRequest;
           }
@@ -1464,10 +1960,10 @@ var init_install_fetch = __esm({
         }
         function ReadableByteStreamControllerGetDesiredSize(controller) {
           const state = controller._controlledReadableByteStream._state;
-          if (state === "errored") {
+          if (state === 'errored') {
             return null;
           }
-          if (state === "closed") {
+          if (state === 'closed') {
             return 0;
           }
           return controller._strategyHWM - controller._queueTotalSize;
@@ -1475,46 +1971,83 @@ var init_install_fetch = __esm({
         function ReadableByteStreamControllerRespond(controller, bytesWritten) {
           const firstDescriptor = controller._pendingPullIntos.peek();
           const state = controller._controlledReadableByteStream._state;
-          if (state === "closed") {
+          if (state === 'closed') {
             if (bytesWritten !== 0) {
-              throw new TypeError("bytesWritten must be 0 when calling respond() on a closed stream");
+              throw new TypeError(
+                'bytesWritten must be 0 when calling respond() on a closed stream'
+              );
             }
           } else {
             if (bytesWritten === 0) {
-              throw new TypeError("bytesWritten must be greater than 0 when calling respond() on a readable stream");
+              throw new TypeError(
+                'bytesWritten must be greater than 0 when calling respond() on a readable stream'
+              );
             }
-            if (firstDescriptor.bytesFilled + bytesWritten > firstDescriptor.byteLength) {
-              throw new RangeError("bytesWritten out of range");
+            if (
+              firstDescriptor.bytesFilled + bytesWritten >
+              firstDescriptor.byteLength
+            ) {
+              throw new RangeError('bytesWritten out of range');
             }
           }
           firstDescriptor.buffer = TransferArrayBuffer(firstDescriptor.buffer);
           ReadableByteStreamControllerRespondInternal(controller, bytesWritten);
         }
-        function ReadableByteStreamControllerRespondWithNewView(controller, view) {
+        function ReadableByteStreamControllerRespondWithNewView(
+          controller,
+          view
+        ) {
           const firstDescriptor = controller._pendingPullIntos.peek();
           const state = controller._controlledReadableByteStream._state;
-          if (state === "closed") {
+          if (state === 'closed') {
             if (view.byteLength !== 0) {
-              throw new TypeError("The view's length must be 0 when calling respondWithNewView() on a closed stream");
+              throw new TypeError(
+                "The view's length must be 0 when calling respondWithNewView() on a closed stream"
+              );
             }
           } else {
             if (view.byteLength === 0) {
-              throw new TypeError("The view's length must be greater than 0 when calling respondWithNewView() on a readable stream");
+              throw new TypeError(
+                "The view's length must be greater than 0 when calling respondWithNewView() on a readable stream"
+              );
             }
           }
-          if (firstDescriptor.byteOffset + firstDescriptor.bytesFilled !== view.byteOffset) {
-            throw new RangeError("The region specified by view does not match byobRequest");
+          if (
+            firstDescriptor.byteOffset + firstDescriptor.bytesFilled !==
+            view.byteOffset
+          ) {
+            throw new RangeError(
+              'The region specified by view does not match byobRequest'
+            );
           }
           if (firstDescriptor.bufferByteLength !== view.buffer.byteLength) {
-            throw new RangeError("The buffer of view has different capacity than byobRequest");
+            throw new RangeError(
+              'The buffer of view has different capacity than byobRequest'
+            );
           }
-          if (firstDescriptor.bytesFilled + view.byteLength > firstDescriptor.byteLength) {
-            throw new RangeError("The region specified by view is larger than byobRequest");
+          if (
+            firstDescriptor.bytesFilled + view.byteLength >
+            firstDescriptor.byteLength
+          ) {
+            throw new RangeError(
+              'The region specified by view is larger than byobRequest'
+            );
           }
           firstDescriptor.buffer = TransferArrayBuffer(view.buffer);
-          ReadableByteStreamControllerRespondInternal(controller, view.byteLength);
+          ReadableByteStreamControllerRespondInternal(
+            controller,
+            view.byteLength
+          );
         }
-        function SetUpReadableByteStreamController(stream, controller, startAlgorithm, pullAlgorithm, cancelAlgorithm, highWaterMark, autoAllocateChunkSize) {
+        function SetUpReadableByteStreamController(
+          stream,
+          controller,
+          startAlgorithm,
+          pullAlgorithm,
+          cancelAlgorithm,
+          highWaterMark,
+          autoAllocateChunkSize
+        ) {
           controller._controlledReadableByteStream = stream;
           controller._pullAgain = false;
           controller._pulling = false;
@@ -1530,15 +2063,25 @@ var init_install_fetch = __esm({
           controller._pendingPullIntos = new SimpleQueue();
           stream._readableStreamController = controller;
           const startResult = startAlgorithm();
-          uponPromise(promiseResolvedWith(startResult), () => {
-            controller._started = true;
-            ReadableByteStreamControllerCallPullIfNeeded(controller);
-          }, (r) => {
-            ReadableByteStreamControllerError(controller, r);
-          });
+          uponPromise(
+            promiseResolvedWith(startResult),
+            () => {
+              controller._started = true;
+              ReadableByteStreamControllerCallPullIfNeeded(controller);
+            },
+            (r) => {
+              ReadableByteStreamControllerError(controller, r);
+            }
+          );
         }
-        function SetUpReadableByteStreamControllerFromUnderlyingSource(stream, underlyingByteSource, highWaterMark) {
-          const controller = Object.create(ReadableByteStreamController.prototype);
+        function SetUpReadableByteStreamControllerFromUnderlyingSource(
+          stream,
+          underlyingByteSource,
+          highWaterMark
+        ) {
+          const controller = Object.create(
+            ReadableByteStreamController.prototype
+          );
           let startAlgorithm = () => void 0;
           let pullAlgorithm = () => promiseResolvedWith(void 0);
           let cancelAlgorithm = () => promiseResolvedWith(void 0);
@@ -1551,21 +2094,34 @@ var init_install_fetch = __esm({
           if (underlyingByteSource.cancel !== void 0) {
             cancelAlgorithm = (reason) => underlyingByteSource.cancel(reason);
           }
-          const autoAllocateChunkSize = underlyingByteSource.autoAllocateChunkSize;
+          const autoAllocateChunkSize =
+            underlyingByteSource.autoAllocateChunkSize;
           if (autoAllocateChunkSize === 0) {
-            throw new TypeError("autoAllocateChunkSize must be greater than 0");
+            throw new TypeError('autoAllocateChunkSize must be greater than 0');
           }
-          SetUpReadableByteStreamController(stream, controller, startAlgorithm, pullAlgorithm, cancelAlgorithm, highWaterMark, autoAllocateChunkSize);
+          SetUpReadableByteStreamController(
+            stream,
+            controller,
+            startAlgorithm,
+            pullAlgorithm,
+            cancelAlgorithm,
+            highWaterMark,
+            autoAllocateChunkSize
+          );
         }
         function SetUpReadableStreamBYOBRequest(request, controller, view) {
           request._associatedReadableByteStreamController = controller;
           request._view = view;
         }
         function byobRequestBrandCheckException(name) {
-          return new TypeError(`ReadableStreamBYOBRequest.prototype.${name} can only be used on a ReadableStreamBYOBRequest`);
+          return new TypeError(
+            `ReadableStreamBYOBRequest.prototype.${name} can only be used on a ReadableStreamBYOBRequest`
+          );
         }
         function byteStreamControllerBrandCheckException(name) {
-          return new TypeError(`ReadableByteStreamController.prototype.${name} can only be used on a ReadableByteStreamController`);
+          return new TypeError(
+            `ReadableByteStreamController.prototype.${name} can only be used on a ReadableByteStreamController`
+          );
         }
         function AcquireReadableStreamBYOBReader(stream) {
           return new ReadableStreamBYOBReader(stream);
@@ -1597,49 +2153,64 @@ var init_install_fetch = __esm({
         }
         class ReadableStreamBYOBReader {
           constructor(stream) {
-            assertRequiredArgument(stream, 1, "ReadableStreamBYOBReader");
-            assertReadableStream(stream, "First parameter");
+            assertRequiredArgument(stream, 1, 'ReadableStreamBYOBReader');
+            assertReadableStream(stream, 'First parameter');
             if (IsReadableStreamLocked(stream)) {
-              throw new TypeError("This stream has already been locked for exclusive reading by another reader");
+              throw new TypeError(
+                'This stream has already been locked for exclusive reading by another reader'
+              );
             }
-            if (!IsReadableByteStreamController(stream._readableStreamController)) {
-              throw new TypeError("Cannot construct a ReadableStreamBYOBReader for a stream not constructed with a byte source");
+            if (
+              !IsReadableByteStreamController(stream._readableStreamController)
+            ) {
+              throw new TypeError(
+                'Cannot construct a ReadableStreamBYOBReader for a stream not constructed with a byte source'
+              );
             }
             ReadableStreamReaderGenericInitialize(this, stream);
             this._readIntoRequests = new SimpleQueue();
           }
           get closed() {
             if (!IsReadableStreamBYOBReader(this)) {
-              return promiseRejectedWith(byobReaderBrandCheckException("closed"));
+              return promiseRejectedWith(
+                byobReaderBrandCheckException('closed')
+              );
             }
             return this._closedPromise;
           }
           cancel(reason = void 0) {
             if (!IsReadableStreamBYOBReader(this)) {
-              return promiseRejectedWith(byobReaderBrandCheckException("cancel"));
+              return promiseRejectedWith(
+                byobReaderBrandCheckException('cancel')
+              );
             }
             if (this._ownerReadableStream === void 0) {
-              return promiseRejectedWith(readerLockException("cancel"));
+              return promiseRejectedWith(readerLockException('cancel'));
             }
             return ReadableStreamReaderGenericCancel(this, reason);
           }
           read(view) {
             if (!IsReadableStreamBYOBReader(this)) {
-              return promiseRejectedWith(byobReaderBrandCheckException("read"));
+              return promiseRejectedWith(byobReaderBrandCheckException('read'));
             }
             if (!ArrayBuffer.isView(view)) {
-              return promiseRejectedWith(new TypeError("view must be an array buffer view"));
+              return promiseRejectedWith(
+                new TypeError('view must be an array buffer view')
+              );
             }
             if (view.byteLength === 0) {
-              return promiseRejectedWith(new TypeError("view must have non-zero byteLength"));
+              return promiseRejectedWith(
+                new TypeError('view must have non-zero byteLength')
+              );
             }
             if (view.buffer.byteLength === 0) {
-              return promiseRejectedWith(new TypeError(`view's buffer must have non-zero byteLength`));
+              return promiseRejectedWith(
+                new TypeError(`view's buffer must have non-zero byteLength`)
+              );
             }
-            if (IsDetachedBuffer(view.buffer))
-              ;
+            if (IsDetachedBuffer(view.buffer));
             if (this._ownerReadableStream === void 0) {
-              return promiseRejectedWith(readerLockException("read from"));
+              return promiseRejectedWith(readerLockException('read from'));
             }
             let resolvePromise;
             let rejectPromise;
@@ -1648,22 +2219,26 @@ var init_install_fetch = __esm({
               rejectPromise = reject;
             });
             const readIntoRequest = {
-              _chunkSteps: (chunk) => resolvePromise({ value: chunk, done: false }),
-              _closeSteps: (chunk) => resolvePromise({ value: chunk, done: true }),
-              _errorSteps: (e) => rejectPromise(e)
+              _chunkSteps: (chunk) =>
+                resolvePromise({ value: chunk, done: false }),
+              _closeSteps: (chunk) =>
+                resolvePromise({ value: chunk, done: true }),
+              _errorSteps: (e) => rejectPromise(e),
             };
             ReadableStreamBYOBReaderRead(this, view, readIntoRequest);
             return promise;
           }
           releaseLock() {
             if (!IsReadableStreamBYOBReader(this)) {
-              throw byobReaderBrandCheckException("releaseLock");
+              throw byobReaderBrandCheckException('releaseLock');
             }
             if (this._ownerReadableStream === void 0) {
               return;
             }
             if (this._readIntoRequests.length > 0) {
-              throw new TypeError("Tried to release a reader lock when that reader has pending read() calls un-settled");
+              throw new TypeError(
+                'Tried to release a reader lock when that reader has pending read() calls un-settled'
+              );
             }
             ReadableStreamReaderGenericRelease(this);
           }
@@ -1672,19 +2247,23 @@ var init_install_fetch = __esm({
           cancel: { enumerable: true },
           read: { enumerable: true },
           releaseLock: { enumerable: true },
-          closed: { enumerable: true }
+          closed: { enumerable: true },
         });
-        if (typeof SymbolPolyfill.toStringTag === "symbol") {
-          Object.defineProperty(ReadableStreamBYOBReader.prototype, SymbolPolyfill.toStringTag, {
-            value: "ReadableStreamBYOBReader",
-            configurable: true
-          });
+        if (typeof SymbolPolyfill.toStringTag === 'symbol') {
+          Object.defineProperty(
+            ReadableStreamBYOBReader.prototype,
+            SymbolPolyfill.toStringTag,
+            {
+              value: 'ReadableStreamBYOBReader',
+              configurable: true,
+            }
+          );
         }
         function IsReadableStreamBYOBReader(x) {
           if (!typeIsObject(x)) {
             return false;
           }
-          if (!Object.prototype.hasOwnProperty.call(x, "_readIntoRequests")) {
+          if (!Object.prototype.hasOwnProperty.call(x, '_readIntoRequests')) {
             return false;
           }
           return x instanceof ReadableStreamBYOBReader;
@@ -1692,14 +2271,20 @@ var init_install_fetch = __esm({
         function ReadableStreamBYOBReaderRead(reader, view, readIntoRequest) {
           const stream = reader._ownerReadableStream;
           stream._disturbed = true;
-          if (stream._state === "errored") {
+          if (stream._state === 'errored') {
             readIntoRequest._errorSteps(stream._storedError);
           } else {
-            ReadableByteStreamControllerPullInto(stream._readableStreamController, view, readIntoRequest);
+            ReadableByteStreamControllerPullInto(
+              stream._readableStreamController,
+              view,
+              readIntoRequest
+            );
           }
         }
         function byobReaderBrandCheckException(name) {
-          return new TypeError(`ReadableStreamBYOBReader.prototype.${name} can only be used on a ReadableStreamBYOBReader`);
+          return new TypeError(
+            `ReadableStreamBYOBReader.prototype.${name} can only be used on a ReadableStreamBYOBReader`
+          );
         }
         function ExtractHighWaterMark(strategy, defaultHWM) {
           const { highWaterMark } = strategy;
@@ -1707,7 +2292,7 @@ var init_install_fetch = __esm({
             return defaultHWM;
           }
           if (NumberIsNaN(highWaterMark) || highWaterMark < 0) {
-            throw new RangeError("Invalid highWaterMark");
+            throw new RangeError('Invalid highWaterMark');
           }
           return highWaterMark;
         }
@@ -1720,11 +2305,21 @@ var init_install_fetch = __esm({
         }
         function convertQueuingStrategy(init2, context) {
           assertDictionary(init2, context);
-          const highWaterMark = init2 === null || init2 === void 0 ? void 0 : init2.highWaterMark;
+          const highWaterMark =
+            init2 === null || init2 === void 0 ? void 0 : init2.highWaterMark;
           const size = init2 === null || init2 === void 0 ? void 0 : init2.size;
           return {
-            highWaterMark: highWaterMark === void 0 ? void 0 : convertUnrestrictedDouble(highWaterMark),
-            size: size === void 0 ? void 0 : convertQueuingStrategySize(size, `${context} has member 'size' that`)
+            highWaterMark:
+              highWaterMark === void 0
+                ? void 0
+                : convertUnrestrictedDouble(highWaterMark),
+            size:
+              size === void 0
+                ? void 0
+                : convertQueuingStrategySize(
+                    size,
+                    `${context} has member 'size' that`
+                  ),
           };
         }
         function convertQueuingStrategySize(fn, context) {
@@ -1733,17 +2328,50 @@ var init_install_fetch = __esm({
         }
         function convertUnderlyingSink(original, context) {
           assertDictionary(original, context);
-          const abort = original === null || original === void 0 ? void 0 : original.abort;
-          const close = original === null || original === void 0 ? void 0 : original.close;
-          const start = original === null || original === void 0 ? void 0 : original.start;
-          const type = original === null || original === void 0 ? void 0 : original.type;
-          const write = original === null || original === void 0 ? void 0 : original.write;
+          const abort =
+            original === null || original === void 0 ? void 0 : original.abort;
+          const close =
+            original === null || original === void 0 ? void 0 : original.close;
+          const start =
+            original === null || original === void 0 ? void 0 : original.start;
+          const type =
+            original === null || original === void 0 ? void 0 : original.type;
+          const write =
+            original === null || original === void 0 ? void 0 : original.write;
           return {
-            abort: abort === void 0 ? void 0 : convertUnderlyingSinkAbortCallback(abort, original, `${context} has member 'abort' that`),
-            close: close === void 0 ? void 0 : convertUnderlyingSinkCloseCallback(close, original, `${context} has member 'close' that`),
-            start: start === void 0 ? void 0 : convertUnderlyingSinkStartCallback(start, original, `${context} has member 'start' that`),
-            write: write === void 0 ? void 0 : convertUnderlyingSinkWriteCallback(write, original, `${context} has member 'write' that`),
-            type
+            abort:
+              abort === void 0
+                ? void 0
+                : convertUnderlyingSinkAbortCallback(
+                    abort,
+                    original,
+                    `${context} has member 'abort' that`
+                  ),
+            close:
+              close === void 0
+                ? void 0
+                : convertUnderlyingSinkCloseCallback(
+                    close,
+                    original,
+                    `${context} has member 'close' that`
+                  ),
+            start:
+              start === void 0
+                ? void 0
+                : convertUnderlyingSinkStartCallback(
+                    start,
+                    original,
+                    `${context} has member 'start' that`
+                  ),
+            write:
+              write === void 0
+                ? void 0
+                : convertUnderlyingSinkWriteCallback(
+                    write,
+                    original,
+                    `${context} has member 'write' that`
+                  ),
+            type,
           };
         }
         function convertUnderlyingSinkAbortCallback(fn, original, context) {
@@ -1760,7 +2388,8 @@ var init_install_fetch = __esm({
         }
         function convertUnderlyingSinkWriteCallback(fn, original, context) {
           assertFunction(fn, context);
-          return (chunk, controller) => promiseCall(fn, original, [chunk, controller]);
+          return (chunk, controller) =>
+            promiseCall(fn, original, [chunk, controller]);
         }
         function assertWritableStream(x, context) {
           if (!IsWritableStream(x)) {
@@ -1768,16 +2397,16 @@ var init_install_fetch = __esm({
           }
         }
         function isAbortSignal2(value) {
-          if (typeof value !== "object" || value === null) {
+          if (typeof value !== 'object' || value === null) {
             return false;
           }
           try {
-            return typeof value.aborted === "boolean";
+            return typeof value.aborted === 'boolean';
           } catch (_a) {
             return false;
           }
         }
-        const supportsAbortController = typeof AbortController === "function";
+        const supportsAbortController = typeof AbortController === 'function';
         function createAbortController() {
           if (supportsAbortController) {
             return new AbortController();
@@ -1789,49 +2418,66 @@ var init_install_fetch = __esm({
             if (rawUnderlyingSink === void 0) {
               rawUnderlyingSink = null;
             } else {
-              assertObject(rawUnderlyingSink, "First parameter");
+              assertObject(rawUnderlyingSink, 'First parameter');
             }
-            const strategy = convertQueuingStrategy(rawStrategy, "Second parameter");
-            const underlyingSink = convertUnderlyingSink(rawUnderlyingSink, "First parameter");
+            const strategy = convertQueuingStrategy(
+              rawStrategy,
+              'Second parameter'
+            );
+            const underlyingSink = convertUnderlyingSink(
+              rawUnderlyingSink,
+              'First parameter'
+            );
             InitializeWritableStream(this);
             const type = underlyingSink.type;
             if (type !== void 0) {
-              throw new RangeError("Invalid type is specified");
+              throw new RangeError('Invalid type is specified');
             }
             const sizeAlgorithm = ExtractSizeAlgorithm(strategy);
             const highWaterMark = ExtractHighWaterMark(strategy, 1);
-            SetUpWritableStreamDefaultControllerFromUnderlyingSink(this, underlyingSink, highWaterMark, sizeAlgorithm);
+            SetUpWritableStreamDefaultControllerFromUnderlyingSink(
+              this,
+              underlyingSink,
+              highWaterMark,
+              sizeAlgorithm
+            );
           }
           get locked() {
             if (!IsWritableStream(this)) {
-              throw streamBrandCheckException$2("locked");
+              throw streamBrandCheckException$2('locked');
             }
             return IsWritableStreamLocked(this);
           }
           abort(reason = void 0) {
             if (!IsWritableStream(this)) {
-              return promiseRejectedWith(streamBrandCheckException$2("abort"));
+              return promiseRejectedWith(streamBrandCheckException$2('abort'));
             }
             if (IsWritableStreamLocked(this)) {
-              return promiseRejectedWith(new TypeError("Cannot abort a stream that already has a writer"));
+              return promiseRejectedWith(
+                new TypeError('Cannot abort a stream that already has a writer')
+              );
             }
             return WritableStreamAbort(this, reason);
           }
           close() {
             if (!IsWritableStream(this)) {
-              return promiseRejectedWith(streamBrandCheckException$2("close"));
+              return promiseRejectedWith(streamBrandCheckException$2('close'));
             }
             if (IsWritableStreamLocked(this)) {
-              return promiseRejectedWith(new TypeError("Cannot close a stream that already has a writer"));
+              return promiseRejectedWith(
+                new TypeError('Cannot close a stream that already has a writer')
+              );
             }
             if (WritableStreamCloseQueuedOrInFlight(this)) {
-              return promiseRejectedWith(new TypeError("Cannot close an already-closing stream"));
+              return promiseRejectedWith(
+                new TypeError('Cannot close an already-closing stream')
+              );
             }
             return WritableStreamClose(this);
           }
           getWriter() {
             if (!IsWritableStream(this)) {
-              throw streamBrandCheckException$2("getWriter");
+              throw streamBrandCheckException$2('getWriter');
             }
             return AcquireWritableStreamDefaultWriter(this);
           }
@@ -1840,26 +2486,48 @@ var init_install_fetch = __esm({
           abort: { enumerable: true },
           close: { enumerable: true },
           getWriter: { enumerable: true },
-          locked: { enumerable: true }
+          locked: { enumerable: true },
         });
-        if (typeof SymbolPolyfill.toStringTag === "symbol") {
-          Object.defineProperty(WritableStream.prototype, SymbolPolyfill.toStringTag, {
-            value: "WritableStream",
-            configurable: true
-          });
+        if (typeof SymbolPolyfill.toStringTag === 'symbol') {
+          Object.defineProperty(
+            WritableStream.prototype,
+            SymbolPolyfill.toStringTag,
+            {
+              value: 'WritableStream',
+              configurable: true,
+            }
+          );
         }
         function AcquireWritableStreamDefaultWriter(stream) {
           return new WritableStreamDefaultWriter(stream);
         }
-        function CreateWritableStream(startAlgorithm, writeAlgorithm, closeAlgorithm, abortAlgorithm, highWaterMark = 1, sizeAlgorithm = () => 1) {
+        function CreateWritableStream(
+          startAlgorithm,
+          writeAlgorithm,
+          closeAlgorithm,
+          abortAlgorithm,
+          highWaterMark = 1,
+          sizeAlgorithm = () => 1
+        ) {
           const stream = Object.create(WritableStream.prototype);
           InitializeWritableStream(stream);
-          const controller = Object.create(WritableStreamDefaultController.prototype);
-          SetUpWritableStreamDefaultController(stream, controller, startAlgorithm, writeAlgorithm, closeAlgorithm, abortAlgorithm, highWaterMark, sizeAlgorithm);
+          const controller = Object.create(
+            WritableStreamDefaultController.prototype
+          );
+          SetUpWritableStreamDefaultController(
+            stream,
+            controller,
+            startAlgorithm,
+            writeAlgorithm,
+            closeAlgorithm,
+            abortAlgorithm,
+            highWaterMark,
+            sizeAlgorithm
+          );
           return stream;
         }
         function InitializeWritableStream(stream) {
-          stream._state = "writable";
+          stream._state = 'writable';
           stream._storedError = void 0;
           stream._writer = void 0;
           stream._writableStreamController = void 0;
@@ -1874,7 +2542,12 @@ var init_install_fetch = __esm({
           if (!typeIsObject(x)) {
             return false;
           }
-          if (!Object.prototype.hasOwnProperty.call(x, "_writableStreamController")) {
+          if (
+            !Object.prototype.hasOwnProperty.call(
+              x,
+              '_writableStreamController'
+            )
+          ) {
             return false;
           }
           return x instanceof WritableStream;
@@ -1887,20 +2560,23 @@ var init_install_fetch = __esm({
         }
         function WritableStreamAbort(stream, reason) {
           var _a;
-          if (stream._state === "closed" || stream._state === "errored") {
+          if (stream._state === 'closed' || stream._state === 'errored') {
             return promiseResolvedWith(void 0);
           }
           stream._writableStreamController._abortReason = reason;
-          (_a = stream._writableStreamController._abortController) === null || _a === void 0 ? void 0 : _a.abort();
+          (_a = stream._writableStreamController._abortController) === null ||
+          _a === void 0
+            ? void 0
+            : _a.abort();
           const state = stream._state;
-          if (state === "closed" || state === "errored") {
+          if (state === 'closed' || state === 'errored') {
             return promiseResolvedWith(void 0);
           }
           if (stream._pendingAbortRequest !== void 0) {
             return stream._pendingAbortRequest._promise;
           }
           let wasAlreadyErroring = false;
-          if (state === "erroring") {
+          if (state === 'erroring') {
             wasAlreadyErroring = true;
             reason = void 0;
           }
@@ -1910,7 +2586,7 @@ var init_install_fetch = __esm({
               _resolve: resolve2,
               _reject: reject,
               _reason: reason,
-              _wasAlreadyErroring: wasAlreadyErroring
+              _wasAlreadyErroring: wasAlreadyErroring,
             };
           });
           stream._pendingAbortRequest._promise = promise;
@@ -1921,28 +2597,38 @@ var init_install_fetch = __esm({
         }
         function WritableStreamClose(stream) {
           const state = stream._state;
-          if (state === "closed" || state === "errored") {
-            return promiseRejectedWith(new TypeError(`The stream (in ${state} state) is not in the writable state and cannot be closed`));
+          if (state === 'closed' || state === 'errored') {
+            return promiseRejectedWith(
+              new TypeError(
+                `The stream (in ${state} state) is not in the writable state and cannot be closed`
+              )
+            );
           }
           const promise = newPromise((resolve2, reject) => {
             const closeRequest = {
               _resolve: resolve2,
-              _reject: reject
+              _reject: reject,
             };
             stream._closeRequest = closeRequest;
           });
           const writer = stream._writer;
-          if (writer !== void 0 && stream._backpressure && state === "writable") {
+          if (
+            writer !== void 0 &&
+            stream._backpressure &&
+            state === 'writable'
+          ) {
             defaultWriterReadyPromiseResolve(writer);
           }
-          WritableStreamDefaultControllerClose(stream._writableStreamController);
+          WritableStreamDefaultControllerClose(
+            stream._writableStreamController
+          );
           return promise;
         }
         function WritableStreamAddWriteRequest(stream) {
           const promise = newPromise((resolve2, reject) => {
             const writeRequest = {
               _resolve: resolve2,
-              _reject: reject
+              _reject: reject,
             };
             stream._writeRequests.push(writeRequest);
           });
@@ -1950,7 +2636,7 @@ var init_install_fetch = __esm({
         }
         function WritableStreamDealWithRejection(stream, error2) {
           const state = stream._state;
-          if (state === "writable") {
+          if (state === 'writable') {
             WritableStreamStartErroring(stream, error2);
             return;
           }
@@ -1958,18 +2644,24 @@ var init_install_fetch = __esm({
         }
         function WritableStreamStartErroring(stream, reason) {
           const controller = stream._writableStreamController;
-          stream._state = "erroring";
+          stream._state = 'erroring';
           stream._storedError = reason;
           const writer = stream._writer;
           if (writer !== void 0) {
-            WritableStreamDefaultWriterEnsureReadyPromiseRejected(writer, reason);
+            WritableStreamDefaultWriterEnsureReadyPromiseRejected(
+              writer,
+              reason
+            );
           }
-          if (!WritableStreamHasOperationMarkedInFlight(stream) && controller._started) {
+          if (
+            !WritableStreamHasOperationMarkedInFlight(stream) &&
+            controller._started
+          ) {
             WritableStreamFinishErroring(stream);
           }
         }
         function WritableStreamFinishErroring(stream) {
-          stream._state = "errored";
+          stream._state = 'errored';
           stream._writableStreamController[ErrorSteps]();
           const storedError = stream._storedError;
           stream._writeRequests.forEach((writeRequest) => {
@@ -1987,14 +2679,20 @@ var init_install_fetch = __esm({
             WritableStreamRejectCloseAndClosedPromiseIfNeeded(stream);
             return;
           }
-          const promise = stream._writableStreamController[AbortSteps](abortRequest._reason);
-          uponPromise(promise, () => {
-            abortRequest._resolve();
-            WritableStreamRejectCloseAndClosedPromiseIfNeeded(stream);
-          }, (reason) => {
-            abortRequest._reject(reason);
-            WritableStreamRejectCloseAndClosedPromiseIfNeeded(stream);
-          });
+          const promise = stream._writableStreamController[AbortSteps](
+            abortRequest._reason
+          );
+          uponPromise(
+            promise,
+            () => {
+              abortRequest._resolve();
+              WritableStreamRejectCloseAndClosedPromiseIfNeeded(stream);
+            },
+            (reason) => {
+              abortRequest._reject(reason);
+              WritableStreamRejectCloseAndClosedPromiseIfNeeded(stream);
+            }
+          );
         }
         function WritableStreamFinishInFlightWrite(stream) {
           stream._inFlightWriteRequest._resolve(void 0);
@@ -2009,14 +2707,14 @@ var init_install_fetch = __esm({
           stream._inFlightCloseRequest._resolve(void 0);
           stream._inFlightCloseRequest = void 0;
           const state = stream._state;
-          if (state === "erroring") {
+          if (state === 'erroring') {
             stream._storedError = void 0;
             if (stream._pendingAbortRequest !== void 0) {
               stream._pendingAbortRequest._resolve();
               stream._pendingAbortRequest = void 0;
             }
           }
-          stream._state = "closed";
+          stream._state = 'closed';
           const writer = stream._writer;
           if (writer !== void 0) {
             defaultWriterClosedPromiseResolve(writer);
@@ -2032,13 +2730,19 @@ var init_install_fetch = __esm({
           WritableStreamDealWithRejection(stream, error2);
         }
         function WritableStreamCloseQueuedOrInFlight(stream) {
-          if (stream._closeRequest === void 0 && stream._inFlightCloseRequest === void 0) {
+          if (
+            stream._closeRequest === void 0 &&
+            stream._inFlightCloseRequest === void 0
+          ) {
             return false;
           }
           return true;
         }
         function WritableStreamHasOperationMarkedInFlight(stream) {
-          if (stream._inFlightWriteRequest === void 0 && stream._inFlightCloseRequest === void 0) {
+          if (
+            stream._inFlightWriteRequest === void 0 &&
+            stream._inFlightCloseRequest === void 0
+          ) {
             return false;
           }
           return true;
@@ -2073,25 +2777,33 @@ var init_install_fetch = __esm({
         }
         class WritableStreamDefaultWriter {
           constructor(stream) {
-            assertRequiredArgument(stream, 1, "WritableStreamDefaultWriter");
-            assertWritableStream(stream, "First parameter");
+            assertRequiredArgument(stream, 1, 'WritableStreamDefaultWriter');
+            assertWritableStream(stream, 'First parameter');
             if (IsWritableStreamLocked(stream)) {
-              throw new TypeError("This stream has already been locked for exclusive writing by another writer");
+              throw new TypeError(
+                'This stream has already been locked for exclusive writing by another writer'
+              );
             }
             this._ownerWritableStream = stream;
             stream._writer = this;
             const state = stream._state;
-            if (state === "writable") {
-              if (!WritableStreamCloseQueuedOrInFlight(stream) && stream._backpressure) {
+            if (state === 'writable') {
+              if (
+                !WritableStreamCloseQueuedOrInFlight(stream) &&
+                stream._backpressure
+              ) {
                 defaultWriterReadyPromiseInitialize(this);
               } else {
                 defaultWriterReadyPromiseInitializeAsResolved(this);
               }
               defaultWriterClosedPromiseInitialize(this);
-            } else if (state === "erroring") {
-              defaultWriterReadyPromiseInitializeAsRejected(this, stream._storedError);
+            } else if (state === 'erroring') {
+              defaultWriterReadyPromiseInitializeAsRejected(
+                this,
+                stream._storedError
+              );
               defaultWriterClosedPromiseInitialize(this);
-            } else if (state === "closed") {
+            } else if (state === 'closed') {
               defaultWriterReadyPromiseInitializeAsResolved(this);
               defaultWriterClosedPromiseInitializeAsResolved(this);
             } else {
@@ -2102,50 +2814,60 @@ var init_install_fetch = __esm({
           }
           get closed() {
             if (!IsWritableStreamDefaultWriter(this)) {
-              return promiseRejectedWith(defaultWriterBrandCheckException("closed"));
+              return promiseRejectedWith(
+                defaultWriterBrandCheckException('closed')
+              );
             }
             return this._closedPromise;
           }
           get desiredSize() {
             if (!IsWritableStreamDefaultWriter(this)) {
-              throw defaultWriterBrandCheckException("desiredSize");
+              throw defaultWriterBrandCheckException('desiredSize');
             }
             if (this._ownerWritableStream === void 0) {
-              throw defaultWriterLockException("desiredSize");
+              throw defaultWriterLockException('desiredSize');
             }
             return WritableStreamDefaultWriterGetDesiredSize(this);
           }
           get ready() {
             if (!IsWritableStreamDefaultWriter(this)) {
-              return promiseRejectedWith(defaultWriterBrandCheckException("ready"));
+              return promiseRejectedWith(
+                defaultWriterBrandCheckException('ready')
+              );
             }
             return this._readyPromise;
           }
           abort(reason = void 0) {
             if (!IsWritableStreamDefaultWriter(this)) {
-              return promiseRejectedWith(defaultWriterBrandCheckException("abort"));
+              return promiseRejectedWith(
+                defaultWriterBrandCheckException('abort')
+              );
             }
             if (this._ownerWritableStream === void 0) {
-              return promiseRejectedWith(defaultWriterLockException("abort"));
+              return promiseRejectedWith(defaultWriterLockException('abort'));
             }
             return WritableStreamDefaultWriterAbort(this, reason);
           }
           close() {
             if (!IsWritableStreamDefaultWriter(this)) {
-              return promiseRejectedWith(defaultWriterBrandCheckException("close"));
+              return promiseRejectedWith(
+                defaultWriterBrandCheckException('close')
+              );
             }
             const stream = this._ownerWritableStream;
             if (stream === void 0) {
-              return promiseRejectedWith(defaultWriterLockException("close"));
+              return promiseRejectedWith(defaultWriterLockException('close'));
             }
             if (WritableStreamCloseQueuedOrInFlight(stream)) {
-              return promiseRejectedWith(new TypeError("Cannot close an already-closing stream"));
+              return promiseRejectedWith(
+                new TypeError('Cannot close an already-closing stream')
+              );
             }
             return WritableStreamDefaultWriterClose(this);
           }
           releaseLock() {
             if (!IsWritableStreamDefaultWriter(this)) {
-              throw defaultWriterBrandCheckException("releaseLock");
+              throw defaultWriterBrandCheckException('releaseLock');
             }
             const stream = this._ownerWritableStream;
             if (stream === void 0) {
@@ -2155,10 +2877,14 @@ var init_install_fetch = __esm({
           }
           write(chunk = void 0) {
             if (!IsWritableStreamDefaultWriter(this)) {
-              return promiseRejectedWith(defaultWriterBrandCheckException("write"));
+              return promiseRejectedWith(
+                defaultWriterBrandCheckException('write')
+              );
             }
             if (this._ownerWritableStream === void 0) {
-              return promiseRejectedWith(defaultWriterLockException("write to"));
+              return promiseRejectedWith(
+                defaultWriterLockException('write to')
+              );
             }
             return WritableStreamDefaultWriterWrite(this, chunk);
           }
@@ -2170,19 +2896,25 @@ var init_install_fetch = __esm({
           write: { enumerable: true },
           closed: { enumerable: true },
           desiredSize: { enumerable: true },
-          ready: { enumerable: true }
+          ready: { enumerable: true },
         });
-        if (typeof SymbolPolyfill.toStringTag === "symbol") {
-          Object.defineProperty(WritableStreamDefaultWriter.prototype, SymbolPolyfill.toStringTag, {
-            value: "WritableStreamDefaultWriter",
-            configurable: true
-          });
+        if (typeof SymbolPolyfill.toStringTag === 'symbol') {
+          Object.defineProperty(
+            WritableStreamDefaultWriter.prototype,
+            SymbolPolyfill.toStringTag,
+            {
+              value: 'WritableStreamDefaultWriter',
+              configurable: true,
+            }
+          );
         }
         function IsWritableStreamDefaultWriter(x) {
           if (!typeIsObject(x)) {
             return false;
           }
-          if (!Object.prototype.hasOwnProperty.call(x, "_ownerWritableStream")) {
+          if (
+            !Object.prototype.hasOwnProperty.call(x, '_ownerWritableStream')
+          ) {
             return false;
           }
           return x instanceof WritableStreamDefaultWriter;
@@ -2198,23 +2930,32 @@ var init_install_fetch = __esm({
         function WritableStreamDefaultWriterCloseWithErrorPropagation(writer) {
           const stream = writer._ownerWritableStream;
           const state = stream._state;
-          if (WritableStreamCloseQueuedOrInFlight(stream) || state === "closed") {
+          if (
+            WritableStreamCloseQueuedOrInFlight(stream) ||
+            state === 'closed'
+          ) {
             return promiseResolvedWith(void 0);
           }
-          if (state === "errored") {
+          if (state === 'errored') {
             return promiseRejectedWith(stream._storedError);
           }
           return WritableStreamDefaultWriterClose(writer);
         }
-        function WritableStreamDefaultWriterEnsureClosedPromiseRejected(writer, error2) {
-          if (writer._closedPromiseState === "pending") {
+        function WritableStreamDefaultWriterEnsureClosedPromiseRejected(
+          writer,
+          error2
+        ) {
+          if (writer._closedPromiseState === 'pending') {
             defaultWriterClosedPromiseReject(writer, error2);
           } else {
             defaultWriterClosedPromiseResetToRejected(writer, error2);
           }
         }
-        function WritableStreamDefaultWriterEnsureReadyPromiseRejected(writer, error2) {
-          if (writer._readyPromiseState === "pending") {
+        function WritableStreamDefaultWriterEnsureReadyPromiseRejected(
+          writer,
+          error2
+        ) {
+          if (writer._readyPromiseState === 'pending') {
             defaultWriterReadyPromiseReject(writer, error2);
           } else {
             defaultWriterReadyPromiseResetToRejected(writer, error2);
@@ -2223,37 +2964,57 @@ var init_install_fetch = __esm({
         function WritableStreamDefaultWriterGetDesiredSize(writer) {
           const stream = writer._ownerWritableStream;
           const state = stream._state;
-          if (state === "errored" || state === "erroring") {
+          if (state === 'errored' || state === 'erroring') {
             return null;
           }
-          if (state === "closed") {
+          if (state === 'closed') {
             return 0;
           }
-          return WritableStreamDefaultControllerGetDesiredSize(stream._writableStreamController);
+          return WritableStreamDefaultControllerGetDesiredSize(
+            stream._writableStreamController
+          );
         }
         function WritableStreamDefaultWriterRelease(writer) {
           const stream = writer._ownerWritableStream;
-          const releasedError = new TypeError(`Writer was released and can no longer be used to monitor the stream's closedness`);
-          WritableStreamDefaultWriterEnsureReadyPromiseRejected(writer, releasedError);
-          WritableStreamDefaultWriterEnsureClosedPromiseRejected(writer, releasedError);
+          const releasedError = new TypeError(
+            `Writer was released and can no longer be used to monitor the stream's closedness`
+          );
+          WritableStreamDefaultWriterEnsureReadyPromiseRejected(
+            writer,
+            releasedError
+          );
+          WritableStreamDefaultWriterEnsureClosedPromiseRejected(
+            writer,
+            releasedError
+          );
           stream._writer = void 0;
           writer._ownerWritableStream = void 0;
         }
         function WritableStreamDefaultWriterWrite(writer, chunk) {
           const stream = writer._ownerWritableStream;
           const controller = stream._writableStreamController;
-          const chunkSize = WritableStreamDefaultControllerGetChunkSize(controller, chunk);
+          const chunkSize = WritableStreamDefaultControllerGetChunkSize(
+            controller,
+            chunk
+          );
           if (stream !== writer._ownerWritableStream) {
-            return promiseRejectedWith(defaultWriterLockException("write to"));
+            return promiseRejectedWith(defaultWriterLockException('write to'));
           }
           const state = stream._state;
-          if (state === "errored") {
+          if (state === 'errored') {
             return promiseRejectedWith(stream._storedError);
           }
-          if (WritableStreamCloseQueuedOrInFlight(stream) || state === "closed") {
-            return promiseRejectedWith(new TypeError("The stream is closing or closed and cannot be written to"));
+          if (
+            WritableStreamCloseQueuedOrInFlight(stream) ||
+            state === 'closed'
+          ) {
+            return promiseRejectedWith(
+              new TypeError(
+                'The stream is closing or closed and cannot be written to'
+              )
+            );
           }
-          if (state === "erroring") {
+          if (state === 'erroring') {
             return promiseRejectedWith(stream._storedError);
           }
           const promise = WritableStreamAddWriteRequest(stream);
@@ -2263,29 +3024,31 @@ var init_install_fetch = __esm({
         const closeSentinel = {};
         class WritableStreamDefaultController {
           constructor() {
-            throw new TypeError("Illegal constructor");
+            throw new TypeError('Illegal constructor');
           }
           get abortReason() {
             if (!IsWritableStreamDefaultController(this)) {
-              throw defaultControllerBrandCheckException$2("abortReason");
+              throw defaultControllerBrandCheckException$2('abortReason');
             }
             return this._abortReason;
           }
           get signal() {
             if (!IsWritableStreamDefaultController(this)) {
-              throw defaultControllerBrandCheckException$2("signal");
+              throw defaultControllerBrandCheckException$2('signal');
             }
             if (this._abortController === void 0) {
-              throw new TypeError("WritableStreamDefaultController.prototype.signal is not supported");
+              throw new TypeError(
+                'WritableStreamDefaultController.prototype.signal is not supported'
+              );
             }
             return this._abortController.signal;
           }
           error(e = void 0) {
             if (!IsWritableStreamDefaultController(this)) {
-              throw defaultControllerBrandCheckException$2("error");
+              throw defaultControllerBrandCheckException$2('error');
             }
             const state = this._controlledWritableStream._state;
-            if (state !== "writable") {
+            if (state !== 'writable') {
               return;
             }
             WritableStreamDefaultControllerError(this, e);
@@ -2300,24 +3063,42 @@ var init_install_fetch = __esm({
           }
         }
         Object.defineProperties(WritableStreamDefaultController.prototype, {
-          error: { enumerable: true }
+          error: { enumerable: true },
         });
-        if (typeof SymbolPolyfill.toStringTag === "symbol") {
-          Object.defineProperty(WritableStreamDefaultController.prototype, SymbolPolyfill.toStringTag, {
-            value: "WritableStreamDefaultController",
-            configurable: true
-          });
+        if (typeof SymbolPolyfill.toStringTag === 'symbol') {
+          Object.defineProperty(
+            WritableStreamDefaultController.prototype,
+            SymbolPolyfill.toStringTag,
+            {
+              value: 'WritableStreamDefaultController',
+              configurable: true,
+            }
+          );
         }
         function IsWritableStreamDefaultController(x) {
           if (!typeIsObject(x)) {
             return false;
           }
-          if (!Object.prototype.hasOwnProperty.call(x, "_controlledWritableStream")) {
+          if (
+            !Object.prototype.hasOwnProperty.call(
+              x,
+              '_controlledWritableStream'
+            )
+          ) {
             return false;
           }
           return x instanceof WritableStreamDefaultController;
         }
-        function SetUpWritableStreamDefaultController(stream, controller, startAlgorithm, writeAlgorithm, closeAlgorithm, abortAlgorithm, highWaterMark, sizeAlgorithm) {
+        function SetUpWritableStreamDefaultController(
+          stream,
+          controller,
+          startAlgorithm,
+          writeAlgorithm,
+          closeAlgorithm,
+          abortAlgorithm,
+          highWaterMark,
+          sizeAlgorithm
+        ) {
           controller._controlledWritableStream = stream;
           stream._writableStreamController = controller;
           controller._queue = void 0;
@@ -2331,20 +3112,32 @@ var init_install_fetch = __esm({
           controller._writeAlgorithm = writeAlgorithm;
           controller._closeAlgorithm = closeAlgorithm;
           controller._abortAlgorithm = abortAlgorithm;
-          const backpressure = WritableStreamDefaultControllerGetBackpressure(controller);
+          const backpressure =
+            WritableStreamDefaultControllerGetBackpressure(controller);
           WritableStreamUpdateBackpressure(stream, backpressure);
           const startResult = startAlgorithm();
           const startPromise = promiseResolvedWith(startResult);
-          uponPromise(startPromise, () => {
-            controller._started = true;
-            WritableStreamDefaultControllerAdvanceQueueIfNeeded(controller);
-          }, (r) => {
-            controller._started = true;
-            WritableStreamDealWithRejection(stream, r);
-          });
+          uponPromise(
+            startPromise,
+            () => {
+              controller._started = true;
+              WritableStreamDefaultControllerAdvanceQueueIfNeeded(controller);
+            },
+            (r) => {
+              controller._started = true;
+              WritableStreamDealWithRejection(stream, r);
+            }
+          );
         }
-        function SetUpWritableStreamDefaultControllerFromUnderlyingSink(stream, underlyingSink, highWaterMark, sizeAlgorithm) {
-          const controller = Object.create(WritableStreamDefaultController.prototype);
+        function SetUpWritableStreamDefaultControllerFromUnderlyingSink(
+          stream,
+          underlyingSink,
+          highWaterMark,
+          sizeAlgorithm
+        ) {
+          const controller = Object.create(
+            WritableStreamDefaultController.prototype
+          );
           let startAlgorithm = () => void 0;
           let writeAlgorithm = () => promiseResolvedWith(void 0);
           let closeAlgorithm = () => promiseResolvedWith(void 0);
@@ -2361,7 +3154,16 @@ var init_install_fetch = __esm({
           if (underlyingSink.abort !== void 0) {
             abortAlgorithm = (reason) => underlyingSink.abort(reason);
           }
-          SetUpWritableStreamDefaultController(stream, controller, startAlgorithm, writeAlgorithm, closeAlgorithm, abortAlgorithm, highWaterMark, sizeAlgorithm);
+          SetUpWritableStreamDefaultController(
+            stream,
+            controller,
+            startAlgorithm,
+            writeAlgorithm,
+            closeAlgorithm,
+            abortAlgorithm,
+            highWaterMark,
+            sizeAlgorithm
+          );
         }
         function WritableStreamDefaultControllerClearAlgorithms(controller) {
           controller._writeAlgorithm = void 0;
@@ -2373,18 +3175,28 @@ var init_install_fetch = __esm({
           EnqueueValueWithSize(controller, closeSentinel, 0);
           WritableStreamDefaultControllerAdvanceQueueIfNeeded(controller);
         }
-        function WritableStreamDefaultControllerGetChunkSize(controller, chunk) {
+        function WritableStreamDefaultControllerGetChunkSize(
+          controller,
+          chunk
+        ) {
           try {
             return controller._strategySizeAlgorithm(chunk);
           } catch (chunkSizeE) {
-            WritableStreamDefaultControllerErrorIfNeeded(controller, chunkSizeE);
+            WritableStreamDefaultControllerErrorIfNeeded(
+              controller,
+              chunkSizeE
+            );
             return 1;
           }
         }
         function WritableStreamDefaultControllerGetDesiredSize(controller) {
           return controller._strategyHWM - controller._queueTotalSize;
         }
-        function WritableStreamDefaultControllerWrite(controller, chunk, chunkSize) {
+        function WritableStreamDefaultControllerWrite(
+          controller,
+          chunk,
+          chunkSize
+        ) {
           try {
             EnqueueValueWithSize(controller, chunk, chunkSize);
           } catch (enqueueE) {
@@ -2392,13 +3204,19 @@ var init_install_fetch = __esm({
             return;
           }
           const stream = controller._controlledWritableStream;
-          if (!WritableStreamCloseQueuedOrInFlight(stream) && stream._state === "writable") {
-            const backpressure = WritableStreamDefaultControllerGetBackpressure(controller);
+          if (
+            !WritableStreamCloseQueuedOrInFlight(stream) &&
+            stream._state === 'writable'
+          ) {
+            const backpressure =
+              WritableStreamDefaultControllerGetBackpressure(controller);
             WritableStreamUpdateBackpressure(stream, backpressure);
           }
           WritableStreamDefaultControllerAdvanceQueueIfNeeded(controller);
         }
-        function WritableStreamDefaultControllerAdvanceQueueIfNeeded(controller) {
+        function WritableStreamDefaultControllerAdvanceQueueIfNeeded(
+          controller
+        ) {
           const stream = controller._controlledWritableStream;
           if (!controller._started) {
             return;
@@ -2407,7 +3225,7 @@ var init_install_fetch = __esm({
             return;
           }
           const state = stream._state;
-          if (state === "erroring") {
+          if (state === 'erroring') {
             WritableStreamFinishErroring(stream);
             return;
           }
@@ -2421,8 +3239,11 @@ var init_install_fetch = __esm({
             WritableStreamDefaultControllerProcessWrite(controller, value);
           }
         }
-        function WritableStreamDefaultControllerErrorIfNeeded(controller, error2) {
-          if (controller._controlledWritableStream._state === "writable") {
+        function WritableStreamDefaultControllerErrorIfNeeded(
+          controller,
+          error2
+        ) {
+          if (controller._controlledWritableStream._state === 'writable') {
             WritableStreamDefaultControllerError(controller, error2);
           }
         }
@@ -2432,34 +3253,50 @@ var init_install_fetch = __esm({
           DequeueValue(controller);
           const sinkClosePromise = controller._closeAlgorithm();
           WritableStreamDefaultControllerClearAlgorithms(controller);
-          uponPromise(sinkClosePromise, () => {
-            WritableStreamFinishInFlightClose(stream);
-          }, (reason) => {
-            WritableStreamFinishInFlightCloseWithError(stream, reason);
-          });
+          uponPromise(
+            sinkClosePromise,
+            () => {
+              WritableStreamFinishInFlightClose(stream);
+            },
+            (reason) => {
+              WritableStreamFinishInFlightCloseWithError(stream, reason);
+            }
+          );
         }
-        function WritableStreamDefaultControllerProcessWrite(controller, chunk) {
+        function WritableStreamDefaultControllerProcessWrite(
+          controller,
+          chunk
+        ) {
           const stream = controller._controlledWritableStream;
           WritableStreamMarkFirstWriteRequestInFlight(stream);
           const sinkWritePromise = controller._writeAlgorithm(chunk);
-          uponPromise(sinkWritePromise, () => {
-            WritableStreamFinishInFlightWrite(stream);
-            const state = stream._state;
-            DequeueValue(controller);
-            if (!WritableStreamCloseQueuedOrInFlight(stream) && state === "writable") {
-              const backpressure = WritableStreamDefaultControllerGetBackpressure(controller);
-              WritableStreamUpdateBackpressure(stream, backpressure);
+          uponPromise(
+            sinkWritePromise,
+            () => {
+              WritableStreamFinishInFlightWrite(stream);
+              const state = stream._state;
+              DequeueValue(controller);
+              if (
+                !WritableStreamCloseQueuedOrInFlight(stream) &&
+                state === 'writable'
+              ) {
+                const backpressure =
+                  WritableStreamDefaultControllerGetBackpressure(controller);
+                WritableStreamUpdateBackpressure(stream, backpressure);
+              }
+              WritableStreamDefaultControllerAdvanceQueueIfNeeded(controller);
+            },
+            (reason) => {
+              if (stream._state === 'writable') {
+                WritableStreamDefaultControllerClearAlgorithms(controller);
+              }
+              WritableStreamFinishInFlightWriteWithError(stream, reason);
             }
-            WritableStreamDefaultControllerAdvanceQueueIfNeeded(controller);
-          }, (reason) => {
-            if (stream._state === "writable") {
-              WritableStreamDefaultControllerClearAlgorithms(controller);
-            }
-            WritableStreamFinishInFlightWriteWithError(stream, reason);
-          });
+          );
         }
         function WritableStreamDefaultControllerGetBackpressure(controller) {
-          const desiredSize = WritableStreamDefaultControllerGetDesiredSize(controller);
+          const desiredSize =
+            WritableStreamDefaultControllerGetDesiredSize(controller);
           return desiredSize <= 0;
         }
         function WritableStreamDefaultControllerError(controller, error2) {
@@ -2468,25 +3305,36 @@ var init_install_fetch = __esm({
           WritableStreamStartErroring(stream, error2);
         }
         function streamBrandCheckException$2(name) {
-          return new TypeError(`WritableStream.prototype.${name} can only be used on a WritableStream`);
+          return new TypeError(
+            `WritableStream.prototype.${name} can only be used on a WritableStream`
+          );
         }
         function defaultControllerBrandCheckException$2(name) {
-          return new TypeError(`WritableStreamDefaultController.prototype.${name} can only be used on a WritableStreamDefaultController`);
+          return new TypeError(
+            `WritableStreamDefaultController.prototype.${name} can only be used on a WritableStreamDefaultController`
+          );
         }
         function defaultWriterBrandCheckException(name) {
-          return new TypeError(`WritableStreamDefaultWriter.prototype.${name} can only be used on a WritableStreamDefaultWriter`);
+          return new TypeError(
+            `WritableStreamDefaultWriter.prototype.${name} can only be used on a WritableStreamDefaultWriter`
+          );
         }
         function defaultWriterLockException(name) {
-          return new TypeError("Cannot " + name + " a stream using a released writer");
+          return new TypeError(
+            'Cannot ' + name + ' a stream using a released writer'
+          );
         }
         function defaultWriterClosedPromiseInitialize(writer) {
           writer._closedPromise = newPromise((resolve2, reject) => {
             writer._closedPromise_resolve = resolve2;
             writer._closedPromise_reject = reject;
-            writer._closedPromiseState = "pending";
+            writer._closedPromiseState = 'pending';
           });
         }
-        function defaultWriterClosedPromiseInitializeAsRejected(writer, reason) {
+        function defaultWriterClosedPromiseInitializeAsRejected(
+          writer,
+          reason
+        ) {
           defaultWriterClosedPromiseInitialize(writer);
           defaultWriterClosedPromiseReject(writer, reason);
         }
@@ -2502,7 +3350,7 @@ var init_install_fetch = __esm({
           writer._closedPromise_reject(reason);
           writer._closedPromise_resolve = void 0;
           writer._closedPromise_reject = void 0;
-          writer._closedPromiseState = "rejected";
+          writer._closedPromiseState = 'rejected';
         }
         function defaultWriterClosedPromiseResetToRejected(writer, reason) {
           defaultWriterClosedPromiseInitializeAsRejected(writer, reason);
@@ -2514,14 +3362,14 @@ var init_install_fetch = __esm({
           writer._closedPromise_resolve(void 0);
           writer._closedPromise_resolve = void 0;
           writer._closedPromise_reject = void 0;
-          writer._closedPromiseState = "resolved";
+          writer._closedPromiseState = 'resolved';
         }
         function defaultWriterReadyPromiseInitialize(writer) {
           writer._readyPromise = newPromise((resolve2, reject) => {
             writer._readyPromise_resolve = resolve2;
             writer._readyPromise_reject = reject;
           });
-          writer._readyPromiseState = "pending";
+          writer._readyPromiseState = 'pending';
         }
         function defaultWriterReadyPromiseInitializeAsRejected(writer, reason) {
           defaultWriterReadyPromiseInitialize(writer);
@@ -2539,7 +3387,7 @@ var init_install_fetch = __esm({
           writer._readyPromise_reject(reason);
           writer._readyPromise_resolve = void 0;
           writer._readyPromise_reject = void 0;
-          writer._readyPromiseState = "rejected";
+          writer._readyPromiseState = 'rejected';
         }
         function defaultWriterReadyPromiseReset(writer) {
           defaultWriterReadyPromiseInitialize(writer);
@@ -2554,11 +3402,12 @@ var init_install_fetch = __esm({
           writer._readyPromise_resolve(void 0);
           writer._readyPromise_resolve = void 0;
           writer._readyPromise_reject = void 0;
-          writer._readyPromiseState = "fulfilled";
+          writer._readyPromiseState = 'fulfilled';
         }
-        const NativeDOMException = typeof DOMException !== "undefined" ? DOMException : void 0;
+        const NativeDOMException =
+          typeof DOMException !== 'undefined' ? DOMException : void 0;
         function isDOMExceptionConstructor(ctor) {
-          if (!(typeof ctor === "function" || typeof ctor === "object")) {
+          if (!(typeof ctor === 'function' || typeof ctor === 'object')) {
             return false;
           }
           try {
@@ -2570,18 +3419,31 @@ var init_install_fetch = __esm({
         }
         function createDOMExceptionPolyfill() {
           const ctor = function DOMException2(message, name) {
-            this.message = message || "";
-            this.name = name || "Error";
+            this.message = message || '';
+            this.name = name || 'Error';
             if (Error.captureStackTrace) {
               Error.captureStackTrace(this, this.constructor);
             }
           };
           ctor.prototype = Object.create(Error.prototype);
-          Object.defineProperty(ctor.prototype, "constructor", { value: ctor, writable: true, configurable: true });
+          Object.defineProperty(ctor.prototype, 'constructor', {
+            value: ctor,
+            writable: true,
+            configurable: true,
+          });
           return ctor;
         }
-        const DOMException$1 = isDOMExceptionConstructor(NativeDOMException) ? NativeDOMException : createDOMExceptionPolyfill();
-        function ReadableStreamPipeTo(source, dest, preventClose, preventAbort, preventCancel, signal) {
+        const DOMException$1 = isDOMExceptionConstructor(NativeDOMException)
+          ? NativeDOMException
+          : createDOMExceptionPolyfill();
+        function ReadableStreamPipeTo(
+          source,
+          dest,
+          preventClose,
+          preventAbort,
+          preventCancel,
+          signal
+        ) {
           const reader = AcquireReadableStreamDefaultReader(source);
           const writer = AcquireWritableStreamDefaultWriter(dest);
           source._disturbed = true;
@@ -2591,11 +3453,11 @@ var init_install_fetch = __esm({
             let abortAlgorithm;
             if (signal !== void 0) {
               abortAlgorithm = () => {
-                const error2 = new DOMException$1("Aborted", "AbortError");
+                const error2 = new DOMException$1('Aborted', 'AbortError');
                 const actions = [];
                 if (!preventAbort) {
                   actions.push(() => {
-                    if (dest._state === "writable") {
+                    if (dest._state === 'writable') {
                       return WritableStreamAbort(dest, error2);
                     }
                     return promiseResolvedWith(void 0);
@@ -2603,19 +3465,23 @@ var init_install_fetch = __esm({
                 }
                 if (!preventCancel) {
                   actions.push(() => {
-                    if (source._state === "readable") {
+                    if (source._state === 'readable') {
                       return ReadableStreamCancel(source, error2);
                     }
                     return promiseResolvedWith(void 0);
                   });
                 }
-                shutdownWithAction(() => Promise.all(actions.map((action) => action())), true, error2);
+                shutdownWithAction(
+                  () => Promise.all(actions.map((action) => action())),
+                  true,
+                  error2
+                );
               };
               if (signal.aborted) {
                 abortAlgorithm();
                 return;
               }
-              signal.addEventListener("abort", abortAlgorithm);
+              signal.addEventListener('abort', abortAlgorithm);
             }
             function pipeLoop() {
               return newPromise((resolveLoop, rejectLoop) => {
@@ -2637,40 +3503,63 @@ var init_install_fetch = __esm({
                 return newPromise((resolveRead, rejectRead) => {
                   ReadableStreamDefaultReaderRead(reader, {
                     _chunkSteps: (chunk) => {
-                      currentWrite = PerformPromiseThen(WritableStreamDefaultWriterWrite(writer, chunk), void 0, noop2);
+                      currentWrite = PerformPromiseThen(
+                        WritableStreamDefaultWriterWrite(writer, chunk),
+                        void 0,
+                        noop2
+                      );
                       resolveRead(false);
                     },
                     _closeSteps: () => resolveRead(true),
-                    _errorSteps: rejectRead
+                    _errorSteps: rejectRead,
                   });
                 });
               });
             }
             isOrBecomesErrored(source, reader._closedPromise, (storedError) => {
               if (!preventAbort) {
-                shutdownWithAction(() => WritableStreamAbort(dest, storedError), true, storedError);
+                shutdownWithAction(
+                  () => WritableStreamAbort(dest, storedError),
+                  true,
+                  storedError
+                );
               } else {
                 shutdown(true, storedError);
               }
             });
             isOrBecomesErrored(dest, writer._closedPromise, (storedError) => {
               if (!preventCancel) {
-                shutdownWithAction(() => ReadableStreamCancel(source, storedError), true, storedError);
+                shutdownWithAction(
+                  () => ReadableStreamCancel(source, storedError),
+                  true,
+                  storedError
+                );
               } else {
                 shutdown(true, storedError);
               }
             });
             isOrBecomesClosed(source, reader._closedPromise, () => {
               if (!preventClose) {
-                shutdownWithAction(() => WritableStreamDefaultWriterCloseWithErrorPropagation(writer));
+                shutdownWithAction(() =>
+                  WritableStreamDefaultWriterCloseWithErrorPropagation(writer)
+                );
               } else {
                 shutdown();
               }
             });
-            if (WritableStreamCloseQueuedOrInFlight(dest) || dest._state === "closed") {
-              const destClosed = new TypeError("the destination writable stream closed before all data could be piped to it");
+            if (
+              WritableStreamCloseQueuedOrInFlight(dest) ||
+              dest._state === 'closed'
+            ) {
+              const destClosed = new TypeError(
+                'the destination writable stream closed before all data could be piped to it'
+              );
               if (!preventCancel) {
-                shutdownWithAction(() => ReadableStreamCancel(source, destClosed), true, destClosed);
+                shutdownWithAction(
+                  () => ReadableStreamCancel(source, destClosed),
+                  true,
+                  destClosed
+                );
               } else {
                 shutdown(true, destClosed);
               }
@@ -2678,34 +3567,49 @@ var init_install_fetch = __esm({
             setPromiseIsHandledToTrue(pipeLoop());
             function waitForWritesToFinish() {
               const oldCurrentWrite = currentWrite;
-              return PerformPromiseThen(currentWrite, () => oldCurrentWrite !== currentWrite ? waitForWritesToFinish() : void 0);
+              return PerformPromiseThen(currentWrite, () =>
+                oldCurrentWrite !== currentWrite
+                  ? waitForWritesToFinish()
+                  : void 0
+              );
             }
             function isOrBecomesErrored(stream, promise, action) {
-              if (stream._state === "errored") {
+              if (stream._state === 'errored') {
                 action(stream._storedError);
               } else {
                 uponRejection(promise, action);
               }
             }
             function isOrBecomesClosed(stream, promise, action) {
-              if (stream._state === "closed") {
+              if (stream._state === 'closed') {
                 action();
               } else {
                 uponFulfillment(promise, action);
               }
             }
-            function shutdownWithAction(action, originalIsError, originalError) {
+            function shutdownWithAction(
+              action,
+              originalIsError,
+              originalError
+            ) {
               if (shuttingDown) {
                 return;
               }
               shuttingDown = true;
-              if (dest._state === "writable" && !WritableStreamCloseQueuedOrInFlight(dest)) {
+              if (
+                dest._state === 'writable' &&
+                !WritableStreamCloseQueuedOrInFlight(dest)
+              ) {
                 uponFulfillment(waitForWritesToFinish(), doTheRest);
               } else {
                 doTheRest();
               }
               function doTheRest() {
-                uponPromise(action(), () => finalize(originalIsError, originalError), (newError) => finalize(true, newError));
+                uponPromise(
+                  action(),
+                  () => finalize(originalIsError, originalError),
+                  (newError) => finalize(true, newError)
+                );
               }
             }
             function shutdown(isError, error2) {
@@ -2713,8 +3617,13 @@ var init_install_fetch = __esm({
                 return;
               }
               shuttingDown = true;
-              if (dest._state === "writable" && !WritableStreamCloseQueuedOrInFlight(dest)) {
-                uponFulfillment(waitForWritesToFinish(), () => finalize(isError, error2));
+              if (
+                dest._state === 'writable' &&
+                !WritableStreamCloseQueuedOrInFlight(dest)
+              ) {
+                uponFulfillment(waitForWritesToFinish(), () =>
+                  finalize(isError, error2)
+                );
               } else {
                 finalize(isError, error2);
               }
@@ -2723,7 +3632,7 @@ var init_install_fetch = __esm({
               WritableStreamDefaultWriterRelease(writer);
               ReadableStreamReaderGenericRelease(reader);
               if (signal !== void 0) {
-                signal.removeEventListener("abort", abortAlgorithm);
+                signal.removeEventListener('abort', abortAlgorithm);
               }
               if (isError) {
                 reject(error2);
@@ -2735,35 +3644,39 @@ var init_install_fetch = __esm({
         }
         class ReadableStreamDefaultController {
           constructor() {
-            throw new TypeError("Illegal constructor");
+            throw new TypeError('Illegal constructor');
           }
           get desiredSize() {
             if (!IsReadableStreamDefaultController(this)) {
-              throw defaultControllerBrandCheckException$1("desiredSize");
+              throw defaultControllerBrandCheckException$1('desiredSize');
             }
             return ReadableStreamDefaultControllerGetDesiredSize(this);
           }
           close() {
             if (!IsReadableStreamDefaultController(this)) {
-              throw defaultControllerBrandCheckException$1("close");
+              throw defaultControllerBrandCheckException$1('close');
             }
             if (!ReadableStreamDefaultControllerCanCloseOrEnqueue(this)) {
-              throw new TypeError("The stream is not in a state that permits close");
+              throw new TypeError(
+                'The stream is not in a state that permits close'
+              );
             }
             ReadableStreamDefaultControllerClose(this);
           }
           enqueue(chunk = void 0) {
             if (!IsReadableStreamDefaultController(this)) {
-              throw defaultControllerBrandCheckException$1("enqueue");
+              throw defaultControllerBrandCheckException$1('enqueue');
             }
             if (!ReadableStreamDefaultControllerCanCloseOrEnqueue(this)) {
-              throw new TypeError("The stream is not in a state that permits enqueue");
+              throw new TypeError(
+                'The stream is not in a state that permits enqueue'
+              );
             }
             return ReadableStreamDefaultControllerEnqueue(this, chunk);
           }
           error(e = void 0) {
             if (!IsReadableStreamDefaultController(this)) {
-              throw defaultControllerBrandCheckException$1("error");
+              throw defaultControllerBrandCheckException$1('error');
             }
             ReadableStreamDefaultControllerError(this, e);
           }
@@ -2794,25 +3707,35 @@ var init_install_fetch = __esm({
           close: { enumerable: true },
           enqueue: { enumerable: true },
           error: { enumerable: true },
-          desiredSize: { enumerable: true }
+          desiredSize: { enumerable: true },
         });
-        if (typeof SymbolPolyfill.toStringTag === "symbol") {
-          Object.defineProperty(ReadableStreamDefaultController.prototype, SymbolPolyfill.toStringTag, {
-            value: "ReadableStreamDefaultController",
-            configurable: true
-          });
+        if (typeof SymbolPolyfill.toStringTag === 'symbol') {
+          Object.defineProperty(
+            ReadableStreamDefaultController.prototype,
+            SymbolPolyfill.toStringTag,
+            {
+              value: 'ReadableStreamDefaultController',
+              configurable: true,
+            }
+          );
         }
         function IsReadableStreamDefaultController(x) {
           if (!typeIsObject(x)) {
             return false;
           }
-          if (!Object.prototype.hasOwnProperty.call(x, "_controlledReadableStream")) {
+          if (
+            !Object.prototype.hasOwnProperty.call(
+              x,
+              '_controlledReadableStream'
+            )
+          ) {
             return false;
           }
           return x instanceof ReadableStreamDefaultController;
         }
         function ReadableStreamDefaultControllerCallPullIfNeeded(controller) {
-          const shouldPull = ReadableStreamDefaultControllerShouldCallPull(controller);
+          const shouldPull =
+            ReadableStreamDefaultControllerShouldCallPull(controller);
           if (!shouldPull) {
             return;
           }
@@ -2822,15 +3745,19 @@ var init_install_fetch = __esm({
           }
           controller._pulling = true;
           const pullPromise = controller._pullAlgorithm();
-          uponPromise(pullPromise, () => {
-            controller._pulling = false;
-            if (controller._pullAgain) {
-              controller._pullAgain = false;
-              ReadableStreamDefaultControllerCallPullIfNeeded(controller);
+          uponPromise(
+            pullPromise,
+            () => {
+              controller._pulling = false;
+              if (controller._pullAgain) {
+                controller._pullAgain = false;
+                ReadableStreamDefaultControllerCallPullIfNeeded(controller);
+              }
+            },
+            (e) => {
+              ReadableStreamDefaultControllerError(controller, e);
             }
-          }, (e) => {
-            ReadableStreamDefaultControllerError(controller, e);
-          });
+          );
         }
         function ReadableStreamDefaultControllerShouldCallPull(controller) {
           const stream = controller._controlledReadableStream;
@@ -2840,10 +3767,14 @@ var init_install_fetch = __esm({
           if (!controller._started) {
             return false;
           }
-          if (IsReadableStreamLocked(stream) && ReadableStreamGetNumReadRequests(stream) > 0) {
+          if (
+            IsReadableStreamLocked(stream) &&
+            ReadableStreamGetNumReadRequests(stream) > 0
+          ) {
             return true;
           }
-          const desiredSize = ReadableStreamDefaultControllerGetDesiredSize(controller);
+          const desiredSize =
+            ReadableStreamDefaultControllerGetDesiredSize(controller);
           if (desiredSize > 0) {
             return true;
           }
@@ -2870,7 +3801,10 @@ var init_install_fetch = __esm({
             return;
           }
           const stream = controller._controlledReadableStream;
-          if (IsReadableStreamLocked(stream) && ReadableStreamGetNumReadRequests(stream) > 0) {
+          if (
+            IsReadableStreamLocked(stream) &&
+            ReadableStreamGetNumReadRequests(stream) > 0
+          ) {
             ReadableStreamFulfillReadRequest(stream, chunk, false);
           } else {
             let chunkSize;
@@ -2891,7 +3825,7 @@ var init_install_fetch = __esm({
         }
         function ReadableStreamDefaultControllerError(controller, e) {
           const stream = controller._controlledReadableStream;
-          if (stream._state !== "readable") {
+          if (stream._state !== 'readable') {
             return;
           }
           ResetQueue(controller);
@@ -2900,10 +3834,10 @@ var init_install_fetch = __esm({
         }
         function ReadableStreamDefaultControllerGetDesiredSize(controller) {
           const state = controller._controlledReadableStream._state;
-          if (state === "errored") {
+          if (state === 'errored') {
             return null;
           }
-          if (state === "closed") {
+          if (state === 'closed') {
             return 0;
           }
           return controller._strategyHWM - controller._queueTotalSize;
@@ -2916,12 +3850,20 @@ var init_install_fetch = __esm({
         }
         function ReadableStreamDefaultControllerCanCloseOrEnqueue(controller) {
           const state = controller._controlledReadableStream._state;
-          if (!controller._closeRequested && state === "readable") {
+          if (!controller._closeRequested && state === 'readable') {
             return true;
           }
           return false;
         }
-        function SetUpReadableStreamDefaultController(stream, controller, startAlgorithm, pullAlgorithm, cancelAlgorithm, highWaterMark, sizeAlgorithm) {
+        function SetUpReadableStreamDefaultController(
+          stream,
+          controller,
+          startAlgorithm,
+          pullAlgorithm,
+          cancelAlgorithm,
+          highWaterMark,
+          sizeAlgorithm
+        ) {
           controller._controlledReadableStream = stream;
           controller._queue = void 0;
           controller._queueTotalSize = void 0;
@@ -2936,15 +3878,26 @@ var init_install_fetch = __esm({
           controller._cancelAlgorithm = cancelAlgorithm;
           stream._readableStreamController = controller;
           const startResult = startAlgorithm();
-          uponPromise(promiseResolvedWith(startResult), () => {
-            controller._started = true;
-            ReadableStreamDefaultControllerCallPullIfNeeded(controller);
-          }, (r) => {
-            ReadableStreamDefaultControllerError(controller, r);
-          });
+          uponPromise(
+            promiseResolvedWith(startResult),
+            () => {
+              controller._started = true;
+              ReadableStreamDefaultControllerCallPullIfNeeded(controller);
+            },
+            (r) => {
+              ReadableStreamDefaultControllerError(controller, r);
+            }
+          );
         }
-        function SetUpReadableStreamDefaultControllerFromUnderlyingSource(stream, underlyingSource, highWaterMark, sizeAlgorithm) {
-          const controller = Object.create(ReadableStreamDefaultController.prototype);
+        function SetUpReadableStreamDefaultControllerFromUnderlyingSource(
+          stream,
+          underlyingSource,
+          highWaterMark,
+          sizeAlgorithm
+        ) {
+          const controller = Object.create(
+            ReadableStreamDefaultController.prototype
+          );
           let startAlgorithm = () => void 0;
           let pullAlgorithm = () => promiseResolvedWith(void 0);
           let cancelAlgorithm = () => promiseResolvedWith(void 0);
@@ -2957,13 +3910,25 @@ var init_install_fetch = __esm({
           if (underlyingSource.cancel !== void 0) {
             cancelAlgorithm = (reason) => underlyingSource.cancel(reason);
           }
-          SetUpReadableStreamDefaultController(stream, controller, startAlgorithm, pullAlgorithm, cancelAlgorithm, highWaterMark, sizeAlgorithm);
+          SetUpReadableStreamDefaultController(
+            stream,
+            controller,
+            startAlgorithm,
+            pullAlgorithm,
+            cancelAlgorithm,
+            highWaterMark,
+            sizeAlgorithm
+          );
         }
         function defaultControllerBrandCheckException$1(name) {
-          return new TypeError(`ReadableStreamDefaultController.prototype.${name} can only be used on a ReadableStreamDefaultController`);
+          return new TypeError(
+            `ReadableStreamDefaultController.prototype.${name} can only be used on a ReadableStreamDefaultController`
+          );
         }
         function ReadableStreamTee(stream, cloneForBranch2) {
-          if (IsReadableByteStreamController(stream._readableStreamController)) {
+          if (
+            IsReadableByteStreamController(stream._readableStreamController)
+          ) {
             return ReadableByteStreamTee(stream);
           }
           return ReadableStreamDefaultTee(stream);
@@ -2993,20 +3958,30 @@ var init_install_fetch = __esm({
                   const chunk1 = chunk;
                   const chunk2 = chunk;
                   if (!canceled1) {
-                    ReadableStreamDefaultControllerEnqueue(branch1._readableStreamController, chunk1);
+                    ReadableStreamDefaultControllerEnqueue(
+                      branch1._readableStreamController,
+                      chunk1
+                    );
                   }
                   if (!canceled2) {
-                    ReadableStreamDefaultControllerEnqueue(branch2._readableStreamController, chunk2);
+                    ReadableStreamDefaultControllerEnqueue(
+                      branch2._readableStreamController,
+                      chunk2
+                    );
                   }
                 });
               },
               _closeSteps: () => {
                 reading = false;
                 if (!canceled1) {
-                  ReadableStreamDefaultControllerClose(branch1._readableStreamController);
+                  ReadableStreamDefaultControllerClose(
+                    branch1._readableStreamController
+                  );
                 }
                 if (!canceled2) {
-                  ReadableStreamDefaultControllerClose(branch2._readableStreamController);
+                  ReadableStreamDefaultControllerClose(
+                    branch2._readableStreamController
+                  );
                 }
                 if (!canceled1 || !canceled2) {
                   resolveCancelPromise(void 0);
@@ -3014,7 +3989,7 @@ var init_install_fetch = __esm({
               },
               _errorSteps: () => {
                 reading = false;
-              }
+              },
             };
             ReadableStreamDefaultReaderRead(reader, readRequest);
             return promiseResolvedWith(void 0);
@@ -3024,7 +3999,10 @@ var init_install_fetch = __esm({
             reason1 = reason;
             if (canceled2) {
               const compositeReason = CreateArrayFromList([reason1, reason2]);
-              const cancelResult = ReadableStreamCancel(stream, compositeReason);
+              const cancelResult = ReadableStreamCancel(
+                stream,
+                compositeReason
+              );
               resolveCancelPromise(cancelResult);
             }
             return cancelPromise;
@@ -3034,18 +4012,34 @@ var init_install_fetch = __esm({
             reason2 = reason;
             if (canceled1) {
               const compositeReason = CreateArrayFromList([reason1, reason2]);
-              const cancelResult = ReadableStreamCancel(stream, compositeReason);
+              const cancelResult = ReadableStreamCancel(
+                stream,
+                compositeReason
+              );
               resolveCancelPromise(cancelResult);
             }
             return cancelPromise;
           }
-          function startAlgorithm() {
-          }
-          branch1 = CreateReadableStream(startAlgorithm, pullAlgorithm, cancel1Algorithm);
-          branch2 = CreateReadableStream(startAlgorithm, pullAlgorithm, cancel2Algorithm);
+          function startAlgorithm() {}
+          branch1 = CreateReadableStream(
+            startAlgorithm,
+            pullAlgorithm,
+            cancel1Algorithm
+          );
+          branch2 = CreateReadableStream(
+            startAlgorithm,
+            pullAlgorithm,
+            cancel2Algorithm
+          );
           uponRejection(reader._closedPromise, (r) => {
-            ReadableStreamDefaultControllerError(branch1._readableStreamController, r);
-            ReadableStreamDefaultControllerError(branch2._readableStreamController, r);
+            ReadableStreamDefaultControllerError(
+              branch1._readableStreamController,
+              r
+            );
+            ReadableStreamDefaultControllerError(
+              branch2._readableStreamController,
+              r
+            );
             if (!canceled1 || !canceled2) {
               resolveCancelPromise(void 0);
             }
@@ -3070,8 +4064,14 @@ var init_install_fetch = __esm({
               if (thisReader !== reader) {
                 return;
               }
-              ReadableByteStreamControllerError(branch1._readableStreamController, r);
-              ReadableByteStreamControllerError(branch2._readableStreamController, r);
+              ReadableByteStreamControllerError(
+                branch1._readableStreamController,
+                r
+              );
+              ReadableByteStreamControllerError(
+                branch2._readableStreamController,
+                r
+              );
               if (!canceled1 || !canceled2) {
                 resolveCancelPromise(void 0);
               }
@@ -3093,33 +4093,61 @@ var init_install_fetch = __esm({
                     try {
                       chunk2 = CloneAsUint8Array(chunk);
                     } catch (cloneE) {
-                      ReadableByteStreamControllerError(branch1._readableStreamController, cloneE);
-                      ReadableByteStreamControllerError(branch2._readableStreamController, cloneE);
-                      resolveCancelPromise(ReadableStreamCancel(stream, cloneE));
+                      ReadableByteStreamControllerError(
+                        branch1._readableStreamController,
+                        cloneE
+                      );
+                      ReadableByteStreamControllerError(
+                        branch2._readableStreamController,
+                        cloneE
+                      );
+                      resolveCancelPromise(
+                        ReadableStreamCancel(stream, cloneE)
+                      );
                       return;
                     }
                   }
                   if (!canceled1) {
-                    ReadableByteStreamControllerEnqueue(branch1._readableStreamController, chunk1);
+                    ReadableByteStreamControllerEnqueue(
+                      branch1._readableStreamController,
+                      chunk1
+                    );
                   }
                   if (!canceled2) {
-                    ReadableByteStreamControllerEnqueue(branch2._readableStreamController, chunk2);
+                    ReadableByteStreamControllerEnqueue(
+                      branch2._readableStreamController,
+                      chunk2
+                    );
                   }
                 });
               },
               _closeSteps: () => {
                 reading = false;
                 if (!canceled1) {
-                  ReadableByteStreamControllerClose(branch1._readableStreamController);
+                  ReadableByteStreamControllerClose(
+                    branch1._readableStreamController
+                  );
                 }
                 if (!canceled2) {
-                  ReadableByteStreamControllerClose(branch2._readableStreamController);
+                  ReadableByteStreamControllerClose(
+                    branch2._readableStreamController
+                  );
                 }
-                if (branch1._readableStreamController._pendingPullIntos.length > 0) {
-                  ReadableByteStreamControllerRespond(branch1._readableStreamController, 0);
+                if (
+                  branch1._readableStreamController._pendingPullIntos.length > 0
+                ) {
+                  ReadableByteStreamControllerRespond(
+                    branch1._readableStreamController,
+                    0
+                  );
                 }
-                if (branch2._readableStreamController._pendingPullIntos.length > 0) {
-                  ReadableByteStreamControllerRespond(branch2._readableStreamController, 0);
+                if (
+                  branch2._readableStreamController._pendingPullIntos.length > 0
+                ) {
+                  ReadableByteStreamControllerRespond(
+                    branch2._readableStreamController,
+                    0
+                  );
                 }
                 if (!canceled1 || !canceled2) {
                   resolveCancelPromise(void 0);
@@ -3127,7 +4155,7 @@ var init_install_fetch = __esm({
               },
               _errorSteps: () => {
                 reading = false;
-              }
+              },
             };
             ReadableStreamDefaultReaderRead(reader, readRequest);
           }
@@ -3150,17 +4178,34 @@ var init_install_fetch = __esm({
                     try {
                       clonedChunk = CloneAsUint8Array(chunk);
                     } catch (cloneE) {
-                      ReadableByteStreamControllerError(byobBranch._readableStreamController, cloneE);
-                      ReadableByteStreamControllerError(otherBranch._readableStreamController, cloneE);
-                      resolveCancelPromise(ReadableStreamCancel(stream, cloneE));
+                      ReadableByteStreamControllerError(
+                        byobBranch._readableStreamController,
+                        cloneE
+                      );
+                      ReadableByteStreamControllerError(
+                        otherBranch._readableStreamController,
+                        cloneE
+                      );
+                      resolveCancelPromise(
+                        ReadableStreamCancel(stream, cloneE)
+                      );
                       return;
                     }
                     if (!byobCanceled) {
-                      ReadableByteStreamControllerRespondWithNewView(byobBranch._readableStreamController, chunk);
+                      ReadableByteStreamControllerRespondWithNewView(
+                        byobBranch._readableStreamController,
+                        chunk
+                      );
                     }
-                    ReadableByteStreamControllerEnqueue(otherBranch._readableStreamController, clonedChunk);
+                    ReadableByteStreamControllerEnqueue(
+                      otherBranch._readableStreamController,
+                      clonedChunk
+                    );
                   } else if (!byobCanceled) {
-                    ReadableByteStreamControllerRespondWithNewView(byobBranch._readableStreamController, chunk);
+                    ReadableByteStreamControllerRespondWithNewView(
+                      byobBranch._readableStreamController,
+                      chunk
+                    );
                   }
                 });
               },
@@ -3169,17 +4214,31 @@ var init_install_fetch = __esm({
                 const byobCanceled = forBranch2 ? canceled2 : canceled1;
                 const otherCanceled = forBranch2 ? canceled1 : canceled2;
                 if (!byobCanceled) {
-                  ReadableByteStreamControllerClose(byobBranch._readableStreamController);
+                  ReadableByteStreamControllerClose(
+                    byobBranch._readableStreamController
+                  );
                 }
                 if (!otherCanceled) {
-                  ReadableByteStreamControllerClose(otherBranch._readableStreamController);
+                  ReadableByteStreamControllerClose(
+                    otherBranch._readableStreamController
+                  );
                 }
                 if (chunk !== void 0) {
                   if (!byobCanceled) {
-                    ReadableByteStreamControllerRespondWithNewView(byobBranch._readableStreamController, chunk);
+                    ReadableByteStreamControllerRespondWithNewView(
+                      byobBranch._readableStreamController,
+                      chunk
+                    );
                   }
-                  if (!otherCanceled && otherBranch._readableStreamController._pendingPullIntos.length > 0) {
-                    ReadableByteStreamControllerRespond(otherBranch._readableStreamController, 0);
+                  if (
+                    !otherCanceled &&
+                    otherBranch._readableStreamController._pendingPullIntos
+                      .length > 0
+                  ) {
+                    ReadableByteStreamControllerRespond(
+                      otherBranch._readableStreamController,
+                      0
+                    );
                   }
                 }
                 if (!byobCanceled || !otherCanceled) {
@@ -3188,7 +4247,7 @@ var init_install_fetch = __esm({
               },
               _errorSteps: () => {
                 reading = false;
-              }
+              },
             };
             ReadableStreamBYOBReaderRead(reader, view, readIntoRequest);
           }
@@ -3197,7 +4256,9 @@ var init_install_fetch = __esm({
               return promiseResolvedWith(void 0);
             }
             reading = true;
-            const byobRequest = ReadableByteStreamControllerGetBYOBRequest(branch1._readableStreamController);
+            const byobRequest = ReadableByteStreamControllerGetBYOBRequest(
+              branch1._readableStreamController
+            );
             if (byobRequest === null) {
               pullWithDefaultReader();
             } else {
@@ -3210,7 +4271,9 @@ var init_install_fetch = __esm({
               return promiseResolvedWith(void 0);
             }
             reading = true;
-            const byobRequest = ReadableByteStreamControllerGetBYOBRequest(branch2._readableStreamController);
+            const byobRequest = ReadableByteStreamControllerGetBYOBRequest(
+              branch2._readableStreamController
+            );
             if (byobRequest === null) {
               pullWithDefaultReader();
             } else {
@@ -3223,7 +4286,10 @@ var init_install_fetch = __esm({
             reason1 = reason;
             if (canceled2) {
               const compositeReason = CreateArrayFromList([reason1, reason2]);
-              const cancelResult = ReadableStreamCancel(stream, compositeReason);
+              const cancelResult = ReadableStreamCancel(
+                stream,
+                compositeReason
+              );
               resolveCancelPromise(cancelResult);
             }
             return cancelPromise;
@@ -3233,7 +4299,10 @@ var init_install_fetch = __esm({
             reason2 = reason;
             if (canceled1) {
               const compositeReason = CreateArrayFromList([reason1, reason2]);
-              const cancelResult = ReadableStreamCancel(stream, compositeReason);
+              const cancelResult = ReadableStreamCancel(
+                stream,
+                compositeReason
+              );
               resolveCancelPromise(cancelResult);
             }
             return cancelPromise;
@@ -3241,25 +4310,73 @@ var init_install_fetch = __esm({
           function startAlgorithm() {
             return;
           }
-          branch1 = CreateReadableByteStream(startAlgorithm, pull1Algorithm, cancel1Algorithm);
-          branch2 = CreateReadableByteStream(startAlgorithm, pull2Algorithm, cancel2Algorithm);
+          branch1 = CreateReadableByteStream(
+            startAlgorithm,
+            pull1Algorithm,
+            cancel1Algorithm
+          );
+          branch2 = CreateReadableByteStream(
+            startAlgorithm,
+            pull2Algorithm,
+            cancel2Algorithm
+          );
           forwardReaderError(reader);
           return [branch1, branch2];
         }
         function convertUnderlyingDefaultOrByteSource(source, context) {
           assertDictionary(source, context);
           const original = source;
-          const autoAllocateChunkSize = original === null || original === void 0 ? void 0 : original.autoAllocateChunkSize;
-          const cancel = original === null || original === void 0 ? void 0 : original.cancel;
-          const pull = original === null || original === void 0 ? void 0 : original.pull;
-          const start = original === null || original === void 0 ? void 0 : original.start;
-          const type = original === null || original === void 0 ? void 0 : original.type;
+          const autoAllocateChunkSize =
+            original === null || original === void 0
+              ? void 0
+              : original.autoAllocateChunkSize;
+          const cancel =
+            original === null || original === void 0 ? void 0 : original.cancel;
+          const pull =
+            original === null || original === void 0 ? void 0 : original.pull;
+          const start =
+            original === null || original === void 0 ? void 0 : original.start;
+          const type =
+            original === null || original === void 0 ? void 0 : original.type;
           return {
-            autoAllocateChunkSize: autoAllocateChunkSize === void 0 ? void 0 : convertUnsignedLongLongWithEnforceRange(autoAllocateChunkSize, `${context} has member 'autoAllocateChunkSize' that`),
-            cancel: cancel === void 0 ? void 0 : convertUnderlyingSourceCancelCallback(cancel, original, `${context} has member 'cancel' that`),
-            pull: pull === void 0 ? void 0 : convertUnderlyingSourcePullCallback(pull, original, `${context} has member 'pull' that`),
-            start: start === void 0 ? void 0 : convertUnderlyingSourceStartCallback(start, original, `${context} has member 'start' that`),
-            type: type === void 0 ? void 0 : convertReadableStreamType(type, `${context} has member 'type' that`)
+            autoAllocateChunkSize:
+              autoAllocateChunkSize === void 0
+                ? void 0
+                : convertUnsignedLongLongWithEnforceRange(
+                    autoAllocateChunkSize,
+                    `${context} has member 'autoAllocateChunkSize' that`
+                  ),
+            cancel:
+              cancel === void 0
+                ? void 0
+                : convertUnderlyingSourceCancelCallback(
+                    cancel,
+                    original,
+                    `${context} has member 'cancel' that`
+                  ),
+            pull:
+              pull === void 0
+                ? void 0
+                : convertUnderlyingSourcePullCallback(
+                    pull,
+                    original,
+                    `${context} has member 'pull' that`
+                  ),
+            start:
+              start === void 0
+                ? void 0
+                : convertUnderlyingSourceStartCallback(
+                    start,
+                    original,
+                    `${context} has member 'start' that`
+                  ),
+            type:
+              type === void 0
+                ? void 0
+                : convertReadableStreamType(
+                    type,
+                    `${context} has member 'type' that`
+                  ),
           };
         }
         function convertUnderlyingSourceCancelCallback(fn, original, context) {
@@ -3276,36 +4393,60 @@ var init_install_fetch = __esm({
         }
         function convertReadableStreamType(type, context) {
           type = `${type}`;
-          if (type !== "bytes") {
-            throw new TypeError(`${context} '${type}' is not a valid enumeration value for ReadableStreamType`);
+          if (type !== 'bytes') {
+            throw new TypeError(
+              `${context} '${type}' is not a valid enumeration value for ReadableStreamType`
+            );
           }
           return type;
         }
         function convertReaderOptions(options2, context) {
           assertDictionary(options2, context);
-          const mode = options2 === null || options2 === void 0 ? void 0 : options2.mode;
+          const mode =
+            options2 === null || options2 === void 0 ? void 0 : options2.mode;
           return {
-            mode: mode === void 0 ? void 0 : convertReadableStreamReaderMode(mode, `${context} has member 'mode' that`)
+            mode:
+              mode === void 0
+                ? void 0
+                : convertReadableStreamReaderMode(
+                    mode,
+                    `${context} has member 'mode' that`
+                  ),
           };
         }
         function convertReadableStreamReaderMode(mode, context) {
           mode = `${mode}`;
-          if (mode !== "byob") {
-            throw new TypeError(`${context} '${mode}' is not a valid enumeration value for ReadableStreamReaderMode`);
+          if (mode !== 'byob') {
+            throw new TypeError(
+              `${context} '${mode}' is not a valid enumeration value for ReadableStreamReaderMode`
+            );
           }
           return mode;
         }
         function convertIteratorOptions(options2, context) {
           assertDictionary(options2, context);
-          const preventCancel = options2 === null || options2 === void 0 ? void 0 : options2.preventCancel;
+          const preventCancel =
+            options2 === null || options2 === void 0
+              ? void 0
+              : options2.preventCancel;
           return { preventCancel: Boolean(preventCancel) };
         }
         function convertPipeOptions(options2, context) {
           assertDictionary(options2, context);
-          const preventAbort = options2 === null || options2 === void 0 ? void 0 : options2.preventAbort;
-          const preventCancel = options2 === null || options2 === void 0 ? void 0 : options2.preventCancel;
-          const preventClose = options2 === null || options2 === void 0 ? void 0 : options2.preventClose;
-          const signal = options2 === null || options2 === void 0 ? void 0 : options2.signal;
+          const preventAbort =
+            options2 === null || options2 === void 0
+              ? void 0
+              : options2.preventAbort;
+          const preventCancel =
+            options2 === null || options2 === void 0
+              ? void 0
+              : options2.preventCancel;
+          const preventClose =
+            options2 === null || options2 === void 0
+              ? void 0
+              : options2.preventClose;
+          const signal =
+            options2 === null || options2 === void 0 ? void 0 : options2.signal;
           if (signal !== void 0) {
             assertAbortSignal(signal, `${context} has member 'signal' that`);
           }
@@ -3313,7 +4454,7 @@ var init_install_fetch = __esm({
             preventAbort: Boolean(preventAbort),
             preventCancel: Boolean(preventCancel),
             preventClose: Boolean(preventClose),
-            signal
+            signal,
           };
         }
         function assertAbortSignal(signal, context) {
@@ -3323,12 +4464,20 @@ var init_install_fetch = __esm({
         }
         function convertReadableWritablePair(pair, context) {
           assertDictionary(pair, context);
-          const readable = pair === null || pair === void 0 ? void 0 : pair.readable;
-          assertRequiredField(readable, "readable", "ReadableWritablePair");
-          assertReadableStream(readable, `${context} has member 'readable' that`);
-          const writable3 = pair === null || pair === void 0 ? void 0 : pair.writable;
-          assertRequiredField(writable3, "writable", "ReadableWritablePair");
-          assertWritableStream(writable3, `${context} has member 'writable' that`);
+          const readable =
+            pair === null || pair === void 0 ? void 0 : pair.readable;
+          assertRequiredField(readable, 'readable', 'ReadableWritablePair');
+          assertReadableStream(
+            readable,
+            `${context} has member 'readable' that`
+          );
+          const writable3 =
+            pair === null || pair === void 0 ? void 0 : pair.writable;
+          assertRequiredField(writable3, 'writable', 'ReadableWritablePair');
+          assertWritableStream(
+            writable3,
+            `${context} has member 'writable' that`
+          );
           return { readable, writable: writable3 };
         }
         class ReadableStream2 {
@@ -3336,43 +4485,67 @@ var init_install_fetch = __esm({
             if (rawUnderlyingSource === void 0) {
               rawUnderlyingSource = null;
             } else {
-              assertObject(rawUnderlyingSource, "First parameter");
+              assertObject(rawUnderlyingSource, 'First parameter');
             }
-            const strategy = convertQueuingStrategy(rawStrategy, "Second parameter");
-            const underlyingSource = convertUnderlyingDefaultOrByteSource(rawUnderlyingSource, "First parameter");
+            const strategy = convertQueuingStrategy(
+              rawStrategy,
+              'Second parameter'
+            );
+            const underlyingSource = convertUnderlyingDefaultOrByteSource(
+              rawUnderlyingSource,
+              'First parameter'
+            );
             InitializeReadableStream(this);
-            if (underlyingSource.type === "bytes") {
+            if (underlyingSource.type === 'bytes') {
               if (strategy.size !== void 0) {
-                throw new RangeError("The strategy for a byte stream cannot have a size function");
+                throw new RangeError(
+                  'The strategy for a byte stream cannot have a size function'
+                );
               }
               const highWaterMark = ExtractHighWaterMark(strategy, 0);
-              SetUpReadableByteStreamControllerFromUnderlyingSource(this, underlyingSource, highWaterMark);
+              SetUpReadableByteStreamControllerFromUnderlyingSource(
+                this,
+                underlyingSource,
+                highWaterMark
+              );
             } else {
               const sizeAlgorithm = ExtractSizeAlgorithm(strategy);
               const highWaterMark = ExtractHighWaterMark(strategy, 1);
-              SetUpReadableStreamDefaultControllerFromUnderlyingSource(this, underlyingSource, highWaterMark, sizeAlgorithm);
+              SetUpReadableStreamDefaultControllerFromUnderlyingSource(
+                this,
+                underlyingSource,
+                highWaterMark,
+                sizeAlgorithm
+              );
             }
           }
           get locked() {
             if (!IsReadableStream(this)) {
-              throw streamBrandCheckException$1("locked");
+              throw streamBrandCheckException$1('locked');
             }
             return IsReadableStreamLocked(this);
           }
           cancel(reason = void 0) {
             if (!IsReadableStream(this)) {
-              return promiseRejectedWith(streamBrandCheckException$1("cancel"));
+              return promiseRejectedWith(streamBrandCheckException$1('cancel'));
             }
             if (IsReadableStreamLocked(this)) {
-              return promiseRejectedWith(new TypeError("Cannot cancel a stream that already has a reader"));
+              return promiseRejectedWith(
+                new TypeError(
+                  'Cannot cancel a stream that already has a reader'
+                )
+              );
             }
             return ReadableStreamCancel(this, reason);
           }
           getReader(rawOptions = void 0) {
             if (!IsReadableStream(this)) {
-              throw streamBrandCheckException$1("getReader");
+              throw streamBrandCheckException$1('getReader');
             }
-            const options2 = convertReaderOptions(rawOptions, "First parameter");
+            const options2 = convertReaderOptions(
+              rawOptions,
+              'First parameter'
+            );
             if (options2.mode === void 0) {
               return AcquireReadableStreamDefaultReader(this);
             }
@@ -3380,58 +4553,99 @@ var init_install_fetch = __esm({
           }
           pipeThrough(rawTransform, rawOptions = {}) {
             if (!IsReadableStream(this)) {
-              throw streamBrandCheckException$1("pipeThrough");
+              throw streamBrandCheckException$1('pipeThrough');
             }
-            assertRequiredArgument(rawTransform, 1, "pipeThrough");
-            const transform = convertReadableWritablePair(rawTransform, "First parameter");
-            const options2 = convertPipeOptions(rawOptions, "Second parameter");
+            assertRequiredArgument(rawTransform, 1, 'pipeThrough');
+            const transform = convertReadableWritablePair(
+              rawTransform,
+              'First parameter'
+            );
+            const options2 = convertPipeOptions(rawOptions, 'Second parameter');
             if (IsReadableStreamLocked(this)) {
-              throw new TypeError("ReadableStream.prototype.pipeThrough cannot be used on a locked ReadableStream");
+              throw new TypeError(
+                'ReadableStream.prototype.pipeThrough cannot be used on a locked ReadableStream'
+              );
             }
             if (IsWritableStreamLocked(transform.writable)) {
-              throw new TypeError("ReadableStream.prototype.pipeThrough cannot be used on a locked WritableStream");
+              throw new TypeError(
+                'ReadableStream.prototype.pipeThrough cannot be used on a locked WritableStream'
+              );
             }
-            const promise = ReadableStreamPipeTo(this, transform.writable, options2.preventClose, options2.preventAbort, options2.preventCancel, options2.signal);
+            const promise = ReadableStreamPipeTo(
+              this,
+              transform.writable,
+              options2.preventClose,
+              options2.preventAbort,
+              options2.preventCancel,
+              options2.signal
+            );
             setPromiseIsHandledToTrue(promise);
             return transform.readable;
           }
           pipeTo(destination, rawOptions = {}) {
             if (!IsReadableStream(this)) {
-              return promiseRejectedWith(streamBrandCheckException$1("pipeTo"));
+              return promiseRejectedWith(streamBrandCheckException$1('pipeTo'));
             }
             if (destination === void 0) {
-              return promiseRejectedWith(`Parameter 1 is required in 'pipeTo'.`);
+              return promiseRejectedWith(
+                `Parameter 1 is required in 'pipeTo'.`
+              );
             }
             if (!IsWritableStream(destination)) {
-              return promiseRejectedWith(new TypeError(`ReadableStream.prototype.pipeTo's first argument must be a WritableStream`));
+              return promiseRejectedWith(
+                new TypeError(
+                  `ReadableStream.prototype.pipeTo's first argument must be a WritableStream`
+                )
+              );
             }
             let options2;
             try {
-              options2 = convertPipeOptions(rawOptions, "Second parameter");
+              options2 = convertPipeOptions(rawOptions, 'Second parameter');
             } catch (e) {
               return promiseRejectedWith(e);
             }
             if (IsReadableStreamLocked(this)) {
-              return promiseRejectedWith(new TypeError("ReadableStream.prototype.pipeTo cannot be used on a locked ReadableStream"));
+              return promiseRejectedWith(
+                new TypeError(
+                  'ReadableStream.prototype.pipeTo cannot be used on a locked ReadableStream'
+                )
+              );
             }
             if (IsWritableStreamLocked(destination)) {
-              return promiseRejectedWith(new TypeError("ReadableStream.prototype.pipeTo cannot be used on a locked WritableStream"));
+              return promiseRejectedWith(
+                new TypeError(
+                  'ReadableStream.prototype.pipeTo cannot be used on a locked WritableStream'
+                )
+              );
             }
-            return ReadableStreamPipeTo(this, destination, options2.preventClose, options2.preventAbort, options2.preventCancel, options2.signal);
+            return ReadableStreamPipeTo(
+              this,
+              destination,
+              options2.preventClose,
+              options2.preventAbort,
+              options2.preventCancel,
+              options2.signal
+            );
           }
           tee() {
             if (!IsReadableStream(this)) {
-              throw streamBrandCheckException$1("tee");
+              throw streamBrandCheckException$1('tee');
             }
             const branches = ReadableStreamTee(this);
             return CreateArrayFromList(branches);
           }
           values(rawOptions = void 0) {
             if (!IsReadableStream(this)) {
-              throw streamBrandCheckException$1("values");
+              throw streamBrandCheckException$1('values');
             }
-            const options2 = convertIteratorOptions(rawOptions, "First parameter");
-            return AcquireReadableStreamAsyncIterator(this, options2.preventCancel);
+            const options2 = convertIteratorOptions(
+              rawOptions,
+              'First parameter'
+            );
+            return AcquireReadableStreamAsyncIterator(
+              this,
+              options2.preventCancel
+            );
           }
         }
         Object.defineProperties(ReadableStream2.prototype, {
@@ -3441,37 +4655,75 @@ var init_install_fetch = __esm({
           pipeTo: { enumerable: true },
           tee: { enumerable: true },
           values: { enumerable: true },
-          locked: { enumerable: true }
+          locked: { enumerable: true },
         });
-        if (typeof SymbolPolyfill.toStringTag === "symbol") {
-          Object.defineProperty(ReadableStream2.prototype, SymbolPolyfill.toStringTag, {
-            value: "ReadableStream",
-            configurable: true
-          });
+        if (typeof SymbolPolyfill.toStringTag === 'symbol') {
+          Object.defineProperty(
+            ReadableStream2.prototype,
+            SymbolPolyfill.toStringTag,
+            {
+              value: 'ReadableStream',
+              configurable: true,
+            }
+          );
         }
-        if (typeof SymbolPolyfill.asyncIterator === "symbol") {
-          Object.defineProperty(ReadableStream2.prototype, SymbolPolyfill.asyncIterator, {
-            value: ReadableStream2.prototype.values,
-            writable: true,
-            configurable: true
-          });
+        if (typeof SymbolPolyfill.asyncIterator === 'symbol') {
+          Object.defineProperty(
+            ReadableStream2.prototype,
+            SymbolPolyfill.asyncIterator,
+            {
+              value: ReadableStream2.prototype.values,
+              writable: true,
+              configurable: true,
+            }
+          );
         }
-        function CreateReadableStream(startAlgorithm, pullAlgorithm, cancelAlgorithm, highWaterMark = 1, sizeAlgorithm = () => 1) {
+        function CreateReadableStream(
+          startAlgorithm,
+          pullAlgorithm,
+          cancelAlgorithm,
+          highWaterMark = 1,
+          sizeAlgorithm = () => 1
+        ) {
           const stream = Object.create(ReadableStream2.prototype);
           InitializeReadableStream(stream);
-          const controller = Object.create(ReadableStreamDefaultController.prototype);
-          SetUpReadableStreamDefaultController(stream, controller, startAlgorithm, pullAlgorithm, cancelAlgorithm, highWaterMark, sizeAlgorithm);
+          const controller = Object.create(
+            ReadableStreamDefaultController.prototype
+          );
+          SetUpReadableStreamDefaultController(
+            stream,
+            controller,
+            startAlgorithm,
+            pullAlgorithm,
+            cancelAlgorithm,
+            highWaterMark,
+            sizeAlgorithm
+          );
           return stream;
         }
-        function CreateReadableByteStream(startAlgorithm, pullAlgorithm, cancelAlgorithm) {
+        function CreateReadableByteStream(
+          startAlgorithm,
+          pullAlgorithm,
+          cancelAlgorithm
+        ) {
           const stream = Object.create(ReadableStream2.prototype);
           InitializeReadableStream(stream);
-          const controller = Object.create(ReadableByteStreamController.prototype);
-          SetUpReadableByteStreamController(stream, controller, startAlgorithm, pullAlgorithm, cancelAlgorithm, 0, void 0);
+          const controller = Object.create(
+            ReadableByteStreamController.prototype
+          );
+          SetUpReadableByteStreamController(
+            stream,
+            controller,
+            startAlgorithm,
+            pullAlgorithm,
+            cancelAlgorithm,
+            0,
+            void 0
+          );
           return stream;
         }
         function InitializeReadableStream(stream) {
-          stream._state = "readable";
+          stream._state = 'readable';
           stream._reader = void 0;
           stream._storedError = void 0;
           stream._disturbed = false;
@@ -3480,7 +4732,12 @@ var init_install_fetch = __esm({
           if (!typeIsObject(x)) {
             return false;
           }
-          if (!Object.prototype.hasOwnProperty.call(x, "_readableStreamController")) {
+          if (
+            !Object.prototype.hasOwnProperty.call(
+              x,
+              '_readableStreamController'
+            )
+          ) {
             return false;
           }
           return x instanceof ReadableStream2;
@@ -3493,10 +4750,10 @@ var init_install_fetch = __esm({
         }
         function ReadableStreamCancel(stream, reason) {
           stream._disturbed = true;
-          if (stream._state === "closed") {
+          if (stream._state === 'closed') {
             return promiseResolvedWith(void 0);
           }
-          if (stream._state === "errored") {
+          if (stream._state === 'errored') {
             return promiseRejectedWith(stream._storedError);
           }
           ReadableStreamClose(stream);
@@ -3507,11 +4764,12 @@ var init_install_fetch = __esm({
             });
             reader._readIntoRequests = new SimpleQueue();
           }
-          const sourceCancelPromise = stream._readableStreamController[CancelSteps](reason);
+          const sourceCancelPromise =
+            stream._readableStreamController[CancelSteps](reason);
           return transformPromiseWith(sourceCancelPromise, noop2);
         }
         function ReadableStreamClose(stream) {
-          stream._state = "closed";
+          stream._state = 'closed';
           const reader = stream._reader;
           if (reader === void 0) {
             return;
@@ -3525,7 +4783,7 @@ var init_install_fetch = __esm({
           }
         }
         function ReadableStreamError(stream, e) {
-          stream._state = "errored";
+          stream._state = 'errored';
           stream._storedError = e;
           const reader = stream._reader;
           if (reader === void 0) {
@@ -3545,60 +4803,79 @@ var init_install_fetch = __esm({
           }
         }
         function streamBrandCheckException$1(name) {
-          return new TypeError(`ReadableStream.prototype.${name} can only be used on a ReadableStream`);
+          return new TypeError(
+            `ReadableStream.prototype.${name} can only be used on a ReadableStream`
+          );
         }
         function convertQueuingStrategyInit(init2, context) {
           assertDictionary(init2, context);
-          const highWaterMark = init2 === null || init2 === void 0 ? void 0 : init2.highWaterMark;
-          assertRequiredField(highWaterMark, "highWaterMark", "QueuingStrategyInit");
+          const highWaterMark =
+            init2 === null || init2 === void 0 ? void 0 : init2.highWaterMark;
+          assertRequiredField(
+            highWaterMark,
+            'highWaterMark',
+            'QueuingStrategyInit'
+          );
           return {
-            highWaterMark: convertUnrestrictedDouble(highWaterMark)
+            highWaterMark: convertUnrestrictedDouble(highWaterMark),
           };
         }
         const byteLengthSizeFunction = (chunk) => {
           return chunk.byteLength;
         };
-        Object.defineProperty(byteLengthSizeFunction, "name", {
-          value: "size",
-          configurable: true
+        Object.defineProperty(byteLengthSizeFunction, 'name', {
+          value: 'size',
+          configurable: true,
         });
         class ByteLengthQueuingStrategy {
           constructor(options2) {
-            assertRequiredArgument(options2, 1, "ByteLengthQueuingStrategy");
-            options2 = convertQueuingStrategyInit(options2, "First parameter");
-            this._byteLengthQueuingStrategyHighWaterMark = options2.highWaterMark;
+            assertRequiredArgument(options2, 1, 'ByteLengthQueuingStrategy');
+            options2 = convertQueuingStrategyInit(options2, 'First parameter');
+            this._byteLengthQueuingStrategyHighWaterMark =
+              options2.highWaterMark;
           }
           get highWaterMark() {
             if (!IsByteLengthQueuingStrategy(this)) {
-              throw byteLengthBrandCheckException("highWaterMark");
+              throw byteLengthBrandCheckException('highWaterMark');
             }
             return this._byteLengthQueuingStrategyHighWaterMark;
           }
           get size() {
             if (!IsByteLengthQueuingStrategy(this)) {
-              throw byteLengthBrandCheckException("size");
+              throw byteLengthBrandCheckException('size');
             }
             return byteLengthSizeFunction;
           }
         }
         Object.defineProperties(ByteLengthQueuingStrategy.prototype, {
           highWaterMark: { enumerable: true },
-          size: { enumerable: true }
+          size: { enumerable: true },
         });
-        if (typeof SymbolPolyfill.toStringTag === "symbol") {
-          Object.defineProperty(ByteLengthQueuingStrategy.prototype, SymbolPolyfill.toStringTag, {
-            value: "ByteLengthQueuingStrategy",
-            configurable: true
-          });
+        if (typeof SymbolPolyfill.toStringTag === 'symbol') {
+          Object.defineProperty(
+            ByteLengthQueuingStrategy.prototype,
+            SymbolPolyfill.toStringTag,
+            {
+              value: 'ByteLengthQueuingStrategy',
+              configurable: true,
+            }
+          );
         }
         function byteLengthBrandCheckException(name) {
-          return new TypeError(`ByteLengthQueuingStrategy.prototype.${name} can only be used on a ByteLengthQueuingStrategy`);
+          return new TypeError(
+            `ByteLengthQueuingStrategy.prototype.${name} can only be used on a ByteLengthQueuingStrategy`
+          );
         }
         function IsByteLengthQueuingStrategy(x) {
           if (!typeIsObject(x)) {
             return false;
           }
-          if (!Object.prototype.hasOwnProperty.call(x, "_byteLengthQueuingStrategyHighWaterMark")) {
+          if (
+            !Object.prototype.hasOwnProperty.call(
+              x,
+              '_byteLengthQueuingStrategyHighWaterMark'
+            )
+          ) {
             return false;
           }
           return x instanceof ByteLengthQueuingStrategy;
@@ -3606,64 +4883,107 @@ var init_install_fetch = __esm({
         const countSizeFunction = () => {
           return 1;
         };
-        Object.defineProperty(countSizeFunction, "name", {
-          value: "size",
-          configurable: true
+        Object.defineProperty(countSizeFunction, 'name', {
+          value: 'size',
+          configurable: true,
         });
         class CountQueuingStrategy {
           constructor(options2) {
-            assertRequiredArgument(options2, 1, "CountQueuingStrategy");
-            options2 = convertQueuingStrategyInit(options2, "First parameter");
+            assertRequiredArgument(options2, 1, 'CountQueuingStrategy');
+            options2 = convertQueuingStrategyInit(options2, 'First parameter');
             this._countQueuingStrategyHighWaterMark = options2.highWaterMark;
           }
           get highWaterMark() {
             if (!IsCountQueuingStrategy(this)) {
-              throw countBrandCheckException("highWaterMark");
+              throw countBrandCheckException('highWaterMark');
             }
             return this._countQueuingStrategyHighWaterMark;
           }
           get size() {
             if (!IsCountQueuingStrategy(this)) {
-              throw countBrandCheckException("size");
+              throw countBrandCheckException('size');
             }
             return countSizeFunction;
           }
         }
         Object.defineProperties(CountQueuingStrategy.prototype, {
           highWaterMark: { enumerable: true },
-          size: { enumerable: true }
+          size: { enumerable: true },
         });
-        if (typeof SymbolPolyfill.toStringTag === "symbol") {
-          Object.defineProperty(CountQueuingStrategy.prototype, SymbolPolyfill.toStringTag, {
-            value: "CountQueuingStrategy",
-            configurable: true
-          });
+        if (typeof SymbolPolyfill.toStringTag === 'symbol') {
+          Object.defineProperty(
+            CountQueuingStrategy.prototype,
+            SymbolPolyfill.toStringTag,
+            {
+              value: 'CountQueuingStrategy',
+              configurable: true,
+            }
+          );
         }
         function countBrandCheckException(name) {
-          return new TypeError(`CountQueuingStrategy.prototype.${name} can only be used on a CountQueuingStrategy`);
+          return new TypeError(
+            `CountQueuingStrategy.prototype.${name} can only be used on a CountQueuingStrategy`
+          );
         }
         function IsCountQueuingStrategy(x) {
           if (!typeIsObject(x)) {
             return false;
           }
-          if (!Object.prototype.hasOwnProperty.call(x, "_countQueuingStrategyHighWaterMark")) {
+          if (
+            !Object.prototype.hasOwnProperty.call(
+              x,
+              '_countQueuingStrategyHighWaterMark'
+            )
+          ) {
             return false;
           }
           return x instanceof CountQueuingStrategy;
         }
         function convertTransformer(original, context) {
           assertDictionary(original, context);
-          const flush = original === null || original === void 0 ? void 0 : original.flush;
-          const readableType = original === null || original === void 0 ? void 0 : original.readableType;
-          const start = original === null || original === void 0 ? void 0 : original.start;
-          const transform = original === null || original === void 0 ? void 0 : original.transform;
-          const writableType = original === null || original === void 0 ? void 0 : original.writableType;
+          const flush =
+            original === null || original === void 0 ? void 0 : original.flush;
+          const readableType =
+            original === null || original === void 0
+              ? void 0
+              : original.readableType;
+          const start =
+            original === null || original === void 0 ? void 0 : original.start;
+          const transform =
+            original === null || original === void 0
+              ? void 0
+              : original.transform;
+          const writableType =
+            original === null || original === void 0
+              ? void 0
+              : original.writableType;
           return {
-            flush: flush === void 0 ? void 0 : convertTransformerFlushCallback(flush, original, `${context} has member 'flush' that`),
+            flush:
+              flush === void 0
+                ? void 0
+                : convertTransformerFlushCallback(
+                    flush,
+                    original,
+                    `${context} has member 'flush' that`
+                  ),
             readableType,
-            start: start === void 0 ? void 0 : convertTransformerStartCallback(start, original, `${context} has member 'start' that`),
-            transform: transform === void 0 ? void 0 : convertTransformerTransformCallback(transform, original, `${context} has member 'transform' that`),
-            writableType
+            start:
+              start === void 0
+                ? void 0
+                : convertTransformerStartCallback(
+                    start,
+                    original,
+                    `${context} has member 'start' that`
+                  ),
+            transform:
+              transform === void 0
+                ? void 0
+                : convertTransformerTransformCallback(
+                    transform,
+                    original,
+                    `${context} has member 'transform' that`
+                  ),
+            writableType,
           };
         }
         function convertTransformerFlushCallback(fn, original, context) {
@@ -3676,62 +4996,107 @@ var init_install_fetch = __esm({
         }
         function convertTransformerTransformCallback(fn, original, context) {
           assertFunction(fn, context);
-          return (chunk, controller) => promiseCall(fn, original, [chunk, controller]);
+          return (chunk, controller) =>
+            promiseCall(fn, original, [chunk, controller]);
         }
         class TransformStream {
-          constructor(rawTransformer = {}, rawWritableStrategy = {}, rawReadableStrategy = {}) {
+          constructor(
+            rawTransformer = {},
+            rawWritableStrategy = {},
+            rawReadableStrategy = {}
+          ) {
             if (rawTransformer === void 0) {
               rawTransformer = null;
             }
-            const writableStrategy = convertQueuingStrategy(rawWritableStrategy, "Second parameter");
-            const readableStrategy = convertQueuingStrategy(rawReadableStrategy, "Third parameter");
-            const transformer = convertTransformer(rawTransformer, "First parameter");
+            const writableStrategy = convertQueuingStrategy(
+              rawWritableStrategy,
+              'Second parameter'
+            );
+            const readableStrategy = convertQueuingStrategy(
+              rawReadableStrategy,
+              'Third parameter'
+            );
+            const transformer = convertTransformer(
+              rawTransformer,
+              'First parameter'
+            );
             if (transformer.readableType !== void 0) {
-              throw new RangeError("Invalid readableType specified");
+              throw new RangeError('Invalid readableType specified');
             }
             if (transformer.writableType !== void 0) {
-              throw new RangeError("Invalid writableType specified");
+              throw new RangeError('Invalid writableType specified');
             }
-            const readableHighWaterMark = ExtractHighWaterMark(readableStrategy, 0);
-            const readableSizeAlgorithm = ExtractSizeAlgorithm(readableStrategy);
-            const writableHighWaterMark = ExtractHighWaterMark(writableStrategy, 1);
-            const writableSizeAlgorithm = ExtractSizeAlgorithm(writableStrategy);
+            const readableHighWaterMark = ExtractHighWaterMark(
+              readableStrategy,
+              0
+            );
+            const readableSizeAlgorithm =
+              ExtractSizeAlgorithm(readableStrategy);
+            const writableHighWaterMark = ExtractHighWaterMark(
+              writableStrategy,
+              1
+            );
+            const writableSizeAlgorithm =
+              ExtractSizeAlgorithm(writableStrategy);
             let startPromise_resolve;
             const startPromise = newPromise((resolve2) => {
               startPromise_resolve = resolve2;
             });
-            InitializeTransformStream(this, startPromise, writableHighWaterMark, writableSizeAlgorithm, readableHighWaterMark, readableSizeAlgorithm);
-            SetUpTransformStreamDefaultControllerFromTransformer(this, transformer);
+            InitializeTransformStream(
+              this,
+              startPromise,
+              writableHighWaterMark,
+              writableSizeAlgorithm,
+              readableHighWaterMark,
+              readableSizeAlgorithm
+            );
+            SetUpTransformStreamDefaultControllerFromTransformer(
+              this,
+              transformer
+            );
             if (transformer.start !== void 0) {
-              startPromise_resolve(transformer.start(this._transformStreamController));
+              startPromise_resolve(
+                transformer.start(this._transformStreamController)
+              );
             } else {
               startPromise_resolve(void 0);
             }
           }
           get readable() {
             if (!IsTransformStream(this)) {
-              throw streamBrandCheckException("readable");
+              throw streamBrandCheckException('readable');
             }
             return this._readable;
           }
           get writable() {
             if (!IsTransformStream(this)) {
-              throw streamBrandCheckException("writable");
+              throw streamBrandCheckException('writable');
             }
             return this._writable;
           }
         }
         Object.defineProperties(TransformStream.prototype, {
           readable: { enumerable: true },
-          writable: { enumerable: true }
+          writable: { enumerable: true },
         });
-        if (typeof SymbolPolyfill.toStringTag === "symbol") {
-          Object.defineProperty(TransformStream.prototype, SymbolPolyfill.toStringTag, {
-            value: "TransformStream",
-            configurable: true
-          });
+        if (typeof SymbolPolyfill.toStringTag === 'symbol') {
+          Object.defineProperty(
+            TransformStream.prototype,
+            SymbolPolyfill.toStringTag,
+            {
+              value: 'TransformStream',
+              configurable: true,
+            }
+          );
         }
-        function InitializeTransformStream(stream, startPromise, writableHighWaterMark, writableSizeAlgorithm, readableHighWaterMark, readableSizeAlgorithm) {
+        function InitializeTransformStream(
+          stream,
+          startPromise,
+          writableHighWaterMark,
+          writableSizeAlgorithm,
+          readableHighWaterMark,
+          readableSizeAlgorithm
+        ) {
           function startAlgorithm() {
             return startPromise;
           }
@@ -3744,7 +5109,14 @@ var init_install_fetch = __esm({
           function closeAlgorithm() {
             return TransformStreamDefaultSinkCloseAlgorithm(stream);
           }
-          stream._writable = CreateWritableStream(startAlgorithm, writeAlgorithm, closeAlgorithm, abortAlgorithm, writableHighWaterMark, writableSizeAlgorithm);
+          stream._writable = CreateWritableStream(
+            startAlgorithm,
+            writeAlgorithm,
+            closeAlgorithm,
+            abortAlgorithm,
+            writableHighWaterMark,
+            writableSizeAlgorithm
+          );
           function pullAlgorithm() {
             return TransformStreamDefaultSourcePullAlgorithm(stream);
           }
@@ -3752,7 +5124,13 @@ var init_install_fetch = __esm({
             TransformStreamErrorWritableAndUnblockWrite(stream, reason);
             return promiseResolvedWith(void 0);
           }
-          stream._readable = CreateReadableStream(startAlgorithm, pullAlgorithm, cancelAlgorithm, readableHighWaterMark, readableSizeAlgorithm);
+          stream._readable = CreateReadableStream(
+            startAlgorithm,
+            pullAlgorithm,
+            cancelAlgorithm,
+            readableHighWaterMark,
+            readableSizeAlgorithm
+          );
           stream._backpressure = void 0;
           stream._backpressureChangePromise = void 0;
           stream._backpressureChangePromise_resolve = void 0;
@@ -3763,18 +5141,31 @@ var init_install_fetch = __esm({
           if (!typeIsObject(x)) {
             return false;
           }
-          if (!Object.prototype.hasOwnProperty.call(x, "_transformStreamController")) {
+          if (
+            !Object.prototype.hasOwnProperty.call(
+              x,
+              '_transformStreamController'
+            )
+          ) {
             return false;
           }
           return x instanceof TransformStream;
         }
         function TransformStreamError(stream, e) {
-          ReadableStreamDefaultControllerError(stream._readable._readableStreamController, e);
+          ReadableStreamDefaultControllerError(
+            stream._readable._readableStreamController,
+            e
+          );
           TransformStreamErrorWritableAndUnblockWrite(stream, e);
         }
         function TransformStreamErrorWritableAndUnblockWrite(stream, e) {
-          TransformStreamDefaultControllerClearAlgorithms(stream._transformStreamController);
-          WritableStreamDefaultControllerErrorIfNeeded(stream._writable._writableStreamController, e);
+          TransformStreamDefaultControllerClearAlgorithms(
+            stream._transformStreamController
+          );
+          WritableStreamDefaultControllerErrorIfNeeded(
+            stream._writable._writableStreamController,
+            e
+          );
           if (stream._backpressure) {
             TransformStreamSetBackpressure(stream, false);
           }
@@ -3790,30 +5181,34 @@ var init_install_fetch = __esm({
         }
         class TransformStreamDefaultController {
           constructor() {
-            throw new TypeError("Illegal constructor");
+            throw new TypeError('Illegal constructor');
           }
           get desiredSize() {
             if (!IsTransformStreamDefaultController(this)) {
-              throw defaultControllerBrandCheckException("desiredSize");
+              throw defaultControllerBrandCheckException('desiredSize');
             }
-            const readableController = this._controlledTransformStream._readable._readableStreamController;
-            return ReadableStreamDefaultControllerGetDesiredSize(readableController);
+            const readableController =
+              this._controlledTransformStream._readable
+                ._readableStreamController;
+            return ReadableStreamDefaultControllerGetDesiredSize(
+              readableController
+            );
           }
           enqueue(chunk = void 0) {
             if (!IsTransformStreamDefaultController(this)) {
-              throw defaultControllerBrandCheckException("enqueue");
+              throw defaultControllerBrandCheckException('enqueue');
             }
             TransformStreamDefaultControllerEnqueue(this, chunk);
           }
           error(reason = void 0) {
             if (!IsTransformStreamDefaultController(this)) {
-              throw defaultControllerBrandCheckException("error");
+              throw defaultControllerBrandCheckException('error');
             }
             TransformStreamDefaultControllerError(this, reason);
           }
           terminate() {
             if (!IsTransformStreamDefaultController(this)) {
-              throw defaultControllerBrandCheckException("terminate");
+              throw defaultControllerBrandCheckException('terminate');
             }
             TransformStreamDefaultControllerTerminate(this);
           }
@@ -3822,31 +5217,50 @@ var init_install_fetch = __esm({
           enqueue: { enumerable: true },
           error: { enumerable: true },
           terminate: { enumerable: true },
-          desiredSize: { enumerable: true }
+          desiredSize: { enumerable: true },
         });
-        if (typeof SymbolPolyfill.toStringTag === "symbol") {
-          Object.defineProperty(TransformStreamDefaultController.prototype, SymbolPolyfill.toStringTag, {
-            value: "TransformStreamDefaultController",
-            configurable: true
-          });
+        if (typeof SymbolPolyfill.toStringTag === 'symbol') {
+          Object.defineProperty(
+            TransformStreamDefaultController.prototype,
+            SymbolPolyfill.toStringTag,
+            {
+              value: 'TransformStreamDefaultController',
+              configurable: true,
+            }
+          );
         }
         function IsTransformStreamDefaultController(x) {
           if (!typeIsObject(x)) {
             return false;
           }
-          if (!Object.prototype.hasOwnProperty.call(x, "_controlledTransformStream")) {
+          if (
+            !Object.prototype.hasOwnProperty.call(
+              x,
+              '_controlledTransformStream'
+            )
+          ) {
             return false;
           }
           return x instanceof TransformStreamDefaultController;
         }
-        function SetUpTransformStreamDefaultController(stream, controller, transformAlgorithm, flushAlgorithm) {
+        function SetUpTransformStreamDefaultController(
+          stream,
+          controller,
+          transformAlgorithm,
+          flushAlgorithm
+        ) {
           controller._controlledTransformStream = stream;
           stream._transformStreamController = controller;
           controller._transformAlgorithm = transformAlgorithm;
           controller._flushAlgorithm = flushAlgorithm;
         }
-        function SetUpTransformStreamDefaultControllerFromTransformer(stream, transformer) {
-          const controller = Object.create(TransformStreamDefaultController.prototype);
+        function SetUpTransformStreamDefaultControllerFromTransformer(
+          stream,
+          transformer
+        ) {
+          const controller = Object.create(
+            TransformStreamDefaultController.prototype
+          );
           let transformAlgorithm = (chunk) => {
             try {
               TransformStreamDefaultControllerEnqueue(controller, chunk);
@@ -3857,12 +5271,18 @@ var init_install_fetch = __esm({
           };
           let flushAlgorithm = () => promiseResolvedWith(void 0);
           if (transformer.transform !== void 0) {
-            transformAlgorithm = (chunk) => transformer.transform(chunk, controller);
+            transformAlgorithm = (chunk) =>
+              transformer.transform(chunk, controller);
           }
           if (transformer.flush !== void 0) {
             flushAlgorithm = () => transformer.flush(controller);
           }
-          SetUpTransformStreamDefaultController(stream, controller, transformAlgorithm, flushAlgorithm);
+          SetUpTransformStreamDefaultController(
+            stream,
+            controller,
+            transformAlgorithm,
+            flushAlgorithm
+          );
         }
         function TransformStreamDefaultControllerClearAlgorithms(controller) {
           controller._transformAlgorithm = void 0;
@@ -3871,8 +5291,14 @@ var init_install_fetch = __esm({
         function TransformStreamDefaultControllerEnqueue(controller, chunk) {
           const stream = controller._controlledTransformStream;
           const readableController = stream._readable._readableStreamController;
-          if (!ReadableStreamDefaultControllerCanCloseOrEnqueue(readableController)) {
-            throw new TypeError("Readable side is not in a state that permits enqueue");
+          if (
+            !ReadableStreamDefaultControllerCanCloseOrEnqueue(
+              readableController
+            )
+          ) {
+            throw new TypeError(
+              'Readable side is not in a state that permits enqueue'
+            );
           }
           try {
             ReadableStreamDefaultControllerEnqueue(readableController, chunk);
@@ -3880,7 +5306,8 @@ var init_install_fetch = __esm({
             TransformStreamErrorWritableAndUnblockWrite(stream, e);
             throw stream._readable._storedError;
           }
-          const backpressure = ReadableStreamDefaultControllerHasBackpressure(readableController);
+          const backpressure =
+            ReadableStreamDefaultControllerHasBackpressure(readableController);
           if (backpressure !== stream._backpressure) {
             TransformStreamSetBackpressure(stream, true);
           }
@@ -3888,7 +5315,10 @@ var init_install_fetch = __esm({
         function TransformStreamDefaultControllerError(controller, e) {
           TransformStreamError(controller._controlledTransformStream, e);
         }
-        function TransformStreamDefaultControllerPerformTransform(controller, chunk) {
+        function TransformStreamDefaultControllerPerformTransform(
+          controller,
+          chunk
+        ) {
           const transformPromise = controller._transformAlgorithm(chunk);
           return transformPromiseWith(transformPromise, void 0, (r) => {
             TransformStreamError(controller._controlledTransformStream, r);
@@ -3899,7 +5329,7 @@ var init_install_fetch = __esm({
           const stream = controller._controlledTransformStream;
           const readableController = stream._readable._readableStreamController;
           ReadableStreamDefaultControllerClose(readableController);
-          const error2 = new TypeError("TransformStream terminated");
+          const error2 = new TypeError('TransformStream terminated');
           TransformStreamErrorWritableAndUnblockWrite(stream, error2);
         }
         function TransformStreamDefaultSinkWriteAlgorithm(stream, chunk) {
@@ -3909,13 +5339,19 @@ var init_install_fetch = __esm({
             return transformPromiseWith(backpressureChangePromise, () => {
               const writable3 = stream._writable;
               const state = writable3._state;
-              if (state === "erroring") {
+              if (state === 'erroring') {
                 throw writable3._storedError;
               }
-              return TransformStreamDefaultControllerPerformTransform(controller, chunk);
+              return TransformStreamDefaultControllerPerformTransform(
+                controller,
+                chunk
+              );
             });
           }
-          return TransformStreamDefaultControllerPerformTransform(controller, chunk);
+          return TransformStreamDefaultControllerPerformTransform(
+            controller,
+            chunk
+          );
         }
         function TransformStreamDefaultSinkAbortAlgorithm(stream, reason) {
           TransformStreamError(stream, reason);
@@ -3926,25 +5362,35 @@ var init_install_fetch = __esm({
           const controller = stream._transformStreamController;
           const flushPromise = controller._flushAlgorithm();
           TransformStreamDefaultControllerClearAlgorithms(controller);
-          return transformPromiseWith(flushPromise, () => {
-            if (readable._state === "errored") {
+          return transformPromiseWith(
+            flushPromise,
+            () => {
+              if (readable._state === 'errored') {
+                throw readable._storedError;
+              }
+              ReadableStreamDefaultControllerClose(
+                readable._readableStreamController
+              );
+            },
+            (r) => {
+              TransformStreamError(stream, r);
               throw readable._storedError;
             }
-            ReadableStreamDefaultControllerClose(readable._readableStreamController);
-          }, (r) => {
-            TransformStreamError(stream, r);
-            throw readable._storedError;
-          });
+          );
         }
         function TransformStreamDefaultSourcePullAlgorithm(stream) {
           TransformStreamSetBackpressure(stream, false);
           return stream._backpressureChangePromise;
         }
         function defaultControllerBrandCheckException(name) {
-          return new TypeError(`TransformStreamDefaultController.prototype.${name} can only be used on a TransformStreamDefaultController`);
+          return new TypeError(
+            `TransformStreamDefaultController.prototype.${name} can only be used on a TransformStreamDefaultController`
+          );
         }
         function streamBrandCheckException(name) {
-          return new TypeError(`TransformStream.prototype.${name} can only be used on a TransformStream`);
+          return new TypeError(
+            `TransformStream.prototype.${name} can only be used on a TransformStream`
+          );
         }
         exports2.ByteLengthQueuingStrategy = ByteLengthQueuingStrategy;
         exports2.CountQueuingStrategy = CountQueuingStrategy;
@@ -3952,25 +5398,27 @@ var init_install_fetch = __esm({
         exports2.ReadableStream = ReadableStream2;
         exports2.ReadableStreamBYOBReader = ReadableStreamBYOBReader;
         exports2.ReadableStreamBYOBRequest = ReadableStreamBYOBRequest;
-        exports2.ReadableStreamDefaultController = ReadableStreamDefaultController;
+        exports2.ReadableStreamDefaultController =
+          ReadableStreamDefaultController;
         exports2.ReadableStreamDefaultReader = ReadableStreamDefaultReader;
         exports2.TransformStream = TransformStream;
-        exports2.TransformStreamDefaultController = TransformStreamDefaultController;
+        exports2.TransformStreamDefaultController =
+          TransformStreamDefaultController;
         exports2.WritableStream = WritableStream;
-        exports2.WritableStreamDefaultController = WritableStreamDefaultController;
+        exports2.WritableStreamDefaultController =
+          WritableStreamDefaultController;
         exports2.WritableStreamDefaultWriter = WritableStreamDefaultWriter;
-        Object.defineProperty(exports2, "__esModule", { value: true });
+        Object.defineProperty(exports2, '__esModule', { value: true });
       });
     })(ponyfill_es2018, ponyfill_es2018.exports);
     POOL_SIZE$1 = 65536;
     if (!globalThis.ReadableStream) {
       try {
-        const process2 = require("node:process");
+        const process2 = require('node:process');
         const { emitWarning } = process2;
         try {
-          process2.emitWarning = () => {
-          };
-          Object.assign(globalThis, require("node:stream/web"));
+          process2.emitWarning = () => {};
+          Object.assign(globalThis, require('node:stream/web'));
           process2.emitWarning = emitWarning;
         } catch (error2) {
           process2.emitWarning = emitWarning;
@@ -3981,49 +5429,61 @@ var init_install_fetch = __esm({
       }
     }
     try {
-      const { Blob: Blob3 } = require("buffer");
+      const { Blob: Blob3 } = require('buffer');
       if (Blob3 && !Blob3.prototype.stream) {
         Blob3.prototype.stream = function name(params) {
           let position = 0;
           const blob = this;
           return new ReadableStream({
-            type: "bytes",
+            type: 'bytes',
             async pull(ctrl) {
-              const chunk = blob.slice(position, Math.min(blob.size, position + POOL_SIZE$1));
+              const chunk = blob.slice(
+                position,
+                Math.min(blob.size, position + POOL_SIZE$1)
+              );
               const buffer = await chunk.arrayBuffer();
               position += buffer.byteLength;
               ctrl.enqueue(new Uint8Array(buffer));
               if (position === blob.size) {
                 ctrl.close();
               }
-            }
+            },
           });
         };
       }
-    } catch (error2) {
-    }
+    } catch (error2) {}
     POOL_SIZE = 65536;
     _Blob = class Blob {
       #parts = [];
-      #type = "";
+      #type = '';
       #size = 0;
       constructor(blobParts = [], options2 = {}) {
-        if (typeof blobParts !== "object" || blobParts === null) {
-          throw new TypeError("Failed to construct 'Blob': The provided value cannot be converted to a sequence.");
+        if (typeof blobParts !== 'object' || blobParts === null) {
+          throw new TypeError(
+            "Failed to construct 'Blob': The provided value cannot be converted to a sequence."
+          );
         }
-        if (typeof blobParts[Symbol.iterator] !== "function") {
-          throw new TypeError("Failed to construct 'Blob': The object must have a callable @@iterator property.");
+        if (typeof blobParts[Symbol.iterator] !== 'function') {
+          throw new TypeError(
+            "Failed to construct 'Blob': The object must have a callable @@iterator property."
+          );
         }
-        if (typeof options2 !== "object" && typeof options2 !== "function") {
-          throw new TypeError("Failed to construct 'Blob': parameter 2 cannot convert to dictionary.");
+        if (typeof options2 !== 'object' && typeof options2 !== 'function') {
+          throw new TypeError(
+            "Failed to construct 'Blob': parameter 2 cannot convert to dictionary."
+          );
         }
-        if (options2 === null)
-          options2 = {};
+        if (options2 === null) options2 = {};
         const encoder = new TextEncoder();
         for (const element of blobParts) {
           let part;
           if (ArrayBuffer.isView(element)) {
-            part = new Uint8Array(element.buffer.slice(element.byteOffset, element.byteOffset + element.byteLength));
+            part = new Uint8Array(
+              element.buffer.slice(
+                element.byteOffset,
+                element.byteOffset + element.byteLength
+              )
+            );
           } else if (element instanceof ArrayBuffer) {
             part = new Uint8Array(element.slice(0));
           } else if (element instanceof Blob) {
@@ -4034,8 +5494,8 @@ var init_install_fetch = __esm({
           this.#size += ArrayBuffer.isView(part) ? part.byteLength : part.size;
           this.#parts.push(part);
         }
-        const type = options2.type === void 0 ? "" : String(options2.type);
-        this.#type = /^[\x20-\x7E]*$/.test(type) ? type : "";
+        const type = options2.type === void 0 ? '' : String(options2.type);
+        this.#type = /^[\x20-\x7E]*$/.test(type) ? type : '';
       }
       get size() {
         return this.#size;
@@ -4045,7 +5505,7 @@ var init_install_fetch = __esm({
       }
       async text() {
         const decoder = new TextDecoder();
-        let str = "";
+        let str = '';
         for await (const part of toIterator(this.#parts, false)) {
           str += decoder.decode(part, { stream: true });
         }
@@ -4064,20 +5524,22 @@ var init_install_fetch = __esm({
       stream() {
         const it = toIterator(this.#parts, true);
         return new globalThis.ReadableStream({
-          type: "bytes",
+          type: 'bytes',
           async pull(ctrl) {
             const chunk = await it.next();
             chunk.done ? ctrl.close() : ctrl.enqueue(chunk.value);
           },
           async cancel() {
             await it.return();
-          }
+          },
         });
       }
-      slice(start = 0, end = this.size, type = "") {
+      slice(start = 0, end = this.size, type = '') {
         const { size } = this;
-        let relativeStart = start < 0 ? Math.max(size + start, 0) : Math.min(start, size);
-        let relativeEnd = end < 0 ? Math.max(size + end, 0) : Math.min(end, size);
+        let relativeStart =
+          start < 0 ? Math.max(size + start, 0) : Math.min(start, size);
+        let relativeEnd =
+          end < 0 ? Math.max(size + end, 0) : Math.min(end, size);
         const span = Math.max(relativeEnd - relativeStart, 0);
         const parts = this.#parts;
         const blobParts = [];
@@ -4093,7 +5555,10 @@ var init_install_fetch = __esm({
           } else {
             let chunk;
             if (ArrayBuffer.isView(part)) {
-              chunk = part.subarray(relativeStart, Math.min(size2, relativeEnd));
+              chunk = part.subarray(
+                relativeStart,
+                Math.min(size2, relativeEnd)
+              );
               added += chunk.byteLength;
             } else {
               chunk = part.slice(relativeStart, Math.min(size2, relativeEnd));
@@ -4110,16 +5575,23 @@ var init_install_fetch = __esm({
         return blob;
       }
       get [Symbol.toStringTag]() {
-        return "Blob";
+        return 'Blob';
       }
       static [Symbol.hasInstance](object) {
-        return object && typeof object === "object" && typeof object.constructor === "function" && (typeof object.stream === "function" || typeof object.arrayBuffer === "function") && /^(Blob|File)$/.test(object[Symbol.toStringTag]);
+        return (
+          object &&
+          typeof object === 'object' &&
+          typeof object.constructor === 'function' &&
+          (typeof object.stream === 'function' ||
+            typeof object.arrayBuffer === 'function') &&
+          /^(Blob|File)$/.test(object[Symbol.toStringTag])
+        );
       }
     };
     Object.defineProperties(_Blob.prototype, {
       size: { enumerable: true },
       type: { enumerable: true },
-      slice: { enumerable: true }
+      slice: { enumerable: true },
     });
     Blob2 = _Blob;
     Blob$1 = Blob2;
@@ -4147,42 +5619,60 @@ var init_install_fetch = __esm({
     };
     NAME = Symbol.toStringTag;
     isURLSearchParameters = (object) => {
-      return typeof object === "object" && typeof object.append === "function" && typeof object.delete === "function" && typeof object.get === "function" && typeof object.getAll === "function" && typeof object.has === "function" && typeof object.set === "function" && typeof object.sort === "function" && object[NAME] === "URLSearchParams";
+      return (
+        typeof object === 'object' &&
+        typeof object.append === 'function' &&
+        typeof object.delete === 'function' &&
+        typeof object.get === 'function' &&
+        typeof object.getAll === 'function' &&
+        typeof object.has === 'function' &&
+        typeof object.set === 'function' &&
+        typeof object.sort === 'function' &&
+        object[NAME] === 'URLSearchParams'
+      );
     };
     isBlob = (object) => {
-      return typeof object === "object" && typeof object.arrayBuffer === "function" && typeof object.type === "string" && typeof object.stream === "function" && typeof object.constructor === "function" && /^(Blob|File)$/.test(object[NAME]);
+      return (
+        typeof object === 'object' &&
+        typeof object.arrayBuffer === 'function' &&
+        typeof object.type === 'string' &&
+        typeof object.stream === 'function' &&
+        typeof object.constructor === 'function' &&
+        /^(Blob|File)$/.test(object[NAME])
+      );
     };
     isAbortSignal = (object) => {
-      return typeof object === "object" && (object[NAME] === "AbortSignal" || object[NAME] === "EventTarget");
+      return (
+        typeof object === 'object' &&
+        (object[NAME] === 'AbortSignal' || object[NAME] === 'EventTarget')
+      );
     };
-    carriage = "\r\n";
-    dashes = "-".repeat(2);
+    carriage = '\r\n';
+    dashes = '-'.repeat(2);
     carriageLength = Buffer.byteLength(carriage);
-    getFooter = (boundary) => `${dashes}${boundary}${dashes}${carriage.repeat(2)}`;
-    getBoundary = () => (0, import_crypto.randomBytes)(8).toString("hex");
-    INTERNALS$2 = Symbol("Body internals");
+    getFooter = (boundary) =>
+      `${dashes}${boundary}${dashes}${carriage.repeat(2)}`;
+    getBoundary = () => (0, import_crypto.randomBytes)(8).toString('hex');
+    INTERNALS$2 = Symbol('Body internals');
     Body = class {
-      constructor(body, {
-        size = 0
-      } = {}) {
+      constructor(body, { size = 0 } = {}) {
         let boundary = null;
         if (body === null) {
           body = null;
         } else if (isURLSearchParameters(body)) {
           body = Buffer.from(body.toString());
-        } else if (isBlob(body))
-          ;
-        else if (Buffer.isBuffer(body))
-          ;
+        } else if (isBlob(body));
+        else if (Buffer.isBuffer(body));
         else if (import_util.types.isAnyArrayBuffer(body)) {
           body = Buffer.from(body);
         } else if (ArrayBuffer.isView(body)) {
           body = Buffer.from(body.buffer, body.byteOffset, body.byteLength);
-        } else if (body instanceof import_stream.default)
-          ;
+        } else if (body instanceof import_stream.default);
         else if (isFormData(body)) {
           boundary = `NodeFetchFormDataBoundary${getBoundary()}`;
-          body = import_stream.default.Readable.from(formDataIterator(body, boundary));
+          body = import_stream.default.Readable.from(
+            formDataIterator(body, boundary)
+          );
         } else {
           body = Buffer.from(String(body));
         }
@@ -4190,12 +5680,19 @@ var init_install_fetch = __esm({
           body,
           boundary,
           disturbed: false,
-          error: null
+          error: null,
         };
         this.size = size;
         if (body instanceof import_stream.default) {
-          body.on("error", (error_) => {
-            const error2 = error_ instanceof FetchBaseError ? error_ : new FetchError(`Invalid response body while trying to fetch ${this.url}: ${error_.message}`, "system", error_);
+          body.on('error', (error_) => {
+            const error2 =
+              error_ instanceof FetchBaseError
+                ? error_
+                : new FetchError(
+                    `Invalid response body while trying to fetch ${this.url}: ${error_.message}`,
+                    'system',
+                    error_
+                  );
             this[INTERNALS$2].error = error2;
           });
         }
@@ -4211,10 +5708,13 @@ var init_install_fetch = __esm({
         return buffer.slice(byteOffset, byteOffset + byteLength);
       }
       async blob() {
-        const ct = this.headers && this.headers.get("content-type") || this[INTERNALS$2].body && this[INTERNALS$2].body.type || "";
+        const ct =
+          (this.headers && this.headers.get('content-type')) ||
+          (this[INTERNALS$2].body && this[INTERNALS$2].body.type) ||
+          '';
         const buf = await this.buffer();
         return new Blob$1([buf], {
-          type: ct
+          type: ct,
         });
       }
       async json() {
@@ -4235,16 +5735,19 @@ var init_install_fetch = __esm({
       arrayBuffer: { enumerable: true },
       blob: { enumerable: true },
       json: { enumerable: true },
-      text: { enumerable: true }
+      text: { enumerable: true },
     });
     clone = (instance, highWaterMark) => {
       let p1;
       let p2;
       let { body } = instance;
       if (instance.bodyUsed) {
-        throw new Error("cannot clone body after it is used");
+        throw new Error('cannot clone body after it is used');
       }
-      if (body instanceof import_stream.default && typeof body.getBoundary !== "function") {
+      if (
+        body instanceof import_stream.default &&
+        typeof body.getBoundary !== 'function'
+      ) {
         p1 = new import_stream.PassThrough({ highWaterMark });
         p2 = new import_stream.PassThrough({ highWaterMark });
         body.pipe(p1);
@@ -4258,19 +5761,23 @@ var init_install_fetch = __esm({
       if (body === null) {
         return null;
       }
-      if (typeof body === "string") {
-        return "text/plain;charset=UTF-8";
+      if (typeof body === 'string') {
+        return 'text/plain;charset=UTF-8';
       }
       if (isURLSearchParameters(body)) {
-        return "application/x-www-form-urlencoded;charset=UTF-8";
+        return 'application/x-www-form-urlencoded;charset=UTF-8';
       }
       if (isBlob(body)) {
         return body.type || null;
       }
-      if (Buffer.isBuffer(body) || import_util.types.isAnyArrayBuffer(body) || ArrayBuffer.isView(body)) {
+      if (
+        Buffer.isBuffer(body) ||
+        import_util.types.isAnyArrayBuffer(body) ||
+        ArrayBuffer.isView(body)
+      ) {
         return null;
       }
-      if (body && typeof body.getBoundary === "function") {
+      if (body && typeof body.getBoundary === 'function') {
         return `multipart/form-data;boundary=${body.getBoundary()}`;
       }
       if (isFormData(body)) {
@@ -4279,7 +5786,7 @@ var init_install_fetch = __esm({
       if (body instanceof import_stream.default) {
         return null;
       }
-      return "text/plain;charset=UTF-8";
+      return 'text/plain;charset=UTF-8';
     };
     getTotalBytes = (request) => {
       const { body } = request;
@@ -4292,8 +5799,10 @@ var init_install_fetch = __esm({
       if (Buffer.isBuffer(body)) {
         return body.length;
       }
-      if (body && typeof body.getLengthSync === "function") {
-        return body.hasKnownLength && body.hasKnownLength() ? body.getLengthSync() : null;
+      if (body && typeof body.getLengthSync === 'function') {
+        return body.hasKnownLength && body.hasKnownLength()
+          ? body.getLengthSync()
+          : null;
       }
       if (isFormData(body)) {
         return getFormDataLength(request[INTERNALS$2].boundary);
@@ -4312,20 +5821,34 @@ var init_install_fetch = __esm({
         body.pipe(dest);
       }
     };
-    validateHeaderName = typeof import_http.default.validateHeaderName === "function" ? import_http.default.validateHeaderName : (name) => {
-      if (!/^[\^`\-\w!#$%&'*+.|~]+$/.test(name)) {
-        const error2 = new TypeError(`Header name must be a valid HTTP token [${name}]`);
-        Object.defineProperty(error2, "code", { value: "ERR_INVALID_HTTP_TOKEN" });
-        throw error2;
-      }
-    };
-    validateHeaderValue = typeof import_http.default.validateHeaderValue === "function" ? import_http.default.validateHeaderValue : (name, value) => {
-      if (/[^\t\u0020-\u007E\u0080-\u00FF]/.test(value)) {
-        const error2 = new TypeError(`Invalid character in header content ["${name}"]`);
-        Object.defineProperty(error2, "code", { value: "ERR_INVALID_CHAR" });
-        throw error2;
-      }
-    };
+    validateHeaderName =
+      typeof import_http.default.validateHeaderName === 'function'
+        ? import_http.default.validateHeaderName
+        : (name) => {
+            if (!/^[\^`\-\w!#$%&'*+.|~]+$/.test(name)) {
+              const error2 = new TypeError(
+                `Header name must be a valid HTTP token [${name}]`
+              );
+              Object.defineProperty(error2, 'code', {
+                value: 'ERR_INVALID_HTTP_TOKEN',
+              });
+              throw error2;
+            }
+          };
+    validateHeaderValue =
+      typeof import_http.default.validateHeaderValue === 'function'
+        ? import_http.default.validateHeaderValue
+        : (name, value) => {
+            if (/[^\t\u0020-\u007E\u0080-\u00FF]/.test(value)) {
+              const error2 = new TypeError(
+                `Invalid character in header content ["${name}"]`
+              );
+              Object.defineProperty(error2, 'code', {
+                value: 'ERR_INVALID_CHAR',
+              });
+              throw error2;
+            }
+          };
     Headers = class extends URLSearchParams {
       constructor(init2) {
         let result = [];
@@ -4334,63 +5857,88 @@ var init_install_fetch = __esm({
           for (const [name, values] of Object.entries(raw)) {
             result.push(...values.map((value) => [name, value]));
           }
-        } else if (init2 == null)
-          ;
-        else if (typeof init2 === "object" && !import_util.types.isBoxedPrimitive(init2)) {
+        } else if (init2 == null);
+        else if (
+          typeof init2 === 'object' &&
+          !import_util.types.isBoxedPrimitive(init2)
+        ) {
           const method = init2[Symbol.iterator];
           if (method == null) {
             result.push(...Object.entries(init2));
           } else {
-            if (typeof method !== "function") {
-              throw new TypeError("Header pairs must be iterable");
+            if (typeof method !== 'function') {
+              throw new TypeError('Header pairs must be iterable');
             }
-            result = [...init2].map((pair) => {
-              if (typeof pair !== "object" || import_util.types.isBoxedPrimitive(pair)) {
-                throw new TypeError("Each header pair must be an iterable object");
-              }
-              return [...pair];
-            }).map((pair) => {
-              if (pair.length !== 2) {
-                throw new TypeError("Each header pair must be a name/value tuple");
-              }
-              return [...pair];
-            });
+            result = [...init2]
+              .map((pair) => {
+                if (
+                  typeof pair !== 'object' ||
+                  import_util.types.isBoxedPrimitive(pair)
+                ) {
+                  throw new TypeError(
+                    'Each header pair must be an iterable object'
+                  );
+                }
+                return [...pair];
+              })
+              .map((pair) => {
+                if (pair.length !== 2) {
+                  throw new TypeError(
+                    'Each header pair must be a name/value tuple'
+                  );
+                }
+                return [...pair];
+              });
           }
         } else {
-          throw new TypeError("Failed to construct 'Headers': The provided value is not of type '(sequence<sequence<ByteString>> or record<ByteString, ByteString>)");
+          throw new TypeError(
+            "Failed to construct 'Headers': The provided value is not of type '(sequence<sequence<ByteString>> or record<ByteString, ByteString>)"
+          );
         }
-        result = result.length > 0 ? result.map(([name, value]) => {
-          validateHeaderName(name);
-          validateHeaderValue(name, String(value));
-          return [String(name).toLowerCase(), String(value)];
-        }) : void 0;
+        result =
+          result.length > 0
+            ? result.map(([name, value]) => {
+                validateHeaderName(name);
+                validateHeaderValue(name, String(value));
+                return [String(name).toLowerCase(), String(value)];
+              })
+            : void 0;
         super(result);
         return new Proxy(this, {
           get(target, p, receiver) {
             switch (p) {
-              case "append":
-              case "set":
+              case 'append':
+              case 'set':
                 return (name, value) => {
                   validateHeaderName(name);
                   validateHeaderValue(name, String(value));
-                  return URLSearchParams.prototype[p].call(target, String(name).toLowerCase(), String(value));
+                  return URLSearchParams.prototype[p].call(
+                    target,
+                    String(name).toLowerCase(),
+                    String(value)
+                  );
                 };
-              case "delete":
-              case "has":
-              case "getAll":
+              case 'delete':
+              case 'has':
+              case 'getAll':
                 return (name) => {
                   validateHeaderName(name);
-                  return URLSearchParams.prototype[p].call(target, String(name).toLowerCase());
+                  return URLSearchParams.prototype[p].call(
+                    target,
+                    String(name).toLowerCase()
+                  );
                 };
-              case "keys":
+              case 'keys':
                 return () => {
                   target.sort();
-                  return new Set(URLSearchParams.prototype.keys.call(target)).keys();
+                  return new Set(
+                    URLSearchParams.prototype.keys.call(target)
+                  ).keys();
                 };
               default:
                 return Reflect.get(target, p, receiver);
             }
-          }
+          },
         });
       }
       get [Symbol.toStringTag]() {
@@ -4404,7 +5952,7 @@ var init_install_fetch = __esm({
         if (values.length === 0) {
           return null;
         }
-        let value = values.join(", ");
+        let value = values.join(', ');
         if (/^content-encoding$/i.test(name)) {
           value = value.toLowerCase();
         }
@@ -4434,10 +5982,10 @@ var init_install_fetch = __esm({
           return result;
         }, {});
       }
-      [Symbol.for("nodejs.util.inspect.custom")]() {
+      [Symbol.for('nodejs.util.inspect.custom')]() {
         return [...this.keys()].reduce((result, key) => {
           const values = this.getAll(key);
-          if (key === "host") {
+          if (key === 'host') {
             result[key] = values[0];
           } else {
             result[key] = values.length > 1 ? values : values[0];
@@ -4446,47 +5994,52 @@ var init_install_fetch = __esm({
         }, {});
       }
     };
-    Object.defineProperties(Headers.prototype, ["get", "entries", "forEach", "values"].reduce((result, property) => {
-      result[property] = { enumerable: true };
-      return result;
-    }, {}));
+    Object.defineProperties(
+      Headers.prototype,
+      ['get', 'entries', 'forEach', 'values'].reduce((result, property) => {
+        result[property] = { enumerable: true };
+        return result;
+      }, {})
+    );
     redirectStatus = new Set([301, 302, 303, 307, 308]);
     isRedirect = (code) => {
       return redirectStatus.has(code);
     };
-    INTERNALS$1 = Symbol("Response internals");
+    INTERNALS$1 = Symbol('Response internals');
     Response = class extends Body {
       constructor(body = null, options2 = {}) {
         super(body, options2);
         const status = options2.status != null ? options2.status : 200;
         const headers = new Headers(options2.headers);
-        if (body !== null && !headers.has("Content-Type")) {
+        if (body !== null && !headers.has('Content-Type')) {
           const contentType = extractContentType(body);
           if (contentType) {
-            headers.append("Content-Type", contentType);
+            headers.append('Content-Type', contentType);
           }
         }
         this[INTERNALS$1] = {
-          type: "default",
+          type: 'default',
           url: options2.url,
           status,
-          statusText: options2.statusText || "",
+          statusText: options2.statusText || '',
           headers,
           counter: options2.counter,
-          highWaterMark: options2.highWaterMark
+          highWaterMark: options2.highWaterMark,
         };
       }
       get type() {
         return this[INTERNALS$1].type;
       }
       get url() {
-        return this[INTERNALS$1].url || "";
+        return this[INTERNALS$1].url || '';
       }
       get status() {
         return this[INTERNALS$1].status;
       }
       get ok() {
-        return this[INTERNALS$1].status >= 200 && this[INTERNALS$1].status < 300;
+        return (
+          this[INTERNALS$1].status >= 200 && this[INTERNALS$1].status < 300
+        );
       }
       get redirected() {
         return this[INTERNALS$1].counter > 0;
@@ -4509,27 +6062,29 @@ var init_install_fetch = __esm({
           headers: this.headers,
           ok: this.ok,
           redirected: this.redirected,
-          size: this.size
+          size: this.size,
         });
       }
       static redirect(url, status = 302) {
         if (!isRedirect(status)) {
-          throw new RangeError('Failed to execute "redirect" on "response": Invalid status code');
+          throw new RangeError(
+            'Failed to execute "redirect" on "response": Invalid status code'
+          );
         }
         return new Response(null, {
           headers: {
-            location: new URL(url).toString()
+            location: new URL(url).toString(),
           },
-          status
+          status,
         });
       }
       static error() {
-        const response = new Response(null, { status: 0, statusText: "" });
-        response[INTERNALS$1].type = "error";
+        const response = new Response(null, { status: 0, statusText: '' });
+        response[INTERNALS$1].type = 'error';
         return response;
       }
       get [Symbol.toStringTag]() {
-        return "Response";
+        return 'Response';
       }
     };
     Object.defineProperties(Response.prototype, {
@@ -4540,19 +6095,22 @@ var init_install_fetch = __esm({
       redirected: { enumerable: true },
       statusText: { enumerable: true },
       headers: { enumerable: true },
-      clone: { enumerable: true }
+      clone: { enumerable: true },
     });
     getSearch = (parsedURL) => {
       if (parsedURL.search) {
         return parsedURL.search;
       }
       const lastOffset = parsedURL.href.length - 1;
-      const hash2 = parsedURL.hash || (parsedURL.href[lastOffset] === "#" ? "#" : "");
-      return parsedURL.href[lastOffset - hash2.length] === "?" ? "?" : "";
+      const hash2 =
+        parsedURL.hash || (parsedURL.href[lastOffset] === '#' ? '#' : '');
+      return parsedURL.href[lastOffset - hash2.length] === '?' ? '?' : '';
     };
-    INTERNALS = Symbol("Request internals");
+    INTERNALS = Symbol('Request internals');
     isRequest = (object) => {
-      return typeof object === "object" && typeof object[INTERNALS] === "object";
+      return (
+        typeof object === 'object' && typeof object[INTERNALS] === 'object'
+      );
     };
     Request = class extends Body {
       constructor(input, init2 = {}) {
@@ -4563,42 +6121,64 @@ var init_install_fetch = __esm({
           parsedURL = new URL(input);
           input = {};
         }
-        let method = init2.method || input.method || "GET";
+        let method = init2.method || input.method || 'GET';
         method = method.toUpperCase();
-        if ((init2.body != null || isRequest(input)) && input.body !== null && (method === "GET" || method === "HEAD")) {
-          throw new TypeError("Request with GET/HEAD method cannot have body");
+        if (
+          (init2.body != null || isRequest(input)) &&
+          input.body !== null &&
+          (method === 'GET' || method === 'HEAD')
+        ) {
+          throw new TypeError('Request with GET/HEAD method cannot have body');
         }
-        const inputBody = init2.body ? init2.body : isRequest(input) && input.body !== null ? clone(input) : null;
+        const inputBody = init2.body
+          ? init2.body
+          : isRequest(input) && input.body !== null
+          ? clone(input)
+          : null;
         super(inputBody, {
-          size: init2.size || input.size || 0
+          size: init2.size || input.size || 0,
         });
         const headers = new Headers(init2.headers || input.headers || {});
-        if (inputBody !== null && !headers.has("Content-Type")) {
+        if (inputBody !== null && !headers.has('Content-Type')) {
           const contentType = extractContentType(inputBody, this);
           if (contentType) {
-            headers.append("Content-Type", contentType);
+            headers.append('Content-Type', contentType);
           }
         }
         let signal = isRequest(input) ? input.signal : null;
-        if ("signal" in init2) {
+        if ('signal' in init2) {
           signal = init2.signal;
         }
         if (signal != null && !isAbortSignal(signal)) {
-          throw new TypeError("Expected signal to be an instanceof AbortSignal or EventTarget");
+          throw new TypeError(
+            'Expected signal to be an instanceof AbortSignal or EventTarget'
+          );
         }
         this[INTERNALS] = {
           method,
-          redirect: init2.redirect || input.redirect || "follow",
+          redirect: init2.redirect || input.redirect || 'follow',
           headers,
           parsedURL,
-          signal
+          signal,
         };
-        this.follow = init2.follow === void 0 ? input.follow === void 0 ? 20 : input.follow : init2.follow;
-        this.compress = init2.compress === void 0 ? input.compress === void 0 ? true : input.compress : init2.compress;
+        this.follow =
+          init2.follow === void 0
+            ? input.follow === void 0
+              ? 20
+              : input.follow
+            : init2.follow;
+        this.compress =
+          init2.compress === void 0
+            ? input.compress === void 0
+              ? true
+              : input.compress
+            : init2.compress;
         this.counter = init2.counter || input.counter || 0;
         this.agent = init2.agent || input.agent;
-        this.highWaterMark = init2.highWaterMark || input.highWaterMark || 16384;
-        this.insecureHTTPParser = init2.insecureHTTPParser || input.insecureHTTPParser || false;
+        this.highWaterMark =
+          init2.highWaterMark || input.highWaterMark || 16384;
+        this.insecureHTTPParser =
+          init2.insecureHTTPParser || input.insecureHTTPParser || false;
       }
       get method() {
         return this[INTERNALS].method;
@@ -4619,7 +6199,7 @@ var init_install_fetch = __esm({
         return new Request(this);
       }
       get [Symbol.toStringTag]() {
-        return "Request";
+        return 'Request';
       }
     };
     Object.defineProperties(Request.prototype, {
@@ -4628,39 +6208,39 @@ var init_install_fetch = __esm({
       headers: { enumerable: true },
       redirect: { enumerable: true },
       clone: { enumerable: true },
-      signal: { enumerable: true }
+      signal: { enumerable: true },
     });
     getNodeRequestOptions = (request) => {
       const { parsedURL } = request[INTERNALS];
       const headers = new Headers(request[INTERNALS].headers);
-      if (!headers.has("Accept")) {
-        headers.set("Accept", "*/*");
+      if (!headers.has('Accept')) {
+        headers.set('Accept', '*/*');
       }
       let contentLengthValue = null;
       if (request.body === null && /^(post|put)$/i.test(request.method)) {
-        contentLengthValue = "0";
+        contentLengthValue = '0';
       }
       if (request.body !== null) {
         const totalBytes = getTotalBytes(request);
-        if (typeof totalBytes === "number" && !Number.isNaN(totalBytes)) {
+        if (typeof totalBytes === 'number' && !Number.isNaN(totalBytes)) {
           contentLengthValue = String(totalBytes);
         }
       }
       if (contentLengthValue) {
-        headers.set("Content-Length", contentLengthValue);
+        headers.set('Content-Length', contentLengthValue);
       }
-      if (!headers.has("User-Agent")) {
-        headers.set("User-Agent", "node-fetch");
+      if (!headers.has('User-Agent')) {
+        headers.set('User-Agent', 'node-fetch');
       }
-      if (request.compress && !headers.has("Accept-Encoding")) {
-        headers.set("Accept-Encoding", "gzip,deflate,br");
+      if (request.compress && !headers.has('Accept-Encoding')) {
+        headers.set('Accept-Encoding', 'gzip,deflate,br');
       }
       let { agent } = request;
-      if (typeof agent === "function") {
+      if (typeof agent === 'function') {
         agent = agent(parsedURL);
       }
-      if (!headers.has("Connection") && !agent) {
-        headers.set("Connection", "close");
+      if (!headers.has('Connection') && !agent) {
+        headers.set('Connection', 'close');
       }
       const search = getSearch(parsedURL);
       const requestOptions = {
@@ -4674,33 +6254,33 @@ var init_install_fetch = __esm({
         query: parsedURL.query,
         href: parsedURL.href,
         method: request.method,
-        headers: headers[Symbol.for("nodejs.util.inspect.custom")](),
+        headers: headers[Symbol.for('nodejs.util.inspect.custom')](),
         insecureHTTPParser: request.insecureHTTPParser,
-        agent
+        agent,
       };
       return requestOptions;
     };
     AbortError = class extends FetchBaseError {
-      constructor(message, type = "aborted") {
+      constructor(message, type = 'aborted') {
         super(message, type);
       }
     };
-    supportedSchemas = new Set(["data:", "http:", "https:"]);
-  }
+    supportedSchemas = new Set(['data:', 'http:', 'https:']);
+  },
 });
 
 // node_modules/@sveltejs/adapter-netlify/files/shims.js
 var init_shims = __esm({
-  "node_modules/@sveltejs/adapter-netlify/files/shims.js"() {
+  'node_modules/@sveltejs/adapter-netlify/files/shims.js'() {
     init_install_fetch();
-  }
+  },
 });
 
 // .svelte-kit/output/server/chunks/__layout-519d3e8d.js
 var layout_519d3e8d_exports = {};
 __export(layout_519d3e8d_exports, {
   default: () => _layout,
-  load: () => load
+  load: () => load,
 });
 function writable(value, start = noop) {
   let stop;
@@ -4747,9 +6327,21 @@ async function load({ session }) {
   const localTheme = session.theme;
   return { props: { localTheme } };
 }
-var subscriber_queue, createWritableStore, theme, Sun, Moon, ChevronDown, css, Logo, Src, Dropdown, Header, Footer, _layout;
+var subscriber_queue,
+  createWritableStore,
+  theme,
+  Sun,
+  Moon,
+  ChevronDown,
+  css,
+  Logo,
+  Src,
+  Dropdown,
+  Header,
+  Footer,
+  _layout;
 var init_layout_519d3e8d = __esm({
-  ".svelte-kit/output/server/chunks/__layout-519d3e8d.js"() {
+  '.svelte-kit/output/server/chunks/__layout-519d3e8d.js'() {
     init_shims();
     init_app_43d1dbc8();
     subscriber_queue = [];
@@ -4766,26 +6358,28 @@ var init_layout_519d3e8d = __esm({
           subscribe2((current) => {
             localStorage.setItem(key, JSON.stringify(current));
           });
-        }
+        },
       };
     };
-    theme = createWritableStore("theme", { mode: "dark" });
+    theme = createWritableStore('theme', { mode: 'dark' });
     Sun = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-      return `<svg width="${"24"}" height="${"24"}" class="${"h-6 w-6 stroke-current text-white"}" viewBox="${"0 0 24 24"}" fill="${"none"}" xmlns="${"http://www.w3.org/2000/svg"}"><title id="${"sun-title"}">Sun icon</title><desc id="${"sun-desc"}">A minimalistis icon representing a sun.</desc><path d="${"M12 3V4M12 20V21M21 12H20M4 12H3M18.364 18.364L17.6569 17.6569M6.34315 6.34315L5.63604 5.63604M18.364 5.63609L17.6569 6.3432M6.3432 17.6569L5.63609 18.364M16 12C16 14.2091 14.2091 16 12 16C9.79086 16 8 14.2091 8 12C8 9.79086 9.79086 8 12 8C14.2091 8 16 9.79086 16 12Z"}" stroke-width="${"2"}" stroke-linecap="${"round"}" stroke-linejoin="${"round"}"></path></svg>`;
+      return `<svg width="${'24'}" height="${'24'}" class="${'h-6 w-6 stroke-current text-white'}" viewBox="${'0 0 24 24'}" fill="${'none'}" xmlns="${'http://www.w3.org/2000/svg'}"><title id="${'sun-title'}">Sun icon</title><desc id="${'sun-desc'}">A minimalistis icon representing a sun.</desc><path d="${'M12 3V4M12 20V21M21 12H20M4 12H3M18.364 18.364L17.6569 17.6569M6.34315 6.34315L5.63604 5.63604M18.364 5.63609L17.6569 6.3432M6.3432 17.6569L5.63609 18.364M16 12C16 14.2091 14.2091 16 12 16C9.79086 16 8 14.2091 8 12C8 9.79086 9.79086 8 12 8C14.2091 8 16 9.79086 16 12Z'}" stroke-width="${'2'}" stroke-linecap="${'round'}" stroke-linejoin="${'round'}"></path></svg>`;
     });
     Moon = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-      return `<svg width="${"24"}" height="${"24"}" viewBox="${"0 0 24 24"}" class="${"h-6 w-6 stroke-current text-grey-800"}" fill="${"none"}" xmlns="${"http://www.w3.org/2000/svg"}"><title id="${"moon-title"}">Moon icon</title><desc id="${"moon-desc"}">A minimalistis icon representing a moon.</desc><path d="${"M20.3542 15.3542C19.3176 15.7708 18.1856 16.0001 17 16.0001C12.0294 16.0001 8 11.9706 8 7.00006C8 5.81449 8.22924 4.68246 8.64581 3.64587C5.33648 4.9758 3 8.21507 3 12.0001C3 16.9706 7.02944 21.0001 12 21.0001C15.785 21.0001 19.0243 18.6636 20.3542 15.3542Z"}" stroke-width="${"2"}" stroke-linecap="${"round"}" stroke-linejoin="${"round"}"></path></svg>`;
+      return `<svg width="${'24'}" height="${'24'}" viewBox="${'0 0 24 24'}" class="${'h-6 w-6 stroke-current text-grey-800'}" fill="${'none'}" xmlns="${'http://www.w3.org/2000/svg'}"><title id="${'moon-title'}">Moon icon</title><desc id="${'moon-desc'}">A minimalistis icon representing a moon.</desc><path d="${'M20.3542 15.3542C19.3176 15.7708 18.1856 16.0001 17 16.0001C12.0294 16.0001 8 11.9706 8 7.00006C8 5.81449 8.22924 4.68246 8.64581 3.64587C5.33648 4.9758 3 8.21507 3 12.0001C3 16.9706 7.02944 21.0001 12 21.0001C15.785 21.0001 19.0243 18.6636 20.3542 15.3542Z'}" stroke-width="${'2'}" stroke-linecap="${'round'}" stroke-linejoin="${'round'}"></path></svg>`;
     });
-    ChevronDown = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-      return `<svg class="${"-mr-1 ml-2 h-5 w-5"}" xmlns="${"http://www.w3.org/2000/svg"}" viewBox="${"0 0 20 20"}" fill="${"currentColor"}" aria-hidden="${"true"}"><title id="${"chev-r-title"}">Chevron down icon</title><desc id="${"chev-r-desc"}">A minimalistis icon representing a chevron poining down.</desc><path fill-rule="${"evenodd"}" d="${"M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"}" clip-rule="${"evenodd"}"></path></svg>`;
-    });
+    ChevronDown = create_ssr_component(
+      ($$result, $$props, $$bindings, slots) => {
+        return `<svg class="${'-mr-1 ml-2 h-5 w-5'}" xmlns="${'http://www.w3.org/2000/svg'}" viewBox="${'0 0 20 20'}" fill="${'currentColor'}" aria-hidden="${'true'}"><title id="${'chev-r-title'}">Chevron down icon</title><desc id="${'chev-r-desc'}">A minimalistis icon representing a chevron poining down.</desc><path fill-rule="${'evenodd'}" d="${'M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z'}" clip-rule="${'evenodd'}"></path></svg>`;
+      }
+    );
     css = {
       code: ".logo-text.svelte-1u91486{font-family:'Cormorant Garamond', -apple-system, BlinkMacSystemFont,\n      'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',\n      'Helvetica Neue', sans-serif}",
-      map: null
+      map: null,
     };
     Logo = create_ssr_component(($$result, $$props, $$bindings, slots) => {
       $$result.css.add(css);
-      return `<div class="${"flex justify-center items-center w-10 h-10 mr-10 bg-spaceGrey dark:bg-spaceWhite rounded-full transition duration-501 ease-in-out"}"><p class="${"text-xl logo-text text-white dark:text-black mb-0.5 transition duration-501 ease-in-out svelte-1u91486"}">Ar
+      return `<div class="${'flex justify-center items-center w-10 h-10 mr-10 bg-spaceGrey dark:bg-spaceWhite rounded-full transition duration-300 ease-in-out'}"><p class="${'text-xl logo-text text-white dark:text-black mb-0.5 transition duration-300 ease-in-out svelte-1u91486'}">Ar
   </p>
 </div>`;
     });
@@ -4793,67 +6387,147 @@ var init_layout_519d3e8d = __esm({
       let { exclude = [] } = $$props;
       let child;
       createEventDispatcher();
-      if ($$props.exclude === void 0 && $$bindings.exclude && exclude !== void 0)
+      if (
+        $$props.exclude === void 0 &&
+        $$bindings.exclude &&
+        exclude !== void 0
+      )
         $$bindings.exclude(exclude);
       return `
-<div${add_attribute("this", child, 0)}>${slots.default ? slots.default({}) : ``}</div>`;
+<div${add_attribute('this', child, 0)}>${
+        slots.default ? slots.default({}) : ``
+      }</div>`;
     });
     Dropdown = create_ssr_component(($$result, $$props, $$bindings, slots) => {
       let { menuVisible = false } = $$props;
       let { title: title4 } = $$props;
       let { items } = $$props;
       let modalButtonRef;
-      if ($$props.menuVisible === void 0 && $$bindings.menuVisible && menuVisible !== void 0)
+      if (
+        $$props.menuVisible === void 0 &&
+        $$bindings.menuVisible &&
+        menuVisible !== void 0
+      )
         $$bindings.menuVisible(menuVisible);
       if ($$props.title === void 0 && $$bindings.title && title4 !== void 0)
         $$bindings.title(title4);
       if ($$props.items === void 0 && $$bindings.items && items !== void 0)
         $$bindings.items(items);
-      return `<div class="${"relative inline-block text-left"}"><div><button type="${"button"}" class="${"inline-flex justify-center w-full rounded-md shadow-sm px-4 py-2 bg-white text-sm font-medium "}" id="${"menu-button"}" aria-expanded="${"true"}" aria-haspopup="${"true"}"${add_attribute("this", modalButtonRef, 0)}>${escape(title4)}
-      ${validate_component(ChevronDown, "ChevronDown").$$render($$result, {}, {}, {})}</button></div>
-  ${menuVisible ? `${validate_component(Src, "ClickOutside").$$render($$result, { exclude: [modalButtonRef] }, {}, {
-        default: () => `<div class="${"origin-top-right absolute left-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 divide-y divide-gray-100 focus:outline-none"}" role="${"menu"}" aria-orientation="${"vertical"}" aria-labelledby="${"menu-button"}" tabindex="${"-1"}"><div class="${"py-1"}" role="${"none"}">${each(items, (item) => `<a${add_attribute("href", item.url, 0)} class="${"text-gray-700 block px-4 py-2 text-sm"}" role="${"menuitem"}" tabindex="${"-1"}">${escape(item.title)}</a>`)}</div></div>`
-      })}` : ``}</div>`;
+      return `<div class="${'relative inline-block text-left'}"><div><button type="${'button'}" class="${'inline-flex justify-center w-full rounded-md shadow-sm px-4 py-2 bg-white text-sm font-medium '}" id="${'menu-button'}" aria-expanded="${'true'}" aria-haspopup="${'true'}"${add_attribute(
+        'this',
+        modalButtonRef,
+        0
+      )}>${escape(title4)}
+      ${validate_component(ChevronDown, 'ChevronDown').$$render(
+        $$result,
+        {},
+        {},
+        {}
+      )}</button></div>
+  ${
+    menuVisible
+      ? `${validate_component(Src, 'ClickOutside').$$render(
+          $$result,
+          { exclude: [modalButtonRef] },
+          {},
+          {
+            default: () =>
+              `<div class="${'origin-top-right absolute left-0 mt-2 w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 divide-y divide-gray-100 focus:outline-none'}" role="${'menu'}" aria-orientation="${'vertical'}" aria-labelledby="${'menu-button'}" tabindex="${'-1'}"><div class="${'py-1'}" role="${'none'}">${each(
+                items,
+                (item) =>
+                  `<a${add_attribute(
+                    'href',
+                    item.url,
+                    0
+                  )} class="${'text-gray-700 block px-4 py-2 text-sm'}" role="${'menuitem'}" tabindex="${'-1'}">${escape(
+                    item.title
+                  )}</a>`
+              )}</div></div>`,
+          }
+        )}`
+      : ``
+  }</div>`;
     });
     Header = create_ssr_component(($$result, $$props, $$bindings, slots) => {
       let $$unsubscribe_theme;
       $$unsubscribe_theme = subscribe(theme, (value) => value);
-      let { workSections = [{ title: "Career", url: "/career" }, { title: "Blog", url: "/blog/work" }] } = $$props;
-      let { personalSections = [
-        { title: "What I am up to", url: "/myself" },
-        { title: "Blog", url: "/blog/pesonal" }
-      ] } = $$props;
-      if ($$props.workSections === void 0 && $$bindings.workSections && workSections !== void 0)
+      let {
+        workSections = [
+          { title: 'Career', url: '/career' },
+          { title: 'Blog', url: '/blog/work' },
+        ],
+      } = $$props;
+      let {
+        personalSections = [
+          { title: 'What I am up to', url: '/myself' },
+          { title: 'Blog', url: '/blog/pesonal' },
+        ],
+      } = $$props;
+      if (
+        $$props.workSections === void 0 &&
+        $$bindings.workSections &&
+        workSections !== void 0
+      )
         $$bindings.workSections(workSections);
-      if ($$props.personalSections === void 0 && $$bindings.personalSections && personalSections !== void 0)
+      if (
+        $$props.personalSections === void 0 &&
+        $$bindings.personalSections &&
+        personalSections !== void 0
+      )
         $$bindings.personalSections(personalSections);
       $$unsubscribe_theme();
-      return `<header class="${"flex flex-row justify-between px-5 pt-8 bg-spaceWhite dark:bg-spaceGrey transition duration-501 ease-in-out"}"><div class="${"flex"}">${validate_component(Logo, "Logo").$$render($$result, {}, {}, {})}
-    <nav class="${"flex flex-row"}"><div class="${"flex space-x-4"}"><a class="${"flex items-center text-black dark:text-white transition duration-501 ease-in-out"}" href="${"/"}">Home</a>
-        ${validate_component(Dropdown, "Dropdown").$$render($$result, { title: "Work", items: workSections }, {}, {})}
-        ${validate_component(Dropdown, "Dropdown").$$render($$result, {
-        title: "Personal",
-        items: personalSections
-      }, {}, {})}</div></nav></div>
-  <div class="${"flex-0"}"><a href="${"/app/theme"}" class="${"block"}" aria-label="${"toggle light and dark mode"}"><div class="${"hidden dark:block transition duration-501 ease-in-out"}">${validate_component(Sun, "Sun").$$render($$result, {}, {}, {})}</div>
-      <div class="${"dark:hidden transition duration-501 ease-in-out"}">${validate_component(Moon, "Moon").$$render($$result, {}, {}, {})}</div></a></div></header>`;
+      return `<header class="${'flex flex-row justify-between px-5 pt-8 bg-spaceWhite dark:bg-spaceGrey transition duration-300 ease-in-out'}"><div class="${'flex'}">${validate_component(
+        Logo,
+        'Logo'
+      ).$$render($$result, {}, {}, {})}
+    <nav class="${'flex flex-row'}"><div class="${'flex space-x-4'}"><a class="${'flex items-center text-black dark:text-white transition duration-300 ease-in-out'}" href="${'/'}">Home</a>
+        ${validate_component(Dropdown, 'Dropdown').$$render(
+          $$result,
+          { title: 'Work', items: workSections },
+          {},
+          {}
+        )}
+        ${validate_component(Dropdown, 'Dropdown').$$render(
+          $$result,
+          {
+            title: 'Personal',
+            items: personalSections,
+          },
+          {},
+          {}
+        )}</div></nav></div>
+  <div class="${'flex-0'}"><a href="${'/app/theme'}" class="${'block'}" aria-label="${'toggle light and dark mode'}"><div class="${'hidden dark:block transition duration-300 ease-in-out'}">${validate_component(
+        Sun,
+        'Sun'
+      ).$$render($$result, {}, {}, {})}</div>
+      <div class="${'dark:hidden transition duration-300 ease-in-out'}">${validate_component(
+        Moon,
+        'Moon'
+      ).$$render($$result, {}, {}, {})}</div></a></div></header>`;
     });
     Footer = create_ssr_component(($$result, $$props, $$bindings, slots) => {
       const year = new Date().getFullYear();
       if ($$props.year === void 0 && $$bindings.year && year !== void 0)
         $$bindings.year(year);
-      return `<footer class="${"w-full flex flex-col justify-center items-center bg-spaceWhite dark:bg-spaceGrey transition duration-501 ease-in-out pb-5"}"><p class="${"text-black dark:text-white"}">\u{1F4BB} 1.0.0</p>
-  <p class="${"text-black dark:text-white"}">\xA9 ${escape(year)} Made with \u2764\uFE0F by Antonio Rossi
+      return `<footer class="${'w-full flex flex-col justify-center items-center bg-spaceWhite dark:bg-spaceGrey transition duration-300 ease-in-out pb-5'}"><p class="${'text-black dark:text-white'}">\u{1F4BB} 1.0.0</p>
+  <p class="${'text-black dark:text-white'}">\xA9 ${escape(
+        year
+      )} Made with \u2764\uFE0F by Antonio Rossi
   </p></footer>`;
     });
     _layout = create_ssr_component(($$result, $$props, $$bindings, slots) => {
       let $$unsubscribe_theme;
       $$unsubscribe_theme = subscribe(theme, (value) => value);
       let { localTheme } = $$props;
-      if ($$props.localTheme === void 0 && $$bindings.localTheme && localTheme !== void 0)
+      if (
+        $$props.localTheme === void 0 &&
+        $$bindings.localTheme &&
+        localTheme !== void 0
+      )
         $$bindings.localTheme(localTheme);
       $$unsubscribe_theme();
-      return `${$$result.head += `<script data-svelte="svelte-1dfls2j">if (!('theme' in localStorage)) {
+      return `${
+        (($$result.head += `<script data-svelte="svelte-1dfls2j">if (!('theme' in localStorage)) {
       if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
         document.documentElement.classList.add('dark');
       } else {
@@ -4866,29 +6540,37 @@ var init_layout_519d3e8d = __esm({
         document.documentElement.classList.add(data.mode);
       }
     }
-  <\/script>`, ""}
+  <\/script>`),
+        '')
+      }
 
-<div id="${"core"}"${add_attribute("class", localTheme, 0)}>${validate_component(Header, "Header").$$render($$result, {}, {}, {})}
+<div id="${'core'}"${add_attribute(
+        'class',
+        localTheme,
+        0
+      )}>${validate_component(Header, 'Header').$$render($$result, {}, {}, {})}
 
-  <main class="${"bg-spaceWhite dark:bg-spaceGrey transition duration-501 ease-in-out px-5 md:px-36"}">${slots.default ? slots.default({}) : ``}</main></div>
+  <main class="${'bg-spaceWhite dark:bg-spaceGrey transition duration-300 ease-in-out px-5 md:px-36'}">${
+        slots.default ? slots.default({}) : ``
+      }</main></div>
 
-${validate_component(Footer, "Footer").$$render($$result, {}, {}, {})}`;
+${validate_component(Footer, 'Footer').$$render($$result, {}, {}, {})}`;
     });
-  }
+  },
 });
 
 // .svelte-kit/output/server/chunks/__error-b6ee1e65.js
 var error_b6ee1e65_exports = {};
 __export(error_b6ee1e65_exports, {
   default: () => _error,
-  load: () => load2
+  load: () => load2,
 });
 function load2({ error: error2, status }) {
   return { props: { status, error: error2 } };
 }
 var _error;
 var init_error_b6ee1e65 = __esm({
-  ".svelte-kit/output/server/chunks/__error-b6ee1e65.js"() {
+  '.svelte-kit/output/server/chunks/__error-b6ee1e65.js'() {
     init_shims();
     init_app_43d1dbc8();
     _error = create_ssr_component(($$result, $$props, $$bindings, slots) => {
@@ -4903,202 +6585,253 @@ var init_error_b6ee1e65 = __esm({
 <h3>${escape(status)}</h3>
 <h3>${escape(error2.message)}</h3>`;
     });
-  }
+  },
 });
 
 // .svelte-kit/output/server/chunks/hello copy 2-8bd6778d.js
 var hello_copy_2_8bd6778d_exports = {};
 __export(hello_copy_2_8bd6778d_exports, {
-  _: () => __glob_6_0
+  _: () => __glob_6_0,
 });
 var metadata, title, subtitle, tags, date, icon, Hellou20copyu202, __glob_6_0;
 var init_hello_copy_2_8bd6778d = __esm({
-  ".svelte-kit/output/server/chunks/hello copy 2-8bd6778d.js"() {
+  '.svelte-kit/output/server/chunks/hello copy 2-8bd6778d.js'() {
     init_shims();
     init_app_43d1dbc8();
     metadata = {
-      "title": "Life Post 2",
-      "subtitle": "This is the post description used on the post lists as a preview of the content. I assume it'll be the fist paragraph of the post.",
-      "tags": ["climate"],
-      "date": "15-10-2021",
-      "icon": "world"
+      title: 'Life Post 2',
+      subtitle:
+        "This is the post description used on the post lists as a preview of the content. I assume it'll be the fist paragraph of the post.",
+      tags: ['climate'],
+      date: '15-10-2021',
+      icon: 'world',
     };
     ({ title, subtitle, tags, date, icon } = metadata);
-    Hellou20copyu202 = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-      return `<h1>${escape(title)}</h1>`;
-    });
+    Hellou20copyu202 = create_ssr_component(
+      ($$result, $$props, $$bindings, slots) => {
+        return `<h1>${escape(title)}</h1>`;
+      }
+    );
     __glob_6_0 = /* @__PURE__ */ Object.freeze({
       __proto__: null,
-      [Symbol.toStringTag]: "Module",
-      "default": Hellou20copyu202,
-      metadata
+      [Symbol.toStringTag]: 'Module',
+      default: Hellou20copyu202,
+      metadata,
     });
-  }
+  },
 });
 
 // .svelte-kit/output/server/chunks/hello copy 3-580d29df.js
 var hello_copy_3_580d29df_exports = {};
 __export(hello_copy_3_580d29df_exports, {
-  _: () => __glob_6_1
+  _: () => __glob_6_1,
 });
-var metadata2, title2, subtitle2, tags2, date2, icon2, Hellou20copyu203, __glob_6_1;
+var metadata2,
+  title2,
+  subtitle2,
+  tags2,
+  date2,
+  icon2,
+  Hellou20copyu203,
+  __glob_6_1;
 var init_hello_copy_3_580d29df = __esm({
-  ".svelte-kit/output/server/chunks/hello copy 3-580d29df.js"() {
+  '.svelte-kit/output/server/chunks/hello copy 3-580d29df.js'() {
     init_shims();
     init_app_43d1dbc8();
     metadata2 = {
-      "title": "Life Post 3",
-      "subtitle": "This is the post description used on the post lists as a preview of the content. I assume it'll be the fist paragraph of the post.",
-      "tags": ["climate"],
-      "date": "18-10-2021",
-      "icon": "world"
+      title: 'Life Post 3',
+      subtitle:
+        "This is the post description used on the post lists as a preview of the content. I assume it'll be the fist paragraph of the post.",
+      tags: ['climate'],
+      date: '18-10-2021',
+      icon: 'world',
     };
-    ({ title: title2, subtitle: subtitle2, tags: tags2, date: date2, icon: icon2 } = metadata2);
-    Hellou20copyu203 = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-      return `<h1>${escape(title2)}</h1>`;
-    });
+    ({
+      title: title2,
+      subtitle: subtitle2,
+      tags: tags2,
+      date: date2,
+      icon: icon2,
+    } = metadata2);
+    Hellou20copyu203 = create_ssr_component(
+      ($$result, $$props, $$bindings, slots) => {
+        return `<h1>${escape(title2)}</h1>`;
+      }
+    );
     __glob_6_1 = /* @__PURE__ */ Object.freeze({
       __proto__: null,
-      [Symbol.toStringTag]: "Module",
-      "default": Hellou20copyu203,
-      metadata: metadata2
+      [Symbol.toStringTag]: 'Module',
+      default: Hellou20copyu203,
+      metadata: metadata2,
     });
-  }
+  },
 });
 
 // .svelte-kit/output/server/chunks/hello-3d91a712.js
 var hello_3d91a712_exports = {};
 __export(hello_3d91a712_exports, {
-  _: () => __glob_6_2
+  _: () => __glob_6_2,
 });
 var metadata3, title3, subtitle3, tags3, date3, icon3, Hello, __glob_6_2;
 var init_hello_3d91a712 = __esm({
-  ".svelte-kit/output/server/chunks/hello-3d91a712.js"() {
+  '.svelte-kit/output/server/chunks/hello-3d91a712.js'() {
     init_shims();
     init_app_43d1dbc8();
     metadata3 = {
-      "title": "Life Post 1",
-      "subtitle": "This is the post description used on the post lists as a preview of the content. I assume it'll be the fist paragraph of the post.",
-      "tags": ["climate"],
-      "date": "12-10-2021",
-      "icon": "world"
+      title: 'Life Post 1',
+      subtitle:
+        "This is the post description used on the post lists as a preview of the content. I assume it'll be the fist paragraph of the post.",
+      tags: ['climate'],
+      date: '12-10-2021',
+      icon: 'world',
     };
-    ({ title: title3, subtitle: subtitle3, tags: tags3, date: date3, icon: icon3 } = metadata3);
+    ({
+      title: title3,
+      subtitle: subtitle3,
+      tags: tags3,
+      date: date3,
+      icon: icon3,
+    } = metadata3);
     Hello = create_ssr_component(($$result, $$props, $$bindings, slots) => {
       return `<h1>${escape(title3)}</h1>`;
     });
     __glob_6_2 = /* @__PURE__ */ Object.freeze({
       __proto__: null,
-      [Symbol.toStringTag]: "Module",
-      "default": Hello,
-      metadata: metadata3
+      [Symbol.toStringTag]: 'Module',
+      default: Hello,
+      metadata: metadata3,
     });
-  }
+  },
 });
 
 // .svelte-kit/output/server/chunks/hello2 copy 2-ea2fee0a.js
 var hello2_copy_2_ea2fee0a_exports = {};
 __export(hello2_copy_2_ea2fee0a_exports, {
-  _: () => __glob_5_0
+  _: () => __glob_5_0,
 });
 var metadata4, Hello2u20copyu202, __glob_5_0;
 var init_hello2_copy_2_ea2fee0a = __esm({
-  ".svelte-kit/output/server/chunks/hello2 copy 2-ea2fee0a.js"() {
+  '.svelte-kit/output/server/chunks/hello2 copy 2-ea2fee0a.js'() {
     init_shims();
     init_app_43d1dbc8();
     metadata4 = {
-      "title": "Pro Post 3",
-      "subtitle": "This is the post description used on the post lists as a preview of the content. I assume it'll be the fist paragraph of the post.",
-      "tags": ["react", "front end"],
-      "date": "27-10-2021",
-      "icon": "front"
+      title: 'Pro Post 3',
+      subtitle:
+        "This is the post description used on the post lists as a preview of the content. I assume it'll be the fist paragraph of the post.",
+      tags: ['react', 'front end'],
+      date: '27-10-2021',
+      icon: 'front',
     };
-    Hello2u20copyu202 = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-      return `<h1>This is the second post</h1>`;
-    });
+    Hello2u20copyu202 = create_ssr_component(
+      ($$result, $$props, $$bindings, slots) => {
+        return `<h1>This is the second post</h1>`;
+      }
+    );
     __glob_5_0 = /* @__PURE__ */ Object.freeze({
       __proto__: null,
-      [Symbol.toStringTag]: "Module",
-      "default": Hello2u20copyu202,
-      metadata: metadata4
+      [Symbol.toStringTag]: 'Module',
+      default: Hello2u20copyu202,
+      metadata: metadata4,
     });
-  }
+  },
 });
 
 // .svelte-kit/output/server/chunks/hello2 copy-29ea2c4f.js
 var hello2_copy_29ea2c4f_exports = {};
 __export(hello2_copy_29ea2c4f_exports, {
-  _: () => __glob_5_1
+  _: () => __glob_5_1,
 });
 var metadata5, Hello2u20copy, __glob_5_1;
 var init_hello2_copy_29ea2c4f = __esm({
-  ".svelte-kit/output/server/chunks/hello2 copy-29ea2c4f.js"() {
+  '.svelte-kit/output/server/chunks/hello2 copy-29ea2c4f.js'() {
     init_shims();
     init_app_43d1dbc8();
     metadata5 = {
-      "title": "Pro Post 2",
-      "subtitle": "This is the post description used on the post lists as a preview of the content. I assume it'll be the fist paragraph of the post.",
-      "tags": ["react", "front end"],
-      "date": "25-10-2021",
-      "icon": "front"
+      title: 'Pro Post 2',
+      subtitle:
+        "This is the post description used on the post lists as a preview of the content. I assume it'll be the fist paragraph of the post.",
+      tags: ['react', 'front end'],
+      date: '25-10-2021',
+      icon: 'front',
     };
-    Hello2u20copy = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-      return `<h1>This is the second post</h1>`;
-    });
+    Hello2u20copy = create_ssr_component(
+      ($$result, $$props, $$bindings, slots) => {
+        return `<h1>This is the second post</h1>`;
+      }
+    );
     __glob_5_1 = /* @__PURE__ */ Object.freeze({
       __proto__: null,
-      [Symbol.toStringTag]: "Module",
-      "default": Hello2u20copy,
-      metadata: metadata5
+      [Symbol.toStringTag]: 'Module',
+      default: Hello2u20copy,
+      metadata: metadata5,
     });
-  }
+  },
 });
 
 // .svelte-kit/output/server/chunks/hello2-ce07eafc.js
 var hello2_ce07eafc_exports = {};
 __export(hello2_ce07eafc_exports, {
-  _: () => __glob_5_2
+  _: () => __glob_5_2,
 });
 var metadata6, Hello2, __glob_5_2;
 var init_hello2_ce07eafc = __esm({
-  ".svelte-kit/output/server/chunks/hello2-ce07eafc.js"() {
+  '.svelte-kit/output/server/chunks/hello2-ce07eafc.js'() {
     init_shims();
     init_app_43d1dbc8();
     metadata6 = {
-      "title": "Pro Post 1",
-      "subtitle": "This is the post description used on the post lists as a preview of the content. I assume it'll be the fist paragraph of the post.",
-      "tags": ["react", "front end"],
-      "date": "9-10-2021",
-      "icon": "front"
+      title: 'Pro Post 1',
+      subtitle:
+        "This is the post description used on the post lists as a preview of the content. I assume it'll be the fist paragraph of the post.",
+      tags: ['react', 'front end'],
+      date: '9-10-2021',
+      icon: 'front',
     };
     Hello2 = create_ssr_component(($$result, $$props, $$bindings, slots) => {
       return `<h1>This is the second post</h1>`;
     });
     __glob_5_2 = /* @__PURE__ */ Object.freeze({
       __proto__: null,
-      [Symbol.toStringTag]: "Module",
-      "default": Hello2,
-      metadata: metadata6
+      [Symbol.toStringTag]: 'Module',
+      default: Hello2,
+      metadata: metadata6,
     });
-  }
+  },
 });
 
 // .svelte-kit/output/server/chunks/index-8dd398aa.js
 var index_8dd398aa_exports = {};
 __export(index_8dd398aa_exports, {
   default: () => Routes,
-  load: () => load3
+  load: () => load3,
 });
 async function load3() {
-  const pro = { "../posts/pro/hello2 copy 2.md": __glob_5_0, "../posts/pro/hello2 copy.md": __glob_5_1, "../posts/pro/hello2.md": __glob_5_2 };
-  const life = { "../posts/life/hello copy 2.md": __glob_6_0, "../posts/life/hello copy 3.md": __glob_6_1, "../posts/life/hello.md": __glob_6_2 };
+  const pro = {
+    '../posts/pro/hello2 copy 2.md': __glob_5_0,
+    '../posts/pro/hello2 copy.md': __glob_5_1,
+    '../posts/pro/hello2.md': __glob_5_2,
+  };
+  const life = {
+    '../posts/life/hello copy 2.md': __glob_6_0,
+    '../posts/life/hello copy 3.md': __glob_6_1,
+    '../posts/life/hello.md': __glob_6_2,
+  };
   const proData = processPostData(pro);
   const lifeData = processPostData(life);
   return { props: { proData, lifeData } };
 }
-var meImage, css$2, Hero, css$1, Contacts, Article, css2, Articles, convertDate, processPostData, Routes;
+var meImage,
+  css$2,
+  Hero,
+  css$1,
+  Contacts,
+  Article,
+  css2,
+  Articles,
+  convertDate,
+  processPostData,
+  Routes;
 var init_index_8dd398aa = __esm({
-  ".svelte-kit/output/server/chunks/index-8dd398aa.js"() {
+  '.svelte-kit/output/server/chunks/index-8dd398aa.js'() {
     init_shims();
     init_hello_copy_2_8bd6778d();
     init_hello_copy_3_580d29df();
@@ -5107,341 +6840,484 @@ var init_index_8dd398aa = __esm({
     init_hello2_copy_29ea2c4f();
     init_hello2_ce07eafc();
     init_app_43d1dbc8();
-    meImage = "/_app/assets/me-b-and-w-small-c0a35407.jpg";
+    meImage = '/_app/assets/me-b-and-w-small-c0a35407.jpg';
     css$2 = {
       code: ".main-container.svelte-1ljqrlw.svelte-1ljqrlw{height:80vh;display:flex;flex-direction:row;justify-content:center;align-items:center;flex-wrap:wrap}.text-container.svelte-1ljqrlw.svelte-1ljqrlw{flex:2;min-width:600px}.title-container.svelte-1ljqrlw.svelte-1ljqrlw{display:flex;flex-direction:row}.title.svelte-1ljqrlw.svelte-1ljqrlw{display:flex}.title-text.svelte-1ljqrlw.svelte-1ljqrlw{font-family:'Cormorant Garamond', -apple-system, BlinkMacSystemFont,\n      'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',\n      'Helvetica Neue', sans-serif;color:#fff;background:linear-gradient(\n      271deg,\n      #8797e8 30%,\n      #a162e8 50%,\n      #f093b0 70%,\n      #dab56c 94%\n    );-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-weight:500;margin:0;line-height:1.15;font-size:6rem}.title-emoji.svelte-1ljqrlw.svelte-1ljqrlw{font-size:5rem;margin-left:30px}.subtitle.svelte-1ljqrlw.svelte-1ljqrlw{font-family:'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI',\n      Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',\n      sans-serif;font-weight:500;margin-top:10px;line-height:1.7;font-size:2.5rem;transition:all 0.2s ease-in-out}.subtitle.svelte-1ljqrlw span.svelte-1ljqrlw{width:200}.interactive-text.svelte-1ljqrlw.svelte-1ljqrlw{font-size:2.6rem;font-weight:600;color:var(--color-text-primary);-webkit-text-fill-color:transparent;-webkit-text-stroke-width:1.5px;-webkit-text-stroke-color:var(--color-text-primary)}.interactive-text.svelte-1ljqrlw.svelte-1ljqrlw:hover{-webkit-text-fill-color:var(--color-text-primary)}.image-container.svelte-1ljqrlw.svelte-1ljqrlw{width:fit-content;border-radius:50%;overflow:hidden;height:400px;width:400px}@media(max-width: 1000px){.main-container.svelte-1ljqrlw.svelte-1ljqrlw{height:auto}}@media(max-width: 800px){.title-text.svelte-1ljqrlw.svelte-1ljqrlw{font-size:4rem}.title-emoji.svelte-1ljqrlw.svelte-1ljqrlw{font-size:3rem;margin-left:10px}.subtitle.svelte-1ljqrlw.svelte-1ljqrlw{font-size:1.5rem}.interactive-text.svelte-1ljqrlw.svelte-1ljqrlw{font-weight:500;font-size:1.5rem;-webkit-text-fill-color:var(--color-text-primary);-webkit-text-stroke-color:transparent}}@media(max-width: 600px){.text-container.svelte-1ljqrlw.svelte-1ljqrlw{min-width:unset}.image-container.svelte-1ljqrlw.svelte-1ljqrlw{height:300px;width:300px}}@media(max-width: 550px){.title-container.svelte-1ljqrlw.svelte-1ljqrlw{display:flex;justify-content:center;align-items:center}.title.svelte-1ljqrlw.svelte-1ljqrlw{flex-direction:column;align-items:center}.title-emoji.svelte-1ljqrlw.svelte-1ljqrlw{align-self:center}}@media(max-width: 375px){.image-container.svelte-1ljqrlw.svelte-1ljqrlw{margin:2rem 0}}",
-      map: null
+      map: null,
     };
     Hero = create_ssr_component(($$result, $$props, $$bindings, slots) => {
       $$result.css.add(css$2);
-      return `<div class="${"main-container py-10 svelte-1ljqrlw"}"><div class="${"text-container svelte-1ljqrlw"}"><div class="${"title-container svelte-1ljqrlw"}"><h1 class="${"title svelte-1ljqrlw"}"><span class="${"title-text svelte-1ljqrlw"}">Hi, I&#39;m Antonio</span>
-        <span class="${"title-emoji svelte-1ljqrlw"}">\u{1F44B}</span></h1></div>
-    <div class="${"subtitle svelte-1ljqrlw"}"><p class="${"text-black dark:text-white transition duration-501 ease-in-out"}">I&#39;m a full stack developer in Reading, UK.
+      return `<div class="${'main-container py-10 svelte-1ljqrlw'}"><div class="${'text-container svelte-1ljqrlw'}"><div class="${'title-container svelte-1ljqrlw'}"><h1 class="${'title svelte-1ljqrlw'}"><span class="${'title-text svelte-1ljqrlw'}">Hi, I&#39;m Antonio</span>
+        <span class="${'title-emoji svelte-1ljqrlw'}">\u{1F44B}</span></h1></div>
+    <div class="${'subtitle svelte-1ljqrlw'}"><p class="${'text-black dark:text-white transition duration-300 ease-in-out'}">I&#39;m a full stack developer in Reading, UK.
       </p>
-      ${escape(" ")}
-      <p class="${"text-black dark:text-white transition duration-501 ease-in-out"}">I&#39;m interested in${escape(" ")}
-        <span class="${"interactive-text svelte-1ljqrlw"}">energy efficiency</span> of the web,
-        <span class="${"interactive-text svelte-1ljqrlw"}">soil regeneration</span>${escape(" ")}and${escape(" ")}
-        <span class="${"interactive-text svelte-1ljqrlw"}">open source</span>.
+      ${escape(' ')}
+      <p class="${'text-black dark:text-white transition duration-300 ease-in-out'}">I&#39;m interested in${escape(
+        ' '
+      )}
+        <span class="${'interactive-text svelte-1ljqrlw'}">energy efficiency</span> of the web,
+        <span class="${'interactive-text svelte-1ljqrlw'}">soil regeneration</span>${escape(
+        ' '
+      )}and${escape(' ')}
+        <span class="${'interactive-text svelte-1ljqrlw'}">open source</span>.
       </p>
-      <p class="${"text-black dark:text-white transition duration-501 ease-in-out"}">I write about those things plus I love to share what I lean while
+      <p class="${'text-black dark:text-white transition duration-300 ease-in-out'}">I write about those things plus I love to share what I lean while
         working.
       </p></div></div>
-  <div class="${"image-container mt-5 mx-5 sm:m-5 lg:ml-20 svelte-1ljqrlw"}"><img${add_attribute("src", meImage, 0)} alt="${"myself speaking in public"}"${add_attribute("width", 400, 0)}${add_attribute("height", 400, 0)} placeholder="${"blur"}"></div>
+  <div class="${'image-container mt-5 mx-5 sm:m-5 lg:ml-20 svelte-1ljqrlw'}"><img${add_attribute(
+        'src',
+        meImage,
+        0
+      )} alt="${'myself speaking in public'}"${add_attribute(
+        'width',
+        400,
+        0
+      )}${add_attribute('height', 400, 0)} placeholder="${'blur'}"></div>
 </div>`;
     });
     css$1 = {
       code: ".main-container.svelte-sce53l{height:50vh;display:flex;flex-direction:column;justify-content:center;align-items:center;flex-wrap:wrap}.title.svelte-sce53l{display:flex}.title-text.svelte-sce53l{font-family:'Cormorant Garamond', -apple-system, BlinkMacSystemFont,\n      'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',\n      'Helvetica Neue', sans-serif;color:#fff;background:linear-gradient(\n      271deg,\n      #8797e8 30%,\n      #a162e8 50%,\n      #f093b0 70%,\n      #dab56c 94%\n    );background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent;font-weight:500;margin:0;line-height:1.15;font-size:3rem}.subtitle.svelte-sce53l{font-family:'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI',\n      Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',\n      sans-serif;text-align:center;font-weight:500;line-height:1.7;font-size:1.8rem;transition:all 0.2s ease-in-out}.email.svelte-sce53l{font-size:2.6rem;font-weight:600;color:var(--color-text-primary);font-weight:800;font-size:1.7rem;text-decoration:none;-webkit-text-fill-color:var(--color-text-primary);-webkit-text-stroke-color:transparent}.social-container.svelte-sce53l{display:flex;justify-content:center}.social-media-image.svelte-sce53l{height:1.2rem;margin-right:1rem}.emoji.svelte-sce53l{font-size:2rem}@media(max-width: 1000px){.main-container.svelte-sce53l{height:auto}}@media(max-width: 800px){.title-text.svelte-sce53l{font-size:4rem}.subtitle.svelte-sce53l{font-size:1.5rem}.emoji.svelte-sce53l{font-size:3rem;margin-left:10px}}@media(max-width: 550px){.title.svelte-sce53l{flex-direction:column;align-items:center}.title-text.svelte-sce53l{font-size:2.5rem;text-align:center}.emoji.svelte-sce53l{align-self:center}}",
-      map: null
+      map: null,
     };
     Contacts = create_ssr_component(($$result, $$props, $$bindings, slots) => {
       $$result.css.add(css$1);
-      return `<div class="${"main-container bg-spaceWhite dark:bg-spaceGrey transition duration-501 ease-in-out pb-10 svelte-sce53l"}"><div class="${"title svelte-sce53l"}"><h2 class="${"title-text text-black dark:text-white transition duration-501 ease-in-out svelte-sce53l"}">I&#39;m always up for a chat.
+      return `<div class="${'main-container bg-spaceWhite dark:bg-spaceGrey transition duration-300 ease-in-out pb-10 svelte-sce53l'}"><div class="${'title svelte-sce53l'}"><h2 class="${'title-text text-black dark:text-white transition duration-300 ease-in-out svelte-sce53l'}">I&#39;m always up for a chat.
     </h2></div>
-  <div class="${"subtitle mt-10 text-black dark:text-white transition duration-501 ease-in-out svelte-sce53l"}"><p>Pop me an email at${escape(" ")}
-      <a class="${"email svelte-sce53l"}" href="${"mailto:hello@antoniorossi.net"}">hello@antoniorossi.net</a></p>
-    ${escape(" ")}
+  <div class="${'subtitle mt-10 text-black dark:text-white transition duration-300 ease-in-out svelte-sce53l'}"><p>Pop me an email at${escape(
+        ' '
+      )}
+      <a class="${'email svelte-sce53l'}" href="${'mailto:hello@antoniorossi.net'}">hello@antoniorossi.net</a></p>
+    ${escape(' ')}
     <p>or give me a shout on social media</p>
-    <div class="${"social-container mt-5 svelte-sce53l"}"><a class="${"social-media-container text-black dark:text-white transition duration-501 ease-in-out"}" href="${"https://twitter.com/ilreddo"}" aria-label="${"Twitter logo"}"><svg class="${"social-media-image svelte-sce53l"}" xmlns="${"http://www.w3.org/2000/svg"}" viewBox="${"0 -2 33.4 29.5"}" overflow="${"visible"}"><path d="${"M33.3 3.3c-1.1.5-2.2.8-3.4 1 .5-.1 1.3-1.1 1.7-1.5.5-.6.9-1.3 1.1-2 0-.1.1-.1 0-.2h-.2c-1.3.7-2.6 1.2-4 1.5-.1 0-.2 0-.3-.1-.1-.1-.2-.3-.4-.4-.6-.5-1.2-.9-1.9-1.2-.9-.4-2-.5-3-.5-1 .1-2 .3-2.8.8-.9.5-1.7 1.1-2.3 1.9-.6.8-1.1 1.7-1.4 2.7-.2 1-.2 1.9-.1 2.9 0 .2 0 .2-.1.2-5.5-.8-10.1-2.8-13.8-7-.2-.2-.2-.2-.4 0-1.5 2.5-.7 6.4 1.3 8.3.3.3.5.5.8.7-.1 0-1.5-.1-2.7-.7-.2-.1-.2 0-.3.1v.8c.3 2.5 2 4.7 4.4 5.6l.9.3c-.5.1-1.1.2-2.6.1-.2 0-.3.1-.2.2 1.1 3.1 3.6 4.1 5.5 4.6.2 0 .5 0 .7.1-.6.9-2.7 1.6-3.7 2-1.8.6-3.8.9-5.7.7h-.5c-.1.1 0 .1.1.2.4.3.8.5 1.2.7 1.2.6 2.5 1.2 3.8 1.5 6.8 1.9 14.5.5 19.6-4.6 4-4 5.4-9.5 5.4-15 0-.2.3-.3.4-.4 1-.8 1.9-1.7 2.7-2.8.2-.2.2-.4.2-.5.1-.1.1-.1 0 0z"}" fill="${"currentcolor"}"></path></svg></a>
-      <a class="${"social-media-container text-black dark:text-white transition duration-501 ease-in-out"}" href="${"https://www.linkedin.com/in/antoniorossii/"}" aria-label="${"LinkedIn logo"}"><svg class="${"social-media-image svelte-sce53l"}" xmlns="${"http://www.w3.org/2000/svg"}" viewBox="${"0 0 30.2 28.9"}" overflow="${"visible"}"><path fill="${"currentcolor"}" d="${"M30.2 17.7v10.7c0 .3-.2.5-.5.5h-5.5c-.3 0-.5-.2-.5-.5v-9.9c0-2.6-.9-4.4-3.3-4.4-1.8 0-2.8 1.2-3.3 2.4-.2.4-.2 1-.2 1.6v10.4c0 .3-.2.5-.5.5h-5.5c-.3 0-.5-.2-.5-.5 0-2.6.1-15.5 0-18.5 0-.3.2-.5.5-.5h5.5c.3 0 .5.2.5.5v2.4-.1c.9-1.3 2.4-3.2 5.8-3.2 4.3-.2 7.5 2.6 7.5 8.6zM.9 28.9h5.5c.3 0 .5-.2.5-.5V9.9c0-.3-.2-.5-.5-.5H.9c-.3 0-.5.2-.5.5v18.5c0 .2.2.5.5.5zM6.9 3.5C6.9 5.4 5.3 7 3.4 7S0 5.4 0 3.5 1.6 0 3.5 0s3.4 1.6 3.4 3.5z"}"></path></svg></a></div></div>
-  <div class="${"emoji mt-10 svelte-sce53l"}">\u{1F603}</div>
+    <div class="${'social-container mt-5 svelte-sce53l'}"><a class="${'social-media-container text-black dark:text-white transition duration-300 ease-in-out'}" href="${'https://twitter.com/ilreddo'}" aria-label="${'Twitter logo'}"><svg class="${'social-media-image svelte-sce53l'}" xmlns="${'http://www.w3.org/2000/svg'}" viewBox="${'0 -2 33.4 29.5'}" overflow="${'visible'}"><path d="${'M33.3 3.3c-1.1.5-2.2.8-3.4 1 .5-.1 1.3-1.1 1.7-1.5.5-.6.9-1.3 1.1-2 0-.1.1-.1 0-.2h-.2c-1.3.7-2.6 1.2-4 1.5-.1 0-.2 0-.3-.1-.1-.1-.2-.3-.4-.4-.6-.5-1.2-.9-1.9-1.2-.9-.4-2-.5-3-.5-1 .1-2 .3-2.8.8-.9.5-1.7 1.1-2.3 1.9-.6.8-1.1 1.7-1.4 2.7-.2 1-.2 1.9-.1 2.9 0 .2 0 .2-.1.2-5.5-.8-10.1-2.8-13.8-7-.2-.2-.2-.2-.4 0-1.5 2.5-.7 6.4 1.3 8.3.3.3.5.5.8.7-.1 0-1.5-.1-2.7-.7-.2-.1-.2 0-.3.1v.8c.3 2.5 2 4.7 4.4 5.6l.9.3c-.5.1-1.1.2-2.6.1-.2 0-.3.1-.2.2 1.1 3.1 3.6 4.1 5.5 4.6.2 0 .5 0 .7.1-.6.9-2.7 1.6-3.7 2-1.8.6-3.8.9-5.7.7h-.5c-.1.1 0 .1.1.2.4.3.8.5 1.2.7 1.2.6 2.5 1.2 3.8 1.5 6.8 1.9 14.5.5 19.6-4.6 4-4 5.4-9.5 5.4-15 0-.2.3-.3.4-.4 1-.8 1.9-1.7 2.7-2.8.2-.2.2-.4.2-.5.1-.1.1-.1 0 0z'}" fill="${'currentcolor'}"></path></svg></a>
+      <a class="${'social-media-container text-black dark:text-white transition duration-300 ease-in-out'}" href="${'https://www.linkedin.com/in/antoniorossii/'}" aria-label="${'LinkedIn logo'}"><svg class="${'social-media-image svelte-sce53l'}" xmlns="${'http://www.w3.org/2000/svg'}" viewBox="${'0 0 30.2 28.9'}" overflow="${'visible'}"><path fill="${'currentcolor'}" d="${'M30.2 17.7v10.7c0 .3-.2.5-.5.5h-5.5c-.3 0-.5-.2-.5-.5v-9.9c0-2.6-.9-4.4-3.3-4.4-1.8 0-2.8 1.2-3.3 2.4-.2.4-.2 1-.2 1.6v10.4c0 .3-.2.5-.5.5h-5.5c-.3 0-.5-.2-.5-.5 0-2.6.1-15.5 0-18.5 0-.3.2-.5.5-.5h5.5c.3 0 .5.2.5.5v2.4-.1c.9-1.3 2.4-3.2 5.8-3.2 4.3-.2 7.5 2.6 7.5 8.6zM.9 28.9h5.5c.3 0 .5-.2.5-.5V9.9c0-.3-.2-.5-.5-.5H.9c-.3 0-.5.2-.5.5v18.5c0 .2.2.5.5.5zM6.9 3.5C6.9 5.4 5.3 7 3.4 7S0 5.4 0 3.5 1.6 0 3.5 0s3.4 1.6 3.4 3.5z'}"></path></svg></a></div></div>
+  <div class="${'emoji mt-10 svelte-sce53l'}">\u{1F603}</div>
 </div>`;
     });
     Article = create_ssr_component(($$result, $$props, $$bindings, slots) => {
       let { postsData } = $$props;
-      let { title: title_1, subtitle: subtitle_1, tags: tags_1, icon: icon_1 } = postsData;
-      let { title: title4 = title_1, subtitle: subtitle4 = subtitle_1, tags: tags4 = tags_1, icon: icon4 = icon_1 } = $$props;
-      if ($$props.postsData === void 0 && $$bindings.postsData && postsData !== void 0)
+      let {
+        title: title_1,
+        subtitle: subtitle_1,
+        tags: tags_1,
+        icon: icon_1,
+      } = postsData;
+      let {
+        title: title4 = title_1,
+        subtitle: subtitle4 = subtitle_1,
+        tags: tags4 = tags_1,
+        icon: icon4 = icon_1,
+      } = $$props;
+      if (
+        $$props.postsData === void 0 &&
+        $$bindings.postsData &&
+        postsData !== void 0
+      )
         $$bindings.postsData(postsData);
       if ($$props.title === void 0 && $$bindings.title && title4 !== void 0)
         $$bindings.title(title4);
-      if ($$props.subtitle === void 0 && $$bindings.subtitle && subtitle4 !== void 0)
+      if (
+        $$props.subtitle === void 0 &&
+        $$bindings.subtitle &&
+        subtitle4 !== void 0
+      )
         $$bindings.subtitle(subtitle4);
       if ($$props.tags === void 0 && $$bindings.tags && tags4 !== void 0)
         $$bindings.tags(tags4);
       if ($$props.icon === void 0 && $$bindings.icon && icon4 !== void 0)
         $$bindings.icon(icon4);
-      return `<li class="${"max-w-sm rounded overflow-hidden shadow-lg"}">
+      return `<li class="${'max-w-sm rounded overflow-hidden shadow-lg'}">
   
   
-  <div class="${"px-6 py-4"}"><div class="${"text-black dark:text-white font-bold text-xl mb-2"}">Mountain
+  <div class="${'px-6 py-4'}"><div class="${'text-black dark:text-white font-bold text-xl mb-2'}">Mountain
     </div>
-    <p class="${"text-black dark:text-white"}">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus
+    <p class="${'text-black dark:text-white'}">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus
       quia, Nonea! Maiores et perferendis eaque, exercitationem praesentium
       nihil.
     </p></div>
-  <div class="${"px-6 pt-4 pb-2"}"><span class="${"inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-black dark:text-white mr-2 mb-2"}">photography</span>
-    <span class="${"inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-black dark:text-white mr-2 mb-2"}">travel</span>
-    <span class="${"inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-black dark:text-white mr-2 mb-2"}">winter</span></div>
+  <div class="${'px-6 pt-4 pb-2'}"><span class="${'inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-black dark:text-white mr-2 mb-2'}">photography</span>
+    <span class="${'inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-black dark:text-white mr-2 mb-2'}">travel</span>
+    <span class="${'inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-black dark:text-white mr-2 mb-2'}">winter</span></div>
   </li>`;
     });
     css2 = {
-      code: ".articles-container.svelte-1mye2ac{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fill, minmax(300px, 1fr))}",
-      map: null
+      code: '.articles-container.svelte-1mye2ac{list-style:none;padding:0;display:grid;grid-template-columns:repeat(auto-fill, minmax(300px, 1fr))}',
+      map: null,
     };
     Articles = create_ssr_component(($$result, $$props, $$bindings, slots) => {
       const convertDate2 = (date4) => {
-        const dateArray = date4.split("-");
+        const dateArray = date4.split('-');
         return new Date(dateArray[2], dateArray[1], dateArray[0]);
       };
       let { lastProPost } = $$props;
       let { lastLifePost } = $$props;
-      let { posts = lastLifePost.concat(lastProPost).sort((post, next) => convertDate2(next.date) - convertDate2(post.date)) } = $$props;
-      if ($$props.lastProPost === void 0 && $$bindings.lastProPost && lastProPost !== void 0)
+      let {
+        posts = lastLifePost
+          .concat(lastProPost)
+          .sort(
+            (post, next) => convertDate2(next.date) - convertDate2(post.date)
+          ),
+      } = $$props;
+      if (
+        $$props.lastProPost === void 0 &&
+        $$bindings.lastProPost &&
+        lastProPost !== void 0
+      )
         $$bindings.lastProPost(lastProPost);
-      if ($$props.lastLifePost === void 0 && $$bindings.lastLifePost && lastLifePost !== void 0)
+      if (
+        $$props.lastLifePost === void 0 &&
+        $$bindings.lastLifePost &&
+        lastLifePost !== void 0
+      )
         $$bindings.lastLifePost(lastLifePost);
       if ($$props.posts === void 0 && $$bindings.posts && posts !== void 0)
         $$bindings.posts(posts);
       $$result.css.add(css2);
-      return `<div class="${"w-full flex flex-col bg-spaceWhite dark:bg-spaceGrey transition duration-501 ease-in-out max-w-6xl m-auto pb-10"}"><ul class="${"articles-container gap-3 lg:gap-10 svelte-1mye2ac"}">${each(posts, (post) => `${validate_component(Article, "Article").$$render($$result, { postsData: post }, {}, {})}`)}</ul>
+      return `<div class="${'w-full flex flex-col bg-spaceWhite dark:bg-spaceGrey transition duration-300 ease-in-out max-w-6xl m-auto pb-10'}"><ul class="${'articles-container gap-3 lg:gap-10 svelte-1mye2ac'}">${each(
+        posts,
+        (post) =>
+          `${validate_component(Article, 'Article').$$render(
+            $$result,
+            { postsData: post },
+            {},
+            {}
+          )}`
+      )}</ul>
 </div>`;
     });
     convertDate = (date4) => {
-      const dateArray = date4.split("-");
+      const dateArray = date4.split('-');
       return new Date(dateArray[2], dateArray[1], dateArray[0]);
     };
     processPostData = (data) => {
       const postsData = Object.values(data);
-      const posts = postsData.map((post) => post.metadata).sort((post, next) => convertDate(next.date) - convertDate(post.date));
+      const posts = postsData
+        .map((post) => post.metadata)
+        .sort((post, next) => convertDate(next.date) - convertDate(post.date));
       return posts;
     };
     Routes = create_ssr_component(($$result, $$props, $$bindings, slots) => {
       let { proData, lifeData } = $$props;
-      if ($$props.proData === void 0 && $$bindings.proData && proData !== void 0)
+      if (
+        $$props.proData === void 0 &&
+        $$bindings.proData &&
+        proData !== void 0
+      )
         $$bindings.proData(proData);
-      if ($$props.lifeData === void 0 && $$bindings.lifeData && lifeData !== void 0)
+      if (
+        $$props.lifeData === void 0 &&
+        $$bindings.lifeData &&
+        lifeData !== void 0
+      )
         $$bindings.lifeData(lifeData);
-      return `${validate_component(Hero, "Hero").$$render($$result, {}, {}, {})}
-${validate_component(Articles, "Articles").$$render($$result, {
-        lastProPost: proData,
-        lastLifePost: lifeData
-      }, {}, {})}
-${validate_component(Contacts, "Contacts").$$render($$result, {}, {}, {})}`;
+      return `${validate_component(Hero, 'Hero').$$render($$result, {}, {}, {})}
+${validate_component(Articles, 'Articles').$$render(
+  $$result,
+  {
+    lastProPost: proData,
+    lastLifePost: lifeData,
+  },
+  {},
+  {}
+)}
+${validate_component(Contacts, 'Contacts').$$render($$result, {}, {}, {})}`;
     });
-  }
+  },
 });
 
 // .svelte-kit/output/server/chunks/career-51c26a70.js
 var career_51c26a70_exports = {};
 __export(career_51c26a70_exports, {
-  default: () => Career
+  default: () => Career,
 });
-var User, Calendar, Desktop, Server, companies, Database, Location, AruLogo, BookingLogo, FikaLogo, JayexLogo, SeedrsLogo, css3, Company, Career;
+var User,
+  Calendar,
+  Desktop,
+  Server,
+  companies,
+  Database,
+  Location,
+  AruLogo,
+  BookingLogo,
+  FikaLogo,
+  JayexLogo,
+  SeedrsLogo,
+  css3,
+  Company,
+  Career;
 var init_career_51c26a70 = __esm({
-  ".svelte-kit/output/server/chunks/career-51c26a70.js"() {
+  '.svelte-kit/output/server/chunks/career-51c26a70.js'() {
     init_shims();
     init_app_43d1dbc8();
     User = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-      return `<svg width="${"24"}" height="${"24"}" viewBox="${"0 0 24 24"}" class="${"h-6 w-6 stroke-current text-grey-800 dark:text-white"}" fill="${"none"}" xmlns="${"http://www.w3.org/2000/svg"}"><title id="${"user-icon-title"}">User icon</title><desc id="${"user-icon-desc"}">A minimalistis icon representing a person.</desc><path stroke-width="${"1.5"}" fill-rule="${"evenodd"}" clip-rule="${"evenodd"}" d="${"M10 9C11.6569 9 13 7.65685 13 6C13 4.34315 11.6569 3 10 3C8.34315 3 7 4.34315 7 6C7 7.65685 8.34315 9 10 9ZM3 18C3 14.134 6.13401 11 10 11C13.866 11 17 14.134 17 18H3Z"}"></path></svg>`;
+      return `<svg width="${'24'}" height="${'24'}" viewBox="${'0 0 24 24'}" class="${'h-6 w-6 stroke-current text-grey-800 dark:text-white'}" fill="${'none'}" xmlns="${'http://www.w3.org/2000/svg'}"><title id="${'user-icon-title'}">User icon</title><desc id="${'user-icon-desc'}">A minimalistis icon representing a person.</desc><path stroke-width="${'1.5'}" fill-rule="${'evenodd'}" clip-rule="${'evenodd'}" d="${'M10 9C11.6569 9 13 7.65685 13 6C13 4.34315 11.6569 3 10 3C8.34315 3 7 4.34315 7 6C7 7.65685 8.34315 9 10 9ZM3 18C3 14.134 6.13401 11 10 11C13.866 11 17 14.134 17 18H3Z'}"></path></svg>`;
     });
     Calendar = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-      return `<svg width="${"24"}" height="${"24"}" viewBox="${"0 0 24 24"}" class="${"h-6 w-6 stroke-current text-grey-800 dark:text-white"}" fill="${"none"}" xmlns="${"http://www.w3.org/2000/svg"}"><title id="${"cal-title"}">Calendar icon</title><desc id="${"cal-desc"}">A minimalistis icon representing a calendar.</desc><path d="${"M8 7V3M16 7V3M7 11H17M5 21H19C20.1046 21 21 20.1046 21 19V7C21 5.89543 20.1046 5 19 5H5C3.89543 5 3 5.89543 3 7V19C3 20.1046 3.89543 21 5 21Z"}" stroke-width="${"1.3"}" stroke-linecap="${"round"}" stroke-linejoin="${"round"}"></path></svg>`;
+      return `<svg width="${'24'}" height="${'24'}" viewBox="${'0 0 24 24'}" class="${'h-6 w-6 stroke-current text-grey-800 dark:text-white'}" fill="${'none'}" xmlns="${'http://www.w3.org/2000/svg'}"><title id="${'cal-title'}">Calendar icon</title><desc id="${'cal-desc'}">A minimalistis icon representing a calendar.</desc><path d="${'M8 7V3M16 7V3M7 11H17M5 21H19C20.1046 21 21 20.1046 21 19V7C21 5.89543 20.1046 5 19 5H5C3.89543 5 3 5.89543 3 7V19C3 20.1046 3.89543 21 5 21Z'}" stroke-width="${'1.3'}" stroke-linecap="${'round'}" stroke-linejoin="${'round'}"></path></svg>`;
     });
     Desktop = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-      return `<svg width="${"24"}" height="${"24"}" viewBox="${"0 0 24 24"}" class="${"h-6 w-6 stroke-current text-grey-800 dark:text-white"}" fill="${"none"}" xmlns="${"http://www.w3.org/2000/svg"}"><title id="${"desktop-title"}">Desktop icon</title><desc id="${"desktop-desc"}">A minimalistis icon representing a desktop computer.</desc><path d="${"M9.75 17L9 20L8 21H16L15 20L14.25 17M3 13H21M5 17H19C20.1046 17 21 16.1046 21 15V5C21 3.89543 20.1046 3 19 3H5C3.89543 3 3 3.89543 3 5V15C3 16.1046 3.89543 17 5 17Z"}" stroke-width="${"1.5"}" stroke-linecap="${"round"}" stroke-linejoin="${"round"}"></path></svg>`;
+      return `<svg width="${'24'}" height="${'24'}" viewBox="${'0 0 24 24'}" class="${'h-6 w-6 stroke-current text-grey-800 dark:text-white'}" fill="${'none'}" xmlns="${'http://www.w3.org/2000/svg'}"><title id="${'desktop-title'}">Desktop icon</title><desc id="${'desktop-desc'}">A minimalistis icon representing a desktop computer.</desc><path d="${'M9.75 17L9 20L8 21H16L15 20L14.25 17M3 13H21M5 17H19C20.1046 17 21 16.1046 21 15V5C21 3.89543 20.1046 3 19 3H5C3.89543 3 3 3.89543 3 5V15C3 16.1046 3.89543 17 5 17Z'}" stroke-width="${'1.5'}" stroke-linecap="${'round'}" stroke-linejoin="${'round'}"></path></svg>`;
     });
     Server = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-      return `<svg width="${"24"}" height="${"24"}" viewBox="${"0 0 24 24"}" class="${"h-6 w-6 stroke-current text-grey-800 dark:text-white"}" fill="${"none"}" xmlns="${"http://www.w3.org/2000/svg"}"><title id="${"server-title"}">Server icon</title><desc id="${"server-desc"}">A minimalistis icon representing a server.</desc><path d="${"M5 12H19M5 12C3.89543 12 3 11.1046 3 10V6C3 4.89543 3.89543 4 5 4H19C20.1046 4 21 4.89543 21 6V10C21 11.1046 20.1046 12 19 12M5 12C3.89543 12 3 12.8954 3 14V18C3 19.1046 3.89543 20 5 20H19C20.1046 20 21 19.1046 21 18V14C21 12.8954 20.1046 12 19 12M17 8H17.01M17 16H17.01"}" stroke-width="${"1.5"}" stroke-linecap="${"round"}" stroke-linejoin="${"round"}"></path></svg>`;
+      return `<svg width="${'24'}" height="${'24'}" viewBox="${'0 0 24 24'}" class="${'h-6 w-6 stroke-current text-grey-800 dark:text-white'}" fill="${'none'}" xmlns="${'http://www.w3.org/2000/svg'}"><title id="${'server-title'}">Server icon</title><desc id="${'server-desc'}">A minimalistis icon representing a server.</desc><path d="${'M5 12H19M5 12C3.89543 12 3 11.1046 3 10V6C3 4.89543 3.89543 4 5 4H19C20.1046 4 21 4.89543 21 6V10C21 11.1046 20.1046 12 19 12M5 12C3.89543 12 3 12.8954 3 14V18C3 19.1046 3.89543 20 5 20H19C20.1046 20 21 19.1046 21 18V14C21 12.8954 20.1046 12 19 12M17 8H17.01M17 16H17.01'}" stroke-width="${'1.5'}" stroke-linecap="${'round'}" stroke-linejoin="${'round'}"></path></svg>`;
     });
     companies = [
       {
-        name: "Fika Community",
-        from: "Jan 2021",
-        to: "Present",
-        location: "UK (Remote)",
-        position: "Software Engineer",
+        name: 'Fika Community',
+        from: 'Jan 2021',
+        to: 'Present',
+        location: 'UK (Remote)',
+        position: 'Software Engineer',
         techStack: {
-          frontEnd: [
-            "React",
-            "React Native",
-            "NextJS",
-            "GatsbyJS",
-            "Redux"
-          ],
+          frontEnd: ['React', 'React Native', 'NextJS', 'GatsbyJS', 'Redux'],
           backEnd: [
-            "Firebase",
-            "GCP",
-            "Firestore",
-            "Pub-Sub",
-            "Cloud Functions"
+            'Firebase',
+            'GCP',
+            'Firestore',
+            'Pub-Sub',
+            'Cloud Functions',
           ],
-          tools: [
-            "Jest",
-            "Chai",
-            "Sanity",
-            "Playwright"
-          ]
+          tools: ['Jest', 'Chai', 'Sanity', 'Playwright'],
         },
-        description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. At maxime molestiae, velit deleniti dolorum accusantium sed adipisci magnam esse praesentium quisquam corporis ad tempore dolorem laborum tenetur explicabo laudantium nisi.",
-        logoUrl: "$lib/assets/logos/fika-logo.svg"
+        description:
+          'Lorem ipsum dolor sit amet consectetur, adipisicing elit. At maxime molestiae, velit deleniti dolorum accusantium sed adipisci magnam esse praesentium quisquam corporis ad tempore dolorem laborum tenetur explicabo laudantium nisi.',
+        logoUrl: '$lib/assets/logos/fika-logo.svg',
       },
       {
-        name: "Jayex Technology",
-        from: "Nov 2016",
-        to: "Jan 2021",
-        location: "London (Remote)",
-        position: "Full Stack Developer",
+        name: 'Jayex Technology',
+        from: 'Nov 2016',
+        to: 'Jan 2021',
+        location: 'London (Remote)',
+        position: 'Full Stack Developer',
         techStack: {
-          frontEnd: [
-            "Angular",
-            "PWA",
-            "RxJs",
-            "Nativescript",
-            "UiKit"
-          ],
+          frontEnd: ['Angular', 'PWA', 'RxJs', 'Nativescript', 'UiKit'],
           backEnd: [
-            "Node",
-            "Express",
-            "PM2",
-            "MongoDB",
-            "Docker",
-            "Kubernetes"
+            'Node',
+            'Express',
+            'PM2',
+            'MongoDB',
+            'Docker',
+            'Kubernetes',
           ],
-          tools: [
-            "Typescript",
-            "Puppeteer",
-            "Mailgun",
-            "Twilio",
-            "Stripe"
-          ]
+          tools: ['Typescript', 'Puppeteer', 'Mailgun', 'Twilio', 'Stripe'],
         },
-        description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. At maxime molestiae, velit deleniti dolorum accusantium sed adipisci magnam esse praesentium quisquam corporis ad tempore dolorem laborum tenetur explicabo laudantium nisi.",
-        logoUrl: "$lib/assets/logos/jayex-logo.jpeg"
+        description:
+          'Lorem ipsum dolor sit amet consectetur, adipisicing elit. At maxime molestiae, velit deleniti dolorum accusantium sed adipisci magnam esse praesentium quisquam corporis ad tempore dolorem laborum tenetur explicabo laudantium nisi.',
+        logoUrl: '$lib/assets/logos/jayex-logo.jpeg',
       },
       {
-        name: "Seedrs",
-        location: "London",
-        from: "Jul 2017",
-        to: "Sep 2017",
-        position: "Software Engineer",
+        name: 'Seedrs',
+        location: 'London',
+        from: 'Jul 2017',
+        to: 'Sep 2017',
+        position: 'Software Engineer',
         techStack: {
-          frontEnd: [
-            "React",
-            "Haml",
-            "Sass"
-          ],
-          backEnd: [
-            "Ruby on Rails",
-            "MySQL"
-          ],
+          frontEnd: ['React', 'Haml', 'Sass'],
+          backEnd: ['Ruby on Rails', 'MySQL'],
           tools: [
-            "Stripe",
-            "MailChimp",
-            "OmniAuth",
-            "Salesforce",
-            "Vimeo",
-            "Cucumber",
-            "Capibara"
-          ]
+            'Stripe',
+            'MailChimp',
+            'OmniAuth',
+            'Salesforce',
+            'Vimeo',
+            'Cucumber',
+            'Capibara',
+          ],
         },
-        description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. At maxime molestiae, velit deleniti dolorum accusantium sed adipisci magnam esse praesentium quisquam corporis ad tempore dolorem laborum tenetur explicabo laudantium nisi.",
-        logoUrl: "$lib/assets/logos/seedrs-logo.jpeg"
+        description:
+          'Lorem ipsum dolor sit amet consectetur, adipisicing elit. At maxime molestiae, velit deleniti dolorum accusantium sed adipisci magnam esse praesentium quisquam corporis ad tempore dolorem laborum tenetur explicabo laudantium nisi.',
+        logoUrl: '$lib/assets/logos/seedrs-logo.jpeg',
       },
       {
-        name: "Booking.com",
-        from: "Aug 2014",
-        to: "Jul 2016",
-        location: "Cambridge",
-        position: "Partner Support Representative",
+        name: 'Booking.com',
+        from: 'Aug 2014',
+        to: 'Jul 2016',
+        location: 'Cambridge',
+        position: 'Partner Support Representative',
         techStack: {
           frontEnd: [],
           backEnd: [],
-          tools: []
+          tools: [],
         },
-        description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. At maxime molestiae, velit deleniti dolorum accusantium sed adipisci magnam esse praesentium quisquam corporis ad tempore dolorem laborum tenetur explicabo laudantium nisi.",
-        logoUrl: "$lib/assets/logos/booking-logo.jpeg"
+        description:
+          'Lorem ipsum dolor sit amet consectetur, adipisicing elit. At maxime molestiae, velit deleniti dolorum accusantium sed adipisci magnam esse praesentium quisquam corporis ad tempore dolorem laborum tenetur explicabo laudantium nisi.',
+        logoUrl: '$lib/assets/logos/booking-logo.jpeg',
       },
       {
-        name: "Anglia Ruskin University",
-        from: "Jan 2014",
-        to: "Aug 2014",
-        location: "Cambridge",
-        position: "Research Assistant",
+        name: 'Anglia Ruskin University',
+        from: 'Jan 2014',
+        to: 'Aug 2014',
+        location: 'Cambridge',
+        position: 'Research Assistant',
         techStack: {
           frontEnd: [],
           backEnd: [],
-          tools: []
+          tools: [],
         },
-        description: "Lorem ipsum dolor sit amet consectetur, adipisicing elit. At maxime molestiae, velit deleniti dolorum accusantium sed adipisci magnam esse praesentium quisquam corporis ad tempore dolorem laborum tenetur explicabo laudantium nisi.",
-        logoUrl: "$lib/assets/logos/aru-logo.jpeg"
-      }
+        description:
+          'Lorem ipsum dolor sit amet consectetur, adipisicing elit. At maxime molestiae, velit deleniti dolorum accusantium sed adipisci magnam esse praesentium quisquam corporis ad tempore dolorem laborum tenetur explicabo laudantium nisi.',
+        logoUrl: '$lib/assets/logos/aru-logo.jpeg',
+      },
     ];
     Database = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-      return `<svg width="${"24"}" height="${"24"}" viewBox="${"0 0 24 24"}" class="${"h-6 w-6 stroke-current text-grey-800 dark:text-white"}" fill="${"none"}" xmlns="${"http://www.w3.org/2000/svg"}"><title id="${"database-title"}">Database icon</title><desc id="${"database-desc"}">A minimalistis icon representing a database.</desc><path d="${"M4 7V17C4 19.2091 7.58172 21 12 21C16.4183 21 20 19.2091 20 17V7M4 7C4 9.20914 7.58172 11 12 11C16.4183 11 20 9.20914 20 7M4 7C4 4.79086 7.58172 3 12 3C16.4183 3 20 4.79086 20 7M20 12C20 14.2091 16.4183 16 12 16C7.58172 16 4 14.2091 4 12"}" stroke-width="${"1.5"}" stroke-linecap="${"round"}" stroke-linejoin="${"round"}"></path></svg>`;
+      return `<svg width="${'24'}" height="${'24'}" viewBox="${'0 0 24 24'}" class="${'h-6 w-6 stroke-current text-grey-800 dark:text-white'}" fill="${'none'}" xmlns="${'http://www.w3.org/2000/svg'}"><title id="${'database-title'}">Database icon</title><desc id="${'database-desc'}">A minimalistis icon representing a database.</desc><path d="${'M4 7V17C4 19.2091 7.58172 21 12 21C16.4183 21 20 19.2091 20 17V7M4 7C4 9.20914 7.58172 11 12 11C16.4183 11 20 9.20914 20 7M4 7C4 4.79086 7.58172 3 12 3C16.4183 3 20 4.79086 20 7M20 12C20 14.2091 16.4183 16 12 16C7.58172 16 4 14.2091 4 12'}" stroke-width="${'1.5'}" stroke-linecap="${'round'}" stroke-linejoin="${'round'}"></path></svg>`;
     });
     Location = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-      return `<svg width="${"24"}" height="${"24"}" viewBox="${"0 0 24 24"}" class="${"h-6 w-6 stroke-current text-grey-800 dark:text-white"}" fill="${"none"}" xmlns="${"http://www.w3.org/2000/svg"}"><title id="${"loc-title"}">Location icon</title><desc id="${"loc-desc"}">A minimalistis icon representing a location pointer.</desc><path d="${"M17.6569 16.6569C16.7202 17.5935 14.7616 19.5521 13.4138 20.8999C12.6327 21.681 11.3677 21.6814 10.5866 20.9003C9.26234 19.576 7.34159 17.6553 6.34315 16.6569C3.21895 13.5327 3.21895 8.46734 6.34315 5.34315C9.46734 2.21895 14.5327 2.21895 17.6569 5.34315C20.781 8.46734 20.781 13.5327 17.6569 16.6569Z"}" stroke-width="${"1.5"}" stroke-linecap="${"round"}" stroke-linejoin="${"round"}"></path><path d="${"M15 11C15 12.6569 13.6569 14 12 14C10.3431 14 9 12.6569 9 11C9 9.34315 10.3431 8 12 8C13.6569 8 15 9.34315 15 11Z"}" stroke-width="${"1.5"}" stroke-linecap="${"round"}" stroke-linejoin="${"round"}"></path></svg>`;
+      return `<svg width="${'24'}" height="${'24'}" viewBox="${'0 0 24 24'}" class="${'h-6 w-6 stroke-current text-grey-800 dark:text-white'}" fill="${'none'}" xmlns="${'http://www.w3.org/2000/svg'}"><title id="${'loc-title'}">Location icon</title><desc id="${'loc-desc'}">A minimalistis icon representing a location pointer.</desc><path d="${'M17.6569 16.6569C16.7202 17.5935 14.7616 19.5521 13.4138 20.8999C12.6327 21.681 11.3677 21.6814 10.5866 20.9003C9.26234 19.576 7.34159 17.6553 6.34315 16.6569C3.21895 13.5327 3.21895 8.46734 6.34315 5.34315C9.46734 2.21895 14.5327 2.21895 17.6569 5.34315C20.781 8.46734 20.781 13.5327 17.6569 16.6569Z'}" stroke-width="${'1.5'}" stroke-linecap="${'round'}" stroke-linejoin="${'round'}"></path><path d="${'M15 11C15 12.6569 13.6569 14 12 14C10.3431 14 9 12.6569 9 11C9 9.34315 10.3431 8 12 8C13.6569 8 15 9.34315 15 11Z'}" stroke-width="${'1.5'}" stroke-linecap="${'round'}" stroke-linejoin="${'round'}"></path></svg>`;
     });
-    AruLogo = "/_app/assets/aru-logo-5e8d024f.jpeg";
-    BookingLogo = "/_app/assets/booking-logo-3bca7e93.jpeg";
-    FikaLogo = "/_app/assets/fika-logo-beb9166b.svg";
-    JayexLogo = "/_app/assets/jayex-logo-7e1d0b2a.jpeg";
-    SeedrsLogo = "/_app/assets/seedrs-logo-422fe4ef.jpeg";
+    AruLogo = '/_app/assets/aru-logo-5e8d024f.jpeg';
+    BookingLogo = '/_app/assets/booking-logo-3bca7e93.jpeg';
+    FikaLogo = '/_app/assets/fika-logo-beb9166b.svg';
+    JayexLogo = '/_app/assets/jayex-logo-7e1d0b2a.jpeg';
+    SeedrsLogo = '/_app/assets/seedrs-logo-422fe4ef.jpeg';
     css3 = {
-      code: ".career-step-container.svelte-1dkg3q5{margin-top:-9px}.career-step-dot.svelte-1dkg3q5{margin-left:-7px}",
-      map: null
+      code: '.career-step-container.svelte-1dkg3q5{margin-top:-9px}.career-step-dot.svelte-1dkg3q5{margin-left:-7px}',
+      map: null,
     };
     Company = create_ssr_component(($$result, $$props, $$bindings, slots) => {
       let { company } = $$props;
-      const { name, from, to, position, techStack, description, location, logo } = company;
+      const {
+        name,
+        from,
+        to,
+        position,
+        techStack,
+        description,
+        location,
+        logo,
+      } = company;
       const { frontEnd, backEnd, tools } = techStack;
-      if ($$props.company === void 0 && $$bindings.company && company !== void 0)
+      if (
+        $$props.company === void 0 &&
+        $$bindings.company &&
+        company !== void 0
+      )
         $$bindings.company(company);
       $$result.css.add(css3);
-      return `<div class="${"flex pb-20 border-l-2 border-spaceGray dark:border-white boder-solid"}"><div class="${"flex w-10"}"><div class="${"w-3 h-3 rounded-full bg-spaceGrey dark:bg-white career-step-dot svelte-1dkg3q5"}"></div></div>
-  <div class="${"career-step-container w-full svelte-1dkg3q5"}"><div class="${"flex mb-1 items-center"}"><div class="${"flex flex-row"}">${validate_component(User, "User").$$render($$result, {}, {}, {})}
-        <p class="${"text-black dark:text-white ml-1 mr-3"}"><span>${escape(position)} </span><span>@ ${escape(name)}</span></p></div>
-      <div class="${"w-8 h-8 "}"><img${add_attribute("src", logo, 0)} alt="${""}" class="${"w-full rounded-full"}"${add_attribute("height", 20, 0)}${add_attribute("width", 20, 0)} placeholder="${"blur"}"></div></div>
-    <div class="${"flex flex-row"}">${validate_component(Location, "Location").$$render($$result, {}, {}, {})}
-      <p class="${"ml-1 mb-3 text-black dark:text-white"}">${escape(`${location}`)}</p></div>
-    <div class="${"flex flex-row"}">${validate_component(Calendar, "Calendar").$$render($$result, {}, {}, {})}
-      <p class="${"ml-1 mb-3 text-black dark:text-white"}">${escape(`${from} - ${to}`)}</p></div>
-    <div class="${"flex flex-row justify-between flex-wrap mb-3"}">${frontEnd.length ? `<div><div class="${"flex flex-row"}">${validate_component(Desktop, "Desktop").$$render($$result, {}, {}, {})}
-            <p class="${"ml-1 text-black dark:text-white"}">Front End</p></div>
-          <ul class="${"flex"}">${each(frontEnd, (tech) => `<li class="${"mr-3 mt-1 text-black dark:text-white"}">${escape(tech)}</li>`)}</ul></div>` : ``}
-      ${backEnd.length ? `<div class="${"text-black dark:text-white"}"><div class="${"flex flex-row"}">${validate_component(Server, "Server").$$render($$result, {}, {}, {})}
-            <p class="${"ml-1 text-black dark:text-white"}">Back End</p></div>
-          <ul class="${"flex"}">${each(backEnd, (tech) => `<li class="${"mr-3 mt-1 text-black dark:text-white"}">${escape(tech)}</li>`)}</ul></div>` : ``}
-      ${tools.length ? `<div><div class="${"flex flex-row"}">${validate_component(Database, "Database").$$render($$result, {}, {}, {})}
-            <p class="${"ml-1 text-black dark:text-white"}">Other Tools</p></div>
-          <ul class="${"flex"}">${each(tools, (tech) => `<li class="${"mr-3 mt-1 text-black dark:text-white"}">${escape(tech)}</li>`)}</ul></div>` : ``}</div>
+      return `<div class="${'flex pb-20 border-l-2 border-spaceGray dark:border-white boder-solid'}"><div class="${'flex w-10'}"><div class="${'w-3 h-3 rounded-full bg-spaceGrey dark:bg-white career-step-dot svelte-1dkg3q5'}"></div></div>
+  <div class="${'career-step-container w-full svelte-1dkg3q5'}"><div class="${'flex mb-1 items-center'}"><div class="${'flex flex-row'}">${validate_component(
+        User,
+        'User'
+      ).$$render($$result, {}, {}, {})}
+        <p class="${'text-black dark:text-white ml-1 mr-3'}"><span>${escape(
+        position
+      )} </span><span>@ ${escape(name)}</span></p></div>
+      <div class="${'w-8 h-8 '}"><img${add_attribute(
+        'src',
+        logo,
+        0
+      )} alt="${''}" class="${'w-full rounded-full'}"${add_attribute(
+        'height',
+        20,
+        0
+      )}${add_attribute('width', 20, 0)} placeholder="${'blur'}"></div></div>
+    <div class="${'flex flex-row'}">${validate_component(
+        Location,
+        'Location'
+      ).$$render($$result, {}, {}, {})}
+      <p class="${'ml-1 mb-3 text-black dark:text-white'}">${escape(
+        `${location}`
+      )}</p></div>
+    <div class="${'flex flex-row'}">${validate_component(
+        Calendar,
+        'Calendar'
+      ).$$render($$result, {}, {}, {})}
+      <p class="${'ml-1 mb-3 text-black dark:text-white'}">${escape(
+        `${from} - ${to}`
+      )}</p></div>
+    <div class="${'flex flex-row justify-between flex-wrap mb-3'}">${
+        frontEnd.length
+          ? `<div><div class="${'flex flex-row'}">${validate_component(
+              Desktop,
+              'Desktop'
+            ).$$render($$result, {}, {}, {})}
+            <p class="${'ml-1 text-black dark:text-white'}">Front End</p></div>
+          <ul class="${'flex'}">${each(
+              frontEnd,
+              (tech) =>
+                `<li class="${'mr-3 mt-1 text-black dark:text-white'}">${escape(
+                  tech
+                )}</li>`
+            )}</ul></div>`
+          : ``
+      }
+      ${
+        backEnd.length
+          ? `<div class="${'text-black dark:text-white'}"><div class="${'flex flex-row'}">${validate_component(
+              Server,
+              'Server'
+            ).$$render($$result, {}, {}, {})}
+            <p class="${'ml-1 text-black dark:text-white'}">Back End</p></div>
+          <ul class="${'flex'}">${each(
+              backEnd,
+              (tech) =>
+                `<li class="${'mr-3 mt-1 text-black dark:text-white'}">${escape(
+                  tech
+                )}</li>`
+            )}</ul></div>`
+          : ``
+      }
+      ${
+        tools.length
+          ? `<div><div class="${'flex flex-row'}">${validate_component(
+              Database,
+              'Database'
+            ).$$render($$result, {}, {}, {})}
+            <p class="${'ml-1 text-black dark:text-white'}">Other Tools</p></div>
+          <ul class="${'flex'}">${each(
+              tools,
+              (tech) =>
+                `<li class="${'mr-3 mt-1 text-black dark:text-white'}">${escape(
+                  tech
+                )}</li>`
+            )}</ul></div>`
+          : ``
+      }</div>
     </div>
 </div>`;
     });
     Career = create_ssr_component(($$result, $$props, $$bindings, slots) => {
       companies.map((company) => {
         switch (company.name) {
-          case "Fika Community":
+          case 'Fika Community':
             company.logo = FikaLogo;
             break;
-          case "Booking.com":
+          case 'Booking.com':
             company.logo = BookingLogo;
             break;
-          case "Anglia Ruskin University":
+          case 'Anglia Ruskin University':
             company.logo = AruLogo;
             break;
-          case "Jayex Technology":
+          case 'Jayex Technology':
             company.logo = JayexLogo;
             break;
-          case "Seedrs":
+          case 'Seedrs':
             company.logo = SeedrsLogo;
             break;
           default:
             company.logo = null;
         }
       });
-      return `<h4 class="${"py-10"}">Where I worked</h4>
-<div class="${"flex flex-col pb-10 px-10"}">${each(companies, (company) => `${validate_component(Company, "Company").$$render($$result, { company }, {}, {})}`)}</div>`;
+      return `<h4 class="${'py-10'}">Where I worked</h4>
+<div class="${'flex flex-col pb-10 px-10'}">${each(
+        companies,
+        (company) =>
+          `${validate_component(Company, 'Company').$$render(
+            $$result,
+            { company },
+            {},
+            {}
+          )}`
+      )}</div>`;
     });
-  }
+  },
 });
 
 // .svelte-kit/output/server/chunks/__layout-cd2d6914.js
 var layout_cd2d6914_exports = {};
 __export(layout_cd2d6914_exports, {
   default: () => _layout2,
-  load: () => load4
+  load: () => load4,
 });
 async function load4() {
   const posts = {};
@@ -5451,7 +7327,7 @@ async function load4() {
 }
 var _layout2;
 var init_layout_cd2d6914 = __esm({
-  ".svelte-kit/output/server/chunks/__layout-cd2d6914.js"() {
+  '.svelte-kit/output/server/chunks/__layout-cd2d6914.js'() {
     init_shims();
     init_app_43d1dbc8();
     _layout2 = create_ssr_component(($$result, $$props, $$bindings, slots) => {
@@ -5460,102 +7336,137 @@ var init_layout_cd2d6914 = __esm({
         $$bindings.posts(posts);
       return `<div>${slots.default ? slots.default({}) : ``}
   <aside><h5>Archive</h5>
-    <ui>${each(posts, (post) => `<li><a${add_attribute("href", `/posts/${posts.slug}`, 0)}>${escape(post.title)}</a></li>`)}</ui></aside></div>`;
+    <ui>${each(
+      posts,
+      (post) =>
+        `<li><a${add_attribute('href', `/posts/${posts.slug}`, 0)}>${escape(
+          post.title
+        )}</a></li>`
+    )}</ui></aside></div>`;
     });
-  }
+  },
 });
 
 // .svelte-kit/output/server/chunks/index-df556e47.js
 var index_df556e47_exports = {};
 __export(index_df556e47_exports, {
-  default: () => Posts
+  default: () => Posts,
 });
 var Posts;
 var init_index_df556e47 = __esm({
-  ".svelte-kit/output/server/chunks/index-df556e47.js"() {
+  '.svelte-kit/output/server/chunks/index-df556e47.js'() {
     init_shims();
     init_app_43d1dbc8();
     Posts = create_ssr_component(($$result, $$props, $$bindings, slots) => {
       return `<h1>Posts</h1>
 <article><h3>New Post</h3></article>`;
     });
-  }
+  },
 });
 
 // .svelte-kit/output/server/chunks/about-96338cb9.js
 var about_96338cb9_exports = {};
 __export(about_96338cb9_exports, {
-  default: () => About
+  default: () => About,
 });
 var About;
 var init_about_96338cb9 = __esm({
-  ".svelte-kit/output/server/chunks/about-96338cb9.js"() {
+  '.svelte-kit/output/server/chunks/about-96338cb9.js'() {
     init_shims();
     init_app_43d1dbc8();
     About = create_ssr_component(($$result, $$props, $$bindings, slots) => {
       return `<h3>About this blog</h3>`;
     });
-  }
+  },
 });
 
 // .svelte-kit/output/server/chunks/[type]-[slug]-fff5b35e.js
 var type_slug_fff5b35e_exports = {};
 __export(type_slug_fff5b35e_exports, {
   default: () => U5Btypeu5D_u5Bslugu5D,
-  load: () => load5
+  load: () => load5,
 });
 function __variableDynamicImportRuntime0__(path) {
   switch (path) {
-    case "../../posts/life/hello copy 2.md":
-      return Promise.resolve().then(() => (init_hello_copy_2_8bd6778d(), hello_copy_2_8bd6778d_exports)).then(function(n) {
-        return n._;
-      });
-    case "../../posts/life/hello copy 3.md":
-      return Promise.resolve().then(() => (init_hello_copy_3_580d29df(), hello_copy_3_580d29df_exports)).then(function(n) {
-        return n._;
-      });
-    case "../../posts/life/hello.md":
-      return Promise.resolve().then(() => (init_hello_3d91a712(), hello_3d91a712_exports)).then(function(n) {
-        return n._;
-      });
-    case "../../posts/pro/hello2 copy 2.md":
-      return Promise.resolve().then(() => (init_hello2_copy_2_ea2fee0a(), hello2_copy_2_ea2fee0a_exports)).then(function(n) {
-        return n._;
-      });
-    case "../../posts/pro/hello2 copy.md":
-      return Promise.resolve().then(() => (init_hello2_copy_29ea2c4f(), hello2_copy_29ea2c4f_exports)).then(function(n) {
-        return n._;
-      });
-    case "../../posts/pro/hello2.md":
-      return Promise.resolve().then(() => (init_hello2_ce07eafc(), hello2_ce07eafc_exports)).then(function(n) {
-        return n._;
-      });
+    case '../../posts/life/hello copy 2.md':
+      return Promise.resolve()
+        .then(
+          () => (init_hello_copy_2_8bd6778d(), hello_copy_2_8bd6778d_exports)
+        )
+        .then(function (n) {
+          return n._;
+        });
+    case '../../posts/life/hello copy 3.md':
+      return Promise.resolve()
+        .then(
+          () => (init_hello_copy_3_580d29df(), hello_copy_3_580d29df_exports)
+        )
+        .then(function (n) {
+          return n._;
+        });
+    case '../../posts/life/hello.md':
+      return Promise.resolve()
+        .then(() => (init_hello_3d91a712(), hello_3d91a712_exports))
+        .then(function (n) {
+          return n._;
+        });
+    case '../../posts/pro/hello2 copy 2.md':
+      return Promise.resolve()
+        .then(
+          () => (init_hello2_copy_2_ea2fee0a(), hello2_copy_2_ea2fee0a_exports)
+        )
+        .then(function (n) {
+          return n._;
+        });
+    case '../../posts/pro/hello2 copy.md':
+      return Promise.resolve()
+        .then(() => (init_hello2_copy_29ea2c4f(), hello2_copy_29ea2c4f_exports))
+        .then(function (n) {
+          return n._;
+        });
+    case '../../posts/pro/hello2.md':
+      return Promise.resolve()
+        .then(() => (init_hello2_ce07eafc(), hello2_ce07eafc_exports))
+        .then(function (n) {
+          return n._;
+        });
     default:
-      return new Promise(function(resolve2, reject) {
-        (typeof queueMicrotask === "function" ? queueMicrotask : setTimeout)(reject.bind(null, new Error("Unknown variable dynamic import: " + path)));
+      return new Promise(function (resolve2, reject) {
+        (typeof queueMicrotask === 'function'
+          ? queueMicrotask
+          : setTimeout)(reject.bind(null, new Error('Unknown variable dynamic import: ' + path)));
       });
   }
 }
 async function load5({ page }) {
   try {
-    const Post = await __variableDynamicImportRuntime0__(`../../posts/${page.params.type}/${page.params.slug}.md`);
+    const Post = await __variableDynamicImportRuntime0__(
+      `../../posts/${page.params.type}/${page.params.slug}.md`
+    );
     return { props: { Post: Post.default } };
   } catch (e) {
-    return { status: 404, error: "Post not found" };
+    return { status: 404, error: 'Post not found' };
   }
 }
 var U5Btypeu5D_u5Bslugu5D;
 var init_type_slug_fff5b35e = __esm({
-  ".svelte-kit/output/server/chunks/[type]-[slug]-fff5b35e.js"() {
+  '.svelte-kit/output/server/chunks/[type]-[slug]-fff5b35e.js'() {
     init_shims();
     init_app_43d1dbc8();
-    U5Btypeu5D_u5Bslugu5D = create_ssr_component(($$result, $$props, $$bindings, slots) => {
-      let { Post } = $$props;
-      if ($$props.Post === void 0 && $$bindings.Post && Post !== void 0)
-        $$bindings.Post(Post);
-      return `${validate_component(Post, "Post").$$render($$result, {}, {}, {})}`;
-    });
-  }
+    U5Btypeu5D_u5Bslugu5D = create_ssr_component(
+      ($$result, $$props, $$bindings, slots) => {
+        let { Post } = $$props;
+        if ($$props.Post === void 0 && $$bindings.Post && Post !== void 0)
+          $$bindings.Post(Post);
+        return `${validate_component(Post, 'Post').$$render(
+          $$result,
+          {},
+          {},
+          {}
+        )}`;
+      }
+    );
+  },
 });
 
 // .svelte-kit/output/server/chunks/app-43d1dbc8.js
@@ -5566,40 +7477,45 @@ function get_single_valued_header(headers, key) {
       return void 0;
     }
     if (value.length > 1) {
-      throw new Error(`Multiple headers provided for ${key}. Multiple may be provided only for set-cookie`);
+      throw new Error(
+        `Multiple headers provided for ${key}. Multiple may be provided only for set-cookie`
+      );
     }
     return value[0];
   }
   return value;
 }
 function resolve(base2, path) {
-  if (scheme.test(path))
-    return path;
+  if (scheme.test(path)) return path;
   const base_match = absolute.exec(base2);
   const path_match = absolute.exec(path);
   if (!base_match) {
     throw new Error(`bad base path: "${base2}"`);
   }
-  const baseparts = path_match ? [] : base2.slice(base_match[0].length).split("/");
-  const pathparts = path_match ? path.slice(path_match[0].length).split("/") : path.split("/");
+  const baseparts = path_match
+    ? []
+    : base2.slice(base_match[0].length).split('/');
+  const pathparts = path_match
+    ? path.slice(path_match[0].length).split('/')
+    : path.split('/');
   baseparts.pop();
   for (let i = 0; i < pathparts.length; i += 1) {
     const part = pathparts[i];
-    if (part === ".")
-      continue;
-    else if (part === "..")
-      baseparts.pop();
-    else
-      baseparts.push(part);
+    if (part === '.') continue;
+    else if (part === '..') baseparts.pop();
+    else baseparts.push(part);
   }
-  const prefix = path_match && path_match[0] || base_match && base_match[0] || "";
-  return `${prefix}${baseparts.join("/")}`;
+  const prefix =
+    (path_match && path_match[0]) || (base_match && base_match[0]) || '';
+  return `${prefix}${baseparts.join('/')}`;
 }
 function is_root_relative(path) {
-  return path[0] === "/" && path[1] !== "/";
+  return path[0] === '/' && path[1] !== '/';
 }
 function coalesce_to_error(err) {
-  return err instanceof Error || err && err.name && err.message ? err : new Error(JSON.stringify(err));
+  return err instanceof Error || (err && err.name && err.message)
+    ? err
+    : new Error(JSON.stringify(err));
 }
 function lowercase_keys(obj) {
   const clone2 = {};
@@ -5612,21 +7528,25 @@ function error(body) {
   return {
     status: 500,
     body,
-    headers: {}
+    headers: {},
   };
 }
 function is_string(s2) {
-  return typeof s2 === "string" || s2 instanceof String;
+  return typeof s2 === 'string' || s2 instanceof String;
 }
 function is_content_type_textual(content_type) {
-  if (!content_type)
-    return true;
-  const [type] = content_type.split(";");
-  return type === "text/plain" || type === "application/json" || type === "application/x-www-form-urlencoded" || type === "multipart/form-data";
+  if (!content_type) return true;
+  const [type] = content_type.split(';');
+  return (
+    type === 'text/plain' ||
+    type === 'application/json' ||
+    type === 'application/x-www-form-urlencoded' ||
+    type === 'multipart/form-data'
+  );
 }
 async function render_endpoint(request, route, match) {
   const mod = await route.load();
-  const handler2 = mod[request.method.toLowerCase().replace("delete", "del")];
+  const handler2 = mod[request.method.toLowerCase().replace('delete', 'del')];
   if (!handler2) {
     return;
   }
@@ -5636,20 +7556,26 @@ async function render_endpoint(request, route, match) {
   if (!response) {
     return;
   }
-  if (typeof response !== "object") {
+  if (typeof response !== 'object') {
     return error(`${preface}: expected an object, got ${typeof response}`);
   }
   let { status = 200, body, headers = {} } = response;
   headers = lowercase_keys(headers);
-  const type = get_single_valued_header(headers, "content-type");
+  const type = get_single_valued_header(headers, 'content-type');
   const is_type_textual = is_content_type_textual(type);
   if (!is_type_textual && !(body instanceof Uint8Array || is_string(body))) {
-    return error(`${preface}: body must be an instance of string or Uint8Array if content-type is not a supported textual content-type`);
+    return error(
+      `${preface}: body must be an instance of string or Uint8Array if content-type is not a supported textual content-type`
+    );
   }
   let normalized_body;
-  if ((typeof body === "object" || typeof body === "undefined") && !(body instanceof Uint8Array) && (!type || type.startsWith("application/json"))) {
-    headers = { ...headers, "content-type": "application/json; charset=utf-8" };
-    normalized_body = JSON.stringify(typeof body === "undefined" ? {} : body);
+  if (
+    (typeof body === 'object' || typeof body === 'undefined') &&
+    !(body instanceof Uint8Array) &&
+    (!type || type.startsWith('application/json'))
+  ) {
+    headers = { ...headers, 'content-type': 'application/json; charset=utf-8' };
+    normalized_body = JSON.stringify(typeof body === 'undefined' ? {} : body);
   } else {
     normalized_body = body;
   }
@@ -5658,8 +7584,8 @@ async function render_endpoint(request, route, match) {
 function devalue(value) {
   var counts = new Map();
   function walk(thing) {
-    if (typeof thing === "function") {
-      throw new Error("Cannot stringify a function");
+    if (typeof thing === 'function') {
+      throw new Error('Cannot stringify a function');
     }
     if (counts.has(thing)) {
       counts.set(thing, counts.get(thing) + 1);
@@ -5669,28 +7595,33 @@ function devalue(value) {
     if (!isPrimitive(thing)) {
       var type = getType(thing);
       switch (type) {
-        case "Number":
-        case "String":
-        case "Boolean":
-        case "Date":
-        case "RegExp":
+        case 'Number':
+        case 'String':
+        case 'Boolean':
+        case 'Date':
+        case 'RegExp':
           return;
-        case "Array":
+        case 'Array':
           thing.forEach(walk);
           break;
-        case "Set":
-        case "Map":
+        case 'Set':
+        case 'Map':
           Array.from(thing).forEach(walk);
           break;
         default:
           var proto = Object.getPrototypeOf(thing);
-          if (proto !== Object.prototype && proto !== null && Object.getOwnPropertyNames(proto).sort().join("\0") !== objectProtoOwnPropertyNames) {
-            throw new Error("Cannot stringify arbitrary non-POJOs");
+          if (
+            proto !== Object.prototype &&
+            proto !== null &&
+            Object.getOwnPropertyNames(proto).sort().join('\0') !==
+              objectProtoOwnPropertyNames
+          ) {
+            throw new Error('Cannot stringify arbitrary non-POJOs');
           }
           if (Object.getOwnPropertySymbols(thing).length > 0) {
-            throw new Error("Cannot stringify POJOs with symbolic keys");
+            throw new Error('Cannot stringify POJOs with symbolic keys');
           }
-          Object.keys(thing).forEach(function(key) {
+          Object.keys(thing).forEach(function (key) {
             return walk(thing[key]);
           });
       }
@@ -5698,13 +7629,16 @@ function devalue(value) {
   }
   walk(value);
   var names = new Map();
-  Array.from(counts).filter(function(entry) {
-    return entry[1] > 1;
-  }).sort(function(a, b) {
-    return b[1] - a[1];
-  }).forEach(function(entry, i) {
-    names.set(entry[0], getName(i));
-  });
+  Array.from(counts)
+    .filter(function (entry) {
+      return entry[1] > 1;
+    })
+    .sort(function (a, b) {
+      return b[1] - a[1];
+    })
+    .forEach(function (entry, i) {
+      names.set(entry[0], getName(i));
+    });
   function stringify(thing) {
     if (names.has(thing)) {
       return names.get(thing);
@@ -5714,30 +7648,49 @@ function devalue(value) {
     }
     var type = getType(thing);
     switch (type) {
-      case "Number":
-      case "String":
-      case "Boolean":
-        return "Object(" + stringify(thing.valueOf()) + ")";
-      case "RegExp":
-        return "new RegExp(" + stringifyString(thing.source) + ', "' + thing.flags + '")';
-      case "Date":
-        return "new Date(" + thing.getTime() + ")";
-      case "Array":
-        var members = thing.map(function(v, i) {
-          return i in thing ? stringify(v) : "";
+      case 'Number':
+      case 'String':
+      case 'Boolean':
+        return 'Object(' + stringify(thing.valueOf()) + ')';
+      case 'RegExp':
+        return (
+          'new RegExp(' +
+          stringifyString(thing.source) +
+          ', "' +
+          thing.flags +
+          '")'
+        );
+      case 'Date':
+        return 'new Date(' + thing.getTime() + ')';
+      case 'Array':
+        var members = thing.map(function (v, i) {
+          return i in thing ? stringify(v) : '';
         });
-        var tail = thing.length === 0 || thing.length - 1 in thing ? "" : ",";
-        return "[" + members.join(",") + tail + "]";
-      case "Set":
-      case "Map":
-        return "new " + type + "([" + Array.from(thing).map(stringify).join(",") + "])";
+        var tail = thing.length === 0 || thing.length - 1 in thing ? '' : ',';
+        return '[' + members.join(',') + tail + ']';
+      case 'Set':
+      case 'Map':
+        return (
+          'new ' +
+          type +
+          '([' +
+          Array.from(thing).map(stringify).join(',') +
+          '])'
+        );
       default:
-        var obj = "{" + Object.keys(thing).map(function(key) {
-          return safeKey(key) + ":" + stringify(thing[key]);
-        }).join(",") + "}";
+        var obj =
+          '{' +
+          Object.keys(thing)
+            .map(function (key) {
+              return safeKey(key) + ':' + stringify(thing[key]);
+            })
+            .join(',') +
+          '}';
         var proto = Object.getPrototypeOf(thing);
         if (proto === null) {
-          return Object.keys(thing).length > 0 ? "Object.assign(Object.create(null)," + obj + ")" : "Object.create(null)";
+          return Object.keys(thing).length > 0
+            ? 'Object.assign(Object.create(null),' + obj + ')'
+            : 'Object.create(null)';
         }
         return obj;
     }
@@ -5747,7 +7700,7 @@ function devalue(value) {
     var params_1 = [];
     var statements_1 = [];
     var values_1 = [];
-    names.forEach(function(name, thing) {
+    names.forEach(function (name, thing) {
       params_1.push(name);
       if (isPrimitive(thing)) {
         values_1.push(stringifyPrimitive(thing));
@@ -5755,70 +7708,91 @@ function devalue(value) {
       }
       var type = getType(thing);
       switch (type) {
-        case "Number":
-        case "String":
-        case "Boolean":
-          values_1.push("Object(" + stringify(thing.valueOf()) + ")");
+        case 'Number':
+        case 'String':
+        case 'Boolean':
+          values_1.push('Object(' + stringify(thing.valueOf()) + ')');
           break;
-        case "RegExp":
+        case 'RegExp':
           values_1.push(thing.toString());
           break;
-        case "Date":
-          values_1.push("new Date(" + thing.getTime() + ")");
+        case 'Date':
+          values_1.push('new Date(' + thing.getTime() + ')');
           break;
-        case "Array":
-          values_1.push("Array(" + thing.length + ")");
-          thing.forEach(function(v, i) {
-            statements_1.push(name + "[" + i + "]=" + stringify(v));
+        case 'Array':
+          values_1.push('Array(' + thing.length + ')');
+          thing.forEach(function (v, i) {
+            statements_1.push(name + '[' + i + ']=' + stringify(v));
           });
           break;
-        case "Set":
-          values_1.push("new Set");
-          statements_1.push(name + "." + Array.from(thing).map(function(v) {
-            return "add(" + stringify(v) + ")";
-          }).join("."));
+        case 'Set':
+          values_1.push('new Set');
+          statements_1.push(
+            name +
+              '.' +
+              Array.from(thing)
+                .map(function (v) {
+                  return 'add(' + stringify(v) + ')';
+                })
+                .join('.')
+          );
           break;
-        case "Map":
-          values_1.push("new Map");
-          statements_1.push(name + "." + Array.from(thing).map(function(_a) {
-            var k = _a[0], v = _a[1];
-            return "set(" + stringify(k) + ", " + stringify(v) + ")";
-          }).join("."));
+        case 'Map':
+          values_1.push('new Map');
+          statements_1.push(
+            name +
+              '.' +
+              Array.from(thing)
+                .map(function (_a) {
+                  var k = _a[0],
+                    v = _a[1];
+                  return 'set(' + stringify(k) + ', ' + stringify(v) + ')';
+                })
+                .join('.')
+          );
           break;
         default:
-          values_1.push(Object.getPrototypeOf(thing) === null ? "Object.create(null)" : "{}");
-          Object.keys(thing).forEach(function(key) {
-            statements_1.push("" + name + safeProp(key) + "=" + stringify(thing[key]));
+          values_1.push(
+            Object.getPrototypeOf(thing) === null ? 'Object.create(null)' : '{}'
+          );
+          Object.keys(thing).forEach(function (key) {
+            statements_1.push(
+              '' + name + safeProp(key) + '=' + stringify(thing[key])
+            );
           });
       }
     });
-    statements_1.push("return " + str);
-    return "(function(" + params_1.join(",") + "){" + statements_1.join(";") + "}(" + values_1.join(",") + "))";
+    statements_1.push('return ' + str);
+    return (
+      '(function(' +
+      params_1.join(',') +
+      '){' +
+      statements_1.join(';') +
+      '}(' +
+      values_1.join(',') +
+      '))'
+    );
   } else {
     return str;
   }
 }
 function getName(num) {
-  var name = "";
+  var name = '';
   do {
     name = chars[num % chars.length] + name;
     num = ~~(num / chars.length) - 1;
   } while (num >= 0);
-  return reserved.test(name) ? name + "_" : name;
+  return reserved.test(name) ? name + '_' : name;
 }
 function isPrimitive(thing) {
   return Object(thing) !== thing;
 }
 function stringifyPrimitive(thing) {
-  if (typeof thing === "string")
-    return stringifyString(thing);
-  if (thing === void 0)
-    return "void 0";
-  if (thing === 0 && 1 / thing < 0)
-    return "-0";
+  if (typeof thing === 'string') return stringifyString(thing);
+  if (thing === void 0) return 'void 0';
+  if (thing === 0 && 1 / thing < 0) return '-0';
   var str = String(thing);
-  if (typeof thing === "number")
-    return str.replace(/^(-)?0\./, "$1.");
+  if (typeof thing === 'number') return str.replace(/^(-)?0\./, '$1.');
   return str;
 }
 function getType(thing) {
@@ -5831,10 +7805,14 @@ function escapeUnsafeChars(str) {
   return str.replace(unsafeChars, escapeUnsafeChar);
 }
 function safeKey(key) {
-  return /^[_$a-zA-Z][_$a-zA-Z0-9]*$/.test(key) ? key : escapeUnsafeChars(JSON.stringify(key));
+  return /^[_$a-zA-Z][_$a-zA-Z0-9]*$/.test(key)
+    ? key
+    : escapeUnsafeChars(JSON.stringify(key));
 }
 function safeProp(key) {
-  return /^[_$a-zA-Z][_$a-zA-Z0-9]*$/.test(key) ? "." + key : "[" + escapeUnsafeChars(JSON.stringify(key)) + "]";
+  return /^[_$a-zA-Z][_$a-zA-Z0-9]*$/.test(key)
+    ? '.' + key
+    : '[' + escapeUnsafeChars(JSON.stringify(key)) + ']';
 }
 function stringifyString(str) {
   var result = '"';
@@ -5847,10 +7825,10 @@ function stringifyString(str) {
       result += escaped$1[char];
     } else if (code >= 55296 && code <= 57343) {
       var next = str.charCodeAt(i + 1);
-      if (code <= 56319 && (next >= 56320 && next <= 57343)) {
+      if (code <= 56319 && next >= 56320 && next <= 57343) {
         result += char + str[++i];
       } else {
-        result += "\\u" + code.toString(16).toUpperCase();
+        result += '\\u' + code.toString(16).toUpperCase();
       }
     } else {
       result += char;
@@ -5859,10 +7837,11 @@ function stringifyString(str) {
   result += '"';
   return result;
 }
-function noop$1() {
-}
+function noop$1() {}
 function safe_not_equal$1(a, b) {
-  return a != a ? b == b : a !== b || (a && typeof a === "object" || typeof a === "function");
+  return a != a
+    ? b == b
+    : a !== b || (a && typeof a === 'object') || typeof a === 'function';
 }
 function writable2(value, start = noop$1) {
   let stop;
@@ -5908,23 +7887,27 @@ function writable2(value, start = noop$1) {
 function hash(value) {
   let hash2 = 5381;
   let i = value.length;
-  if (typeof value === "string") {
-    while (i)
-      hash2 = hash2 * 33 ^ value.charCodeAt(--i);
+  if (typeof value === 'string') {
+    while (i) hash2 = (hash2 * 33) ^ value.charCodeAt(--i);
   } else {
-    while (i)
-      hash2 = hash2 * 33 ^ value[--i];
+    while (i) hash2 = (hash2 * 33) ^ value[--i];
   }
   return (hash2 >>> 0).toString(36);
 }
 function escape_json_string_in_html(str) {
-  return escape$1(str, escape_json_string_in_html_dict, (code) => `\\u${code.toString(16).toUpperCase()}`);
+  return escape$1(
+    str,
+    escape_json_string_in_html_dict,
+    (code) => `\\u${code.toString(16).toUpperCase()}`
+  );
 }
 function escape_html_attr(str) {
-  return '"' + escape$1(str, escape_html_attr_dict, (code) => `&#${code};`) + '"';
+  return (
+    '"' + escape$1(str, escape_html_attr_dict, (code) => `&#${code};`) + '"'
+  );
 }
 function escape$1(str, dict, unicode_encoder) {
-  let result = "";
+  let result = '';
   for (let i = 0; i < str.length; i += 1) {
     const char = str.charAt(i);
     const code = char.charCodeAt(0);
@@ -5950,7 +7933,7 @@ async function render_response({
   page_config,
   status,
   error: error2,
-  page
+  page,
 }) {
   const css22 = new Set(options2.entry.css);
   const js = new Set(options2.entry.js);
@@ -5964,16 +7947,11 @@ async function render_response({
   }
   if (page_config.ssr) {
     branch.forEach(({ node, loaded, fetched, uses_credentials }) => {
-      if (node.css)
-        node.css.forEach((url) => css22.add(url));
-      if (node.js)
-        node.js.forEach((url) => js.add(url));
-      if (node.styles)
-        node.styles.forEach((content) => styles.add(content));
-      if (fetched && page_config.hydrate)
-        serialized_data.push(...fetched);
-      if (uses_credentials)
-        is_private = true;
+      if (node.css) node.css.forEach((url) => css22.add(url));
+      if (node.js) node.js.forEach((url) => js.add(url));
+      if (node.styles) node.styles.forEach((content) => styles.add(content));
+      if (fetched && page_config.hydrate) serialized_data.push(...fetched);
+      if (uses_credentials) is_private = true;
       maxage = loaded.maxage;
     });
     const session = writable2($session);
@@ -5981,18 +7959,17 @@ async function render_response({
       stores: {
         page: writable2(null),
         navigating: writable2(null),
-        session
+        session,
       },
       page,
-      components: branch.map(({ node }) => node.module.default)
+      components: branch.map(({ node }) => node.module.default),
     };
     for (let i = 0; i < branch.length; i += 1) {
       props[`props_${i}`] = await branch[i].loaded.props;
     }
     let session_tracking_active = false;
     const unsubscribe = session.subscribe(() => {
-      if (session_tracking_active)
-        is_private = true;
+      if (session_tracking_active) is_private = true;
     });
     session_tracking_active = true;
     try {
@@ -6001,57 +7978,96 @@ async function render_response({
       unsubscribe();
     }
   } else {
-    rendered = { head: "", html: "", css: { code: "", map: null } };
+    rendered = { head: '', html: '', css: { code: '', map: null } };
   }
   const include_js = page_config.router || page_config.hydrate;
-  if (!include_js)
-    js.clear();
-  const links = options2.amp ? styles.size > 0 || rendered.css.code.length > 0 ? `<style amp-custom>${Array.from(styles).concat(rendered.css.code).join("\n")}</style>` : "" : [
-    ...Array.from(js).map((dep) => `<link rel="modulepreload" href="${dep}">`),
-    ...Array.from(css22).map((dep) => `<link rel="stylesheet" href="${dep}">`)
-  ].join("\n		");
-  let init2 = "";
+  if (!include_js) js.clear();
+  const links = options2.amp
+    ? styles.size > 0 || rendered.css.code.length > 0
+      ? `<style amp-custom>${Array.from(styles)
+          .concat(rendered.css.code)
+          .join('\n')}</style>`
+      : ''
+    : [
+        ...Array.from(js).map(
+          (dep) => `<link rel="modulepreload" href="${dep}">`
+        ),
+        ...Array.from(css22).map(
+          (dep) => `<link rel="stylesheet" href="${dep}">`
+        ),
+      ].join('\n		');
+  let init2 = '';
   if (options2.amp) {
     init2 = `
 		<style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style>
 		<noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
 		<script async src="https://cdn.ampproject.org/v0.js"><\/script>`;
-    init2 += options2.service_worker ? '<script async custom-element="amp-install-serviceworker" src="https://cdn.ampproject.org/v0/amp-install-serviceworker-0.1.js"><\/script>' : "";
+    init2 += options2.service_worker
+      ? '<script async custom-element="amp-install-serviceworker" src="https://cdn.ampproject.org/v0/amp-install-serviceworker-0.1.js"></script>'
+      : '';
   } else if (include_js) {
     init2 = `<script type="module">
 			import { start } from ${s$1(options2.entry.file)};
 			start({
-				target: ${options2.target ? `document.querySelector(${s$1(options2.target)})` : "document.body"},
+				target: ${
+          options2.target
+            ? `document.querySelector(${s$1(options2.target)})`
+            : 'document.body'
+        },
 				paths: ${s$1(options2.paths)},
 				session: ${try_serialize($session, (error3) => {
-      throw new Error(`Failed to serialize session data: ${error3.message}`);
-    })},
-				host: ${page && page.host ? s$1(page.host) : "location.host"},
+          throw new Error(
+            `Failed to serialize session data: ${error3.message}`
+          );
+        })},
+				host: ${page && page.host ? s$1(page.host) : 'location.host'},
 				route: ${!!page_config.router},
 				spa: ${!page_config.ssr},
 				trailing_slash: ${s$1(options2.trailing_slash)},
-				hydrate: ${page_config.ssr && page_config.hydrate ? `{
+				hydrate: ${
+          page_config.ssr && page_config.hydrate
+            ? `{
 					status: ${status},
 					error: ${serialize_error(error2)},
 					nodes: [
-						${(branch || []).map(({ node }) => `import(${s$1(node.entry)})`).join(",\n						")}
+						${(branch || []).map(({ node }) => `import(${s$1(node.entry)})`).join(',\n						')}
 					],
 					page: {
-						host: ${page && page.host ? s$1(page.host) : "location.host"}, // TODO this is redundant
-						path: ${page && page.path ? try_serialize(page.path, (error3) => {
-      throw new Error(`Failed to serialize page.path: ${error3.message}`);
-    }) : null},
-						query: new URLSearchParams(${page && page.query ? s$1(page.query.toString()) : ""}),
-						params: ${page && page.params ? try_serialize(page.params, (error3) => {
-      throw new Error(`Failed to serialize page.params: ${error3.message}`);
-    }) : null}
+						host: ${
+              page && page.host ? s$1(page.host) : 'location.host'
+            }, // TODO this is redundant
+						path: ${
+              page && page.path
+                ? try_serialize(page.path, (error3) => {
+                    throw new Error(
+                      `Failed to serialize page.path: ${error3.message}`
+                    );
+                  })
+                : null
+            },
+						query: new URLSearchParams(${
+              page && page.query ? s$1(page.query.toString()) : ''
+            }),
+						params: ${
+              page && page.params
+                ? try_serialize(page.params, (error3) => {
+                    throw new Error(
+                      `Failed to serialize page.params: ${error3.message}`
+                    );
+                  })
+                : null
+            }
 					}
-				}` : "null"}
+				}`
+            : 'null'
+        }
 			});
 		<\/script>`;
   }
   if (options2.service_worker) {
-    init2 += options2.amp ? `<amp-install-serviceworker src="${options2.service_worker}" layout="nodisplay"></amp-install-serviceworker>` : `<script>
+    init2 += options2.amp
+      ? `<amp-install-serviceworker src="${options2.service_worker}" layout="nodisplay"></amp-install-serviceworker>`
+      : `<script>
 			if ('serviceWorker' in navigator) {
 				navigator.serviceWorker.register('${options2.service_worker}');
 			}
@@ -6059,75 +8075,91 @@ async function render_response({
   }
   const head = [
     rendered.head,
-    styles.size && !options2.amp ? `<style data-svelte>${Array.from(styles).join("\n")}</style>` : "",
+    styles.size && !options2.amp
+      ? `<style data-svelte>${Array.from(styles).join('\n')}</style>`
+      : '',
     links,
-    init2
-  ].join("\n\n		");
-  const body = options2.amp ? rendered.html : `${rendered.html}
+    init2,
+  ].join('\n\n		');
+  const body = options2.amp
+    ? rendered.html
+    : `${rendered.html}
 
-			${serialized_data.map(({ url, body: body2, json }) => {
-    let attributes = `type="application/json" data-type="svelte-data" data-url=${escape_html_attr(url)}`;
-    if (body2)
-      attributes += ` data-body="${hash(body2)}"`;
-    return `<script ${attributes}>${json}<\/script>`;
-  }).join("\n\n	")}
+			${serialized_data
+        .map(({ url, body: body2, json }) => {
+          let attributes = `type="application/json" data-type="svelte-data" data-url=${escape_html_attr(
+            url
+          )}`;
+          if (body2) attributes += ` data-body="${hash(body2)}"`;
+          return `<script ${attributes}>${json}<\/script>`;
+        })
+        .join('\n\n	')}
 		`;
   const headers = {
-    "content-type": "text/html"
+    'content-type': 'text/html',
   };
   if (maxage) {
-    headers["cache-control"] = `${is_private ? "private" : "public"}, max-age=${maxage}`;
+    headers['cache-control'] = `${
+      is_private ? 'private' : 'public'
+    }, max-age=${maxage}`;
   }
   if (!options2.floc) {
-    headers["permissions-policy"] = "interest-cohort=()";
+    headers['permissions-policy'] = 'interest-cohort=()';
   }
   return {
     status,
     headers,
-    body: options2.template({ head, body })
+    body: options2.template({ head, body }),
   };
 }
 function try_serialize(data, fail) {
   try {
     return devalue(data);
   } catch (err) {
-    if (fail)
-      fail(coalesce_to_error(err));
+    if (fail) fail(coalesce_to_error(err));
     return null;
   }
 }
 function serialize_error(error2) {
-  if (!error2)
-    return null;
+  if (!error2) return null;
   let serialized = try_serialize(error2);
   if (!serialized) {
     const { name, message, stack } = error2;
     serialized = try_serialize({ ...error2, name, message, stack });
   }
   if (!serialized) {
-    serialized = "{}";
+    serialized = '{}';
   }
   return serialized;
 }
 function normalize(loaded) {
-  const has_error_status = loaded.status && loaded.status >= 400 && loaded.status <= 599 && !loaded.redirect;
+  const has_error_status =
+    loaded.status &&
+    loaded.status >= 400 &&
+    loaded.status <= 599 &&
+    !loaded.redirect;
   if (loaded.error || has_error_status) {
     const status = loaded.status;
     if (!loaded.error && has_error_status) {
       return {
         status: status || 500,
-        error: new Error()
+        error: new Error(),
       };
     }
-    const error2 = typeof loaded.error === "string" ? new Error(loaded.error) : loaded.error;
+    const error2 =
+      typeof loaded.error === 'string' ? new Error(loaded.error) : loaded.error;
     if (!(error2 instanceof Error)) {
       return {
         status: 500,
-        error: new Error(`"error" property returned from load() must be a string or instance of Error, received type "${typeof error2}"`)
+        error: new Error(
+          `"error" property returned from load() must be a string or instance of Error, received type "${typeof error2}"`
+        ),
       };
     }
     if (!status || status < 400 || status > 599) {
-      console.warn('"error" returned from load() without a valid status code \u2014 defaulting to 500');
+      console.warn(
+        '"error" returned from load() without a valid status code \u2014 defaulting to 500'
+      );
       return { status: 500, error: error2 };
     }
     return { status, error: error2 };
@@ -6136,18 +8168,24 @@ function normalize(loaded) {
     if (!loaded.status || Math.floor(loaded.status / 100) !== 3) {
       return {
         status: 500,
-        error: new Error('"redirect" property returned from load() must be accompanied by a 3xx status code')
+        error: new Error(
+          '"redirect" property returned from load() must be accompanied by a 3xx status code'
+        ),
       };
     }
-    if (typeof loaded.redirect !== "string") {
+    if (typeof loaded.redirect !== 'string') {
       return {
         status: 500,
-        error: new Error('"redirect" property returned from load() must be a string')
+        error: new Error(
+          '"redirect" property returned from load() must be a string'
+        ),
       };
     }
   }
   if (loaded.context) {
-    throw new Error('You are returning "context" from a load function. "context" was renamed to "stuff", please adjust your code accordingly.');
+    throw new Error(
+      'You are returning "context" from a load function. "context" was renamed to "stuff", please adjust your code accordingly.'
+    );
   }
   return loaded;
 }
@@ -6164,7 +8202,7 @@ async function load_node({
   is_leaf,
   is_error,
   status,
-  error: error2
+  error: error2,
 }) {
   const { module: module2 } = node;
   let uses_credentials = false;
@@ -6173,11 +8211,13 @@ async function load_node({
   let loaded;
   const page_proxy = new Proxy(page, {
     get: (target, prop, receiver) => {
-      if (prop === "query" && prerender_enabled) {
-        throw new Error("Cannot access query on a page with prerendering enabled");
+      if (prop === 'query' && prerender_enabled) {
+        throw new Error(
+          'Cannot access query on a page with prerendering enabled'
+        );
       }
       return Reflect.get(target, prop, receiver);
-    }
+    },
   });
   if (module2.load) {
     const load_input = {
@@ -6188,7 +8228,7 @@ async function load_node({
       },
       fetch: async (resource, opts = {}) => {
         let url;
-        if (typeof resource === "string") {
+        if (typeof resource === 'string') {
           url = resource;
         } else {
           url = resource.url;
@@ -6202,72 +8242,93 @@ async function load_node({
             redirect: resource.redirect,
             referrer: resource.referrer,
             integrity: resource.integrity,
-            ...opts
+            ...opts,
           };
         }
-        const resolved = resolve(request.path, url.split("?")[0]);
+        const resolved = resolve(request.path, url.split('?')[0]);
         let response;
         const prefix = options2.paths.assets || options2.paths.base;
-        const filename = (resolved.startsWith(prefix) ? resolved.slice(prefix.length) : resolved).slice(1);
+        const filename = (
+          resolved.startsWith(prefix) ? resolved.slice(prefix.length) : resolved
+        ).slice(1);
         const filename_html = `${filename}/index.html`;
-        const asset = options2.manifest.assets.find((d2) => d2.file === filename || d2.file === filename_html);
+        const asset = options2.manifest.assets.find(
+          (d2) => d2.file === filename || d2.file === filename_html
+        );
         if (asset) {
-          response = options2.read ? new Response(options2.read(asset.file), {
-            headers: asset.type ? { "content-type": asset.type } : {}
-          }) : await fetch(`http://${page.host}/${asset.file}`, opts);
+          response = options2.read
+            ? new Response(options2.read(asset.file), {
+                headers: asset.type ? { 'content-type': asset.type } : {},
+              })
+            : await fetch(`http://${page.host}/${asset.file}`, opts);
         } else if (is_root_relative(resolved)) {
           const relative = resolved;
           const headers = {
-            ...opts.headers
+            ...opts.headers,
           };
-          if (opts.credentials !== "omit") {
+          if (opts.credentials !== 'omit') {
             uses_credentials = true;
             headers.cookie = request.headers.cookie;
             if (!headers.authorization) {
               headers.authorization = request.headers.authorization;
             }
           }
-          if (opts.body && typeof opts.body !== "string") {
-            throw new Error("Request body must be a string");
+          if (opts.body && typeof opts.body !== 'string') {
+            throw new Error('Request body must be a string');
           }
-          const search = url.includes("?") ? url.slice(url.indexOf("?") + 1) : "";
-          const rendered = await respond({
-            host: request.host,
-            method: opts.method || "GET",
-            headers,
-            path: relative,
-            rawBody: opts.body == null ? null : new TextEncoder().encode(opts.body),
-            query: new URLSearchParams(search)
-          }, options2, {
-            fetched: url,
-            initiator: route
-          });
+          const search = url.includes('?')
+            ? url.slice(url.indexOf('?') + 1)
+            : '';
+          const rendered = await respond(
+            {
+              host: request.host,
+              method: opts.method || 'GET',
+              headers,
+              path: relative,
+              rawBody:
+                opts.body == null ? null : new TextEncoder().encode(opts.body),
+              query: new URLSearchParams(search),
+            },
+            options2,
+            {
+              fetched: url,
+              initiator: route,
+            }
+          );
           if (rendered) {
             if (state.prerender) {
               state.prerender.dependencies.set(relative, rendered);
             }
             response = new Response(rendered.body, {
               status: rendered.status,
-              headers: rendered.headers
+              headers: rendered.headers,
             });
           }
         } else {
-          if (resolved.startsWith("//")) {
-            throw new Error(`Cannot request protocol-relative URL (${url}) in server-side fetch`);
+          if (resolved.startsWith('//')) {
+            throw new Error(
+              `Cannot request protocol-relative URL (${url}) in server-side fetch`
+            );
           }
-          if (typeof request.host !== "undefined") {
+          if (typeof request.host !== 'undefined') {
             const { hostname: fetch_hostname } = new URL(url);
-            const [server_hostname] = request.host.split(":");
-            if (`.${fetch_hostname}`.endsWith(`.${server_hostname}`) && opts.credentials !== "omit") {
+            const [server_hostname] = request.host.split(':');
+            if (
+              `.${fetch_hostname}`.endsWith(`.${server_hostname}`) &&
+              opts.credentials !== 'omit'
+            ) {
               uses_credentials = true;
               opts.headers = {
                 ...opts.headers,
-                cookie: request.headers.cookie
+                cookie: request.headers.cookie,
               };
             }
           }
           const external_request = new Request(url, opts);
-          response = await options2.hooks.externalFetch.call(null, external_request);
+          response = await options2.hooks.externalFetch.call(
+            null,
+            external_request
+          );
         }
         if (response) {
           const proxy = new Proxy(response, {
@@ -6276,39 +8337,46 @@ async function load_node({
                 const body = await response2.text();
                 const headers = {};
                 for (const [key2, value] of response2.headers) {
-                  if (key2 === "set-cookie") {
+                  if (key2 === 'set-cookie') {
                     set_cookie_headers = set_cookie_headers.concat(value);
-                  } else if (key2 !== "etag") {
+                  } else if (key2 !== 'etag') {
                     headers[key2] = value;
                   }
                 }
-                if (!opts.body || typeof opts.body === "string") {
+                if (!opts.body || typeof opts.body === 'string') {
                   fetched.push({
                     url,
                     body: opts.body,
-                    json: `{"status":${response2.status},"statusText":${s(response2.statusText)},"headers":${s(headers)},"body":"${escape_json_string_in_html(body)}"}`
+                    json: `{"status":${response2.status},"statusText":${s(
+                      response2.statusText
+                    )},"headers":${s(
+                      headers
+                    )},"body":"${escape_json_string_in_html(body)}"}`,
                   });
                 }
                 return body;
               }
-              if (key === "text") {
+              if (key === 'text') {
                 return text;
               }
-              if (key === "json") {
+              if (key === 'json') {
                 return async () => {
                   return JSON.parse(await text());
                 };
               }
               return Reflect.get(response2, key, response2);
-            }
+            },
           });
           return proxy;
         }
-        return response || new Response("Not found", {
-          status: 404
-        });
+        return (
+          response ||
+          new Response('Not found', {
+            status: 404,
+          })
+        );
       },
-      stuff: { ...stuff }
+      stuff: { ...stuff },
     };
     if (is_error) {
       load_input.status = status;
@@ -6318,10 +8386,11 @@ async function load_node({
   } else {
     loaded = {};
   }
-  if (!loaded && is_leaf && !is_error)
-    return;
+  if (!loaded && is_leaf && !is_error) return;
   if (!loaded) {
-    throw new Error(`${node.entry} - load must return a value except for page fall through`);
+    throw new Error(
+      `${node.entry} - load must return a value except for page fall through`
+    );
   }
   return {
     node,
@@ -6329,17 +8398,26 @@ async function load_node({
     stuff: loaded.stuff || stuff,
     fetched,
     set_cookie_headers,
-    uses_credentials
+    uses_credentials,
   };
 }
-async function respond_with_error({ request, options: options2, state, $session, status, error: error2 }) {
-  const default_layout = await options2.load_component(options2.manifest.layout);
+async function respond_with_error({
+  request,
+  options: options2,
+  state,
+  $session,
+  status,
+  error: error2,
+}) {
+  const default_layout = await options2.load_component(
+    options2.manifest.layout
+  );
   const default_error = await options2.load_component(options2.manifest.error);
   const page = {
     host: request.host,
     path: request.path,
     query: request.query,
-    params: {}
+    params: {},
   };
   const loaded = await load_node({
     request,
@@ -6352,7 +8430,7 @@ async function respond_with_error({ request, options: options2, state, $session,
     stuff: {},
     prerender_enabled: is_prerender_enabled(options2, default_error, state),
     is_leaf: false,
-    is_error: false
+    is_error: false,
   });
   const branch = [
     loaded,
@@ -6369,8 +8447,8 @@ async function respond_with_error({ request, options: options2, state, $session,
       is_leaf: false,
       is_error: true,
       status,
-      error: error2
-    })
+      error: error2,
+    }),
   ];
   try {
     return await render_response({
@@ -6379,12 +8457,12 @@ async function respond_with_error({ request, options: options2, state, $session,
       page_config: {
         hydrate: options2.hydrate,
         router: options2.router,
-        ssr: options2.ssr
+        ssr: options2.ssr,
       },
       status,
       error: error2,
       branch,
-      page
+      page,
     });
   } catch (err) {
     const error3 = coalesce_to_error(err);
@@ -6392,18 +8470,23 @@ async function respond_with_error({ request, options: options2, state, $session,
     return {
       status: 500,
       headers: {},
-      body: error3.stack
+      body: error3.stack,
     };
   }
 }
 function is_prerender_enabled(options2, node, state) {
-  return options2.prerender && (!!node.module.prerender || !!state.prerender && state.prerender.all);
+  return (
+    options2.prerender &&
+    (!!node.module.prerender || (!!state.prerender && state.prerender.all))
+  );
 }
 async function respond$1(opts) {
   const { request, options: options2, state, $session, route } = opts;
   let nodes;
   try {
-    nodes = await Promise.all(route.a.map((id) => id ? options2.load_component(id) : void 0));
+    nodes = await Promise.all(
+      route.a.map((id) => (id ? options2.load_component(id) : void 0))
+    );
   } catch (err) {
     const error3 = coalesce_to_error(err);
     options2.handle_error(error3, request);
@@ -6413,7 +8496,7 @@ async function respond$1(opts) {
       state,
       $session,
       status: 500,
-      error: error3
+      error: error3,
     });
   }
   const leaf = nodes[nodes.length - 1].module;
@@ -6421,131 +8504,147 @@ async function respond$1(opts) {
   if (!leaf.prerender && state.prerender && !state.prerender.all) {
     return {
       status: 204,
-      headers: {}
+      headers: {},
     };
   }
   let branch = [];
   let status = 200;
   let error2;
   let set_cookie_headers = [];
-  ssr:
-    if (page_config.ssr) {
-      let stuff = {};
-      for (let i = 0; i < nodes.length; i += 1) {
-        const node = nodes[i];
-        let loaded;
-        if (node) {
-          try {
-            loaded = await load_node({
-              ...opts,
-              node,
-              stuff,
-              prerender_enabled: is_prerender_enabled(options2, node, state),
-              is_leaf: i === nodes.length - 1,
-              is_error: false
-            });
-            if (!loaded)
-              return;
-            set_cookie_headers = set_cookie_headers.concat(loaded.set_cookie_headers);
-            if (loaded.loaded.redirect) {
-              return with_cookies({
+  ssr: if (page_config.ssr) {
+    let stuff = {};
+    for (let i = 0; i < nodes.length; i += 1) {
+      const node = nodes[i];
+      let loaded;
+      if (node) {
+        try {
+          loaded = await load_node({
+            ...opts,
+            node,
+            stuff,
+            prerender_enabled: is_prerender_enabled(options2, node, state),
+            is_leaf: i === nodes.length - 1,
+            is_error: false,
+          });
+          if (!loaded) return;
+          set_cookie_headers = set_cookie_headers.concat(
+            loaded.set_cookie_headers
+          );
+          if (loaded.loaded.redirect) {
+            return with_cookies(
+              {
                 status: loaded.loaded.status,
                 headers: {
-                  location: encodeURI(loaded.loaded.redirect)
-                }
-              }, set_cookie_headers);
-            }
-            if (loaded.loaded.error) {
-              ({ status, error: error2 } = loaded.loaded);
-            }
-          } catch (err) {
-            const e = coalesce_to_error(err);
-            options2.handle_error(e, request);
-            status = 500;
-            error2 = e;
+                  location: encodeURI(loaded.loaded.redirect),
+                },
+              },
+              set_cookie_headers
+            );
           }
-          if (loaded && !error2) {
-            branch.push(loaded);
+          if (loaded.loaded.error) {
+            ({ status, error: error2 } = loaded.loaded);
           }
-          if (error2) {
-            while (i--) {
-              if (route.b[i]) {
-                const error_node = await options2.load_component(route.b[i]);
-                let node_loaded;
-                let j = i;
-                while (!(node_loaded = branch[j])) {
-                  j -= 1;
-                }
-                try {
-                  const error_loaded = await load_node({
-                    ...opts,
-                    node: error_node,
-                    stuff: node_loaded.stuff,
-                    prerender_enabled: is_prerender_enabled(options2, error_node, state),
-                    is_leaf: false,
-                    is_error: true,
-                    status,
-                    error: error2
-                  });
-                  if (error_loaded.loaded.error) {
-                    continue;
-                  }
-                  page_config = get_page_config(error_node.module, options2);
-                  branch = branch.slice(0, j + 1).concat(error_loaded);
-                  break ssr;
-                } catch (err) {
-                  const e = coalesce_to_error(err);
-                  options2.handle_error(e, request);
+        } catch (err) {
+          const e = coalesce_to_error(err);
+          options2.handle_error(e, request);
+          status = 500;
+          error2 = e;
+        }
+        if (loaded && !error2) {
+          branch.push(loaded);
+        }
+        if (error2) {
+          while (i--) {
+            if (route.b[i]) {
+              const error_node = await options2.load_component(route.b[i]);
+              let node_loaded;
+              let j = i;
+              while (!(node_loaded = branch[j])) {
+                j -= 1;
+              }
+              try {
+                const error_loaded = await load_node({
+                  ...opts,
+                  node: error_node,
+                  stuff: node_loaded.stuff,
+                  prerender_enabled: is_prerender_enabled(
+                    options2,
+                    error_node,
+                    state
+                  ),
+                  is_leaf: false,
+                  is_error: true,
+                  status,
+                  error: error2,
+                });
+                if (error_loaded.loaded.error) {
                   continue;
                 }
+                page_config = get_page_config(error_node.module, options2);
+                branch = branch.slice(0, j + 1).concat(error_loaded);
+                break ssr;
+              } catch (err) {
+                const e = coalesce_to_error(err);
+                options2.handle_error(e, request);
+                continue;
               }
             }
-            return with_cookies(await respond_with_error({
+          }
+          return with_cookies(
+            await respond_with_error({
               request,
               options: options2,
               state,
               $session,
               status,
-              error: error2
-            }), set_cookie_headers);
-          }
-        }
-        if (loaded && loaded.loaded.stuff) {
-          stuff = {
-            ...stuff,
-            ...loaded.loaded.stuff
-          };
+              error: error2,
+            }),
+            set_cookie_headers
+          );
         }
       }
+      if (loaded && loaded.loaded.stuff) {
+        stuff = {
+          ...stuff,
+          ...loaded.loaded.stuff,
+        };
+      }
     }
+  }
   try {
-    return with_cookies(await render_response({
-      ...opts,
-      page_config,
-      status,
-      error: error2,
-      branch: branch.filter(Boolean)
-    }), set_cookie_headers);
+    return with_cookies(
+      await render_response({
+        ...opts,
+        page_config,
+        status,
+        error: error2,
+        branch: branch.filter(Boolean),
+      }),
+      set_cookie_headers
+    );
   } catch (err) {
     const error3 = coalesce_to_error(err);
     options2.handle_error(error3, request);
-    return with_cookies(await respond_with_error({
-      ...opts,
-      status: 500,
-      error: error3
-    }), set_cookie_headers);
+    return with_cookies(
+      await respond_with_error({
+        ...opts,
+        status: 500,
+        error: error3,
+      }),
+      set_cookie_headers
+    );
   }
 }
 function get_page_config(leaf, options2) {
   return {
-    ssr: "ssr" in leaf ? !!leaf.ssr : options2.ssr,
-    router: "router" in leaf ? !!leaf.router : options2.router,
-    hydrate: "hydrate" in leaf ? !!leaf.hydrate : options2.hydrate
+    ssr: 'ssr' in leaf ? !!leaf.ssr : options2.ssr,
+    router: 'router' in leaf ? !!leaf.router : options2.router,
+    hydrate: 'hydrate' in leaf ? !!leaf.hydrate : options2.hydrate,
   };
 }
 function with_cookies(response, set_cookie_headers) {
   if (set_cookie_headers.length) {
-    response.headers["set-cookie"] = set_cookie_headers;
+    response.headers['set-cookie'] = set_cookie_headers;
   }
   return response;
 }
@@ -6554,7 +8653,7 @@ async function render_page(request, route, match, options2, state) {
     return {
       status: 404,
       headers: {},
-      body: `Not found: ${request.path}`
+      body: `Not found: ${request.path}`,
     };
   }
   const params = route.params(match);
@@ -6562,7 +8661,7 @@ async function render_page(request, route, match, options2, state) {
     host: request.host,
     path: request.path,
     query: request.query,
-    params
+    params,
   };
   const $session = await options2.hooks.getSession(request);
   const response = await respond$1({
@@ -6571,7 +8670,7 @@ async function render_page(request, route, match, options2, state) {
     state,
     $session,
     route,
-    page
+    page,
   });
   if (response) {
     return response;
@@ -6580,7 +8679,7 @@ async function render_page(request, route, match, options2, state) {
     return {
       status: 500,
       headers: {},
-      body: `Bad request in load function: failed to fetch ${state.fetched}`
+      body: `Bad request in load function: failed to fetch ${state.fetched}`,
     };
   }
 }
@@ -6594,27 +8693,28 @@ function read_only_form_data() {
         map.set(key, [value]);
       }
     },
-    data: new ReadOnlyFormData(map)
+    data: new ReadOnlyFormData(map),
   };
 }
 function parse_body(raw, headers) {
-  if (!raw)
-    return raw;
-  const content_type = headers["content-type"];
+  if (!raw) return raw;
+  const content_type = headers['content-type'];
   const [type, ...directives] = content_type ? content_type.split(/;\s*/) : [];
-  const text = () => new TextDecoder(headers["content-encoding"] || "utf-8").decode(raw);
+  const text = () =>
+    new TextDecoder(headers['content-encoding'] || 'utf-8').decode(raw);
   switch (type) {
-    case "text/plain":
+    case 'text/plain':
       return text();
-    case "application/json":
+    case 'application/json':
       return JSON.parse(text());
-    case "application/x-www-form-urlencoded":
+    case 'application/x-www-form-urlencoded':
       return get_urlencoded(text());
-    case "multipart/form-data": {
-      const boundary = directives.find((directive) => directive.startsWith("boundary="));
-      if (!boundary)
-        throw new Error("Missing boundary");
-      return get_multipart(text(), boundary.slice("boundary=".length));
+    case 'multipart/form-data': {
+      const boundary = directives.find((directive) =>
+        directive.startsWith('boundary=')
+      );
+      if (!boundary) throw new Error('Missing boundary');
+      return get_multipart(text(), boundary.slice('boundary='.length));
     }
     default:
       return raw;
@@ -6622,65 +8722,73 @@ function parse_body(raw, headers) {
 }
 function get_urlencoded(text) {
   const { data, append } = read_only_form_data();
-  text.replace(/\+/g, " ").split("&").forEach((str) => {
-    const [key, value] = str.split("=");
-    append(decodeURIComponent(key), decodeURIComponent(value));
-  });
+  text
+    .replace(/\+/g, ' ')
+    .split('&')
+    .forEach((str) => {
+      const [key, value] = str.split('=');
+      append(decodeURIComponent(key), decodeURIComponent(value));
+    });
   return data;
 }
 function get_multipart(text, boundary) {
   const parts = text.split(`--${boundary}`);
-  if (parts[0] !== "" || parts[parts.length - 1].trim() !== "--") {
-    throw new Error("Malformed form data");
+  if (parts[0] !== '' || parts[parts.length - 1].trim() !== '--') {
+    throw new Error('Malformed form data');
   }
   const { data, append } = read_only_form_data();
   parts.slice(1, -1).forEach((part) => {
     const match = /\s*([\s\S]+?)\r\n\r\n([\s\S]*)\s*/.exec(part);
     if (!match) {
-      throw new Error("Malformed form data");
+      throw new Error('Malformed form data');
     }
     const raw_headers = match[1];
     const body = match[2].trim();
     let key;
     const headers = {};
-    raw_headers.split("\r\n").forEach((str) => {
-      const [raw_header, ...raw_directives] = str.split("; ");
-      let [name, value] = raw_header.split(": ");
+    raw_headers.split('\r\n').forEach((str) => {
+      const [raw_header, ...raw_directives] = str.split('; ');
+      let [name, value] = raw_header.split(': ');
       name = name.toLowerCase();
       headers[name] = value;
       const directives = {};
       raw_directives.forEach((raw_directive) => {
-        const [name2, value2] = raw_directive.split("=");
+        const [name2, value2] = raw_directive.split('=');
         directives[name2] = JSON.parse(value2);
       });
-      if (name === "content-disposition") {
-        if (value !== "form-data")
-          throw new Error("Malformed form data");
+      if (name === 'content-disposition') {
+        if (value !== 'form-data') throw new Error('Malformed form data');
         if (directives.filename) {
-          throw new Error("File upload is not yet implemented");
+          throw new Error('File upload is not yet implemented');
         }
         if (directives.name) {
           key = directives.name;
         }
       }
     });
-    if (!key)
-      throw new Error("Malformed form data");
+    if (!key) throw new Error('Malformed form data');
     append(key, body);
   });
   return data;
 }
 async function respond(incoming, options2, state = {}) {
-  if (incoming.path !== "/" && options2.trailing_slash !== "ignore") {
-    const has_trailing_slash = incoming.path.endsWith("/");
-    if (has_trailing_slash && options2.trailing_slash === "never" || !has_trailing_slash && options2.trailing_slash === "always" && !(incoming.path.split("/").pop() || "").includes(".")) {
-      const path = has_trailing_slash ? incoming.path.slice(0, -1) : incoming.path + "/";
+  if (incoming.path !== '/' && options2.trailing_slash !== 'ignore') {
+    const has_trailing_slash = incoming.path.endsWith('/');
+    if (
+      (has_trailing_slash && options2.trailing_slash === 'never') ||
+      (!has_trailing_slash &&
+        options2.trailing_slash === 'always' &&
+        !(incoming.path.split('/').pop() || '').includes('.'))
+    ) {
+      const path = has_trailing_slash
+        ? incoming.path.slice(0, -1)
+        : incoming.path + '/';
       const q = incoming.query.toString();
       return {
         status: 301,
         headers: {
-          location: options2.paths.base + path + (q ? `?${q}` : "")
-        }
+          location: options2.paths.base + path + (q ? `?${q}` : ''),
+        },
       };
     }
   }
@@ -6690,7 +8798,7 @@ async function respond(incoming, options2, state = {}) {
     headers,
     body: parse_body(incoming.rawBody, headers),
     params: {},
-    locals: {}
+    locals: {},
   };
   try {
     return await options2.hooks.handle({
@@ -6702,31 +8810,39 @@ async function respond(incoming, options2, state = {}) {
             $session: await options2.hooks.getSession(request2),
             page_config: { ssr: false, router: true, hydrate: true },
             status: 200,
-            branch: []
+            branch: [],
           });
         }
         const decoded = decodeURI(request2.path);
         for (const route of options2.manifest.routes) {
           const match = route.pattern.exec(decoded);
-          if (!match)
-            continue;
-          const response = route.type === "endpoint" ? await render_endpoint(request2, route, match) : await render_page(request2, route, match, options2, state);
+          if (!match) continue;
+          const response =
+            route.type === 'endpoint'
+              ? await render_endpoint(request2, route, match)
+              : await render_page(request2, route, match, options2, state);
           if (response) {
             if (response.status === 200) {
-              const cache_control = get_single_valued_header(response.headers, "cache-control");
-              if (!cache_control || !/(no-store|immutable)/.test(cache_control)) {
-                let if_none_match_value = request2.headers["if-none-match"];
+              const cache_control = get_single_valued_header(
+                response.headers,
+                'cache-control'
+              );
+              if (
+                !cache_control ||
+                !/(no-store|immutable)/.test(cache_control)
+              ) {
+                let if_none_match_value = request2.headers['if-none-match'];
                 if (if_none_match_value?.startsWith('W/"')) {
                   if_none_match_value = if_none_match_value.substring(2);
                 }
-                const etag = `"${hash(response.body || "")}"`;
+                const etag = `"${hash(response.body || '')}"`;
                 if (if_none_match_value === etag) {
                   return {
                     status: 304,
-                    headers: {}
+                    headers: {},
                   };
                 }
-                response.headers["etag"] = etag;
+                response.headers['etag'] = etag;
               }
             }
             return response;
@@ -6739,9 +8855,9 @@ async function respond(incoming, options2, state = {}) {
           state,
           $session,
           status: 404,
-          error: new Error(`Not found: ${request2.path}`)
+          error: new Error(`Not found: ${request2.path}`),
         });
-      }
+      },
     });
   } catch (err) {
     const e = coalesce_to_error(err);
@@ -6749,12 +8865,11 @@ async function respond(incoming, options2, state = {}) {
     return {
       status: 500,
       headers: {},
-      body: options2.dev ? e.stack : e.message
+      body: options2.dev ? e.stack : e.message,
     };
   }
 }
-function noop() {
-}
+function noop() {}
 function run(fn) {
   return fn();
 }
@@ -6765,7 +8880,9 @@ function run_all(fns) {
   fns.forEach(run);
 }
 function safe_not_equal(a, b) {
-  return a != a ? b == b : a !== b || (a && typeof a === "object" || typeof a === "function");
+  return a != a
+    ? b == b
+    : a !== b || (a && typeof a === 'object') || typeof a === 'function';
 }
 function subscribe(store, ...callbacks) {
   if (store == null) {
@@ -6775,7 +8892,7 @@ function subscribe(store, ...callbacks) {
   return unsub.unsubscribe ? () => unsub.unsubscribe() : unsub;
 }
 function custom_event(type, detail, bubbles = false) {
-  const e = document.createEvent("CustomEvent");
+  const e = document.createEvent('CustomEvent');
   e.initCustomEvent(type, bubbles, false, detail);
   return e;
 }
@@ -6784,7 +8901,7 @@ function set_current_component(component) {
 }
 function get_current_component() {
   if (!current_component)
-    throw new Error("Function called outside component initialization");
+    throw new Error('Function called outside component initialization');
   return current_component;
 }
 function createEventDispatcher() {
@@ -6806,7 +8923,7 @@ function escape(html) {
   return String(html).replace(/["'&<>]/g, (match) => escaped[match]);
 }
 function each(items, fn) {
-  let str = "";
+  let str = '';
   for (let i = 0; i < items.length; i += 1) {
     str += fn(items[i], i);
   }
@@ -6814,9 +8931,10 @@ function each(items, fn) {
 }
 function validate_component(component, name) {
   if (!component || !component.$$render) {
-    if (name === "svelte:component")
-      name += " this={...}";
-    throw new Error(`<${name}> is not a valid SSR component. You may need to review your build config to ensure that dependencies are compiled, rather than imported as pre-compiled modules`);
+    if (name === 'svelte:component') name += ' this={...}';
+    throw new Error(
+      `<${name}> is not a valid SSR component. You may need to review your build config to ensure that dependencies are compiled, rather than imported as pre-compiled modules`
+    );
   }
   return component;
 }
@@ -6825,11 +8943,13 @@ function create_ssr_component(fn) {
     const parent_component = current_component;
     const $$ = {
       on_destroy,
-      context: new Map(context || (parent_component ? parent_component.$$.context : [])),
+      context: new Map(
+        context || (parent_component ? parent_component.$$.context : [])
+      ),
       on_mount: [],
       before_update: [],
       after_update: [],
-      callbacks: blank_object()
+      callbacks: blank_object(),
     };
     set_current_component({ $$ });
     const html = fn(result, props, bindings, slots);
@@ -6839,34 +8959,41 @@ function create_ssr_component(fn) {
   return {
     render: (props = {}, { $$slots = {}, context = new Map() } = {}) => {
       on_destroy = [];
-      const result = { title: "", head: "", css: new Set() };
+      const result = { title: '', head: '', css: new Set() };
       const html = $$render(result, props, {}, $$slots, context);
       run_all(on_destroy);
       return {
         html,
         css: {
-          code: Array.from(result.css).map((css22) => css22.code).join("\n"),
-          map: null
+          code: Array.from(result.css)
+            .map((css22) => css22.code)
+            .join('\n'),
+          map: null,
         },
-        head: result.title + result.head
+        head: result.title + result.head,
       };
     },
-    $$render
+    $$render,
   };
 }
 function add_attribute(name, value, boolean) {
-  if (value == null || boolean && !value)
-    return "";
-  return ` ${name}${value === true ? "" : `=${typeof value === "string" ? JSON.stringify(escape(value)) : `"${value}"`}`}`;
+  if (value == null || (boolean && !value)) return '';
+  return ` ${name}${
+    value === true
+      ? ''
+      : `=${
+          typeof value === 'string'
+            ? JSON.stringify(escape(value))
+            : `"${value}"`
+        }`
+  }`;
 }
-function afterUpdate() {
-}
+function afterUpdate() {}
 function set_paths(paths) {
   base = paths.base;
   assets = paths.assets || base;
 }
-function set_prerendering(value) {
-}
+function set_prerendering(value) {}
 function init(settings = default_settings) {
   set_paths(settings.paths);
   set_prerendering(settings.prerendering || false);
@@ -6875,13 +9002,17 @@ function init(settings = default_settings) {
     amp: false,
     dev: false,
     entry: {
-      file: assets + "/_app/start-df5f08e1.js",
-      css: [assets + "/_app/assets/start-d5b4de3e.css"],
-      js: [assets + "/_app/start-df5f08e1.js", assets + "/_app/chunks/vendor-6ab337bd.js", assets + "/_app/chunks/preload-helper-ec9aa979.js"]
+      file: assets + '/_app/start-df5f08e1.js',
+      css: [assets + '/_app/assets/start-d5b4de3e.css'],
+      js: [
+        assets + '/_app/start-df5f08e1.js',
+        assets + '/_app/chunks/vendor-6ab337bd.js',
+        assets + '/_app/chunks/preload-helper-ec9aa979.js',
+      ],
     },
     fetched: void 0,
     floc: false,
-    get_component_path: (id) => assets + "/_app/" + entry_lookup[id],
+    get_component_path: (id) => assets + '/_app/' + entry_lookup[id],
     get_stack: (error2) => String(error2),
     handle_error: (error2, request) => {
       hooks.handleError({ error: error2, request });
@@ -6899,90 +9030,125 @@ function init(settings = default_settings) {
     service_worker: null,
     router: true,
     ssr: true,
-    target: "#svelte",
+    target: '#svelte',
     template,
-    trailing_slash: "never"
+    trailing_slash: 'never',
   };
 }
 async function load_component(file) {
   const { entry, css: css22, js, styles } = metadata_lookup[file];
   return {
     module: await module_lookup[file](),
-    entry: assets + "/_app/" + entry,
-    css: css22.map((dep) => assets + "/_app/" + dep),
-    js: js.map((dep) => assets + "/_app/" + dep),
-    styles
+    entry: assets + '/_app/' + entry,
+    css: css22.map((dep) => assets + '/_app/' + dep),
+    js: js.map((dep) => assets + '/_app/' + dep),
+    styles,
   };
 }
-function render(request, {
-  prerender
-} = {}) {
-  const host = request.headers["host"];
+function render(request, { prerender } = {}) {
+  const host = request.headers['host'];
   return respond({ ...request, host }, options, { prerender });
 }
-var __accessCheck, __privateGet, __privateAdd, __privateSet, _map, absolute, scheme, chars, unsafeChars, reserved, escaped$1, objectProtoOwnPropertyNames, subscriber_queue2, escape_json_string_in_html_dict, escape_html_attr_dict, s$1, s, ReadOnlyFormData, current_component, escaped, missing_component, on_destroy, css4, Root, base, assets, user_hooks, template, options, default_settings, d, empty, manifest, get_hooks, module_lookup, metadata_lookup;
+var __accessCheck,
+  __privateGet,
+  __privateAdd,
+  __privateSet,
+  _map,
+  absolute,
+  scheme,
+  chars,
+  unsafeChars,
+  reserved,
+  escaped$1,
+  objectProtoOwnPropertyNames,
+  subscriber_queue2,
+  escape_json_string_in_html_dict,
+  escape_html_attr_dict,
+  s$1,
+  s,
+  ReadOnlyFormData,
+  current_component,
+  escaped,
+  missing_component,
+  on_destroy,
+  css4,
+  Root,
+  base,
+  assets,
+  user_hooks,
+  template,
+  options,
+  default_settings,
+  d,
+  empty,
+  manifest,
+  get_hooks,
+  module_lookup,
+  metadata_lookup;
 var init_app_43d1dbc8 = __esm({
-  ".svelte-kit/output/server/chunks/app-43d1dbc8.js"() {
+  '.svelte-kit/output/server/chunks/app-43d1dbc8.js'() {
     init_shims();
     __accessCheck = (obj, member, msg) => {
-      if (!member.has(obj))
-        throw TypeError("Cannot " + msg);
+      if (!member.has(obj)) throw TypeError('Cannot ' + msg);
     };
     __privateGet = (obj, member, getter) => {
-      __accessCheck(obj, member, "read from private field");
+      __accessCheck(obj, member, 'read from private field');
       return getter ? getter.call(obj) : member.get(obj);
     };
     __privateAdd = (obj, member, value) => {
       if (member.has(obj))
-        throw TypeError("Cannot add the same private member more than once");
+        throw TypeError('Cannot add the same private member more than once');
       member instanceof WeakSet ? member.add(obj) : member.set(obj, value);
     };
     __privateSet = (obj, member, value, setter) => {
-      __accessCheck(obj, member, "write to private field");
+      __accessCheck(obj, member, 'write to private field');
       setter ? setter.call(obj, value) : member.set(obj, value);
       return value;
     };
     absolute = /^([a-z]+:)?\/?\//;
     scheme = /^[a-z]+:/;
-    chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_$";
+    chars = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ_$';
     unsafeChars = /[<>\b\f\n\r\t\0\u2028\u2029]/g;
-    reserved = /^(?:do|if|in|for|int|let|new|try|var|byte|case|char|else|enum|goto|long|this|void|with|await|break|catch|class|const|final|float|short|super|throw|while|yield|delete|double|export|import|native|return|switch|throws|typeof|boolean|default|extends|finally|package|private|abstract|continue|debugger|function|volatile|interface|protected|transient|implements|instanceof|synchronized)$/;
+    reserved =
+      /^(?:do|if|in|for|int|let|new|try|var|byte|case|char|else|enum|goto|long|this|void|with|await|break|catch|class|const|final|float|short|super|throw|while|yield|delete|double|export|import|native|return|switch|throws|typeof|boolean|default|extends|finally|package|private|abstract|continue|debugger|function|volatile|interface|protected|transient|implements|instanceof|synchronized)$/;
     escaped$1 = {
-      "<": "\\u003C",
-      ">": "\\u003E",
-      "/": "\\u002F",
-      "\\": "\\\\",
-      "\b": "\\b",
-      "\f": "\\f",
-      "\n": "\\n",
-      "\r": "\\r",
-      "	": "\\t",
-      "\0": "\\0",
-      "\u2028": "\\u2028",
-      "\u2029": "\\u2029"
+      '<': '\\u003C',
+      '>': '\\u003E',
+      '/': '\\u002F',
+      '\\': '\\\\',
+      '\b': '\\b',
+      '\f': '\\f',
+      '\n': '\\n',
+      '\r': '\\r',
+      '	': '\\t',
+      '\0': '\\0',
+      '\u2028': '\\u2028',
+      '\u2029': '\\u2029',
     };
-    objectProtoOwnPropertyNames = Object.getOwnPropertyNames(Object.prototype).sort().join("\0");
+    objectProtoOwnPropertyNames = Object.getOwnPropertyNames(Object.prototype)
+      .sort()
+      .join('\0');
     Promise.resolve();
     subscriber_queue2 = [];
     escape_json_string_in_html_dict = {
       '"': '\\"',
-      "<": "\\u003C",
-      ">": "\\u003E",
-      "/": "\\u002F",
-      "\\": "\\\\",
-      "\b": "\\b",
-      "\f": "\\f",
-      "\n": "\\n",
-      "\r": "\\r",
-      "	": "\\t",
-      "\0": "\\0",
-      "\u2028": "\\u2028",
-      "\u2029": "\\u2029"
+      '<': '\\u003C',
+      '>': '\\u003E',
+      '/': '\\u002F',
+      '\\': '\\\\',
+      '\b': '\\b',
+      '\f': '\\f',
+      '\n': '\\n',
+      '\r': '\\r',
+      '	': '\\t',
+      '\0': '\\0',
+      '\u2028': '\\u2028',
+      '\u2029': '\\u2029',
     };
     escape_html_attr_dict = {
-      "<": "&lt;",
-      ">": "&gt;",
-      '"': "&quot;"
+      '<': '&lt;',
+      '>': '&gt;',
+      '"': '&quot;',
     };
     s$1 = JSON.stringify;
     s = JSON.stringify;
@@ -7016,8 +9182,7 @@ var init_app_43d1dbc8 = __esm({
         }
       }
       *keys() {
-        for (const [key] of __privateGet(this, _map))
-          yield key;
+        for (const [key] of __privateGet(this, _map)) yield key;
       }
       *values() {
         for (const [, value] of __privateGet(this, _map)) {
@@ -7030,18 +9195,18 @@ var init_app_43d1dbc8 = __esm({
     _map = new WeakMap();
     Promise.resolve();
     escaped = {
-      '"': "&quot;",
-      "'": "&#39;",
-      "&": "&amp;",
-      "<": "&lt;",
-      ">": "&gt;"
+      '"': '&quot;',
+      "'": '&#39;',
+      '&': '&amp;',
+      '<': '&lt;',
+      '>': '&gt;',
     };
     missing_component = {
-      $$render: () => ""
+      $$render: () => '',
     };
     css4 = {
-      code: "#svelte-announcer.svelte-1j55zn5{position:absolute;left:0;top:0;clip:rect(0 0 0 0);clip-path:inset(50%);overflow:hidden;white-space:nowrap;width:1px;height:1px}",
-      map: null
+      code: '#svelte-announcer.svelte-1j55zn5{position:absolute;left:0;top:0;clip:rect(0 0 0 0);clip-path:inset(50%);overflow:hidden;white-space:nowrap;width:1px;height:1px}',
+      map: null,
     };
     Root = create_ssr_component(($$result, $$props, $$bindings, slots) => {
       let { stores } = $$props;
@@ -7051,21 +9216,41 @@ var init_app_43d1dbc8 = __esm({
       let { props_1 = null } = $$props;
       let { props_2 = null } = $$props;
       let { props_3 = null } = $$props;
-      setContext("__svelte__", stores);
+      setContext('__svelte__', stores);
       afterUpdate(stores.page.notify);
       if ($$props.stores === void 0 && $$bindings.stores && stores !== void 0)
         $$bindings.stores(stores);
       if ($$props.page === void 0 && $$bindings.page && page !== void 0)
         $$bindings.page(page);
-      if ($$props.components === void 0 && $$bindings.components && components !== void 0)
+      if (
+        $$props.components === void 0 &&
+        $$bindings.components &&
+        components !== void 0
+      )
         $$bindings.components(components);
-      if ($$props.props_0 === void 0 && $$bindings.props_0 && props_0 !== void 0)
+      if (
+        $$props.props_0 === void 0 &&
+        $$bindings.props_0 &&
+        props_0 !== void 0
+      )
         $$bindings.props_0(props_0);
-      if ($$props.props_1 === void 0 && $$bindings.props_1 && props_1 !== void 0)
+      if (
+        $$props.props_1 === void 0 &&
+        $$bindings.props_1 &&
+        props_1 !== void 0
+      )
         $$bindings.props_1(props_1);
-      if ($$props.props_2 === void 0 && $$bindings.props_2 && props_2 !== void 0)
+      if (
+        $$props.props_2 === void 0 &&
+        $$bindings.props_2 &&
+        props_2 !== void 0
+      )
         $$bindings.props_2(props_2);
-      if ($$props.props_3 === void 0 && $$bindings.props_3 && props_3 !== void 0)
+      if (
+        $$props.props_3 === void 0 &&
+        $$bindings.props_3 &&
+        props_3 !== void 0
+      )
         $$bindings.props_3(props_3);
       $$result.css.add(css4);
       {
@@ -7074,92 +9259,274 @@ var init_app_43d1dbc8 = __esm({
       return `
 
 
-${validate_component(components[0] || missing_component, "svelte:component").$$render($$result, Object.assign(props_0 || {}), {}, {
-        default: () => `${components[1] ? `${validate_component(components[1] || missing_component, "svelte:component").$$render($$result, Object.assign(props_1 || {}), {}, {
-          default: () => `${components[2] ? `${validate_component(components[2] || missing_component, "svelte:component").$$render($$result, Object.assign(props_2 || {}), {}, {
-            default: () => `${components[3] ? `${validate_component(components[3] || missing_component, "svelte:component").$$render($$result, Object.assign(props_3 || {}), {}, {})}` : ``}`
-          })}` : ``}`
-        })}` : ``}`
-      })}
+${validate_component(
+  components[0] || missing_component,
+  'svelte:component'
+).$$render(
+  $$result,
+  Object.assign(props_0 || {}),
+  {},
+  {
+    default: () =>
+      `${
+        components[1]
+          ? `${validate_component(
+              components[1] || missing_component,
+              'svelte:component'
+            ).$$render(
+              $$result,
+              Object.assign(props_1 || {}),
+              {},
+              {
+                default: () =>
+                  `${
+                    components[2]
+                      ? `${validate_component(
+                          components[2] || missing_component,
+                          'svelte:component'
+                        ).$$render(
+                          $$result,
+                          Object.assign(props_2 || {}),
+                          {},
+                          {
+                            default: () =>
+                              `${
+                                components[3]
+                                  ? `${validate_component(
+                                      components[3] || missing_component,
+                                      'svelte:component'
+                                    ).$$render(
+                                      $$result,
+                                      Object.assign(props_3 || {}),
+                                      {},
+                                      {}
+                                    )}`
+                                  : ``
+                              }`,
+                          }
+                        )}`
+                      : ``
+                  }`,
+              }
+            )}`
+          : ``
+      }`,
+  }
+)}
 
 ${``}`;
     });
-    base = "";
-    assets = "";
+    base = '';
+    assets = '';
     user_hooks = /* @__PURE__ */ Object.freeze({
       __proto__: null,
-      [Symbol.toStringTag]: "Module"
+      [Symbol.toStringTag]: 'Module',
     });
-    template = ({ head, body }) => '<!DOCTYPE html>\n<html lang="en">\n  <head>\n    <meta charset="utf-8" />\n    <link rel="icon" href="/favicon.svg" />\n    <title>Antonio Rossi Website</title>\n    <meta\n      name="description"\n      content="Antonio Rossi personal website. Blogging about open source, development and simple leaving."\n    />\n    <meta name="viewport" content="width=device-width, initial-scale=1" />\n    <link rel="preconnect" href="https://fonts.googleapis.com" />\n    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />\n    <link\n      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&family=Poppins&display=swap"\n      rel="stylesheet"\n    />\n    ' + head + '\n  </head>\n  <body>\n    <div id="svelte">' + body + "</div>\n  </body>\n</html>\n";
+    template = ({ head, body }) =>
+      '<!DOCTYPE html>\n<html lang="en">\n  <head>\n    <meta charset="utf-8" />\n    <link rel="icon" href="/favicon.svg" />\n    <title>Antonio Rossi Website</title>\n    <meta\n      name="description"\n      content="Antonio Rossi personal website. Blogging about open source, development and simple leaving."\n    />\n    <meta name="viewport" content="width=device-width, initial-scale=1" />\n    <link rel="preconnect" href="https://fonts.googleapis.com" />\n    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />\n    <link\n      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@700&family=Poppins&display=swap"\n      rel="stylesheet"\n    />\n    ' +
+      head +
+      '\n  </head>\n  <body>\n    <div id="svelte">' +
+      body +
+      '</div>\n  </body>\n</html>\n';
     options = null;
-    default_settings = { paths: { "base": "", "assets": "" } };
-    d = (s2) => s2.replace(/%23/g, "#").replace(/%3[Bb]/g, ";").replace(/%2[Cc]/g, ",").replace(/%2[Ff]/g, "/").replace(/%3[Ff]/g, "?").replace(/%3[Aa]/g, ":").replace(/%40/g, "@").replace(/%26/g, "&").replace(/%3[Dd]/g, "=").replace(/%2[Bb]/g, "+").replace(/%24/g, "$");
+    default_settings = { paths: { base: '', assets: '' } };
+    d = (s2) =>
+      s2
+        .replace(/%23/g, '#')
+        .replace(/%3[Bb]/g, ';')
+        .replace(/%2[Cc]/g, ',')
+        .replace(/%2[Ff]/g, '/')
+        .replace(/%3[Ff]/g, '?')
+        .replace(/%3[Aa]/g, ':')
+        .replace(/%40/g, '@')
+        .replace(/%26/g, '&')
+        .replace(/%3[Dd]/g, '=')
+        .replace(/%2[Bb]/g, '+')
+        .replace(/%24/g, '$');
     empty = () => ({});
     manifest = {
-      assets: [{ "file": "favicon.svg", "size": 2235, "type": "image/svg+xml" }, { "file": "fonts/Biotif-Regular.ttf", "size": 252984, "type": "font/ttf" }, { "file": "fonts/CormorantGaramond-Bold.ttf", "size": 641560, "type": "font/ttf" }],
-      layout: "src/routes/__layout.svelte",
-      error: "src/routes/__error.svelte",
+      assets: [
+        { file: 'favicon.svg', size: 2235, type: 'image/svg+xml' },
+        { file: 'fonts/Biotif-Regular.ttf', size: 252984, type: 'font/ttf' },
+        {
+          file: 'fonts/CormorantGaramond-Bold.ttf',
+          size: 641560,
+          type: 'font/ttf',
+        },
+      ],
+      layout: 'src/routes/__layout.svelte',
+      error: 'src/routes/__error.svelte',
       routes: [
         {
-          type: "page",
+          type: 'page',
           pattern: /^\/$/,
           params: empty,
-          a: ["src/routes/__layout.svelte", "src/routes/index.svelte"],
-          b: ["src/routes/__error.svelte"]
+          a: ['src/routes/__layout.svelte', 'src/routes/index.svelte'],
+          b: ['src/routes/__error.svelte'],
         },
         {
-          type: "page",
+          type: 'page',
           pattern: /^\/career\/?$/,
           params: empty,
-          a: ["src/routes/__layout.svelte", "src/routes/career.svelte"],
-          b: ["src/routes/__error.svelte"]
+          a: ['src/routes/__layout.svelte', 'src/routes/career.svelte'],
+          b: ['src/routes/__error.svelte'],
         },
         {
-          type: "page",
+          type: 'page',
           pattern: /^\/posts\/?$/,
           params: empty,
-          a: ["src/routes/__layout.svelte", "src/routes/posts/__layout.svelte", "src/routes/posts/index.svelte"],
-          b: ["src/routes/__error.svelte"]
+          a: [
+            'src/routes/__layout.svelte',
+            'src/routes/posts/__layout.svelte',
+            'src/routes/posts/index.svelte',
+          ],
+          b: ['src/routes/__error.svelte'],
         },
         {
-          type: "page",
+          type: 'page',
           pattern: /^\/posts\/about\/?$/,
           params: empty,
-          a: ["src/routes/__layout.svelte", "src/routes/posts/__layout.svelte", "src/routes/posts/about.svelte"],
-          b: ["src/routes/__error.svelte"]
+          a: [
+            'src/routes/__layout.svelte',
+            'src/routes/posts/__layout.svelte',
+            'src/routes/posts/about.svelte',
+          ],
+          b: ['src/routes/__error.svelte'],
         },
         {
-          type: "page",
+          type: 'page',
           pattern: /^\/posts\/([^/]+?)-([^/]+?)\/?$/,
           params: (m) => ({ type: d(m[1]), slug: d(m[2]) }),
-          a: ["src/routes/__layout.svelte", "src/routes/posts/__layout.svelte", "src/routes/posts/[type]-[slug].svelte"],
-          b: ["src/routes/__error.svelte"]
-        }
-      ]
+          a: [
+            'src/routes/__layout.svelte',
+            'src/routes/posts/__layout.svelte',
+            'src/routes/posts/[type]-[slug].svelte',
+          ],
+          b: ['src/routes/__error.svelte'],
+        },
+      ],
     };
     get_hooks = (hooks) => ({
       getSession: hooks.getSession || (() => ({})),
-      handle: hooks.handle || (({ request, resolve: resolve2 }) => resolve2(request)),
-      handleError: hooks.handleError || (({ error: error2 }) => console.error(error2.stack)),
-      externalFetch: hooks.externalFetch || fetch
+      handle:
+        hooks.handle || (({ request, resolve: resolve2 }) => resolve2(request)),
+      handleError:
+        hooks.handleError ||
+        (({ error: error2 }) => console.error(error2.stack)),
+      externalFetch: hooks.externalFetch || fetch,
     });
     module_lookup = {
-      "src/routes/__layout.svelte": () => Promise.resolve().then(() => (init_layout_519d3e8d(), layout_519d3e8d_exports)),
-      "src/routes/__error.svelte": () => Promise.resolve().then(() => (init_error_b6ee1e65(), error_b6ee1e65_exports)),
-      "src/routes/index.svelte": () => Promise.resolve().then(() => (init_index_8dd398aa(), index_8dd398aa_exports)),
-      "src/routes/career.svelte": () => Promise.resolve().then(() => (init_career_51c26a70(), career_51c26a70_exports)),
-      "src/routes/posts/__layout.svelte": () => Promise.resolve().then(() => (init_layout_cd2d6914(), layout_cd2d6914_exports)),
-      "src/routes/posts/index.svelte": () => Promise.resolve().then(() => (init_index_df556e47(), index_df556e47_exports)),
-      "src/routes/posts/about.svelte": () => Promise.resolve().then(() => (init_about_96338cb9(), about_96338cb9_exports)),
-      "src/routes/posts/[type]-[slug].svelte": () => Promise.resolve().then(() => (init_type_slug_fff5b35e(), type_slug_fff5b35e_exports))
+      'src/routes/__layout.svelte': () =>
+        Promise.resolve().then(
+          () => (init_layout_519d3e8d(), layout_519d3e8d_exports)
+        ),
+      'src/routes/__error.svelte': () =>
+        Promise.resolve().then(
+          () => (init_error_b6ee1e65(), error_b6ee1e65_exports)
+        ),
+      'src/routes/index.svelte': () =>
+        Promise.resolve().then(
+          () => (init_index_8dd398aa(), index_8dd398aa_exports)
+        ),
+      'src/routes/career.svelte': () =>
+        Promise.resolve().then(
+          () => (init_career_51c26a70(), career_51c26a70_exports)
+        ),
+      'src/routes/posts/__layout.svelte': () =>
+        Promise.resolve().then(
+          () => (init_layout_cd2d6914(), layout_cd2d6914_exports)
+        ),
+      'src/routes/posts/index.svelte': () =>
+        Promise.resolve().then(
+          () => (init_index_df556e47(), index_df556e47_exports)
+        ),
+      'src/routes/posts/about.svelte': () =>
+        Promise.resolve().then(
+          () => (init_about_96338cb9(), about_96338cb9_exports)
+        ),
+      'src/routes/posts/[type]-[slug].svelte': () =>
+        Promise.resolve().then(
+          () => (init_type_slug_fff5b35e(), type_slug_fff5b35e_exports)
+        ),
     };
-    metadata_lookup = { "src/routes/__layout.svelte": { "entry": "pages/__layout.svelte-7bcaca63.js", "css": ["assets/pages/__layout.svelte-8c763384.css"], "js": ["pages/__layout.svelte-7bcaca63.js", "chunks/vendor-6ab337bd.js"], "styles": [] }, "src/routes/__error.svelte": { "entry": "pages/__error.svelte-a24e8796.js", "css": [], "js": ["pages/__error.svelte-a24e8796.js", "chunks/vendor-6ab337bd.js"], "styles": [] }, "src/routes/index.svelte": { "entry": "pages/index.svelte-5f8003f8.js", "css": ["assets/pages/index.svelte-7fa6bc33.css"], "js": ["pages/index.svelte-5f8003f8.js", "chunks/hello copy 2-eb38719d.js", "chunks/vendor-6ab337bd.js", "chunks/hello copy 3-999aa215.js", "chunks/hello-8b0ff02d.js", "chunks/hello2 copy 2-5a288e7f.js", "chunks/hello2 copy-db86ca68.js", "chunks/hello2-a5908880.js"], "styles": [] }, "src/routes/career.svelte": { "entry": "pages/career.svelte-2b612ee4.js", "css": ["assets/pages/career.svelte-b389d76d.css"], "js": ["pages/career.svelte-2b612ee4.js", "chunks/vendor-6ab337bd.js"], "styles": [] }, "src/routes/posts/__layout.svelte": { "entry": "pages/posts/__layout.svelte-0ee2a8ff.js", "css": [], "js": ["pages/posts/__layout.svelte-0ee2a8ff.js", "chunks/vendor-6ab337bd.js"], "styles": [] }, "src/routes/posts/index.svelte": { "entry": "pages/posts/index.svelte-e03e9d44.js", "css": [], "js": ["pages/posts/index.svelte-e03e9d44.js", "chunks/vendor-6ab337bd.js"], "styles": [] }, "src/routes/posts/about.svelte": { "entry": "pages/posts/about.svelte-a6c1b549.js", "css": [], "js": ["pages/posts/about.svelte-a6c1b549.js", "chunks/vendor-6ab337bd.js"], "styles": [] }, "src/routes/posts/[type]-[slug].svelte": { "entry": "pages/posts/[type]-[slug].svelte-1963edcb.js", "css": [], "js": ["pages/posts/[type]-[slug].svelte-1963edcb.js", "chunks/preload-helper-ec9aa979.js", "chunks/vendor-6ab337bd.js"], "styles": [] } };
-  }
+    metadata_lookup = {
+      'src/routes/__layout.svelte': {
+        entry: 'pages/__layout.svelte-7bcaca63.js',
+        css: ['assets/pages/__layout.svelte-8c763384.css'],
+        js: ['pages/__layout.svelte-7bcaca63.js', 'chunks/vendor-6ab337bd.js'],
+        styles: [],
+      },
+      'src/routes/__error.svelte': {
+        entry: 'pages/__error.svelte-a24e8796.js',
+        css: [],
+        js: ['pages/__error.svelte-a24e8796.js', 'chunks/vendor-6ab337bd.js'],
+        styles: [],
+      },
+      'src/routes/index.svelte': {
+        entry: 'pages/index.svelte-5f8003f8.js',
+        css: ['assets/pages/index.svelte-7fa6bc33.css'],
+        js: [
+          'pages/index.svelte-5f8003f8.js',
+          'chunks/hello copy 2-eb38719d.js',
+          'chunks/vendor-6ab337bd.js',
+          'chunks/hello copy 3-999aa215.js',
+          'chunks/hello-8b0ff02d.js',
+          'chunks/hello2 copy 2-5a288e7f.js',
+          'chunks/hello2 copy-db86ca68.js',
+          'chunks/hello2-a5908880.js',
+        ],
+        styles: [],
+      },
+      'src/routes/career.svelte': {
+        entry: 'pages/career.svelte-2b612ee4.js',
+        css: ['assets/pages/career.svelte-b389d76d.css'],
+        js: ['pages/career.svelte-2b612ee4.js', 'chunks/vendor-6ab337bd.js'],
+        styles: [],
+      },
+      'src/routes/posts/__layout.svelte': {
+        entry: 'pages/posts/__layout.svelte-0ee2a8ff.js',
+        css: [],
+        js: [
+          'pages/posts/__layout.svelte-0ee2a8ff.js',
+          'chunks/vendor-6ab337bd.js',
+        ],
+        styles: [],
+      },
+      'src/routes/posts/index.svelte': {
+        entry: 'pages/posts/index.svelte-e03e9d44.js',
+        css: [],
+        js: [
+          'pages/posts/index.svelte-e03e9d44.js',
+          'chunks/vendor-6ab337bd.js',
+        ],
+        styles: [],
+      },
+      'src/routes/posts/about.svelte': {
+        entry: 'pages/posts/about.svelte-a6c1b549.js',
+        css: [],
+        js: [
+          'pages/posts/about.svelte-a6c1b549.js',
+          'chunks/vendor-6ab337bd.js',
+        ],
+        styles: [],
+      },
+      'src/routes/posts/[type]-[slug].svelte': {
+        entry: 'pages/posts/[type]-[slug].svelte-1963edcb.js',
+        css: [],
+        js: [
+          'pages/posts/[type]-[slug].svelte-1963edcb.js',
+          'chunks/preload-helper-ec9aa979.js',
+          'chunks/vendor-6ab337bd.js',
+        ],
+        styles: [],
+      },
+    };
+  },
 });
 
 // .svelte-kit/netlify/entry.js
 __export(exports, {
-  handler: () => handler
+  handler: () => handler,
 });
 init_shims();
 
@@ -7172,35 +9539,37 @@ init();
 async function handler(event) {
   const { path, httpMethod, headers, rawQuery, body, isBase64Encoded } = event;
   const query = new URLSearchParams(rawQuery);
-  const encoding = isBase64Encoded ? "base64" : headers["content-encoding"] || "utf-8";
-  const rawBody = typeof body === "string" ? Buffer.from(body, encoding) : body;
+  const encoding = isBase64Encoded
+    ? 'base64'
+    : headers['content-encoding'] || 'utf-8';
+  const rawBody = typeof body === 'string' ? Buffer.from(body, encoding) : body;
   const rendered = await render({
     method: httpMethod,
     headers,
     path,
     query,
-    rawBody
+    rawBody,
   });
   if (!rendered) {
     return {
       statusCode: 404,
-      body: "Not found"
+      body: 'Not found',
     };
   }
   const partial_response = {
     statusCode: rendered.status,
-    ...split_headers(rendered.headers)
+    ...split_headers(rendered.headers),
   };
   if (rendered.body instanceof Uint8Array) {
     return {
       ...partial_response,
       isBase64Encoded: true,
-      body: Buffer.from(rendered.body).toString("base64")
+      body: Buffer.from(rendered.body).toString('base64'),
     };
   }
   return {
     ...partial_response,
-    body: rendered.body
+    body: rendered.body,
   };
 }
 function split_headers(headers) {
@@ -7213,11 +9582,12 @@ function split_headers(headers) {
   }
   return {
     headers: h,
-    multiValueHeaders: m
+    multiValueHeaders: m,
   };
 }
 // Annotate the CommonJS export names for ESM import in node:
-0 && (module.exports = {
-  handler
-});
+0 &&
+  (module.exports = {
+    handler,
+  });
 /*! fetch-blob. MIT License. Jimmy Wärting <https://jimmy.warting.se/opensource> */

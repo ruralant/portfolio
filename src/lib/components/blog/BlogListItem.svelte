@@ -1,13 +1,5 @@
 <script>
   import ArrowRight from '../icons/ArrowRight.svelte';
-
-  const formatDate = (date) => {
-    const jsDate = new Date(date);
-    return `${jsDate.getDate()}-${
-      jsDate.getMonth() + 1
-    }-${jsDate.getFullYear()}`;
-  };
-
   export let post;
 </script>
 
@@ -18,25 +10,23 @@
   >
     <div>
       <a href={`/blog/${post.type}/${post.slug}`}>
-        <span class="title-text">{post.title}</span>
+        <span
+          class="title-text bg-gradient-271 from-darkFromColor via-lightViaColor1 via-darkViaColor2 to-lightToColor dark:from-darkFromColor dark:via-darkViaColor1 dark:via-darkViaColor2 dark:to-darkToColor"
+          >{post.title}</span
+        >
       </a>
       <div class="flex my-4">
         <span
-          class="capitalize mr-2 inline-flex rounded-md shadow-sm px-2 py-1 bg-white text-xs text-neutral-600 bg-neutral-200 dark:text-neutral-300 dark:bg-neutral-800"
+          class="capitalize mr-2 inline-flex rounded-md shadow-sm px-2 py-1 bg-white text-xs text-neutral-600 bg-neutral-200 dark:text-neutral-300 dark:bg-neutral-800 duration-300 ease-in-out"
           >{post.type}</span
         >
         <span
-          class="capitalize mr-2 inline-flex rounded-md shadow-sm px-2 py-1 bg-white text-xs text-neutral-600 bg-neutral-200 dark:text-neutral-300 dark:bg-neutral-800"
+          class="capitalize mr-2 inline-flex rounded-md shadow-sm px-2 py-1 bg-white text-xs text-neutral-600 bg-neutral-200 dark:text-neutral-300 dark:bg-neutral-800 duration-300 ease-in-out"
           >{post.category}</span
         >
-        <!-- <p
-          class="text-black dark:text-white transition duration-501 ease-in-out"
-        >
-          {formatDate(post.date)}
-        </p> -->
       </div>
       <p
-        class="text-black dark:text-white mt-4 transition duration-501 ease-in-out"
+        class="text-neutral-800 dark:text-white mt-4 transition duration-300 ease-in-out"
       >
         {post.subtitle}
       </p>
@@ -63,19 +53,9 @@
       'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
       'Helvetica Neue', sans-serif;
     color: #fff;
-    background: linear-gradient(
-      271deg,
-      #8797e8 30%,
-      #a162e8 50%,
-      #f093b0 70%,
-      #dab56c 94%
-    );
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
     font-weight: 500;
     margin: 0;
     line-height: 1.15;
     font-size: 2rem;
-    /* padding-left: 10%; */
   }
 </style>
