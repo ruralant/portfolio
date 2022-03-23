@@ -78,13 +78,13 @@
     width: 200;
   }
   .interactive-text {
-    font-size: 2.5rem;
-    font-weight: 500;
+    /* font-size: 2.5rem; */
+    font-weight: 700;
     /* /* font-weight: 500; */
-    color: var(--color-text-primary);
+    /* color: var(--color-text-primary);
     -webkit-text-fill-color: transparent;
     -webkit-text-stroke-width: 1.4px;
-    -webkit-text-stroke-color: var(--color-text-primary);
+    -webkit-text-stroke-color: var(--color-text-primary); */
   }
   .interactive-text:hover {
     -webkit-text-fill-color: var(--color-text-primary);
