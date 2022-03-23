@@ -135,14 +135,18 @@
 <!-- <div class="w-1/3 h-0.5 m-auto bg-spaceGrey dark:bg-white mb-20" /> -->
 <style>
   .title-text {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+      Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
+      sans-serif;
     font-weight: 500;
     margin: 0;
     line-height: 1.15;
     font-size: 3rem;
   }
   .subtitle {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+      Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
+      sans-serif;
     font-weight: 500;
     margin-top: 10px;
     line-height: 1.7;
