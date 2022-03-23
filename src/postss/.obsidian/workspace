@@ -1,0 +1,94 @@
+{
+  "main": {
+    "id": "ead1bce78815a5b9",
+    "type": "split",
+    "children": [
+      {
+        "id": "a0ff0271576617b6",
+        "type": "leaf",
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "development/a-b-testing-firebase.md",
+            "mode": "source"
+          }
+        }
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "a0c4c67e2aa9557a",
+    "type": "split",
+    "children": [
+      {
+        "id": "ff4bc10624239901",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "4a1fd79385d0e5be",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "599833cc29a9305b",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "03a32ec305b018a8",
+    "type": "split",
+    "children": [
+      {
+        "id": "31be854f3c2ae881",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "35190cf345849551",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "development/a-b-testing-firebase.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "a0ff0271576617b6",
+  "lastOpenFiles": [
+    "development/a-b-testing-firebase.md",
+    "development/deep-linking-react-native.md"
+  ]
+}

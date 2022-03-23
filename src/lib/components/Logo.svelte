@@ -10,6 +10,8 @@
 
 <style>
   .logo-text {
-    font-family: 'Cormorant Garamond', serif;
+    font-family: 'Cormorant Garamond', -apple-system, BlinkMacSystemFont,
+      'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans',
+      'Helvetica Neue', sans-serif;
   }
 </style>

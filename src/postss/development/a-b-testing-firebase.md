@@ -39,7 +39,9 @@ Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium dolo
 
 <style>
   * {
-    font-family: 'Roboto Serif', serif;
+    font-family: 'Roboto Serif', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+      Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
+      sans-serif;
     transition: all 0.2s ease-in-out;
   }
   h1 {
