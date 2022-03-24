@@ -8,7 +8,7 @@
 
 <div class="text-neutral-800 dark:text-white">
   <slot />
-  <div class="flex mt-5 underline">
+  <div class="flex my-10 underline">
     <ArrowLeft />
     <button class="font-Poppins ml-2" on:click={goBack}>Go back</button>
   </div>

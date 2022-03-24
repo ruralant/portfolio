@@ -1,5 +1,9 @@
+<script>
+  import Email from '$lib/components/icons/Email.svelte';
+</script>
+
 <div
-  class="main-container flex flex-col justify-center items-center flex-wrap bg-spaceWhite dark:bg-spaceGrey transition duration-300 ease-in-out pb-16"
+  class="main-container flex flex-col justify-center items-center flex-wrap bg-spaceWhite dark:bg-spaceGrey transition duration-300 ease-in-out pb-10 lg:pb-16"
 >
   <div class="flex">
     <h2
@@ -23,6 +27,8 @@
       <a
         class="social-media-container text-neutral-800 dark:text-white transition duration-300 ease-in-out"
         href="https://twitter.com/ilreddo"
+        target="_blank"
+        rel="noopener noreferrer"
         aria-label="Twitter logo"
       >
         <svg
@@ -40,6 +46,8 @@
       <a
         class="social-media-container text-neutral-800 dark:text-white transition duration-300 ease-in-out"
         href="https://www.linkedin.com/in/antoniorossii/"
+        target="_blank"
+        rel="noopener noreferrer"
         aria-label="LinkedIn logo"
       >
         <svg
@@ -53,6 +61,13 @@
             d="M30.2 17.7v10.7c0 .3-.2.5-.5.5h-5.5c-.3 0-.5-.2-.5-.5v-9.9c0-2.6-.9-4.4-3.3-4.4-1.8 0-2.8 1.2-3.3 2.4-.2.4-.2 1-.2 1.6v10.4c0 .3-.2.5-.5.5h-5.5c-.3 0-.5-.2-.5-.5 0-2.6.1-15.5 0-18.5 0-.3.2-.5.5-.5h5.5c.3 0 .5.2.5.5v2.4-.1c.9-1.3 2.4-3.2 5.8-3.2 4.3-.2 7.5 2.6 7.5 8.6zM.9 28.9h5.5c.3 0 .5-.2.5-.5V9.9c0-.3-.2-.5-.5-.5H.9c-.3 0-.5.2-.5.5v18.5c0 .2.2.5.5.5zM6.9 3.5C6.9 5.4 5.3 7 3.4 7S0 5.4 0 3.5 1.6 0 3.5 0s3.4 1.6 3.4 3.5z"
           />
         </svg>
+      </a>
+      <a
+        class="social-media-container text-neutral-800 dark:text-white transition duration-300 ease-in-out"
+        href="mailto:hello@antoniorossi.net"
+        aria-label="mail icon"
+      >
+        <Email />
       </a>
     </div>
   </div>
