@@ -1,5 +1,5 @@
 <div
-  class="main-container bg-spaceWhite dark:bg-spaceGrey transition duration-300 ease-in-out pb-10"
+  class="main-container bg-spaceWhite dark:bg-spaceGrey transition duration-300 ease-in-out pt-5 pb-24"
 >
   <div class="title">
     <h2
@@ -61,7 +61,6 @@
 
 <style>
   .main-container {
-    height: 50vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
