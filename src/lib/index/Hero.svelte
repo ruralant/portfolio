@@ -2,7 +2,7 @@
   import meImage from '$lib/assets/images/me-b-and-w-small.jpg';
 </script>
 
-<div class="main-container py-10 sm:pt-9">
+<div class="main-container pt-10 sm:pt-9">
   <div class="text-container">
     <div class="title-container">
       <h1 class="title">

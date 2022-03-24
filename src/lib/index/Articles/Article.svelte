@@ -5,7 +5,7 @@
 </script>
 
 <li
-  class="max-w-sm h-60 rounded-md overflow-hidden bg-white dark:bg-neutral-900 duration-300 ease-in-out shadow-lg flex flex-col justify-between p-6"
+  class="max-w-sm h-60 rounded-md overflow-hidden bg-white dark:bg-neutral-800 duration-300 ease-in-out shadow-lg flex flex-col justify-between p-6"
 >
   <div>
     <div
@@ -20,7 +20,7 @@
   <div>
     {#each tags as tag}
       <span
-        class="capitalize mr-2 inline-flex rounded-md shadow-sm px-2 py-1 bg-white text-xs text-neutral-600 bg-neutral-200 dark:text-neutral-300 dark:bg-neutral-800 duration-300 ease-in-out"
+        class="capitalize mr-2 inline-flex rounded-md shadow-sm px-2 py-1 bg-white text-xs text-neutral-600 bg-neutral-200 dark:text-neutral-300 dark:bg-neutral-700 duration-300 ease-in-out"
         >{tag}</span
       >
     {/each}
