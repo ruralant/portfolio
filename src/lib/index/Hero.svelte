@@ -1,5 +1,6 @@
 <script>
   import meImage from '$lib/assets/images/me-b-and-w-small.jpg';
+  import meImageWebp from '$lib/assets/images/me-b-and-w-small.webp';
 </script>
 
 <div class="main-container pt-10 sm:pt-9">
@@ -32,13 +33,17 @@
     </div>
   </div>
   <div class="image-container mt-5 mx-5 sm:m-5 lg:ml-20">
-    <img
-      src={meImage}
-      alt="myself speaking in public"
-      width={400}
-      height={400}
-      placeholder="blur"
-    />
+    <picture>
+      <source type="image/webp" srcset={meImageWebp} />
+      <source type="image/jpeg" srcset={meImage} />
+      <img
+        src={meImage}
+        alt="myself speaking in public"
+        width={400}
+        height={400}
+        placeholder="blur"
+      />
+    </picture>
   </div>
 </div>
 
