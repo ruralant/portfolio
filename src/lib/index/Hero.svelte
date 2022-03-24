@@ -6,12 +6,14 @@
 <div class="main-container pt-10 sm:pt-9">
   <div class="text-container">
     <div class="title-container">
-      <h1 class="title">
-        <span
-          class="title-text font-Cormorant bg-gradient-271 from-darkFromColor via-darkViaColor1 via-lightViaColor2 to-lightToColor dark:from-darkFromColor dark:via-darkViaColor1 dark:via-darkViaColor2 dark:to-darkToColor transition duration-300 ease-in-out"
-          >Hi, I&apos;m Antonio</span
-        >
-        <!-- <span class="text-5xl ml-7 sm:ml-1">👋</span> -->
+      <h1 class="flex items-center flex-nowrap">
+        <span>
+          <span
+            class="title-text font-Cormorant bg-gradient-271 from-darkFromColor via-darkViaColor1 via-lightViaColor2 to-lightToColor dark:from-darkFromColor dark:via-darkViaColor1 dark:via-darkViaColor2 dark:to-darkToColor transition duration-300 ease-in-out"
+            >Hi, I&apos;m Antonio</span
+          >
+          <span class="text-5xl ml-1 lg:ml-5 md:hidden lg:inline">👋</span>
+        </span>
       </h1>
     </div>
     <div class="subtitle font-Poppins text-3xl">
@@ -32,7 +34,7 @@
       </p>
     </div>
   </div>
-  <div class="image-container mt-5 mx-5 sm:m-5 lg:ml-20">
+  <div class="image-container mt-10 lg:mt-0 lg:ml-20">
     <picture>
       <source type="image/webp" srcset={meImageWebp} />
       <source type="image/jpeg" srcset={meImage} />
