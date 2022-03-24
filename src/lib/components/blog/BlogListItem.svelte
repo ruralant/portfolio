@@ -11,7 +11,7 @@
     <div>
       <a href={`/blog/${post.type}/${post.slug}`}>
         <span
-          class="title-text font-Cormorant bg-gradient-271 from-darkFromColor via-lightViaColor1 via-darkViaColor2 to-lightToColor dark:from-darkFromColor dark:via-darkViaColor1 dark:via-darkViaColor2 dark:to-darkToColor"
+          class="title-text font-Cormorant text-mediumTitle color-white m-0 bg-gradient-271 from-darkFromColor via-lightViaColor1 via-darkViaColor2 to-lightToColor dark:from-darkFromColor dark:via-darkViaColor1 dark:via-darkViaColor2 dark:to-darkToColor"
           >{post.title}</span
         >
       </a>
@@ -41,13 +41,3 @@
     </div>
   </a>
 </li>
-
-<style>
-  .title-text {
-    color: #fff;
-    /* font-weight: 500; */
-    margin: 0;
-    line-height: 1.15;
-    font-size: 2rem;
-  }
-</style>

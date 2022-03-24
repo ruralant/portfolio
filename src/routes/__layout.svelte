@@ -51,7 +51,7 @@
   <Header />
 
   <main
-    class="flex flex-col items-center bg-spaceWhite dark:bg-spaceGrey transition duration-300 ease-in-out px-2 md:px-36"
+    class="flex flex-col items-center bg-spaceWhite dark:bg-spaceGrey transition duration-300 ease-in-out px-2 md:px-22 lg:px-36"
   >
     <div class="max-w-7xl">
       <slot />

@@ -1,7 +1,7 @@
 <div
-  class="main-container bg-spaceWhite dark:bg-spaceGrey transition duration-300 ease-in-out pt-5 pb-24"
+  class="main-container flex flex-col justify-center items-center flex-wrap bg-spaceWhite dark:bg-spaceGrey transition duration-300 ease-in-out pb-16"
 >
-  <div class="title">
+  <div class="flex">
     <h2
       class="title-text font-Cormorant bg-gradient-271 from-darkFromColor via-darkViaColor1 via-darkViaColor2 to-lightToColor dark:from-darkFromColor dark:via-darkViaColor1 dark:via-darkViaColor2 dark:to-darkToColor transition duration-300 ease-in-out"
     >
@@ -60,16 +60,6 @@
 </div>
 
 <style>
-  .main-container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-  }
-  .title {
-    display: flex;
-  }
   .title-text {
     color: #fff;
     background-clip: text;
