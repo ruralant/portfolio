@@ -6,16 +6,10 @@
   };
 </script>
 
-<div class="text-neutral-800 dark:text-white">
+<div class="font-Roboto text-neutral-800 dark:text-white mx-2">
   <slot />
-  <div class="flex mt-5 underline">
+  <div class="flex my-10 underline">
     <ArrowLeft />
-    <button class="back-text ml-2" on:click={goBack}>Go back</button>
+    <button class="font-Poppins ml-2" on:click={goBack}>Go back</button>
   </div>
 </div>
-
-<style>
-  .back-text {
-    font-family: 'Poppins', sans-serif;
-  }
-</style>

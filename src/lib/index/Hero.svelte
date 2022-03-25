@@ -1,19 +1,22 @@
 <script>
   import meImage from '$lib/assets/images/me-b-and-w-small.jpg';
+  import meImageWebp from '$lib/assets/images/me-b-and-w-small.webp';
 </script>
 
-<div class="main-container py-10 sm:pt-9">
+<div class="main-container pt-10 sm:pt-9">
   <div class="text-container">
     <div class="title-container">
-      <h1 class="title">
-        <span
-          class="title-text bg-gradient-271 from-darkFromColor via-darkViaColor1 via-lightViaColor2 to-lightToColor dark:from-darkFromColor dark:via-darkViaColor1 dark:via-darkViaColor2 dark:to-darkToColor transition duration-300 ease-in-out"
-          >Hi, I&apos;m Antonio (Test)</span
-        >
-        <span class="text-5xl ml-7 sm:ml-1">👋</span>
+      <h1 class="flex items-center flex-nowrap">
+        <span>
+          <span
+            class="title-text font-Cormorant bg-gradient-271 from-darkFromColor via-darkViaColor1 via-lightViaColor2 to-lightToColor dark:from-darkFromColor dark:via-darkViaColor1 dark:via-darkViaColor2 dark:to-darkToColor transition duration-300 ease-in-out"
+            >Hi, I&apos;m Antonio</span
+          >
+          <span class="text-5xl ml-1 lg:ml-5 md:hidden lg:inline">👋</span>
+        </span>
       </h1>
     </div>
-    <div class="subtitle text-3xl">
+    <div class="subtitle font-Poppins text-3xl">
       <p
         class="text-neutral-800 dark:text-white transition duration-300 ease-in-out"
       >
@@ -31,14 +34,18 @@
       </p>
     </div>
   </div>
-  <div class="image-container mt-5 mx-5 sm:m-5 lg:ml-20">
-    <img
-      src={meImage}
-      alt="myself speaking in public"
-      width={400}
-      height={400}
-      placeholder="blur"
-    />
+  <div class="image-container mt-10 lg:mt-0 lg:ml-20">
+    <picture>
+      <source type="image/webp" srcset={meImageWebp} />
+      <source type="image/jpeg" srcset={meImage} />
+      <img
+        src={meImage}
+        alt="myself speaking in public"
+        width={400}
+        height={400}
+        placeholder="blur"
+      />
+    </picture>
   </div>
 </div>
 
@@ -62,15 +69,13 @@
     display: flex;
   }
   .title-text {
-    font-family: 'Cormorant Garamond', serif;
     color: #fff;
-    font-weight: 500;
+    /* font-weight: 500; */
     margin: 0;
     line-height: 1.15;
     font-size: 6rem;
   }
   .subtitle {
-    font-family: 'Poppins', sans-serif;
     font-weight: 300;
     margin-top: 10px;
     line-height: 1.7;
@@ -80,12 +85,13 @@
     width: 200;
   }
   .interactive-text {
-    font-size: 2.5rem;
-    font-weight: 500;
-    color: var(--color-text-primary);
+    /* font-size: 2.5rem; */
+    font-weight: 700;
+    /* /* font-weight: 500; */
+    /* color: var(--color-text-primary);
     -webkit-text-fill-color: transparent;
     -webkit-text-stroke-width: 1.4px;
-    -webkit-text-stroke-color: var(--color-text-primary);
+    -webkit-text-stroke-color: var(--color-text-primary); */
   }
   .interactive-text:hover {
     -webkit-text-fill-color: var(--color-text-primary);

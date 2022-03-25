@@ -23,7 +23,7 @@
       active: true,
     },
     {
-      title: 'What I am up to (coming soon)',
+      title: 'More about me (coming soon)',
       url: '/myself',
       active: false,
     },

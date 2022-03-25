@@ -1,15 +1,19 @@
+<script>
+  import Email from '$lib/components/icons/Email.svelte';
+</script>
+
 <div
-  class="main-container bg-spaceWhite dark:bg-spaceGrey transition duration-300 ease-in-out pb-10"
+  class="main-container flex flex-col justify-center items-center flex-wrap bg-spaceWhite dark:bg-spaceGrey transition duration-300 ease-in-out pb-10 lg:pb-16"
 >
-  <div class="title">
+  <div class="flex">
     <h2
-      class="title-text bg-gradient-271 from-darkFromColor via-darkViaColor1 via-darkViaColor2 to-lightToColor dark:from-darkFromColor dark:via-darkViaColor1 dark:via-darkViaColor2 dark:to-darkToColor transition duration-300 ease-in-out"
+      class="title-text font-Cormorant bg-gradient-271 from-darkFromColor via-darkViaColor1 via-darkViaColor2 to-lightToColor dark:from-darkFromColor dark:via-darkViaColor1 dark:via-darkViaColor2 dark:to-darkToColor transition duration-300 ease-in-out"
     >
       I'm always up for a chat.
     </h2>
   </div>
   <div
-    class="subtitle mt-10 text-neutral-800 dark:text-white transition duration-300 ease-in-out"
+    class="subtitle font-Poppins mt-10 text-neutral-800 dark:text-white transition duration-300 ease-in-out"
   >
     <p>
       Pop me an email at{' '}
@@ -23,6 +27,8 @@
       <a
         class="social-media-container text-neutral-800 dark:text-white transition duration-300 ease-in-out"
         href="https://twitter.com/ilreddo"
+        target="_blank"
+        rel="noopener noreferrer"
         aria-label="Twitter logo"
       >
         <svg
@@ -40,6 +46,8 @@
       <a
         class="social-media-container text-neutral-800 dark:text-white transition duration-300 ease-in-out"
         href="https://www.linkedin.com/in/antoniorossii/"
+        target="_blank"
+        rel="noopener noreferrer"
         aria-label="LinkedIn logo"
       >
         <svg
@@ -54,34 +62,28 @@
           />
         </svg>
       </a>
+      <a
+        class="social-media-container text-neutral-800 dark:text-white transition duration-300 ease-in-out"
+        href="mailto:hello@antoniorossi.net"
+        aria-label="mail icon"
+      >
+        <Email />
+      </a>
     </div>
   </div>
   <div class="emoji mt-10">😃</div>
 </div>
 
 <style>
-  .main-container {
-    height: 50vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-  }
-  .title {
-    display: flex;
-  }
   .title-text {
-    font-family: 'Cormorant Garamond', serif;
     color: #fff;
     background-clip: text;
-    font-weight: 500;
+    /* font-weight: 500; */
     margin: 0;
     line-height: 1.15;
     font-size: 3rem;
   }
   .subtitle {
-    font-family: 'Poppins', sans-serif;
     text-align: center;
     font-weight: 300;
     line-height: 1.7;
