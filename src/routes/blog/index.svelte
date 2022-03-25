@@ -22,8 +22,13 @@
 
 <div class="text-neutral-800 dark:text-white w-full sm:mt-9">
   <div class="flex items-center md:justify-center">
-    <p class="title-text text-3xl pl-4">Latest Articles</p>
-    <a class="ml-6 inline-flex rounded-md shadow-sm px-2 py-1 bg-white text-sm">
+    <p class="m-0 leading-standard front-Cormorant text-3xl pl-4">
+      Latest Articles
+    </p>
+    <a
+      class="ml-6 inline-flex rounded-md shadow-sm px-2 py-1 bg-white text-sm"
+      href="/"
+    >
       <span class="text-black">Archive</span>
     </a>
   </div>
@@ -33,12 +38,3 @@
     {/each}
   </ul>
 </div>
-
-<style>
-  .title-text {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 500;
-    margin: 0;
-    line-height: 1.15;
-  }
-</style>
