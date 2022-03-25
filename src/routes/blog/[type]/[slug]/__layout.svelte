@@ -6,7 +6,7 @@
   };
 </script>
 
-<div class="text-neutral-800 dark:text-white">
+<div class="font-Roboto text-neutral-800 dark:text-white mx-2">
   <slot />
   <div class="flex my-10 underline">
     <ArrowLeft />
