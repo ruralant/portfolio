@@ -12,7 +12,8 @@
     const personalPostsData = processPostData(personalPosts);
     const posts = developmentPostsData
       .concat(personalPostsData)
-      .sort((post, next) => next.date - post.date)
+      .slice()
+      .sort((post, next) => +new Date(next.date) - +new Date(post.date))
       .slice(0, 6);
     return {
       props: {

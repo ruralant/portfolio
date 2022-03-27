@@ -7,6 +7,7 @@
 
 <script>
   import { onMount } from 'svelte';
+  import { fade } from 'svelte/transition';
   import { theme } from '$lib/shared/store';
   import Header from '$lib/Header.svelte';
   import Footer from '$lib/Footer.svelte';
@@ -51,6 +52,8 @@
   <Header />
 
   <main
+    in:fade={{ duration: 150, delay: 100 }}
+    out:fade={{ duration: 150 }}
     class="flex flex-col items-center bg-spaceWhite dark:bg-spaceGrey transition duration-300 ease-in-out px-2 md:px-22 lg:px-36"
   >
     <div class="max-w-7xl">

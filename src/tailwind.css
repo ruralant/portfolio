@@ -7,6 +7,7 @@
   font-family: 'Cormorant';
   font-style: normal;
   font-weight: 700;
+  font-display: swap;
   src: url('/fonts/cormorant-v14-latin-700.eot'); /* IE9 Compat Modes */
   src: local(''),
     url('/fonts/cormorant-v14-latin-700.eot?#iefix') format('embedded-opentype'),
@@ -24,6 +25,7 @@
   font-family: 'Poppins';
   font-style: normal;
   font-weight: 300;
+  font-display: swap;
   src: url('/fonts/poppins-v19-latin-300.eot'); /* IE9 Compat Modes */
   src: local(''),
     url('/fonts/poppins-v19-latin-300.eot?#iefix') format('embedded-opentype'),
@@ -41,6 +43,7 @@
   font-family: 'Roboto Serif';
   font-style: normal;
   font-weight: 400;
+  font-display: swap;
   src: url('/fonts/roboto-serif-v5-latin-regular.eot'); /* IE9 Compat Modes */
   src: local(''),
     url('/fonts/roboto-serif-v5-latin-regular.eot?#iefix')
@@ -59,6 +62,7 @@
   font-family: 'Roboto Serif';
   font-style: normal;
   font-weight: 500;
+  font-display: swap;
   src: url('/fonts/roboto-serif-v5-latin-500.eot'); /* IE9 Compat Modes */
   src: local(''),
     url('/fonts/roboto-serif-v5-latin-500.eot?#iefix')
@@ -76,6 +80,7 @@
   font-family: 'Roboto Serif';
   font-style: italic;
   font-weight: 400;
+  font-display: swap;
   src: url('/fonts/roboto-serif-v5-latin-italic.eot'); /* IE9 Compat Modes */
   src: local(''),
     url('/fonts/roboto-serif-v5-latin-italic.eot?#iefix')

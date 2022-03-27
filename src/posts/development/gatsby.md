@@ -12,7 +12,7 @@ tags: [react, front end]
 icon: front
 layout: development
 author: Antonio
-type: 'development'
+type: development
 ---
 
 ## Introduction
