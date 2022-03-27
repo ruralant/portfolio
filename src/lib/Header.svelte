@@ -18,9 +18,9 @@
   ];
   export let personalSections = [
     {
-      title: 'Blog',
+      title: 'Blog (coming soon)',
       url: '/blog/personal',
-      active: true,
+      active: false,
     },
     {
       title: 'More about me (coming soon)',

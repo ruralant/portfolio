@@ -104,9 +104,13 @@
     display: flex;
     justify-content: center;
   }
+  .social-media-container {
+    display: flex;
+    justify-content: center;
+    margin-right: 1rem;
+  }
   .social-media-image {
     height: 1.2rem;
-    margin-right: 1rem;
   }
   .emoji {
     font-size: 2rem;

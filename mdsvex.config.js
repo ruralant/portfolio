@@ -4,7 +4,7 @@ const config = {
     dashes: 'oldschool',
   },
   layout: {
-    development: './src/lib/blog/dev-layout.svelte',
+    development: './src/lib/blog/_post.svelte',
   },
   remarkPlugins: [],
   rehypePlugins: [],

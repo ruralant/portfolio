@@ -6,10 +6,10 @@ category: programming
 tags: [javascript]
 image: /og-images/dsg-analytics.png?v=1
 published: true
-date: 25-10-2021
+date: 2021-10-25
 icon: front
 layout: blog
-type: 'development'
+type: development
 ---
 
 # { title }
