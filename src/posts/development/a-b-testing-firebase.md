@@ -4,7 +4,7 @@ slug: a-b-testing-firebase
 subtitle: Firebase has a great tool to make easier to implement A/B testing on both web and mobile. Here's how.
 category: testing
 tags: [react, front end]
-imagePath: https://res.cloudinary.com/antonio-rossi/image/upload/v1646323595/kelly-sikkema-gcHFXsdcmJE-unsplash_w2qpxu.jpg
+mainImage: https://res.cloudinary.com/antonio-rossi/image/upload/v1646323595/kelly-sikkema-gcHFXsdcmJE-unsplash_w2qpxu.jpg
 published: true
 date: 2022-03-15
 icon: front
@@ -16,7 +16,7 @@ The discovery of the text’s origin is attributed to Richard McClintock, a Lati
 
 <br>
 
-<img src={imagePath} alt="a b testing diagram">
+<img src={mainImage} alt="a b testing diagram">
 
 <br>
 

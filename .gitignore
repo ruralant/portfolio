@@ -3,7 +3,3 @@ node_modules
 /build
 /.svelte-kit
 /package
-/src/posts/.obsidian
-/src/posts/.trash
-/src/posts/development/.obsidian
-/src/posts/development/.trash

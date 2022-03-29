@@ -34,12 +34,12 @@ module.exports = {
       neutral: colors.neutral,
       black: colors.black,
       grey: colors.gray,
-      indigo: colors.indigo,
       spaceGrey: '#111111',
       spaceWhite: '#FAFAFC',
       red: colors.red,
       purple: colors.purple,
       slate: colors.slate,
+      teal: colors.teal,
       darkFromColor: `#8797e8 30%`,
       darkViaColor1: `#a162e8 50%`,
       darkViaColor2: `#f093b0 70%`,
@@ -70,9 +70,22 @@ module.exports = {
       padding: {
         22: '5.5rem',
       },
+      typography: (theme) => ({
+        DEFAULT: {
+          css: {
+            color: theme('color.neutral'),
+          },
+        },
+        dark: {
+          css: {
+            color: theme('color.neutral[100]'),
+          },
+        },
+      }),
     },
   },
   plugins: [
+    require('@tailwindcss/typography'),
     plugin(function ({ matchUtilities, theme }) {
       matchUtilities(
         {

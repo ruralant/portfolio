@@ -5,7 +5,7 @@
 
 <li class="font-Poppins md:w-full mt-5">
   <a
-    class="flex w-full p-4 justify-between text-left items-center rounded-md overflow-hidden shadow-md bg-white dark:bg-neutral-900 hover:scale-110 duration-300 ease-in-out"
+    class="flex w-full p-4 justify-between text-left items-center rounded-md overflow-hidden shadow-md bg-white dark:bg-neutral-900 hover:scale-105 duration-300 ease-in-out"
     href={`/blog/${post.type}/${post.slug}`}
   >
     <div>
