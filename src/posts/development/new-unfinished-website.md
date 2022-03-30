@@ -63,7 +63,7 @@ The website has a perfect Lighthouse score. It loads fast....
   class="rounded-lg drop-shadow-md"
 />
 
-### It feature a feature a blog
+### It feature a blog
 
 The only feature that it has is a blog section. This allows me to stop procrastinating and finding excuses to not to write some tech articles.
 I'm using Markdown to write the articles. I'll create a separate post for that.

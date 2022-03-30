@@ -15,13 +15,17 @@
 <div
   in:fade={{ duration: 150, delay: 100 }}
   out:fade={{ duration: 150 }}
-  class="font-Roboto text-lg tracking-wider text-neutral-800 dark:text-white mx-2"
+  class="prose mx-4 font-Roboto lg:prose-xl text-justify text-neutral-900 dark:text-white dark:prose-invert prose-a:text-teal-400 prose-pre:bg-neutral-200 dark:prose-pre:bg-neutral-800 prose-pre:text-neutral-700 dark:prose-pre:text-neutral-100 tracking-wider"
 >
-  <p class="uppercase text-center tracking-wider mb-4">{category}</p>
-  <h1 class="text-5xl text-center tracking-normal mb-4">
+  <p class="uppercase text-center tracking-wider mt-10 md:mt-0">
+    {category}
+  </p>
+  <h1 class="text-4xl font-normal text-center tracking-normal mb-4">
     {title}
   </h1>
-  <h2 class="text-2xl tracking-normal">{subtitle}</h2>
+  <h2 class="text-2xl font-normal text-center tracking-normal mt-0">
+    {subtitle}
+  </h2>
   <img
     src={mainImage}
     alt="website's home screenshot"
@@ -31,9 +35,7 @@
     loading="lazy"
     class="mt-6 mb-8 rounded-lg drop-shadow-md"
   />
-  <article
-    class="prose lg:prose-xl text-neutral-900 dark:text-white dark:prose-invert prose-a:text-teal-400 prose-pre:bg-neutral-200 dark:prose-pre:bg-neutral-800 prose-pre:text-neutral-700 dark:prose-pre:text-neutral-100"
-  >
+  <article class="">
     <slot />
   </article>
   <div class="flex my-10 underline">

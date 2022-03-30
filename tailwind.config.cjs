@@ -62,7 +62,7 @@ module.exports = {
       },
       gridTemplateColumns: {
         articlesSm: 'repeat(auto-fill, minmax(200px, 1fr))',
-        articlesLg: 'repeat(auto-fill, minmax(300px, 1fr))',
+        articlesLg: 'repeat(auto-fill, minmax(250px, 1fr))',
       },
       lineHeight: {
         standard: '1.15',
