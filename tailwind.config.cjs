@@ -62,7 +62,8 @@ module.exports = {
       },
       gridTemplateColumns: {
         articlesSm: 'repeat(auto-fill, minmax(200px, 1fr))',
-        articlesLg: 'repeat(auto-fill, minmax(250px, 1fr))',
+        articlesMd: 'repeat(auto-fill, minmax(250px, 1fr))',
+        articlesLg: 'repeat(auto-fill, minmax(300px, 1fr))',
       },
       lineHeight: {
         standard: '1.15',
@@ -74,11 +75,16 @@ module.exports = {
         DEFAULT: {
           css: {
             color: theme('color.neutral'),
-          },
-        },
-        dark: {
-          css: {
-            color: theme('color.neutral[100]'),
+            code: {
+              paddingTop: '0.25rem',
+              paddingRight: '0.15rem',
+            },
+            'code::before': {
+              content: '""',
+            },
+            'code::after': {
+              content: '""',
+            },
           },
         },
       }),
