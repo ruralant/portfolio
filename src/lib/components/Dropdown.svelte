@@ -34,7 +34,7 @@
     <ClickOutside on:clickoutside={closeModal} exclude={[modalButtonRef]}>
       <div
         transition:fly={{ y: -20, duration: 150 }}
-        class="origin-top-right absolute left-0 mt-2 w-56 rounded-md shadow-lg bg-white dark:bg-neutral-800 ring-1 ring-black ring-opacity-5 divide-y divide-gray-100 focus:outline-none"
+        class="origin-top-right absolute left-0 mt-2 w-56 rounded-md shadow-md bg-white dark:bg-neutral-800 ring-1 ring-black ring-opacity-5 divide-y divide-gray-100 focus:outline-none"
         role="menu"
         aria-orientation="vertical"
         tabindex="-1"

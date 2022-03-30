@@ -3,7 +3,7 @@
   import meImageWebp from '$lib/assets/images/me-b-and-w-small.webp';
 </script>
 
-<div class="main-container pt-10 sm:pt-9">
+<div class="flex justify-center items-center flex-wrap	pt-10 sm:pt-9">
   <div class="text-container">
     <div class="title-container">
       <h1 class="flex items-center flex-nowrap">
@@ -34,7 +34,7 @@
       </p>
     </div>
   </div>
-  <div class="image-container mt-10 lg:mt-0 lg:ml-20">
+  <div class="rounded-full overflow-hidden mt-10 lg:mt-0 lg:ml-20">
     <picture>
       <source type="image/webp" srcset={meImageWebp} />
       <source type="image/jpeg" srcset={meImage} />
@@ -50,13 +50,6 @@
 </div>
 
 <style>
-  .main-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-  }
   .text-container {
     flex: 2;
     min-width: 600px;
@@ -64,9 +57,6 @@
   .title-container {
     display: flex;
     flex-direction: row;
-  }
-  .title {
-    display: flex;
   }
   .title-text {
     color: #fff;
@@ -96,29 +86,9 @@
   .interactive-text:hover {
     -webkit-text-fill-color: var(--color-text-primary);
   }
-  .image-container {
-    width: fit-content;
-    border-radius: 50%;
-    overflow: hidden;
-    height: 400px;
-    width: 400px;
-    /* margin-right: 5%; */
-  }
-  @media (max-width: 1000px) {
-    .main-container {
-      height: auto;
-    }
-    .image-container {
-      /* margin: 2rem 3rem; */
-    }
-  }
   @media (max-width: 800px) {
     .title-text {
       font-size: 4rem;
-    }
-    .title-emoji {
-      font-size: 3rem;
-      margin-left: 10px;
     }
     .subtitle {
       font-size: 1.5rem;
@@ -134,28 +104,12 @@
     .text-container {
       min-width: unset;
     }
-    .image-container {
-      height: 300px;
-      width: 300px;
-    }
   }
   @media (max-width: 550px) {
     .title-container {
       display: flex;
       justify-content: center;
       align-items: center;
-    }
-    .title {
-      /* flex-direction: column; */
-      align-items: center;
-    }
-    .title-emoji {
-      align-self: center;
-    }
-  }
-  @media (max-width: 375px) {
-    .image-container {
-      margin: 2rem 0;
     }
   }
 </style>
