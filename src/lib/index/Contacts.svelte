@@ -26,7 +26,7 @@
     <div class="flex justify-center mt-5">
       <a
         class="social-media-container text-neutral-800 dark:text-white transition duration-300 ease-in-out"
-        href="https://twitter.com/ilreddo"
+        href="https://twitter.com/ruralant"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Twitter logo"
