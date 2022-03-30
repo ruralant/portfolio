@@ -15,11 +15,11 @@ type: development
 
 Functional programming is a paradigm of writing code using functions and expressions without mutating data and state.
 
-The aim of this particular paradigm is to keep the code as clear as possible and to minimase the introduction of bugs and side effects. This is achieved using pure functions and avoiding the use of flo-control statements such as `for` , `forEach`, `while`, etc.
+The aim of this particular paradigm is to keep the code as clear as possible and to minimase the introduction of bugs and side effects. This is achieved using pure functions and avoiding the use of flow-control statements such as `for`, `forEach`, `while`, etc.
 
 ### Javascript Methods
 
-JavaScript provides multiple methods that allows functional programming. Some examples are:
+JavaScript provides multiple methods that allow functional programming. Some examples are:
 
 - `Array.prototype.map()` <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map" target="_blank">MDN</a>
 - `Array.prototype.filter()` <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter" target="_blank">MDN</a>
@@ -39,7 +39,7 @@ console.log(array); // [3, 4, 5, 6]
 console.log(modifiedArray); // [9, 12, 15, 18]
 ```
 
-As you can see, the `map()` method do not modify the original array but it returns a new one (`modifiedArray`). This behavior is compatible with the definition of pure function that we saw before.
+As you can see, the `map()` method does not modify the original array but it returns a new one (`modifiedArray`). This behavior is compatible with the definition of pure function that we saw before.
 
 #### Filter
 
@@ -55,7 +55,7 @@ console.log(evenNumbersArray); // [4, 6]
 
 #### Slice
 
-Let's look at one last method, this time a String method (just to show a similar behavior of a non-array prototype). The `slice()` method return a new string that is a section of the original one.
+Let's look at one last method, this time a String method (just to show a similar behavior of a non-array prototype). The `slice()` method returns a new string that is a section of the original one.
 
 ```
 const text = 'Hello world';
@@ -66,11 +66,11 @@ console.log(array); // 'Hello world'
 console.log(truncatedText); // 'Hello'
 ```
 
-There are several other methods in JavaScript that are compatible with the functional programming paradigm. The some other example are `reduce()`, `concat()` and `assign()`.
+There are several other methods in JavaScript that are compatible with the functional programming paradigm. Some other examples are `reduce()`, `concat()` and `assign()`.
 
 ### Functions
 
-The fact that JavaScript provides us with such methods is nice. However, as developers we spend most of or time creating our own function. To adhere at the functional programming paradigm, we're going to use a combination of **_pure functions_** and **_high-order functions_**.
+The fact that JavaScript provides us with such methods is nice. However, as developers we spend most of our time creating our own functions. To adhere at the functional programming paradigm, we're going to use a combination of **_pure functions_** and **_high-order functions_**.
 
 #### Pure functions
 
