@@ -34,12 +34,12 @@ module.exports = {
       neutral: colors.neutral,
       black: colors.black,
       grey: colors.gray,
-      indigo: colors.indigo,
       spaceGrey: '#111111',
       spaceWhite: '#FAFAFC',
       red: colors.red,
       purple: colors.purple,
       slate: colors.slate,
+      teal: colors.teal,
       darkFromColor: `#8797e8 30%`,
       darkViaColor1: `#a162e8 50%`,
       darkViaColor2: `#f093b0 70%`,
@@ -62,6 +62,7 @@ module.exports = {
       },
       gridTemplateColumns: {
         articlesSm: 'repeat(auto-fill, minmax(200px, 1fr))',
+        articlesMd: 'repeat(auto-fill, minmax(250px, 1fr))',
         articlesLg: 'repeat(auto-fill, minmax(300px, 1fr))',
       },
       lineHeight: {
@@ -70,9 +71,27 @@ module.exports = {
       padding: {
         22: '5.5rem',
       },
+      typography: (theme) => ({
+        DEFAULT: {
+          css: {
+            color: theme('color.neutral'),
+            code: {
+              paddingTop: '0.25rem',
+              paddingRight: '0.15rem',
+            },
+            'code::before': {
+              content: '""',
+            },
+            'code::after': {
+              content: '""',
+            },
+          },
+        },
+      }),
     },
   },
   plugins: [
+    require('@tailwindcss/typography'),
     plugin(function ({ matchUtilities, theme }) {
       matchUtilities(
         {

@@ -1,7 +1,10 @@
 <script context="module">
   const processPostData = (data) => {
     const postsData = Object.values(data);
-    const posts = postsData.map((post) => post.metadata);
+    const posts = postsData.reduce((posts, next) => {
+      next.metadata.published && posts.push(next.metadata);
+      return posts;
+    }, []);
     return posts;
   };
 
@@ -12,7 +15,8 @@
     const personalPostsData = processPostData(personalPosts);
     const posts = developmentPostsData
       .concat(personalPostsData)
-      .sort((post, next) => next.date - post.date)
+      .slice()
+      .sort((post, next) => +new Date(next.date) - +new Date(post.date))
       .slice(0, 6);
     return {
       props: {

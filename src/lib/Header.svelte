@@ -31,7 +31,7 @@
 </script>
 
 <header
-  class="flex flex-row justify-between px-5 pt-8 pb-1 md:pb-20 bg-spaceWhite dark:bg-spaceGrey transition duration-300 ease-in-out"
+  class="flex flex-row justify-between items-center px-5 pt-8 pb-1 md:pb-20 bg-spaceWhite dark:bg-spaceGrey transition duration-300 ease-in-out"
 >
   <div class="flex items-center">
     <a

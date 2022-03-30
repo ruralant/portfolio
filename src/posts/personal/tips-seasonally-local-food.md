@@ -8,7 +8,7 @@ published: false
 date: 2021-10-12
 icon: world
 layout: blog
-type: 'personal'
+type: personal
 ---
 
 # {title}

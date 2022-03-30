@@ -10,7 +10,7 @@
     Latest Articles
   </p>
   <ul
-    class="articles-container grid grid-cols-articlesSm lg:grid-cols-articlesLg list-none justify-items-center py-0 px-2 lg:px-0 gap-4 lg:gap-10"
+    class="articles-container grid grid-cols-articlesSm md:grid-cols-articlesMd lg:grid-cols-articlesLg list-none justify-items-center py-0 lg:px-0 gap-4 lg:gap-10"
   >
     {#each posts as post}
       <Article postsData={post} />

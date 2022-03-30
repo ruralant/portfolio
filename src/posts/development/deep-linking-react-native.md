@@ -4,12 +4,12 @@ slug: deep-linking-react-native
 subtitle: A step-by-step guide on how to implement deep linking on Android and iOS
 category: mobile
 tags: [react native, mobile]
-image: /og-images/dsg-analytics.png?v=1
-published: true
+mainImage: /og-images/dsg-analytics.png?v=1
+published: false
 date: 2021-10-09
 icon: front
 layout: blog
-type: 'development'
+type: development
 ---
 
 <script>
