@@ -4,7 +4,8 @@ slug: new-unfinished-website
 subtitle: After six years and multiple attempts, I finally managed to put a new website together
 category: career
 tags: [career]
-mainImage: https://res.cloudinary.com/antonio-rossi/image/upload/w_1000/v1648572228/articles/first-article/home-page_fivkuj.png
+mainImage: https://res.cloudinary.com/antonio-rossi/image/upload/w_1000,fl_progressive/v1648572228/articles/first-article/home-page_fivkuj.png
+mainImageAlt: A screenshot of the home page of the new website
 published: true
 date: 2022-03-28
 icon: front
@@ -38,7 +39,7 @@ They are all sections and pages that I'm going to add in the next few week. Befo
 ### Energy Efficiency
 
 <img
-  src="https://res.cloudinary.com/antonio-rossi/image/upload/w_1000/v1648399548/articles/first-article/new-website-carbon-score.png"
+  src="https://res.cloudinary.com/antonio-rossi/image/upload/w_1000,fl_progressive/v1648399548/articles/first-article/new-website-carbon-score.png"
   alt="carbon score"
   width={1000}
   height={1000}
@@ -54,7 +55,7 @@ The website is rated as more efficient than the 96% of the world wide web. I ach
 The website has a perfect Lighthouse score. It loads fast....
 
 <img
-  src="https://res.cloudinary.com/antonio-rossi/image/upload/w_762/v1648400557/articles/first-article/lighthouse-score.png"
+  src="https://res.cloudinary.com/antonio-rossi/image/upload/w_762,fl_progressive/v1648400557/articles/first-article/lighthouse-score.png"
   alt="google chrome lighthouse score"
   width={762}
   height={753}
@@ -72,6 +73,6 @@ I'm using Markdown to write the articles. I'll create a separate post for that.
 
 It's missing the career page, the list of my skills, and about page etc, but I'll build them in the next few weeks.
 
-You can find the code on [Github](https://github.com/ruralant/personal-website)
+You can find the code on <a href="https://github.com/ruralant/personal-website" target="_blank">Github</a>
 
 If you have any comments, see any issue of suggestions do not hesitate to contact me via email, LinkedIn or Github. Fire away, I always treasure feedback!
