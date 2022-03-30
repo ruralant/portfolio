@@ -114,7 +114,7 @@
     <img
       class="align-middle rounded-lg shadow-sm"
       src={image}
-      alt="myself speaking in public"
+      alt={`${name} logo`}
       width={450}
       height={450}
       placeholder="blur"

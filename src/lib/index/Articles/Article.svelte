@@ -4,7 +4,7 @@
 </script>
 
 <li
-  class="w-full max-w-sm h-60 rounded-md overflow-hidden bg-white dark:bg-neutral-800 duration-300 ease-in-out shadow-lg p-6"
+  class="w-full max-w-sm h-60 rounded-md overflow-hidden bg-white dark:bg-neutral-800 duration-300 ease-in-out shadow-md p-6"
 >
   <a
     class="h-full flex flex-col justify-between"

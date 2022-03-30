@@ -1,22 +1,25 @@
 <script context="module">
   export async function load({ params, url }) {
-    const { type } = params;
+    const blogType = url.pathname.split('/')[2];
     let posts;
-    if (type === 'development') {
+    if (blogType === 'development') {
       posts = import.meta.globEager(`../../../posts/development/*.md`);
-    } else if (type === 'personal') {
+    } else if (blogType === 'personal') {
       posts = import.meta.globEager(`../../../posts/personal/*.md`);
     }
     const postList = Object.values(posts);
-    const postsMeta = postList.reduce((posts, next) => {
-      next.metadata.published && posts.push(next.metadata);
-      return posts;
-    }, []);
+    const postsMeta = postList
+      .reduce((posts, next) => {
+        next.metadata.published && posts.push(next.metadata);
+        return posts;
+      }, [])
+      .slice()
+      .sort((post, next) => +new Date(next.date) - +new Date(post.date))
+      .slice(0, 6);
 
     return {
       props: {
         posts: postsMeta,
-        type: params.type,
       },
     };
   }
@@ -27,16 +30,21 @@
   export let posts;
 </script>
 
-<div class="text-neutral-800 dark:text-white w-full sm:mt-9">
+<div
+  class="text-neutral-800 dark:text-white w-full sm:my-9 transition duration-300 ease-in-out"
+>
   <div class="flex items-center md:justify-center">
     <p class="m-0 leading-standard font-Cormorant text-3xl pl-4">
       Latest Articles
     </p>
     <a
-      class="ml-6 inline-flex rounded-md shadow-sm px-2 py-1 bg-white text-sm"
+      class="ml-6 inline-flex rounded-md shadow-sm px-2 py-1 bg-white dark:bg-neutral-800 text-sm transition duration-300 ease-in-out"
       href="/"
     >
-      <span class="text-black">Archive</span>
+      <span
+        class="text-neutral-600 dark:text-neutral-300 dark pointer-events-none transition duration-300 ease-in-out"
+        >Archive</span
+      >
     </a>
   </div>
   <ul class="flex flex-col items-center md:mt-5">
