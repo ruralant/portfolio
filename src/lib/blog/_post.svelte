@@ -26,7 +26,7 @@
     property="og:url"
     content={`https://www.antoniorossi.net/blog/${type}/${slug}`}
   />
-  <meta property="og:image" content={mainImage} />
+  <meta property="og:image" itemprop="image" content={mainImage} />
   <meta name="twitter:title" content={title} />
   <meta name="twitter:description" content={subtitle} />
   <meta name="twitter:image" content={mainImage} />
