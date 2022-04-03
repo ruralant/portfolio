@@ -2,6 +2,9 @@
   import { fade } from 'svelte/transition';
   import ArrowLeft from '$lib/components/icons/ArrowLeft.svelte';
 
+  const capitalise = (text) =>
+    text.replace(/^\w/, (firstLetter) => firstLetter.toUpperCase());
+
   const goBack = () => {
     window.history.back();
   };
@@ -17,7 +20,7 @@
 </script>
 
 <svelte:head>
-  <title>My blog - {title}</title>
+  <title>{title}</title>
   <meta name="description" content={subtitle} />
   <meta property="og:title" content={title} />
   <meta property="og:site_name" content="Antonio Rossi Website" />
