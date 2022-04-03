@@ -9,8 +9,10 @@
   };
 
   export async function load() {
-    const developmentPosts = import.meta.globEager('../posts/development/*.md');
-    const personalPosts = import.meta.globEager('../posts/personal/*.md');
+    const [developmentPosts, personalPosts] = await Promise.all([
+      import.meta.globEager('../posts/development/*.md'),
+      import.meta.globEager('../posts/personal/*.md'),
+    ]);
     const developmentPostsData = processPostData(developmentPosts);
     const personalPostsData = processPostData(personalPosts);
     const posts = developmentPostsData
