@@ -5,7 +5,7 @@ subtitle: With a little bit of planning, even a frosty January was a month of ab
 tags: [homesteading]
 mainImage: https://res.cloudinary.com/antonio-rossi/image/upload/w_1000,fl_progressive/v1648657621/articles/first-harvest/first-harvest_bxru7f.jpg
 mainImageAlt: A bag of carrots and brussels sprouts
-mainImage: https://res.cloudinary.com/antonio-rossi/image/upload/w_300,fl_progressive/v1648657621/articles/first-harvest/first-harvest_bxru7f.jpg
+mainImageThumb: https://res.cloudinary.com/antonio-rossi/image/upload/w_300,fl_progressive/v1648657621/articles/first-harvest/first-harvest_bxru7f.jpg
 published: true
 date: 2021-10-12
 layout: development
