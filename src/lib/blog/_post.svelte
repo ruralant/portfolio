@@ -21,7 +21,7 @@
   <meta property="og:description" content={subtitle} />
   <meta
     property="og:url"
-    content={`https://www.antoniorossi.net/${type}/${slug}`}
+    content={`https://www.antoniorossi.net/blog/${type}/${slug}`}
   />
   <meta property="og:image" content={mainImage} />
 </svelte:head>
