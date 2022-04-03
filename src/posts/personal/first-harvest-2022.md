@@ -14,6 +14,6 @@ type: personal
 
 With a little bit of planning done in August 2021, I managed to have the first harvest of 2022 extremely early.
 
-<img>
-
 As you can see from the picture, nothing crazy, just a bunch of delicious dwarf carrots and Brussels sprouts.
+
+Brussels sprouts kept producing until February. It was an amazing addition to the garden as they provided food for almost for months (from late November until late February).
