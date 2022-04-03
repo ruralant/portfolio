@@ -17,6 +17,7 @@
 
 <svelte:head>
   <title>My blog - {title}</title>
+  <meta name="description" content={subtitle} />
   <meta property="og:title" content={title} />
   <meta property="og:description" content={subtitle} />
   <meta
