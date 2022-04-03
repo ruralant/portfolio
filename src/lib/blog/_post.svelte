@@ -10,6 +10,7 @@
   export let title;
   export let subtitle;
   export let mainImage;
+  export let mainImageThumb;
   export let mainImageAlt;
   export let slug;
   export let type;
@@ -26,11 +27,12 @@
     property="og:url"
     content={`https://www.antoniorossi.net/blog/${type}/${slug}`}
   />
-  <meta property="og:image" itemprop="image" content={mainImage} />
+  <meta property="og:image" itemprop="image" content={mainImageThumb} />
   <meta name="twitter:title" content={title} />
   <meta name="twitter:description" content={subtitle} />
-  <meta name="twitter:image" content={mainImage} />
+  <meta name="twitter:image" content={mainImageThumb} />
   <meta name="twitter:image:alt" content={mainImageAlt} />
+  <meta property="og:image:width" content="300" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:site" content="@ruralant" />
 </svelte:head>

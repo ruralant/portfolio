@@ -6,6 +6,7 @@ category: career
 tags: [career]
 mainImage: https://res.cloudinary.com/antonio-rossi/image/upload/w_1000,fl_progressive/v1648572228/articles/first-article/home-page_fivkuj.png
 mainImageAlt: A screenshot of the home page of the new website
+mainImageThumb: https://res.cloudinary.com/antonio-rossi/image/upload/w_300,fl_progressive/v1648572228/articles/first-article/home-page_fivkuj.png
 published: true
 date: 2022-03-28
 icon: front
