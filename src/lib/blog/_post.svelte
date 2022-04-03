@@ -19,12 +19,20 @@
   <title>My blog - {title}</title>
   <meta name="description" content={subtitle} />
   <meta property="og:title" content={title} />
+  <meta property="og:site_name" content="Antonio Rossi Website" />
+  <meta property="og:type" content="article" />
   <meta property="og:description" content={subtitle} />
   <meta
     property="og:url"
     content={`https://www.antoniorossi.net/blog/${type}/${slug}`}
   />
   <meta property="og:image" content={mainImage} />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={subtitle} />
+  <meta name="twitter:image" content={mainImage} />
+  <meta name="twitter:image:alt" content={mainImageAlt} />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:site" content="@ruralant" />
 </svelte:head>
 
 <div
