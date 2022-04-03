@@ -11,7 +11,20 @@
   export let subtitle;
   export let mainImage;
   export let mainImageAlt;
+  export let slug;
+  export let type;
 </script>
+
+<svelte:head>
+  <title>My blog - {title}</title>
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={subtitle} />
+  <meta
+    property="og:url"
+    content={`https://www.antoniorossi.net/${type}/${slug}`}
+  />
+  <meta property="og:image" content={mainImage} />
+</svelte:head>
 
 <div
   in:fade={{ duration: 150, delay: 100 }}
