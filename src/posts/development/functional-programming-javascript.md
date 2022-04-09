@@ -9,7 +9,6 @@ mainImageAlt: An image of pure water with wite sand
 mainImageThumb: https://res.cloudinary.com/antonio-rossi/image/upload/w_300,fl_progressive/v1648646194/articles/functional-programming/pure_zyijgf.jpg
 published: true
 date: 2022-03-30
-icon: front
 layout: development
 type: development
 ---
@@ -110,8 +109,12 @@ const createAlert = (result) => {
 createAlert(isMoreThanTen(givenNumbers));
 ```
 
-The code above looks quite convoluted. However, it has the benefit of splitting the logic in multiple pure functions that are easier to debug in case of issues. It could also be beneficial if the we're we need to use some login that is shared with the entire code base (maybe from a _util_ file). The util function could be passed as an argument of the function we're working on.
+The code above looks quite convoluted. However, it has the benefit of splitting the logic in multiple pure functions that are easier to debug in case of issues.
 
-This is a bird's eye view of functional programming applied to JavaScript. It's just one of the different paradigms you can use to write JavaScript code (another widely use is object-orientated programming) but it's one that is really useful to know if you're working with modern libraries like React. Maybe you're like me and you used it for a really long time, without knowing it 😅
+It could also be beneficial if the we're we need to use some logic that is shared with the entire code base (maybe from a _util_ file). The util function could be passed as an argument of the function we're working on.
+
+This is a bird's eye view of functional programming applied to JavaScript.
+
+It's just one of the multiple paradigms you can use to write JavaScript code (another widely use is object-orientated programming) but it's one that is really useful to know if you're working with modern libraries like React. Maybe you're like me and you used it for a really long time, without knowing it 😅
 
 Anyway, I hope this was helpful. If have been, thank you for reading 👋
