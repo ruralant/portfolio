@@ -19,10 +19,9 @@ const xml = (
 ) => `<rss xmlns:dc="https://purl.org/dc/elements/1.1/" xmlns:content="https://purl.org/rss/1.0/modules/content/" xmlns:atom="https://www.w3.org/2005/Atom" version="2.0">
   <channel>
     <title>Antonio Rossi Website</title>
-    <icon>https://www.antoniorossi.net/favicon-32x32.png</icon>
     <id>https://www.antoniorossi.net/rss.xml</id>
     <link type="text/html" href="https://www.antoniorossi.net/" rel="alternate"/>
-    <description>A blog built with SvelteKit about tech and stuff!</description>
+    <description>Blogging about open source, software development and simple rural leaving</description>
     ${posts
       .map(
         (post) =>
