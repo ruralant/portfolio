@@ -40,7 +40,7 @@
   <title>Antonio Rossi Website</title>
   <meta
     name="description"
-    content="Antonio Rossi personal website. Blogging about open source, development and simple leaving."
+    content="Antonio Rossi personal website. Blogging about open source, software development and simple rural leaving"
   />
   <meta property="og:title" content="Antonio Rossi Website" />
   <meta
