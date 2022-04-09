@@ -27,7 +27,7 @@ const xml = (
     <webfeeds:logo>https://www.antoniorossi.net/favicon.svg</webfeeds:logo>
     <webfeeds:accentColor>000000</webfeeds:accentColor>
     <webfeeds:related layout="card" target="browser"/>
-    <updated>${new Date()}</updated>
+    <updated>${new Date().toISOString()}</updated>
     ${posts
       .map(
         (post) =>
