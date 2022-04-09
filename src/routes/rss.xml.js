@@ -20,7 +20,6 @@ const xml = (
   <channel>
     <title>Antonio Rossi Website</title>
     <icon>https://www.antoniorossi.net/favicon-32x32.png</icon>
-    <updated>2022-04-08T21:10:22-04:00</updated>
     <id>https://www.antoniorossi.net/rss.xml</id>
     <link type="text/html" href="https://www.antoniorossi.net/" rel="alternate"/>
     <description>A blog built with SvelteKit about tech and stuff!</description>
@@ -36,8 +35,8 @@ const xml = (
           <link>
             https://www.antoniorossi.net/blog/${post.type}/${post.slug}
           </link>
-          <description>${post.description}</description>
-          <pubDate>${new Date(post.date).toUTCString()}</pubDate>
+          <description>${post.subtitle}</description>
+          <pubDate>${post.date}</pubDate>
         </item>
       `
       )
