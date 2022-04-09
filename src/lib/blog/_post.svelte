@@ -2,9 +2,6 @@
   import { fade } from 'svelte/transition';
   import ArrowLeft from '$lib/components/icons/ArrowLeft.svelte';
 
-  const capitalise = (text) =>
-    text.replace(/^\w/, (firstLetter) => firstLetter.toUpperCase());
-
   const goBack = () => {
     window.history.back();
   };
@@ -63,7 +60,7 @@
     loading="lazy"
     class="mt-6 mb-8 rounded-lg drop-shadow-md"
   />
-  <article class="">
+  <article>
     <slot />
   </article>
   <div class="flex my-10 underline">
