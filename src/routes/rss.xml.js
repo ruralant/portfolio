@@ -19,16 +19,19 @@ const xml = (
 ) => `<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:webfeeds="http://webfeeds.org/rss/1.0">
   <channel>
     <title>Antonio Rossi Website</title>
-    <id>https://www.antoniorossi.net/rss.xml</id>
-    <link type="text/html" href="https://www.antoniorossi.net/" rel="alternate"/>
+    <link href="https://www.antoniorossi.net/rss.xml" rel="self"/>
+    <link href="https://www.antoniorossi.net/"/>
     <description>Blogging about open source, software development and simple rural leaving</description>
+    <updated>2022-04-09T11:22:49-04:00</updated>
+    <id>https://www.antoniorossi.net/</id>
+    <author>
+      <name>Antonio Rossi</name>
+    </author>
     <webfeeds:cover image="https://www.antoniorossi.net/mstile-144x144.png" />
     <webfeeds:icon>https://www.antoniorossi.net/mstile-144x144.png</webfeeds:icon>
     <webfeeds:logo>https://www.antoniorossi.net/mstile-144x144.png</webfeeds:logo>
     <webfeeds:accentColor>000000</webfeeds:accentColor>
     <webfeeds:related layout="card" target="browser"/>
-    <snf:logo>https://www.antoniorossi.net/mstile-144x144.png</snf:logo>
-    <pubDate>Wed, 30 Mar 2022 22:00:12 GMT</pubDate>
     ${posts
       .map(
         (post) =>
