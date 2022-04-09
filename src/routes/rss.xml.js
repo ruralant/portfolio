@@ -19,16 +19,18 @@ const xml = (
 ) => `<rss xmlns:dc="https://purl.org/dc/elements/1.1/" xmlns:content="https://purl.org/rss/1.0/modules/content/" xmlns:atom="https://www.w3.org/2005/Atom" version="2.0">
   <channel>
     <title>Antonio Rossi Website</title>
-    <icon>https://www.antoniorossi.net/favicon.svg</icon>
-    <link>https://www.antoniorossi.net</link>
+    <icon>https://www.antoniorossi.net/favicon-32x32.png</icon>
+    <updated>2022-04-08T21:10:22-04:00</updated>
+    <id>https://www.antoniorossi.net/rss.xml</id>
+    <link type="text/html" href="https://www.antoniorossi.net/" rel="alternate"/>
     <description>A blog built with SvelteKit about tech and stuff!</description>
     ${posts
       .map(
         (post) =>
           `
         <item>
-          <guid>
-          https://www.antoniorossi.net/blog/${post.type}/${post.slug}
+          <guid isPermaLink="true">
+            https://www.antoniorossi.net/blog/${post.type}/${post.slug}
           </guid>
           <title>${post.title}</title>
           <link>
