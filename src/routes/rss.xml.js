@@ -22,12 +22,13 @@ const xml = (
     <id>https://www.antoniorossi.net/rss.xml</id>
     <link type="text/html" href="https://www.antoniorossi.net/" rel="alternate"/>
     <description>Blogging about open source, software development and simple rural leaving</description>
-    <webfeeds:cover image="https://www.antoniorossi.net/favicon.svg" />
-    <webfeeds:icon>https://www.antoniorossi.net/favicon.svg</webfeeds:icon>
-    <webfeeds:logo>https://www.antoniorossi.net/favicon.svg</webfeeds:logo>
+    <webfeeds:cover image="https://www.antoniorossi.net/mstile-144x144.png" />
+    <webfeeds:icon>https://www.antoniorossi.net/mstile-144x144.png</webfeeds:icon>
+    <webfeeds:logo>https://www.antoniorossi.net/mstile-144x144.png</webfeeds:logo>
     <webfeeds:accentColor>000000</webfeeds:accentColor>
     <webfeeds:related layout="card" target="browser"/>
-    <updated>${new Date().toISOString()}</updated>
+    <snf:logo>https://www.antoniorossi.net/mstile-144x144.png</snf:logo>
+    <pubDate>Wed, 30 Mar 2022 22:00:12 GMT</pubDate>
     ${posts
       .map(
         (post) =>
