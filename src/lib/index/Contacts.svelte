@@ -1,5 +1,6 @@
 <script>
   import Email from '$lib/components/icons/Email.svelte';
+  import Rss from '$lib/components/icons/Rss.svelte';
 </script>
 
 <div
@@ -68,6 +69,13 @@
         aria-label="mail icon"
       >
         <Email />
+      </a>
+      <a
+        class="social-media-container text-neutral-800 dark:text-white transition duration-300 ease-in-out"
+        href="https://www.antoniorossi.net/rss.xml"
+        aria-label="rss feed icon"
+      >
+        <Rss />
       </a>
     </div>
   </div>
