@@ -1,0 +1,4 @@
+This is a Brave Rewards publisher verification file.
+
+Domain: antoniorossi.net
+Token: cb3de1b1970c6f08d334ef71572d48adfce1ca0c0c39eea618c0c19f2fd070c0
