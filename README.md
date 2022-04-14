@@ -13,10 +13,10 @@ The website has the following sections:
 
 As per today:
 
-- home page
-- blog page (aggregated)
-- tech blog
-- personal blog
+- Home page
+- Blog page (aggregated)
+- Tech blog
+- Personal blog
 
 Coming soon:
 
