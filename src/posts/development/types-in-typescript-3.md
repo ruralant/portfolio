@@ -1,7 +1,7 @@
 ---
-title: Types in Typescript - Objects
+title: Types in Typescript - Type assertion and type guards
 slug: types-in-typescript-3
-subtitle: A detailed look into the primitive types in Typescript
+subtitle: Let's talk about two of the most misused types in Typescript and how to handle types unknown at the time you develop.
 category: programming
 tags: [typescript]
 mainImage: https://res.cloudinary.com/antonio-rossi/image/upload/w_1000,fl_progressive/v1648646194/articles/functional-programming/pure_zyijgf.jpg
@@ -13,89 +13,56 @@ layout: development
 type: development
 ---
 
-Types:
+Sometimes, when you write code in a typed language, you have to work with values that are unknown to you at the time you develop your code. When that happen, you can use `any` and `unknown` and you can use type guards to maintain control of what types your code can handle.
 
 ### Any
 
-Types in Typescript are a subtype of the `any` type. The `any` type represent any JavaScript value, without constrains.
+The `any` type can represent and JavaScript value and it can be useful in several situations:
 
-Let's have a look at the other types:
-
-### Primitive Types:
-
-- `boolean`
-- `number`
-- `bigint`
-- `string`
-- `enum`
-- `void`
-- `null`
-
-#### Boolean
-
-If you have any basic experience of coding, you might be able to guess the values of this datatype :)
+- when expecting values from a third party library
+- when expecting values from a user input
+- when you're gradually migrating from JavaScript
 
 ```
-const x: boolean = true
-const y: boolean = false;
+let value: any = 'hey!'
+value = true
+value = 1
 ```
 
-#### String
+The aforementioned code, won't throw any error at compilation time. The reason is that the type `any` skip the type checking.
 
-Another easy type to remember is the `string` type, a sequence of Unicode UTF-16 code units, or simply, a piece of text surrounded by quotes.
-
-```
-const x = 'hello'
-const z = "hi"
-const y = ""
-```
-
-In TypeScript you can also use template strings, strings that can be embedded and that can span in multiple lines. To create a template string, you just need to surround it with backtick. On how to embed them, refer to the following example:
+Obviously, errors runtime errors will be triggers depending on the datatype and the assumption.
 
 ```
-const greetings: string = 'meow meow'
-const sentence: string = `At 5 am the cat said ${greetings}`
-
-// At 5 am the cat said meow meow
-
-const poem: string = `I wonder thro' each charter'd street
-    Near where the charter'd Thames does flow`
-
-// I wonder thro' each charter'd street
-      Near where the charter'd Thames does flow
-
+let value: any = true;
+value.toUpperCase()
+// Uncaught TypeError: value.toUpperCase is not a function
 ```
 
-#### Number and bigint
+### Unknown
 
-In TypeScript, numbers are either floating points values or BigIntegers.
-Floating point values (`number`) are numbers without a fixed number of digits before and after the decimal point.
+As we saw in the previous example, the `any` type is really flexible, to the extent that it can be abused and can often cause unexpected errors.
 
-```
-const x: number = 1
-const y: number = 0.1
-const z: number = 123.456
-```
+The recently added `unknown` type try to solve such problems. It can be assign to any value but you can't access properties or call or construct the to the value marked as `unknown`.
 
-`bigInt` are numbers that are larger than `9007199254740991` (9 quadrillions) or ``. In JavaScrip this limit can be retrieved using `Number.MAX_SAFE_INTEGER`.
+An example of `unknown` in action, along side the `any` type:
 
 ```
-const bigNumber: bigint = 150n
+let value: any = 'hello'
+value.toUpperCase()
+// 'HELLO
+
+value.map(e => console.log(e));
+// value.map is not a function
+
+
+let secondValue: unknown = 'world'
+secondValue.toUpperCase()
+// Error: Object is of type unknown
+
+value.map(e => console.log(e));
+// Error: Object is of type unknown
 ```
 
-#### Enum
-
-`enum` is one of the most recent additions to the TypeScript types list and stands for enumeration. An `enum` is a set of values and you can use it to create a set of constants to be used with variables and properties. The behavior of `enum` is largely different compared with what we saw so far, so I'll explain it in details in a the next article.
-
-### Void, null, undefined
-
-These are primitive values but on their own do not make much sense. However, they are really useful alongside `functions`. So bare with me and we'll discuss them later.
-
-### Object Types:
-
-- `function`
-- `object`
-- `bigint`
-- `symbol`
-- `undefined`
-- `never`
+It's not possible to interact, in any way, with a variable of type `unknown`. It'll always error at compiling time.
+On the other hand, you can, always interact with a variable of type `any` and it won't error at compiling time. However, it might error at runtime.
