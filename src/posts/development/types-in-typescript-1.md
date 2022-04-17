@@ -19,6 +19,8 @@ Types:
 
 Types in Typescript are a subtype of the `any` type. The `any` type represent any JavaScript value, without constrains.
 
+For a more in-depth analysis of the type `any` and the new type `unknown` please check out my <a href="https://www.antoniorossi.net/blog/development/types-in-typescript-2" target="_blank">dedicated article</a>
+
 Let's have a look at the other types:
 
 ### Primitive Types:
@@ -85,7 +87,7 @@ const bigNumber: bigint = 150n
 
 #### Enum
 
-`enum` is one of the most recent additions to the TypeScript types list and stands for enumeration. An `enum` is a set of values and you can use it to create a set of constants to be used with variables and properties. The behavior of `enum` is largely different compared with what we saw so far, so I'll explain it in details in a the next article.
+`enum` is one of the most recent additions to the TypeScript types list and stands for enumeration. An `enum` is a set of values and you can use it to create a set of constants to be used with variables and properties. The behavior of `enum` is largely different compared with what we saw so far, so I'll explain it in details in q <a href="https://www.antoniorossi.net/blog/development/types-in-typescript-2" target="_blank">dedicated article</a>
 
 ### Void, null, undefined
 
