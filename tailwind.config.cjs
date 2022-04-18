@@ -102,15 +102,11 @@ module.exports = {
           }),
         },
         {
-          // values from config and defaults you wish to use most
-          values: Object.assign(
-            theme('bgGradientDeg', {}), // name of config key. Must be unique
-            {
-              0: '0deg',
-              90: '90deg',
-              271: '271deg',
-            }
-          ),
+          values: Object.assign(theme('bgGradientDeg', {}), {
+            0: '0deg',
+            90: '90deg',
+            271: '271deg',
+          }),
         }
       );
     }),
