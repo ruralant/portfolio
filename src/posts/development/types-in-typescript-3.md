@@ -13,56 +13,55 @@ layout: development
 type: development
 ---
 
-Sometimes, when you write code in a typed language, you have to work with values that are unknown to you at the time you develop your code. When that happen, you can use `any` and `unknown` and you can use type guards to maintain control of what types your code can handle.
+### Assertions
 
-### Any
+In the <a href="https://www.antoniorossi.net/blog/development/types-in-typescript-2" target="_blank">previous article</a> we had a look a the type `any` and `unknown`.
 
-The `any` type can represent and JavaScript value and it can be useful in several situations:
+Alongside the two types (but in particular `any`), to avoid errors at runtime, it can be useful to use **type assertion**.
 
-- when expecting values from a third party library
-- when expecting values from a user input
-- when you're gradually migrating from JavaScript
+This is an example of type assertion:
 
 ```
-let value: any = 'hey!'
-value = true
-value = 1
+(value as string).toUpperCase();
 ```
 
-The aforementioned code, won't throw any error at compilation time. The reason is that the type `any` skip the type checking.
-
-Obviously, errors runtime errors will be triggers depending on the datatype and the assumption.
+or
 
 ```
-let value: any = true;
-value.toUpperCase()
-// Uncaught TypeError: value.toUpperCase is not a function
+(<string>value).toUpperCase();
 ```
 
-### Unknown
+There is no difference between the two example above, it's a different syntax to achieve the same result. They are a check to determine if the value is a string, and if it's they call a method that is specific to the `string` type.
 
-As we saw in the previous example, the `any` type is really flexible, to the extent that it can be abused and can often cause unexpected errors.
+When I was working with `Angular` (meaning Angular version 2, not to be confused with `AngularJS`) I used a lot the `< >` syntax. However, in the last couple of years, while working with `React` always favored the `as` syntax as it create less confusion when used with JSX.
 
-The recently added `unknown` type try to solve such problems. It can be assign to any value but you can't access properties or call or construct the to the value marked as `unknown`.
+### Guards
 
-An example of `unknown` in action, along side the `any` type:
+A type guard is a type check (used, for example, alongside an if statement), to make sure that the type handled by the code is valid.
+
+Guards can be used really effectively in combination with assertions in the following way:
 
 ```
-let value: any = 'hello'
-value.toUpperCase()
-// 'HELLO
+let value: unknown = 'true
 
-value.map(e => console.log(e));
-// value.map is not a function
+value = 100
+value = 'Hello'
 
-
-let secondValue: unknown = 'world'
-secondValue.toUpperCase()
-// Error: Object is of type unknown
-
-value.map(e => console.log(e));
-// Error: Object is of type unknown
+if (typeof value === 'string) {
+  console.log((value as string).toUpperCase())
+  // HELLO
+} else {
+  trow new Error('Value type not valid. Expected a string')
+}
 ```
 
-It's not possible to interact, in any way, with a variable of type `unknown`. It'll always error at compiling time.
-On the other hand, you can, always interact with a variable of type `any` and it won't error at compiling time. However, it might error at runtime.
+In the previous block of code, we used `typeof` to check if the value was a string and we acted accordingly.
+
+Please not that, in the example, the assertion was needed because we assigned the type `unknown` to the variable. If the value was `any`, we could have omitted the assertion.
+
+Examples:
+
+- `string`: `typeof value === string`
+- `number`: `typeof value === number`
+- `boolean`: `typeof value === boolean`
+- `array`: `Array.isArray(value)`

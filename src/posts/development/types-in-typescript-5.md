@@ -13,51 +13,111 @@ layout: development
 type: development
 ---
 
-`enum` is a data type that can use to create a set of constants to be used with variables and properties.
+The type `never` is not as popular as the other types we discussed in the previous articles. Personally speaking, before realised it existed, it took me more than an year. And, even after that, I used it a handful of times.
 
-The best use of `enum` is when a procedure accept a limited set of variables.
+However, it can be really useful is some use cases and it's worth to discuss it, so let's begin!
+
+In short, `never` is an empty set of values. The first time I read this definition, it didn't really clarify to me what `never` does (SMILE)
+
+The idea is that `never` can't have any value, not even `any`.
 
 ```
-enum CardinalDirections {
-    North,
-    East,
-    South,
-    West
+const value: never = any
+// Error: type 'any' is not assignable to type 'never'
+```
+
+As you can see from the example above, it's not super frequent to have the need to use the `never` type. But
+
+I'll give you an example:
+
+```
+const doNotCookInMicrowave = (food: never): never {
+    thrown new Error('You can't cook that it in the microwave!')
+}
+
+type Food = 'veggies' | 'pizza' | 'soup'
+
+const cookInMicrowave(food: Food): string {
+    switch(food) {
+        case 'veggies':
+            return 'Power: 50. Minutes 10.';
+            break;
+        case 'pizza':
+            return 'Power 100. Minutes 1.'
+            break;
+        case 'soup':
+            return 'Power 60'. Minutes 6.'
+            break;
+        default:
+            return doNotCookInMicrowave(food);
+    }
 }
 ```
 
-Once the `enum` has been declare, you it can be used in the following way:
+It can also be used with unions and intersections and it can in the same way 0 works in math:
 
 ```
-const shipDirection = CardinalDirections.South;
-console.log(shipDirection)
-// 2
+type Value = never | string;
+// string
 ```
 
-By default, the values of `enum` starts at 0. In the above example, `CardinalDirections.South` resulted to 2. `North` would result as 0, `East`as 1 and `west` as 3.
+```
+type Value = never & string;
+// never
+```
 
-This behavior can be overwritten. Is it possible to specify the start value in the following way:
+There are several advance cases and one example could be **partially disallow structural typing**
 
 ```
-enum CardinalDirections {
-    North = 2,
-    East,
-    South,
-    West
+type A = {
+    a: string
 }
 
-const shipDirection = CardinalDirections.South;
-console.log(shipDirection)
-// 4
-```
-
-`enum` can also accept strings:
-
-```
-enum CardinalDirections {
-    North = 'Buccaneer, let's go north!'
-    East = 'Freebooter, let's go east!'
-    South = 'Pirates, let's go south!'
-    West = 'Rovers, let's go west!'
+type: B = {
+    b: boolean
 }
+
+declare function randomFunction(arg: A | B): void
+
+const test = {
+    a: 'test',
+    b: 1
+}
+
+randomFunction()
+// ... nothing, no complains from TypeScript
 ```
+
+However, using `never` we can overwrite this behavior:
+
+```
+type A = {
+    a: string
+    b?: never
+}
+
+type: B = {
+    a?: never
+    b: boolean
+}
+
+declare function randomFunction(arg: A | B): void
+
+const test = {
+    a: 'test',
+    b: 1
+}
+
+randomFunction()
+// // Error: type 'boolean' is not assignable to type 'never'
+or
+// // Error: type 'string' is not assignable to type 'never'
+```
+
+### In summary
+
+It's good to know that type `never` exist as it can be quite useful is some edge cases or if you encounter it in code written by someone else.
+
+As I mentioned, I used it really rarely but if you have a use case where you reach fairly often for the type `never`, please send me an email.
+
+I would be really interested in learning more as I have the feeling that I could used it more in my daily work.
