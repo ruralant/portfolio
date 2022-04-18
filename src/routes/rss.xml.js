@@ -22,7 +22,7 @@ const xml = (
     <link href="https://www.antoniorossi.net/rss.xml" rel="self"/>
     <link href="https://www.antoniorossi.net/"/>
     <description>Blogging about open source, software development and simple rural leaving</description>
-    <updated>2022-04-09T11:22:49-04:00</updated>
+    <updated>2022-04-18T17:15:49-04:00</updated>
     <id>https://www.antoniorossi.net/</id>
     <author>
       <name>Antonio Rossi</name>
