@@ -5,6 +5,7 @@ subtitle: A detailed look into the primitive types in Typescript
 category: programming
 tags: [typescript, types, basics]
 mainImage: https://res.cloudinary.com/antonio-rossi/image/upload/w_1000,fl_progressive/v1650352190/articles/types/florian-klauer-mk7D-4UCfmg-unsplash_b4tmof.jpg
+mainImageWebP: https://res.cloudinary.com/antonio-rossi/image/upload/w_1000,fl_progressive,f_webp/v1650352190/articles/types/florian-klauer-mk7D-4UCfmg-unsplash_b4tmof.jpg
 mainImageAlt: An image of pure water with wite sand
 mainImageThumb: https://res.cloudinary.com/antonio-rossi/image/upload/w_300,fl_progressive/v1650352190/articles/types/florian-klauer-mk7D-4UCfmg-unsplash_b4tmof.jpg
 published: true
