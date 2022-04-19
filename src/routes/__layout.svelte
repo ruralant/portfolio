@@ -46,12 +46,6 @@
       }
     }
   </script>
-  <meta
-    name="theme-color"
-    content={window.matchMedia('(prefers-color-scheme: dark)').matches
-      ? '#000'
-      : '#fff'}
-  />
 </svelte:head>
 
 <div id="core" class={localTheme}>
