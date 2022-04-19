@@ -46,6 +46,7 @@
       }
     }
   </script>
+  <meta name="theme-color" content={localTheme === 'dark' ? '#000' : '#fff'} />
 </svelte:head>
 
 <div id="core" class={localTheme}>
