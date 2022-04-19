@@ -5,6 +5,7 @@ subtitle: Let's talk about two of the most misused types in Typescript and how t
 category: programming
 tags: [typescript]
 mainImage: https://res.cloudinary.com/antonio-rossi/image/upload/w_1000,fl_progressive/v1648646194/articles/functional-programming/pure_zyijgf.jpg
+mainImageWebp: https://res.cloudinary.com/antonio-rossi/image/upload/w_1000,fl_progressive,f_webp/v1648646194/articles/functional-programming/pure_zyijgf.jpg
 mainImageAlt: An image of pure water with wite sand
 mainImageThumb: https://res.cloudinary.com/antonio-rossi/image/upload/w_300,fl_progressive/v1648646194/articles/functional-programming/pure_zyijgf.jpg
 published: false
