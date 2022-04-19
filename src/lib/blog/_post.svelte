@@ -63,15 +63,6 @@
       placeholder="blur"
     />
   </picture>
-  <!-- <img
-    src={mainImage}
-    alt={mainImageAlt}
-    width={1000}
-    height={1000}
-    placeholder="blur"
-    loading="lazy"
-    class="mt-6 mb-8 rounded-lg drop-shadow-md"
-  /> -->
   <article>
     <slot />
   </article>

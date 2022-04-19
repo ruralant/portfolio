@@ -41,15 +41,19 @@ They are all sections and pages that I'm going to add in the next few week. Befo
 
 ### Energy Efficiency
 
-<img
-  src="https://res.cloudinary.com/antonio-rossi/image/upload/w_1000,fl_progressive/v1648399548/articles/first-article/new-website-carbon-score.png"
-  alt="carbon score"
-  width={1000}
-  height={1000}
-  placeholder="blur"
-  loading="lazy"
-  class="rounded-lg drop-shadow-md"
-/>
+<picture class="rounded-lg drop-shadow-md">
+  <source type="image/webp" srcset="https://res.cloudinary.com/antonio-rossi/image/upload/w_1000,fl_progressive,f_webp/v1648399548/articles/first-article/new-website-carbon-score.png" />
+  <source type="image/jpeg" srcset="https://res.cloudinary.com/antonio-rossi/image/upload/w_1000,fl_progressive/v1648399548/articles/first-article/new-website-carbon-score.png" />
+  <img
+      src="https://res.cloudinary.com/antonio-rossi/image/upload/w_1000,fl_progressive/v1648399548/articles/first-article/new-website-carbon-score.png"
+      alt="carbon score"
+      width={1000}
+      height={1000}
+      loading="lazy"
+      placeholder="blur"
+      class="rounded-lg drop-shadow-md"
+    />
+</picture>
 
 The website is rated as more efficient than the 96% of the world wide web. I achieve it with a combination of assets optimisation, server side rendering and an extremely small amount of JavaScript shipped to the client. Svelte (the framework that I used) really helped me with that.
 
@@ -57,15 +61,18 @@ The website is rated as more efficient than the 96% of the world wide web. I ach
 
 The website has a perfect Lighthouse score. In simple terms, it loads fast also in old devices or with a slow connection and it's accessible by people with disabilities.
 
-<img
-  src="https://res.cloudinary.com/antonio-rossi/image/upload/w_762,fl_progressive/v1648400557/articles/first-article/lighthouse-score.png"
-  alt="google chrome lighthouse score"
-  width={762}
-  height={753}
-  placeholder="blur"
-  loading="lazy"
-  class="rounded-lg drop-shadow-md"
-/>
+<picture class="rounded-lg drop-shadow-md">
+  <source type="image/webp" srcset="https://res.cloudinary.com/antonio-rossi/image/upload/w_762,fl_progressive,f_webp/v1648400557/articles/first-article/lighthouse-score.png" />
+  <source type="image/jpeg" srcset="https://res.cloudinary.com/antonio-rossi/image/upload/w_762,fl_progressive/v1648400557/articles/first-article/lighthouse-score.png" />
+  <img
+    src="https://res.cloudinary.com/antonio-rossi/image/upload/w_762,fl_progressive/v1648400557/articles/first-article/lighthouse-score.png"
+    alt="google chrome lighthouse score"
+    width={762}
+    height={753}
+    placeholder="blur"
+    loading="lazy"
+    />
+</picture>
 
 ### It feature a blog
 
