@@ -5,6 +5,7 @@ subtitle: A bird's eye view of one of the best paradigm you can use in JavaScrip
 category: paradigm
 tags: [javascript, paradigms]
 mainImage: https://res.cloudinary.com/antonio-rossi/image/upload/w_1000,fl_progressive/v1648646194/articles/functional-programming/pure_zyijgf.jpg
+mainImageWebP: https://res.cloudinary.com/antonio-rossi/image/upload/w_1000,fl_progressive,f_webp/v1648646194/articles/functional-programming/pure_zyijgf.jpg
 mainImageAlt: An image of pure water with wite sand
 mainImageThumb: https://res.cloudinary.com/antonio-rossi/image/upload/w_300,fl_progressive/v1648646194/articles/functional-programming/pure_zyijgf.jpg
 published: false

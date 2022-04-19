@@ -10,6 +10,7 @@
   export let title;
   export let subtitle;
   export let mainImage;
+  export let mainImageWebP;
   export let mainImageThumb;
   export let mainImageAlt;
   export let slug;
@@ -51,7 +52,19 @@
   <h2 class="text-2xl font-normal text-center tracking-normal mt-0">
     {subtitle}
   </h2>
-  <img
+  <picture class="mt-6 mb-8 rounded-lg drop-shadow-md">
+    <source type="image/webp" srcset={mainImageWebP} />
+    <source type="image/jpeg" srcset={mainImage} />
+    <img
+      src={mainImage}
+      alt={mainImageAlt}
+      width={1000}
+      height={1000}
+      loading="lazy"
+      placeholder="blur"
+    />
+  </picture>
+  <!-- <img
     src={mainImage}
     alt={mainImageAlt}
     width={1000}
@@ -59,7 +72,7 @@
     placeholder="blur"
     loading="lazy"
     class="mt-6 mb-8 rounded-lg drop-shadow-md"
-  />
+  /> -->
   <article>
     <slot />
   </article>

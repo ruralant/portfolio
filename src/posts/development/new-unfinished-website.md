@@ -5,6 +5,7 @@ subtitle: After six years and multiple attempts, I finally managed to put a new 
 category: career
 tags: [career, optimisation, svelte]
 mainImage: https://res.cloudinary.com/antonio-rossi/image/upload/w_1000,fl_progressive/v1648572228/articles/first-article/home-page_fivkuj.png
+mainImageWebP: https://res.cloudinary.com/antonio-rossi/image/upload/w_1000,fl_progressive,f_webp/v1648646194/articles/functional-programming/pure_zyijgf.jpg
 mainImageAlt: A screenshot of the home page of the new website
 mainImageThumb: https://res.cloudinary.com/antonio-rossi/image/upload/w_300,fl_progressive/v1648572228/articles/first-article/home-page_fivkuj.png
 published: true
