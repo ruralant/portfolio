@@ -35,8 +35,10 @@
     if (!('theme' in localStorage)) {
       if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
         document.documentElement.classList.add('dark');
+        <meta name="theme-color" content="#319197" />;
       } else {
         document.documentElement.classList.remove('dark');
+        <meta name="theme-color" content="#fff" />;
       }
     } else {
       let data = localStorage.getItem('theme');
@@ -46,7 +48,7 @@
       }
     }
   </script>
-  <meta name="theme-color" content="#319197" />
+  <!-- <meta name="theme-color" content={} /> -->
 </svelte:head>
 
 <div id="core" class={localTheme}>
