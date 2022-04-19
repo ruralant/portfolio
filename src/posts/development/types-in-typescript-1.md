@@ -4,9 +4,9 @@ slug: types-in-typescript-1
 subtitle: A detailed look into the primitive types in Typescript
 category: programming
 tags: [typescript, types, basics]
-mainImage: https://res.cloudinary.com/antonio-rossi/image/upload/w_1000,fl_progressive/v1648646194/articles/functional-programming/pure_zyijgf.jpg
+mainImage: https://res.cloudinary.com/antonio-rossi/image/upload/w_1000,fl_progressive/v1650352190/articles/types/florian-klauer-mk7D-4UCfmg-unsplash_b4tmof.jpg
 mainImageAlt: An image of pure water with wite sand
-mainImageThumb: https://res.cloudinary.com/antonio-rossi/image/upload/w_300,fl_progressive/v1648646194/articles/functional-programming/pure_zyijgf.jpg
+mainImageThumb: https://res.cloudinary.com/antonio-rossi/image/upload/w_300,fl_progressive/v1650352190/articles/types/florian-klauer-mk7D-4UCfmg-unsplash_b4tmof.jpg
 published: true
 date: 2022-04-18
 layout: development
