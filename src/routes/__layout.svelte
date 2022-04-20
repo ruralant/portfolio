@@ -54,7 +54,7 @@
   <main
     in:fade={{ duration: 150, delay: 100 }}
     out:fade={{ duration: 150 }}
-    class="min-h-[calc(100vh-210px)] flex flex-col items-center bg-spaceWhite dark:bg-spaceGrey transition duration-300 ease-in-out px-4 md:px-22 lg:px-36"
+    class="min-h-[calc(100vh-210px)] flex flex-col items-center bg-spaceWhite dark:bg-spaceGrey  px-4 md:px-22 lg:px-36"
   >
     <div>
       <slot />

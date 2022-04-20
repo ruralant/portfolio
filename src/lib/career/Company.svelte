@@ -33,14 +33,10 @@
           />
         </div>
       </div>
-      <p
-        class="text-neutral-800 dark:text-white transition duration-300 ease-in-out"
-      >
+      <p class="text-neutral-800 dark:text-white ">
         {position}, {location}
       </p>
-      <p
-        class="text-neutral-800 dark:text-white transition duration-300 ease-in-out text-xl mb-6"
-      >
+      <p class="text-neutral-800 dark:text-white  text-xl mb-6">
         {from} - {to}
       </p>
     </div>

@@ -25,9 +25,7 @@
           >{post.category}</span
         >
       </div>
-      <p
-        class="text-neutral-800 dark:text-white mt-4 transition duration-300 ease-in-out"
-      >
+      <p class="text-neutral-800 dark:text-white mt-4 ">
         {post.subtitle}
       </p>
       <p
