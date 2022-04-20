@@ -46,16 +46,6 @@
       }
     }
   </script>
-  <meta
-    name="theme-color"
-    media="(prefers-color-scheme: light)"
-    content="white"
-  />
-  <meta
-    name="theme-color"
-    media="(prefers-color-scheme: dark)"
-    content="black"
-  />
 </svelte:head>
 
 <div id="core" class={localTheme}>
