@@ -47,28 +47,23 @@
     }
   </script>
   <!-- <meta name="theme-color" content={localTheme === 'dark' ? '#000' : '#fff'} /> -->
-  {#if window.matchMedia('(prefers-color-scheme: dark)').matches}
-    <meta
-      name="theme-color"
-      content="#000"
-      media="(prefers-color-scheme: dark)"
-    />
-  {:else}
-    <meta
-      name="theme-color"
-      content="#fff"
-      media="(prefers-color-scheme: light)"
-    />
-  {/if}
+  <meta
+    name="theme-color"
+    content="#fff"
+    media="(prefers-color-scheme: light)"
+  />
+  <meta
+    name="theme-color"
+    content="#000"
+    media="(prefers-color-scheme: dark)"
+  />
 </svelte:head>
 
 <div id="core" class={localTheme}>
   <Header />
 
   <main
-    in:fade={{ duration: 150, delay: 100 }}
-    out:fade={{ duration: 150 }}
-    class="min-h-[calc(100vh-210px)] flex flex-col items-center bg-spaceWhite dark:bg-spaceGrey transition duration-300 ease-in-out px-4 md:px-22 lg:px-36"
+    class="min-h-[calc(100vh-210px)] flex flex-col items-center bg-spaceWhite dark:bg-spaceGrey px-4 md:px-22 lg:px-36"
   >
     <div>
       <slot />
