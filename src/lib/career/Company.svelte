@@ -131,6 +131,5 @@
     margin-top: 10px;
     line-height: 1.7;
     font-size: 1.5rem;
-    transition: all 0.2s ease-in-out;
   }
 </style>

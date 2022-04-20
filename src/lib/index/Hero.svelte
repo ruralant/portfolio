@@ -65,7 +65,6 @@
     font-weight: 300;
     margin-top: 10px;
     line-height: 1.7;
-    transition: all 0.2s ease-in-out;
   }
   .subtitle span {
     width: 200;
