@@ -47,7 +47,7 @@
       </div>
     </nav>
   </div>
-  <div class="flex-0 invisible md:visible">
+  <div class="flex-0 ">
     <a
       href="/app/theme"
       class="block"
