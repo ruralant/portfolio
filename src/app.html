@@ -1,8 +1,5 @@
 <!DOCTYPE html>
-<html
-  lang="en"
-  class="bg-spaceWhite dark:bg-spaceGrey transition duration-300 ease-in-out"
->
+<html lang="en">
   <head>
     <meta charset="utf-8" />
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
@@ -43,7 +40,6 @@
       crossorigin
     />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    %svelte.head%
     <meta
       name="theme-color"
       content="#319197"
@@ -54,8 +50,14 @@
       content="#872e4e"
       media="(prefers-color-scheme: dark)"
     />
+    %svelte.head%
   </head>
   <body>
-    <div id="svelte">%svelte.body%</div>
+    <div
+      id="svelte"
+      class="bg-spaceWhite dark:bg-spaceGrey transition duration-300 ease-in-out"
+    >
+      %svelte.body%
+    </div>
   </body>
 </html>
