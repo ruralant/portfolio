@@ -52,7 +52,7 @@
   <h2 class="text-2xl font-normal text-center tracking-normal mt-0">
     {subtitle}
   </h2>
-  <picture class="mt-6 mb-8 rounded-lg drop-shadow-md">
+  <picture>
     <source type="image/webp" srcset={mainImageWebP} />
     <source type="image/jpeg" srcset={mainImage} />
     <img
@@ -61,6 +61,7 @@
       width={1000}
       height={1000}
       placeholder="blur"
+      class="mt-6 mb-8 rounded-lg drop-shadow-md"
     />
   </picture>
   <article>
