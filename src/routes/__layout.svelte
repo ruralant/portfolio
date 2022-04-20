@@ -46,7 +46,17 @@
       }
     }
   </script>
-  <meta name="theme-color" content={localTheme === 'dark' ? '#000' : '#fff'} />
+  <!-- <meta name="theme-color" content={localTheme === 'dark' ? '#000' : '#fff'} /> -->
+  <meta
+    name="theme-color"
+    content="#fff"
+    media="(prefers-color-scheme: light)"
+  />
+  <meta
+    name="theme-color"
+    content="#000"
+    media="(prefers-color-scheme: dark)"
+  />
 </svelte:head>
 
 <div id="core" class={localTheme}>
