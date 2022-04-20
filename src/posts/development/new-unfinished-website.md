@@ -41,7 +41,7 @@ They are all sections and pages that I'm going to add in the next few week. Befo
 
 ### Energy Efficiency
 
-<picture class="rounded-lg drop-shadow-md">
+<picture>
   <source type="image/webp" srcset="https://res.cloudinary.com/antonio-rossi/image/upload/w_1000,fl_progressive,f_webp/v1648399548/articles/first-article/new-website-carbon-score.png" />
   <source type="image/jpeg" srcset="https://res.cloudinary.com/antonio-rossi/image/upload/w_1000,fl_progressive/v1648399548/articles/first-article/new-website-carbon-score.png" />
   <img
@@ -61,7 +61,7 @@ The website is rated as more efficient than the 96% of the world wide web. I ach
 
 The website has a perfect Lighthouse score. In simple terms, it loads fast also in old devices or with a slow connection and it's accessible by people with disabilities.
 
-<picture class="rounded-lg drop-shadow-md">
+<picture>
   <source type="image/webp" srcset="https://res.cloudinary.com/antonio-rossi/image/upload/w_762,fl_progressive,f_webp/v1648400557/articles/first-article/lighthouse-score.png" />
   <source type="image/jpeg" srcset="https://res.cloudinary.com/antonio-rossi/image/upload/w_762,fl_progressive/v1648400557/articles/first-article/lighthouse-score.png" />
   <img
@@ -71,6 +71,7 @@ The website has a perfect Lighthouse score. In simple terms, it loads fast also 
     height={753}
     placeholder="blur"
     loading="lazy"
+    class="rounded-lg drop-shadow-md"
     />
 </picture>
 
