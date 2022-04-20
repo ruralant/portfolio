@@ -4,18 +4,16 @@
 </script>
 
 <div
-  class="main-container flex flex-col justify-center items-center flex-wrap bg-spaceWhite dark:bg-spaceGrey transition duration-300 ease-in-out pb-10 lg:pb-16"
+  class="main-container flex flex-col justify-center items-center flex-wrap bg-spaceWhite dark:bg-spaceGrey  pb-10 lg:pb-16"
 >
   <div class="flex">
     <h2
-      class="title-text text-center font-Cormorant bg-gradient-271 from-darkFromColor via-darkViaColor1 via-darkViaColor2 to-lightToColor dark:from-darkFromColor dark:via-darkViaColor1 dark:via-darkViaColor2 dark:to-darkToColor transition duration-300 ease-in-out"
+      class="title-text text-center font-Cormorant bg-gradient-271 from-darkFromColor via-darkViaColor1 via-darkViaColor2 to-lightToColor dark:from-darkFromColor dark:via-darkViaColor1 dark:via-darkViaColor2 dark:to-darkToColor "
     >
       I'm always up for a chat.
     </h2>
   </div>
-  <div
-    class="subtitle font-Poppins mt-10 text-neutral-800 dark:text-white transition duration-300 ease-in-out"
-  >
+  <div class="subtitle font-Poppins mt-10 text-neutral-800 dark:text-white ">
     <p>
       Pop me an email at{' '}
       <a class="email" href="mailto:hello@antoniorossi.net"
@@ -26,7 +24,7 @@
     <p>or give me a shout on social media</p>
     <div class="flex justify-center mt-5">
       <a
-        class="social-media-container text-neutral-800 dark:text-white transition duration-300 ease-in-out"
+        class="social-media-container text-neutral-800 dark:text-white "
         href="https://twitter.com/ruralant"
         target="_blank"
         rel="noopener noreferrer"
@@ -45,7 +43,7 @@
         </svg>
       </a>
       <a
-        class="social-media-container text-neutral-800 dark:text-white transition duration-300 ease-in-out"
+        class="social-media-container text-neutral-800 dark:text-white "
         href="https://www.linkedin.com/in/antoniorossii/"
         target="_blank"
         rel="noopener noreferrer"
@@ -64,14 +62,14 @@
         </svg>
       </a>
       <a
-        class="social-media-container text-neutral-800 dark:text-white transition duration-300 ease-in-out"
+        class="social-media-container text-neutral-800 dark:text-white "
         href="mailto:hello@antoniorossi.net"
         aria-label="mail icon"
       >
         <Email />
       </a>
       <a
-        class="social-media-container text-neutral-800 dark:text-white transition duration-300 ease-in-out"
+        class="social-media-container text-neutral-800 dark:text-white "
         href="https://www.antoniorossi.net/rss.xml"
         aria-label="rss feed icon"
       >
@@ -96,7 +94,6 @@
     font-weight: 300;
     line-height: 1.7;
     font-size: 1.8rem;
-    transition: all 0.2s ease-in-out;
   }
   .email {
     font-size: 2.6rem;

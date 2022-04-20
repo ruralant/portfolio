@@ -30,19 +30,17 @@
   export let posts;
 </script>
 
-<div
-  class="text-neutral-800 dark:text-white w-full sm:my-9 transition duration-300 ease-in-out"
->
+<div class="text-neutral-800 dark:text-white w-full sm:my-9 ">
   <div class="flex items-center md:justify-center">
     <p class="m-0 leading-standard font-Cormorant text-3xl pl-4">
       Latest Articles
     </p>
     <a
-      class="ml-6 inline-flex rounded-md shadow-sm px-2 py-1 bg-white dark:bg-neutral-800 text-sm transition duration-300 ease-in-out"
+      class="ml-6 inline-flex rounded-md shadow-sm px-2 py-1 bg-white dark:bg-neutral-800 text-sm "
       href="/"
     >
       <span
-        class="text-neutral-600 dark:text-neutral-300 dark pointer-events-none transition duration-300 ease-in-out"
+        class="text-neutral-600 dark:text-neutral-300 dark pointer-events-none "
         >Archive</span
       >
     </a>

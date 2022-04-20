@@ -9,7 +9,7 @@
       <h1 class="flex items-center flex-nowrap">
         <span>
           <span
-            class="title-text font-Cormorant bg-gradient-271 from-darkFromColor via-darkViaColor1 via-lightViaColor2 to-lightToColor dark:from-darkFromColor dark:via-darkViaColor1 dark:via-darkViaColor2 dark:to-darkToColor transition duration-300 ease-in-out"
+            class="title-text font-Cormorant bg-gradient-271 from-darkFromColor via-darkViaColor1 via-lightViaColor2 to-lightToColor dark:from-darkFromColor dark:via-darkViaColor1 dark:via-darkViaColor2 dark:to-darkToColor "
             >Hi, I&apos;m Antonio</span
           >
           <span class="text-5xl ml-1 lg:ml-5 md:hidden lg:inline">👋</span>
@@ -17,15 +17,11 @@
       </h1>
     </div>
     <div class="subtitle font-Poppins text-3xl">
-      <p
-        class="text-neutral-800 dark:text-white transition duration-300 ease-in-out"
-      >
+      <p class="text-neutral-800 dark:text-white ">
         I'm a full stack developer in Reading, UK.
       </p>
       {' '}
-      <p
-        class="text-neutral-800 dark:text-white transition duration-300 ease-in-out"
-      >
+      <p class="text-neutral-800 dark:text-white ">
         I'm interested in{' '}
         <span class="interactive-text">open source</span>,
         <span class="interactive-text">energy efficiency</span> of the web,
@@ -69,7 +65,6 @@
     font-weight: 300;
     margin-top: 10px;
     line-height: 1.7;
-    transition: all 0.2s ease-in-out;
   }
   .subtitle span {
     width: 200;
