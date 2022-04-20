@@ -46,7 +46,6 @@
       }
     }
   </script>
-  <meta name="theme-color" content="hsl(204deg, 67%, 85%)" />
 </svelte:head>
 
 <div id="core" class={localTheme}>
