@@ -94,7 +94,6 @@
     font-weight: 300;
     line-height: 1.7;
     font-size: 1.8rem;
-    transition: all 0.2s ease-in-out;
   }
   .email {
     font-size: 2.6rem;
