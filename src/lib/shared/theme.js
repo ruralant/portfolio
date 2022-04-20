@@ -1,13 +1,14 @@
 export function toggleTheme(theme, $theme) {
   const metaThemeColor = document.querySelector('meta[name=theme-color]');
   console.log(metaThemeColor);
+  console.log('THEME', $theme);
   if ($theme.mode === 'light') {
     theme.set({ ...$theme, mode: 'dark' });
-    metaThemeColor.setAttribute('content', '#000');
+    metaThemeColor.setAttribute('content', '#111111');
     updateDocument('theme', 'dark', 'light');
   } else {
     theme.set({ ...$theme, mode: 'light' });
-    metaThemeColor.setAttribute('content', '#FFF');
+    metaThemeColor.setAttribute('content', '#FAFAFC');
     updateDocument('theme', 'light', 'dark');
   }
 }
