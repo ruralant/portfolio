@@ -21,7 +21,7 @@
     <button
       bind:this={modalButtonRef}
       type="button"
-      class="inline-flex justify-center w-full rounded-md shadow-sm px-4 py-2 bg-white dark:bg-neutral-800 text-neutral-600 dark:text-neutral-300 text-sm font-normal transition duration-300 ease-in-out"
+      class="inline-flex justify-center w-full rounded-md shadow-sm px-4 py-2 bg-white dark:bg-neutral-800 text-neutral-600 dark:text-neutral-300 text-sm font-normal "
       aria-expanded="true"
       aria-haspopup="true"
       on:click={toggleDropDown}
