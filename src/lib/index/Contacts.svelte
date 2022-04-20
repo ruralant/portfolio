@@ -13,7 +13,7 @@
       I'm always up for a chat.
     </h2>
   </div>
-  <div class="subtitle font-Poppins mt-10 text-neutral-800 dark:text-white ">
+  <div class="subtitle font-Poppins mt-10 text-neutral-800 dark:text-white">
     <p>
       Pop me an email at{' '}
       <a class="email" href="mailto:hello@antoniorossi.net"
@@ -24,7 +24,7 @@
     <p>or give me a shout on social media</p>
     <div class="flex justify-center mt-5">
       <a
-        class="social-media-container text-neutral-800 dark:text-white "
+        class="social-media-container text-neutral-800 dark:text-white mr-4"
         href="https://twitter.com/ruralant"
         target="_blank"
         rel="noopener noreferrer"
@@ -43,7 +43,7 @@
         </svg>
       </a>
       <a
-        class="social-media-container text-neutral-800 dark:text-white "
+        class="social-media-container text-neutral-800 dark:text-white mr-4"
         href="https://www.linkedin.com/in/antoniorossii/"
         target="_blank"
         rel="noopener noreferrer"
@@ -62,14 +62,14 @@
         </svg>
       </a>
       <a
-        class="social-media-container text-neutral-800 dark:text-white "
+        class="social-media-container text-neutral-800 dark:text-white mr-4"
         href="mailto:hello@antoniorossi.net"
         aria-label="mail icon"
       >
         <Email />
       </a>
       <a
-        class="social-media-container text-neutral-800 dark:text-white "
+        class="social-media-container text-neutral-800 dark:text-white -ml-[2px]"
         href="https://www.antoniorossi.net/rss.xml"
         aria-label="rss feed icon"
       >
@@ -108,7 +108,6 @@
   .social-media-container {
     display: flex;
     justify-content: center;
-    margin-right: 1rem;
   }
   .social-media-image {
     height: 1.2rem;
