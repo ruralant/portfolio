@@ -1,6 +1,7 @@
 <script>
   import { fade } from 'svelte/transition';
   import ArrowLeft from '$lib/components/icons/ArrowLeft.svelte';
+  import Image from '$lib/components/Image.svelte';
 
   const goBack = () => {
     window.history.back();
@@ -49,21 +50,18 @@
   <h1 class="text-4xl font-normal text-center tracking-normal mb-4">
     {title}
   </h1>
-  <h2 class="text-2xl font-normal text-center tracking-normal mt-0">
+  <h2 class="text-xl font-normal text-center tracking-normal mt-0">
     {subtitle}
   </h2>
-  <picture>
-    <source type="image/webp" srcset={mainImageWebP} />
-    <source type="image/jpeg" srcset={mainImage} />
-    <img
-      src={mainImage}
-      alt={mainImageAlt}
-      width={1000}
-      height={1000}
-      placeholder="blur"
-      class="mt-6 mb-8 rounded-lg drop-shadow-md"
-    />
-  </picture>
+  <Image
+    wepImage={mainImageWebP}
+    jpegImage={mainImage}
+    alt={mainImageAlt}
+    width={1000}
+    height={1000}
+    placeholder={'blur'}
+    classes={'mt-6 mb-8 rounded-lg drop-shadow-md'}
+  />
   <article>
     <slot />
   </article>

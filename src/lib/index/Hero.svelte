@@ -1,6 +1,7 @@
 <script>
   import meImage from '$lib/assets/images/me-b-and-w-small.jpg';
   import meImageWebp from '$lib/assets/images/me-b-and-w-small.webp';
+  import Image from '$lib/components/Image.svelte';
 </script>
 
 <div class="flex justify-center items-center flex-wrap	pt-10 sm:pt-9">
@@ -30,19 +31,15 @@
       </p>
     </div>
   </div>
-  <div class="rounded-full overflow-hidden mt-10 lg:mt-0 lg:ml-20">
-    <picture>
-      <source type="image/webp" srcset={meImageWebp} />
-      <source type="image/jpeg" srcset={meImage} />
-      <img
-        src={meImage}
-        alt="myself speaking in public"
-        width={400}
-        height={400}
-        placeholder="blur"
-      />
-    </picture>
-  </div>
+  <Image
+    wepImage={meImageWebp}
+    jpegImage={meImage}
+    alt={'myself speaking in public'}
+    width={400}
+    height={400}
+    placeholder={'blur'}
+    classes={'rounded-full overflow-hidden mt-10 lg:mt-0 lg:ml-20'}
+  />
 </div>
 
 <style>
