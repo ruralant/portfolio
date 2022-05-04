@@ -4,12 +4,12 @@ slug: types-in-typescript-2
 subtitle: Let's talk about two of the most misused types in Typescript and how to handle types unknown at the time you develop.
 category: programming
 tags: [typescript]
-mainImage: https://res.cloudinary.com/antonio-rossi/image/upload/w_1000,fl_progressive/v1648646194/articles/functional-programming/pure_zyijgf.jpg
-mainImageWebP: https://res.cloudinary.com/antonio-rossi/image/upload/w_1000,fl_progressive,f_webp/v1648646194/articles/functional-programming/pure_zyijgf.jpg
+mainImage: https://res.cloudinary.com/antonio-rossi/image/upload/c_scale,w_1000,fl_progressive/v1651690130/articles/types/unknown_hnstj7.jpg
+mainImageWebP: https://res.cloudinary.com/antonio-rossi/image/upload/c_scale,w_1000,fl_progressive,f_webp/v1651690130/articles/types/unknown_hnstj7.jpg
 mainImageAlt: An image of pure water with wite sand
-mainImageThumb: https://res.cloudinary.com/antonio-rossi/image/upload/w_300,fl_progressive/v1648646194/articles/functional-programming/pure_zyijgf.jpg
-published: false
-date: 2022-04-12
+mainImageThumb: https://res.cloudinary.com/antonio-rossi/image/upload/c_scale,w_300,fl_progressive,f_webp/v1651690130/articles/types/unknown_hnstj7.jpg
+published: true
+date: 2022-05-04
 layout: development
 type: development
 ---

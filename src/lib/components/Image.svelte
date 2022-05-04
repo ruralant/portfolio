@@ -11,14 +11,5 @@
 <picture>
   <source type="image/webp" srcset={wepImage} />
   <source type="image/jpeg" srcset={jpegImage} />
-  <img
-    loading="lazy"
-    decoding="async"
-    src={jpegImage}
-    {alt}
-    {width}
-    {height}
-    {placeholder}
-    class={classes}
-  />
+  <img src={jpegImage} {alt} {width} {height} {placeholder} class={classes} />
 </picture>
