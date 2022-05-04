@@ -26,7 +26,7 @@
 
 <div class="text-neutral-800 dark:text-white w-full sm:my-9 ">
   <div class="flex items-center md:justify-center">
-    <p class="m-0 leading-standard font-Cormorant text-3xl pl-4">
+    <p class="m-0 leading-standard font-Roboto text-3xl pl-4">
       Latest Articles
     </p>
     <a

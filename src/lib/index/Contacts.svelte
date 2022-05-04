@@ -8,7 +8,7 @@
 >
   <div class="flex">
     <h2
-      class="title-text text-center font-Cormorant bg-gradient-271 from-darkFromColor via-darkViaColor1 via-darkViaColor2 to-lightToColor dark:from-darkFromColor dark:via-darkViaColor1 dark:via-darkViaColor2 dark:to-darkToColor "
+      class="title-text text-center font-Roboto bg-gradient-271 from-darkFromColor via-darkViaColor1 via-darkViaColor2 to-lightToColor dark:from-darkFromColor dark:via-darkViaColor1 dark:via-darkViaColor2 dark:to-darkToColor "
     >
       I'm always up for a chat.
     </h2>
