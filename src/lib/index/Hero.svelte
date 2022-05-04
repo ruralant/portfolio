@@ -10,7 +10,7 @@
       <h1 class="flex items-center flex-nowrap">
         <span>
           <span
-            class="title-text font-Cormorant bg-gradient-271 from-darkFromColor via-darkViaColor1 via-lightViaColor2 to-lightToColor dark:from-darkFromColor dark:via-darkViaColor1 dark:via-darkViaColor2 dark:to-darkToColor "
+            class="title-text font-Roboto bg-gradient-271 from-darkFromColor via-darkViaColor1 via-lightViaColor2 to-lightToColor dark:from-darkFromColor dark:via-darkViaColor1 dark:via-darkViaColor2 dark:to-darkToColor "
             >Hi, I&apos;m Antonio</span
           >
           <span class="text-5xl ml-1 lg:ml-5 md:hidden lg:inline">👋</span>
