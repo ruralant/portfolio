@@ -13,6 +13,12 @@ const config = {
     vite: {
       plugins: [imagetools({ force: true })],
     },
+    prerender: {
+      crawl: true,
+      enabled: true,
+      onError: 'continue',
+      pages: ['*'],
+    },
   },
 };
 
