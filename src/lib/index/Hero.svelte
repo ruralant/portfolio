@@ -11,6 +11,7 @@
       document.lazyloadInstance.update();
     }
   });
+  console.log('PLACEHOLDER', placeholders[0]);
   // const sizes = '(max-width: 672px) calc(100vw - 32px), 672px';
   const sizes = '400, 400';
 </script>
