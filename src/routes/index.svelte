@@ -9,6 +9,7 @@
   };
 
   export async function load({ fetch }) {
+    console.log('LOAD CALLED');
     const placeholdersPromise = fetch('/api/image-placeholders.json', {
       method: 'POST',
       credentials: 'same-origin',
@@ -19,6 +20,7 @@
         images: ['me-b-and-w-small.jpg'],
       }),
     });
+    console.log('PLACEHOLDER', placeholdersPromise);
 
     const [developmentPosts, personalPosts, placeholdersResponse] =
       await Promise.all([
