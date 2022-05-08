@@ -35,7 +35,6 @@ export const dominantColourPlaceholder = async ({ source }) => {
 export async function lowResolutionPlaceholder({ source }) {
   try {
     const image = sharp(source);
-    console.log('IMAGE', image);
     const buffer = await image
       .resize(10)
       .jpeg({
@@ -47,7 +46,6 @@ export async function lowResolutionPlaceholder({ source }) {
         quantisationTable: 2,
       })
       .toBuffer({ resolveWithObject: false });
-    console.log('BUFFER', buffer);
     return `data:image/jpeg;base64,${(await buffer).toString('base64')}`;
   } catch (error) {
     console.error('Error generating low resolution placeholder: ', source);
