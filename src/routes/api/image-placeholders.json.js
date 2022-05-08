@@ -7,7 +7,6 @@ import path from 'path';
 const __dirname = path.resolve();
 
 export const post = async ({ request }) => {
-  console.log('POST API CALLED');
   try {
     const { images } = await request.json();
 
