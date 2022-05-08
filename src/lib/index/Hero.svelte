@@ -1,18 +1,8 @@
 <script>
-  import { browser } from '$app/env';
-  import { onMount } from 'svelte';
   import meImage from '$lib/assets/images/me-b-and-w-small.jpg?width=400';
   import meImageWebp from '$lib/assets/images/me-b-and-w-small.webp?width=400&format=webp&srcset';
   import meImageSrcset from '$lib/assets/images/me-b-and-w-small.jpg?width=400&format=srcset';
   import Image from '$lib/components/Image.svelte';
-  export let placeholders;
-  onMount(() => {
-    if (browser) {
-      document.lazyloadInstance.update();
-    }
-  });
-  // const sizes = '(max-width: 672px) calc(100vw - 32px), 672px';
-  const sizes = '400, 400';
 </script>
 
 <div class="flex justify-center items-center flex-wrap	pt-10 sm:pt-9">
@@ -50,9 +40,7 @@
     width={400}
     height={400}
     loading={'eager'}
-    classes={'lazy rounded-full overflow-hidden mt-10 lg:mt-0 lg:ml-20'}
-    placeholder={placeholders[0]}
-    {sizes}
+    classes={'rounded-full overflow-hidden mt-10 lg:mt-0 lg:ml-20'}
   />
 </div>
 
