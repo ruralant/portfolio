@@ -10,7 +10,7 @@
 
   export async function load({ fetch }) {
     console.log('LOAD CALLED');
-    const placeholdersPromise = fetch('/api/image-placeholders.json', {
+    const placeholdersPromise = fetch('./api/image-placeholders.json', {
       method: 'POST',
       credentials: 'same-origin',
       headers: {
