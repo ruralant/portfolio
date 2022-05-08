@@ -1,5 +1,5 @@
 <script context="module">
-  export const prerender = true;
+  // export const prerender = true;
   const processPostData = (data) => {
     const postsData = Object.values(data);
     const posts = postsData.reduce((posts, next) => {
