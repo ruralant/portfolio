@@ -8,11 +8,24 @@
     return posts;
   };
 
-  export async function load() {
-    const [developmentPosts, personalPosts] = await Promise.all([
-      import.meta.globEager('../posts/development/*.md'),
-      import.meta.globEager('../posts/personal/*.md'),
-    ]);
+  export async function load({ fetch }) {
+    const placeholdersPromise = fetch('/api/image-placeholders.json', {
+      method: 'POST',
+      credentials: 'same-origin',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        images: ['me-b-and-w-small.jpg'],
+      }),
+    });
+
+    const [developmentPosts, personalPosts, placeholdersResponse] =
+      await Promise.all([
+        import.meta.globEager('../posts/development/*.md'),
+        import.meta.globEager('../posts/personal/*.md'),
+        placeholdersPromise,
+      ]);
     const developmentPostsData = processPostData(developmentPosts);
     const personalPostsData = processPostData(personalPosts);
     const posts = developmentPostsData
@@ -23,6 +36,7 @@
     return {
       props: {
         posts,
+        ...(await placeholdersResponse.json()),
       },
     };
   }
@@ -34,6 +48,7 @@
   import Articles from '$lib/index/Articles/Articles.svelte';
   import '../global.css';
   export let posts;
+  export let placeholders;
 </script>
 
 <svelte:head>
@@ -54,6 +69,6 @@
   />
 </svelte:head>
 
-<Hero />
+<Hero {placeholders} />
 <Articles {posts} />
 <Contacts />
