@@ -12,7 +12,7 @@ const config = {
   kit: {
     adapter: adapter(),
     vite: {
-      plugins: [imagetools({ force: true })],
+      plugins: [imagetools({ removeMetadata: true, force: true })],
       resolve: {
         alias: {
           $apis: path.resolve('./src/routes/api'),
