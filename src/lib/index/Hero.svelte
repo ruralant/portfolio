@@ -40,7 +40,7 @@
     width={400}
     height={400}
     loading={'eager'}
-    classes={'rounded-full overflow-hidden mt-10 lg:mt-0 lg:ml-20'}
+    classes={'rounded-full overflow-hidden mt-10 xl:mt-0 lg:ml-20'}
   />
 </div>
 
