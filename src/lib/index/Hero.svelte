@@ -6,7 +6,7 @@
 </script>
 
 <div class="flex justify-center items-center flex-wrap pt-10 sm:pt-9">
-  <div class="text-container flex-2 md:min-w-[660px]">
+  <div class="flex-2 md:min-w-[660px]">
     <div
       class="flex flex-row justify-center align-center md:justify-start md:align-start"
     >
@@ -21,7 +21,7 @@
       </h1>
     </div>
     <div
-      class="subtitle font-Poppins text-3xl font-light mt-2.5 leading-extraRelaxed"
+      class="font-Poppins text-2xl md:text-3xl font-light mt-2.5 leading-extraRelaxed"
     >
       <p class="text-neutral-800 dark:text-white ">
         I'm a full stack developer in Reading, UK.
