@@ -8,30 +8,33 @@
 >
   <div class="flex">
     <h2
-      class="title-text text-center font-Cormorant bg-gradient-271 from-darkFromColor via-darkViaColor1 via-darkViaColor2 to-lightToColor dark:from-darkFromColor dark:via-darkViaColor1 dark:via-darkViaColor2 dark:to-darkToColor "
+      class="text-center font-Cormorant text-[3rem] md:text-5xl bg-gradient-271 from-darkFromColor via-darkViaColor1 via-darkViaColor2 to-lightToColor dark:from-darkFromColor dark:via-darkViaColor1 dark:via-darkViaColor2 dark:to-darkToColor m-0 leading-standard"
     >
       I'm always up for a chat.
     </h2>
   </div>
-  <div class="subtitle font-Poppins mt-10 text-neutral-800 dark:text-white">
+  <div
+    class="subtitle font-Poppins text-2xl md:text-3xl text-center font-light leading-extraRelaxed text-neutral-800 dark:text-white mt-10"
+  >
     <p>
       Pop me an email at{' '}
-      <a class="email" href="mailto:hello@antoniorossi.net"
-        >hello@antoniorossi.net</a
+      <a
+        class="email text-[1.7rem] font-extrabold text-neutral-800 dark:text-white"
+        href="mailto:hello@antoniorossi.net">hello@antoniorossi.net</a
       >
     </p>
     {' '}
     <p>or give me a shout on social media</p>
     <div class="flex justify-center mt-5">
       <a
-        class="social-media-container text-neutral-800 dark:text-white mr-4"
+        class="social-media-container flex justify-center text-neutral-800 dark:text-white mr-4"
         href="https://twitter.com/ruralant"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="Twitter logo"
       >
         <svg
-          class="social-media-image"
+          class="social-media-image h-[1.2rem]"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 -2 33.4 29.5"
           overflow="visible"
@@ -50,7 +53,7 @@
         aria-label="LinkedIn logo"
       >
         <svg
-          class="social-media-image"
+          class="social-media-image h-[1.2rem]"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 30.2 28.9"
           overflow="visible"
@@ -77,72 +80,67 @@
       </a>
     </div>
   </div>
-  <div class="emoji mt-10">😃</div>
+  <div class="emoji text-5xl md:text-4xl mt-10">😃</div>
 </div>
 
-<style>
+<!-- <style>
   .title-text {
-    color: #fff;
-    background-clip: text;
+    /* background-clip: text; */
     /* font-weight: 500; */
-    margin: 0;
-    line-height: 1.15;
-    font-size: 3rem;
+    /* margin: 0; */
+    /* line-height: 1.15; */
+    /* font-size: 3rem; */
   }
   .subtitle {
-    text-align: center;
-    font-weight: 300;
-    line-height: 1.7;
-    font-size: 1.8rem;
+    /* text-align: center; */
+    /* font-weight: 300; */
+    /* line-height: 1.7; */
+    /* font-size: 1.8rem; */
   }
   .email {
-    font-size: 2.6rem;
-    font-weight: 600;
-    color: var(--color-text-primary);
-    font-weight: 800;
-    font-size: 1.7rem;
-    text-decoration: none;
-    -webkit-text-fill-color: var(--color-text-primary);
-    -webkit-text-stroke-color: transparent;
+    /* font-size: 2.6rem;
+    font-weight: 600; */
+    /* color: var(--color-text-primary); */
+    /* font-weight: 800; */
+    /* font-size: 1.7rem; */
+    /* text-decoration: none; */
+    /* -webkit-text-fill-color: var(--color-text-primary);
+    -webkit-text-stroke-color: transparent; */
   }
   .social-media-container {
-    display: flex;
-    justify-content: center;
+    /* display: flex;
+    justify-content: center; */
   }
   .social-media-image {
-    height: 1.2rem;
+    /* height: 1.2rem; */
   }
   .emoji {
-    font-size: 2rem;
+    /* font-size: 2rem; */
   }
   @media (max-width: 1000px) {
     .main-container {
-      height: auto;
+      /* height: auto; */
     }
   }
   @media (max-width: 800px) {
     .title-text {
-      font-size: 4rem;
+      /* font-size: 4rem; */
     }
     .subtitle {
-      font-size: 1.5rem;
+      /* font-size: 1.5rem; */
     }
     .emoji {
-      font-size: 3rem;
-      margin-left: 10px;
+      /* font-size: 3rem; */
+      /* margin-left: 10px; */
     }
   }
   @media (max-width: 550px) {
-    .title {
-      flex-direction: column;
-      align-items: center;
-    }
     .title-text {
-      font-size: 2.5rem;
-      text-align: center;
+      /* font-size: 2.5rem;
+      text-align: center; */
     }
     .emoji {
-      align-self: center;
+      /* align-self: center; */
     }
   }
-</style>
+</style> -->
