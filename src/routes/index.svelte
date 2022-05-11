@@ -14,7 +14,7 @@
   import Hero from '$lib/index/Hero.svelte';
   import Contacts from '$lib/index/Contacts.svelte';
   import Articles from '$lib/index/Articles/Articles.svelte';
-  import '../global.css';
+  // import '../global.css';
   export let posts;
 </script>
 
