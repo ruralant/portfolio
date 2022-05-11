@@ -15,9 +15,9 @@ export const get = async () => {
     '../../posts/development/*.md'
   );
   const personalPostsFiles = import.meta.glob('../../posts/personal/*.md');
-  const iterablePostsFiles = Object.entries(developmentPostsFiles).concat(
-    Object.entries(personalPostsFiles)
-  );
+  const iterablePostsFiles = Object.entries(developmentPostsFiles)
+    .concat(Object.entries(personalPostsFiles))
+    .slice(0, 6);
   const allPosts = await Promise.all(
     iterablePostsFiles.map(async ([path, resolver]) => {
       const { metadata } = await resolver();
