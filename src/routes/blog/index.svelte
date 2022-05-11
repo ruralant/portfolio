@@ -1,22 +1,22 @@
 <script context="module">
-  export async function load() {
-    const posts = import.meta.globEager(`../../posts/*/*.md`);
-    const postList = Object.values(posts);
-    const postsMeta = postList
-      .reduce((posts, next) => {
-        next.metadata.published && posts.push(next.metadata);
-        return posts;
-      }, [])
-      .slice()
-      .sort((post, next) => +new Date(next.date) - +new Date(post.date))
-      .slice(0, 6);
+  // export async function load() {
+  //   const posts = import.meta.globEager(`../../posts/*/*.md`);
+  //   const postList = Object.values(posts);
+  //   const postsMeta = postList
+  //     .reduce((posts, next) => {
+  //       next.metadata.published && posts.push(next.metadata);
+  //       return posts;
+  //     }, [])
+  //     .slice()
+  //     .sort((post, next) => +new Date(next.date) - +new Date(post.date))
+  //     .slice(0, 6);
 
-    return {
-      props: {
-        posts: postsMeta,
-      },
-    };
-  }
+  //   return {
+  //     props: {
+  //       posts: postsMeta,
+  //     },
+  //   };
+  // }
 </script>
 
 <script>

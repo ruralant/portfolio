@@ -2,7 +2,7 @@ import {
   dominantColourPlaceholder,
   IMAGE_DIR,
   lowResolutionPlaceholder,
-} from '$lib/utilities/image';
+} from '$lib/utils/image';
 import path from 'path';
 const __dirname = path.resolve();
 
