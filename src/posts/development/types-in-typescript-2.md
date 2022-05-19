@@ -14,11 +14,11 @@ layout: development
 type: development
 ---
 
-Sometimes, when you write code in a typed language, you have to work with values that are unknown to you at the time you develop your code. When that happen, you can use `any` and `unknown` and you can use type guards to maintain control of what types your code can handle.
+Sometimes, when you write code in a typed language, you have to work with values that are unknown to you at the time you write the code. When that happen, you can use `any` and `unknown` and you can use **type guards** to maintain control of what types your code can handle.
 
 ### Any
 
-The `any` type can represent and JavaScript value and it can be useful in several situations:
+The `any` type can represent any JavaScript value and it can be useful in several situations:
 
 - when expecting values from a third party library
 - when expecting values from a user input
@@ -67,3 +67,9 @@ value.map(e => console.log(e));
 
 It's not possible to interact, in any way, with a variable of type `unknown`. It'll always error at compiling time.
 On the other hand, you can, always interact with a variable of type `any` and it won't error at compiling time. However, it might error at runtime.
+
+### Conclusion
+
+The `unknown` type would have been really useful in one of my previous companies. We were using Angular (framework based on TypeScript) but he had to move really fast and build several product from scratch in a very short period of time. We abused of the type `any`, to the extent that the only difference with JavaScript, was the possibility to use the latest syntactic sugar additions.
+
+The type `unknown` would have been really useful for the developers that wanted to move fast, without breaking things. We didn't have it at that time, but now we do and it's awesome to break things!
