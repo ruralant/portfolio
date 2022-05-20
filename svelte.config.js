@@ -13,11 +13,11 @@ const config = {
     adapter: adapter(),
     vite: {
       plugins: [imagetools({ removeMetadata: true, force: true })],
-      resolve: {
-        alias: {
-          $apis: path.resolve('./src/routes/api'),
-        },
-      },
+      // resolve: {
+      //   alias: {
+      //     $api: path.resolve('./src/routes/api'),
+      //   },
+      // },
     },
     prerender: {
       crawl: true,

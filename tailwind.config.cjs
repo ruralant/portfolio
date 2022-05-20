@@ -18,6 +18,7 @@ module.exports = {
       '5xl': '3rem',
       '6xl': '4rem',
       '7xl': '5rem',
+      '8xl': '6rem',
       mediumTitle: ['2rem', '1.15'],
     },
     screens: {
@@ -67,9 +68,13 @@ module.exports = {
       },
       lineHeight: {
         standard: '1.15',
+        extraRelaxed: '1.7',
       },
       padding: {
         22: '5.5rem',
+      },
+      flex: {
+        2: '2 2 0%',
       },
       typography: (theme) => ({
         DEFAULT: {

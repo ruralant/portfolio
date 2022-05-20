@@ -9,7 +9,7 @@ mainImageWebP: https://res.cloudinary.com/antonio-rossi/image/upload/w_1000,fl_p
 mainImageAlt: An image of pure water with wite sand
 mainImageThumb: https://res.cloudinary.com/antonio-rossi/image/upload/w_300,fl_progressive/v1648646194/articles/functional-programming/pure_zyijgf.jpg
 published: false
-date: 2022-04-126
+date: 2022-04-12
 layout: development
 type: development
 ---

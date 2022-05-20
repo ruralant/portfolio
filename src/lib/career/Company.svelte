@@ -117,19 +117,3 @@
     />
   </div>
 </div>
-
-<!-- <div class="w-1/3 h-0.5 m-auto bg-spaceGrey dark:bg-white mb-20" /> -->
-<style>
-  .title-text {
-    font-weight: 500;
-    margin: 0;
-    line-height: 1.15;
-    font-size: 3rem;
-  }
-  .subtitle {
-    font-weight: 500;
-    margin-top: 10px;
-    line-height: 1.7;
-    font-size: 1.5rem;
-  }
-</style>

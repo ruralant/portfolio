@@ -3,9 +3,9 @@
     const blogType = url.pathname.split('/')[2];
     let posts;
     if (blogType === 'development') {
-      posts = import.meta.globEager(`../../../posts/development/*.md`);
+      posts = import.meta.globEager(`../../../blog/development/*.md`);
     } else if (blogType === 'personal') {
-      posts = import.meta.globEager(`../../../posts/personal/*.md`);
+      posts = import.meta.globEager(`../../../blog/personal/*.md`);
     }
     const postList = Object.values(posts);
     const postsMeta = postList
