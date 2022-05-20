@@ -14,15 +14,29 @@ layout: development
 type: development
 ---
 
-I recently joined a new company that uses TypeScript in both front end (React) and backend (Node/Lambda functions) so I decided to write a few articles of my journey in re-learning TypeScript.
+I recently joined a new company where we make extensive use of TypeScript in both the front end (React) and the backend (Node.js/AWS Lambda functions). So I decided to write a few articles of my journey in re-learning TypeScript.
 
-To be completely open, I'm not new to TypeScript as I used it for 4 years when I was working with Angular 4. However, I had a two years break from it as in my former company TypeScript wasn't part of the tech stack.
+I'm saying re-learning because I actually worked 4 years with TypeScript. But I was at the start of my career and I haven't used it in the last 24 months. For this reason I decided to start from the basics and with a beginner and curious mind.
 
-For this reason, I decided to start from the basis and have a deep dive in TypeScript to refresh my knowledge. This series of article is going to be a summary of my findings and understandings and I hope it'll be a good summary for whomever wishes to starts using TypeScript.
+I hope this series of articles will be a good summary for both people starting their TypeScript journey and more advance developer that, like me, wants to have a better understanding of the quirkiness of the language.
 
-There are several types in TypeScript and we'll divided them in categories and start to look at each one in a progressive order and hopefully this will help in understand them a little bit better.
+### What is TypeScript?
 
-### Any Type
+Accordingly to Microsoft:
+
+> TypeScript is JavaScript for application-scale development.
+
+In more technical terms, it's a strongly typed, object oriented, superset of JavaScript. Basically it compiles into JavaScript and that add on top of it some some additional features.
+
+### Types
+
+As the main difference with JavaScript is that is a typed language, I feel like looking into the types could be a good start.
+
+There are several types in TypeScript and it would be impossible to sufficiently cover them in a single article. So I'll divided them in categories and start to look at each one in a progressive order.
+
+Let have a bird's eye view at them:
+
+### The Any and Unknown type
 
 All types in Typescript are a subtype of the `any` type. The `any` type represent any JavaScript value, without constrains.
 
@@ -30,7 +44,7 @@ For a more in-depth analysis of the type `any` and the new type `unknown` please
 
 ### Primitive Types:
 
-Let's have a look at the other most-common types:
+The primitive types are the following:
 
 - `boolean`
 - `number`
@@ -39,6 +53,8 @@ Let's have a look at the other most-common types:
 - `enum`
 - `void`
 - `null`
+
+They are the most common one and they might not sound new to you.
 
 #### Boolean Type
 
@@ -94,18 +110,27 @@ const bigNumber: bigint = 150n
 
 #### Enum Type
 
-`enum` is one of the most recent additions to the TypeScript types list and stands for enumeration. An `enum` is a set of values and you can use it to create a set of constants to be used with variables and properties. The behavior of `enum` is largely different compared with what we saw so far, so I'll explain it in details in a future article
+`enum` is one of the most recent additions to the TypeScript types list and stands for enumeration. An `enum` is a set of values and you can use it to create a set of constants to be used with variables and properties. The behavior of `enum` is largely different compared with what we saw so far, so I'll explain it in details in a future article.
 
 ### Void, null, undefined
 
-These are primitive values but on their own do not make much sense. However, they are really useful alongside `functions`. So bare with me and we'll discuss them later.
+These are primitive values but on their own do not make much sense. However, they are really useful alongside `functions`.
 
-### Object Types:
+### Object Types
 
-The remaining types, called object types, will be discussed in a future article.
+The remaining types, called object types, are the second corner store on which the language is build it. Object types are the following:
 
 - `function`
 - `object`
 - `symbol`
 - `undefined`
 - `never`
+
+### Conclusion
+
+This was a quick overview of the types in TypeScript. In the next few articles, we'll deep dive into each one/
+
+Thank you for reading my very first technical article. I'm looking forward to re-reading it in a year time and see (hopefully) some improvements.
+I'm really exited to start this blog and I hope it'll be as useful to you as it's for me. Teaching and writing is a great way to solidify knowledge and giving back to the community.
+
+Until the nex time, keep on coding! (as people from Red Hat would say)
