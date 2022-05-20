@@ -1,38 +1,19 @@
 <script context="module">
-  const processPostData = (data) => {
-    const postsData = Object.values(data);
-    const posts = postsData.reduce((posts, next) => {
-      next.metadata.published && posts.push(next.metadata);
-      return posts;
-    }, []);
-    return posts;
-  };
-
-  export async function load() {
-    const [developmentPosts, personalPosts] = await Promise.all([
-      import.meta.globEager('../posts/development/*.md'),
-      import.meta.globEager('../posts/personal/*.md'),
-    ]);
-    const developmentPostsData = processPostData(developmentPosts);
-    const personalPostsData = processPostData(personalPosts);
-    const posts = developmentPostsData
-      .concat(personalPostsData)
-      .slice()
-      .sort((post, next) => +new Date(next.date) - +new Date(post.date))
-      .slice(0, 6);
+  export const load = async ({ fetch }) => {
+    const response = await fetch('/api/posts.json');
+    const posts = await response.json();
     return {
       props: {
         posts,
       },
     };
-  }
+  };
 </script>
 
 <script>
   import Hero from '$lib/index/Hero.svelte';
   import Contacts from '$lib/index/Contacts.svelte';
   import Articles from '$lib/index/Articles/Articles.svelte';
-  import '../global.css';
   export let posts;
 </script>
 
@@ -55,5 +36,7 @@
 </svelte:head>
 
 <Hero />
-<Articles {posts} />
+{#if posts}
+  <Articles {posts} />
+{/if}
 <Contacts />
