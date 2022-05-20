@@ -13,9 +13,9 @@ const processPostData = (data) => {
 export const get = async () => {
   const developmentPostsFiles = import.meta.glob('../../blog/development/*.md');
   const personalPostsFiles = import.meta.glob('../../blog/personal/*.md');
-  const iterablePostsFiles = Object.entries(developmentPostsFiles)
-    .concat(Object.entries(personalPostsFiles))
-    .slice(0, 6);
+  const iterablePostsFiles = Object.entries(developmentPostsFiles).concat(
+    Object.entries(personalPostsFiles)
+  );
   const allPosts = await Promise.all(
     iterablePostsFiles.map(async ([path, resolver]) => {
       const { metadata } = await resolver();
@@ -28,9 +28,9 @@ export const get = async () => {
     })
   );
 
-  const sortedPosts = allPosts.sort((a, b) => {
-    return new Date(b.meta.date) - new Date(a.meta.date);
-  });
+  const sortedPosts = allPosts
+    .sort((a, b) => new Date(b.meta.date) - new Date(a.meta.date))
+    .filter((post) => post.meta.published);
 
   return {
     body: sortedPosts,
