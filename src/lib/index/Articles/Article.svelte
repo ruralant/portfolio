@@ -1,15 +1,13 @@
 <script>
-  export let postsData;
-  export let { title, subtitle, tags, icon, date, type, slug } = postsData;
+  export let postData;
+  export let postPath;
+  export let { title, subtitle, tags, icon, date, type, slug } = postData;
 </script>
 
 <li
   class="w-full max-w-sm h-60 rounded-md overflow-hidden bg-white dark:bg-neutral-800 shadow-md p-6"
 >
-  <a
-    class="h-full flex flex-col justify-between"
-    href={`/blog/${type}/${slug}`}
-  >
+  <a class="h-full flex flex-col justify-between" href={postPath}>
     <div>
       <div
         class="text-neutral-800 dark:text-white bg-gradient-90 from-purple-600 to-red-500 dark:from-purple-500 dark:to-red-400 font-bold text-xl mb-2 "

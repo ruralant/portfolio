@@ -1,5 +1,5 @@
 export async function getPosts() {
-  const posts = Object.entries(import.meta.globEager('../../posts/**/*.md'))
+  const posts = Object.entries(import.meta.globEager('../../blog/**/*.md'))
     .reduce((posts, [, next]) => {
       next.metadata.published && posts.push(next.metadata);
       return posts;

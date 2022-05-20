@@ -1,6 +1,6 @@
 <script context="module">
   // export async function load() {
-  //   const posts = import.meta.globEager(`../../posts/*/*.md`);
+  //   const posts = import.meta.globEager(`../../blog/*/*.md`);
   //   const postList = Object.values(posts);
   //   const postsMeta = postList
   //     .reduce((posts, next) => {
