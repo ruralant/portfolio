@@ -1,15 +1,3 @@
-const processPostData = (data) => {
-  if (data) {
-    const postsData = Object.entries(data);
-    const posts = postsData.reduce((posts, next) => {
-      next.metadata.published && posts.push(next.metadata);
-      return posts;
-    }, []);
-    return posts;
-  }
-  return data;
-};
-
 export const get = async () => {
   const developmentPostsFiles = import.meta.glob('../../blog/development/*.md');
   const personalPostsFiles = import.meta.glob('../../blog/personal/*.md');
