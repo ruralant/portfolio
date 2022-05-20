@@ -11,10 +11,8 @@ const processPostData = (data) => {
 };
 
 export const get = async () => {
-  const developmentPostsFiles = import.meta.glob(
-    '../../posts/development/*.md'
-  );
-  const personalPostsFiles = import.meta.glob('../../posts/personal/*.md');
+  const developmentPostsFiles = import.meta.glob('../../blog/development/*.md');
+  const personalPostsFiles = import.meta.glob('../../blog/personal/*.md');
   const iterablePostsFiles = Object.entries(developmentPostsFiles)
     .concat(Object.entries(personalPostsFiles))
     .slice(0, 6);
