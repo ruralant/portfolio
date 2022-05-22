@@ -44,18 +44,17 @@
   font-style: normal;
   font-weight: 400;
   display: optional;
-  src: url('/fonts/roboto-serif-v7-latin-regular.eot'); /* IE9 Compat Modes */
+  src: url('/fonts/roboto-serif-v7-latin-500.eot'); /* IE9 Compat Modes */
   src: local(''),
-    url('/fonts/roboto-serif-v7-latin-regular.eot?#iefix')
+    url('/fonts/roboto-serif-v7-latin-500.eot?#iefix')
       format('embedded-opentype'),
-    /* IE6-IE8 */ url('/fonts/roboto-serif-v7-latin-regular.woff2')
-      format('woff2'),
-    /* Super Modern Browsers */ url('/fonts/roboto-serif-v7-latin-regular.woff')
+    /* IE6-IE8 */ url('/fonts/roboto-serif-v7-latin-500.woff2') format('woff2'),
+    /* Super Modern Browsers */ url('/fonts/roboto-serif-v7-latin-500.woff')
       format('woff'),
-    /* Modern Browsers */ url('/fonts/roboto-serif-v7-latin-regular.ttf')
+    /* Modern Browsers */ url('/fonts/roboto-serif-v7-latin-500.ttf')
       format('truetype'),
     /* Safari, Android, iOS */
-      url('/fonts/roboto-serif-v7-latin-regular.svg#RobotoSerif') format('svg'); /* Legacy iOS */
+      url('/fonts/roboto-serif-v7-latin-500.svg#RobotoSerif') format('svg'); /* Legacy iOS */
 }
 
 /* roboto-serif-300 - latin */
