@@ -42,10 +42,10 @@ They are all sections and pages that I'm going to add in the next few week. Befo
 ### Energy Efficiency
 
 <picture>
-  <source type="image/webp" srcset="https://res.cloudinary.com/antonio-rossi/image/upload/w_1000,fl_progressive,f_webp/v1648399548/articles/first-article/new-website-carbon-score.png" />
-  <source type="image/jpeg" srcset="https://res.cloudinary.com/antonio-rossi/image/upload/w_1000,fl_progressive/v1648399548/articles/first-article/new-website-carbon-score.png" />
+  <source type="image/webp" srcset="https://res.cloudinary.com/antonio-rossi/image/upload/f_webp,q_auto,w_1000/v1648399548/articles/first-article/new-website-carbon-score.png" />
+  <source type="image/jpeg" srcset="https://res.cloudinary.com/antonio-rossi/image/upload/f_auto,q_auto,w_1000/v1648399548/articles/first-article/new-website-carbon-score.png" />
   <img
-      src="https://res.cloudinary.com/antonio-rossi/image/upload/w_1000,fl_progressive/v1648399548/articles/first-article/new-website-carbon-score.png"
+      src="https://res.cloudinary.com/antonio-rossi/image/upload/f_auto,q_auto,w_1000/v1648399548/articles/first-article/new-website-carbon-score.png"
       alt="carbon score"
       width={1000}
       height={1000}
