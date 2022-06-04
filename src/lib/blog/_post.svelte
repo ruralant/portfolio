@@ -29,10 +29,10 @@
     property="og:url"
     content={`https://www.antoniorossi.net/blog/${type}/${slug}`}
   />
-  <meta property="og:image" itemprop="image" content={mainImageThumb} />
+  <meta property="og:image" itemprop="image" content={mainImage} />
   <meta name="twitter:title" content={title} />
   <meta name="twitter:description" content={subtitle} />
-  <meta name="twitter:image" content={mainImageThumb} />
+  <meta name="twitter:image" content={mainImage} />
   <meta name="twitter:image:alt" content={mainImageAlt} />
   <meta property="og:image:width" content="300" />
   <meta name="twitter:card" content="summary_large_image" />
@@ -60,7 +60,7 @@
     width={1000}
     height={1000}
     placeholder={'blur'}
-    classes={'mt-6 mb-8 rounded-lg drop-shadow-md'}
+    classes={'mt-6 mb-8 rounded-lg drop-shadow-md webfeedsFeaturedVisual'}
   />
   <article>
     <slot />
