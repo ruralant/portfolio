@@ -60,7 +60,7 @@
     width={1000}
     height={1000}
     placeholder={'blur'}
-    classes={'mt-6 mb-8 rounded-lg drop-shadow-md webfeedsFeaturedVisual'}
+    classes={'mt-6 mb-8 rounded-lg drop-shadow-md'}
   />
   <article>
     <slot />
