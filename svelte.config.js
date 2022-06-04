@@ -2,7 +2,6 @@ import { mdsvex } from 'mdsvex';
 import mdsvexConfig from './mdsvex.config.js';
 import adapter from '@sveltejs/adapter-netlify';
 import { imagetools } from 'vite-imagetools';
-import path from 'path';
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
