@@ -7,7 +7,7 @@ tags: [typescript]
 mainImage: https://res.cloudinary.com/antonio-rossi/image/upload/c_scale,w_1000,fl_progressive/v1651690130/articles/types/unknown_hnstj7.jpg
 mainImageWebP: https://res.cloudinary.com/antonio-rossi/image/upload/c_scale,w_1000,fl_progressive,f_webp/v1651690130/articles/types/unknown_hnstj7.jpg
 mainImageAlt: An image of pure water with wite sand
-mainImageThumb: https://res.cloudinary.com/antonio-rossi/image/upload/c_scale,w_300,fl_progressive,f_webp/v1651690130/articles/types/unknown_hnstj7.jpg
+mainImageThumb: $lib/assets/article-thumbs/types2.jpg
 published: true
 date: 2022-05-04
 layout: development
