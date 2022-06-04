@@ -7,7 +7,7 @@ tags: [typescript, types, basics]
 mainImage: https://res.cloudinary.com/antonio-rossi/image/upload/f_auto,q_auto,w_1000/v1650352190/articles/types/florian-klauer-mk7D-4UCfmg-unsplash_b4tmof.jpg
 mainImageWebP: https://res.cloudinary.com/antonio-rossi/image/upload/f_webp,q_auto,w_1000/v1650352190/articles/types/florian-klauer-mk7D-4UCfmg-unsplash_b4tmof.jpg
 mainImageAlt: An image of pure water with wite sand
-mainImageThumb: https://res.cloudinary.com/antonio-rossi/image/upload/w_300,q_auto,f_auto/v1650352190/articles/types/florian-klauer-mk7D-4UCfmg-unsplash_b4tmof.jpg
+mainImageThumb: $lib/assets/article-thumbs/types1.jpg
 published: true
 date: 2022-04-18
 layout: development

@@ -83,6 +83,8 @@ module.exports = {
             code: {
               paddingTop: '0.25rem',
               paddingRight: '0.15rem',
+              borderRadius: '4px',
+              padding: '2px 5px 0 5px',
             },
             'code::before': {
               content: '""',
