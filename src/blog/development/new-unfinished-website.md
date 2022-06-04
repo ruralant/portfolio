@@ -7,7 +7,7 @@ tags: [career, optimisation, svelte]
 mainImage: https://res.cloudinary.com/antonio-rossi/image/upload/w_1000,fl_progressive/v1648572228/articles/first-article/home-page_fivkuj.png
 mainImageWebP: https://res.cloudinary.com/antonio-rossi/image/upload/w_1000,fl_progressive,f_webp/v1648572228/articles/first-article/home-page_fivkuj.png
 mainImageAlt: A screenshot of the home page of the new website
-mainImageThumb: https://res.cloudinary.com/antonio-rossi/image/upload/w_300,fl_progressive/v1648572228/articles/first-article/home-page_fivkuj.png
+mainImageThumb: $lib/assets/article-thumbs/personal.jpg
 published: true
 date: 2022-03-28
 icon: front
@@ -42,10 +42,10 @@ They are all sections and pages that I'm going to add in the next few week. Befo
 ### Energy Efficiency
 
 <picture>
-  <source type="image/webp" srcset="https://res.cloudinary.com/antonio-rossi/image/upload/w_1000,fl_progressive,f_webp/v1648399548/articles/first-article/new-website-carbon-score.png" />
-  <source type="image/jpeg" srcset="https://res.cloudinary.com/antonio-rossi/image/upload/w_1000,fl_progressive/v1648399548/articles/first-article/new-website-carbon-score.png" />
+  <source type="image/webp" srcset="https://res.cloudinary.com/antonio-rossi/image/upload/f_webp,q_auto,w_1000/v1648399548/articles/first-article/new-website-carbon-score.png" />
+  <source type="image/jpeg" srcset="https://res.cloudinary.com/antonio-rossi/image/upload/f_auto,q_auto,w_1000/v1648399548/articles/first-article/new-website-carbon-score.png" />
   <img
-      src="https://res.cloudinary.com/antonio-rossi/image/upload/w_1000,fl_progressive/v1648399548/articles/first-article/new-website-carbon-score.png"
+      src="https://res.cloudinary.com/antonio-rossi/image/upload/f_auto,q_auto,w_1000/v1648399548/articles/first-article/new-website-carbon-score.png"
       alt="carbon score"
       width={1000}
       height={1000}
