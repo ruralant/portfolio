@@ -65,8 +65,9 @@
   <article>
     <slot />
   </article>
-  <div class="flex my-10 underline">
-    <ArrowLeft />
-    <button class="font-Poppins ml-2" on:click={goBack}>Go back</button>
-  </div>
+  <a
+    class="inline-block my-10 font-Poppins !text-white"
+    href={`/blog/${type}`}
+    sveltekit:noscroll><ArrowLeft /></a
+  >
 </div>
