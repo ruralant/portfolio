@@ -6,6 +6,6 @@
   class="w-full flex flex-col justify-center items-center bg-spaceWhite dark:bg-spaceGrey  pb-8"
 >
   <p class="text-neutral-800 dark:text-white">
-    © {year} Made with ❤️ by Antonio Rossi
+    © 2016-{year} Made with ❤️ by Antonio Rossi
   </p>
 </footer>
