@@ -3,10 +3,6 @@
   import ArrowLeft from '$lib/components/icons/ArrowLeft.svelte';
   import Image from '$lib/components/Image.svelte';
 
-  const goBack = () => {
-    window.history.back();
-  };
-
   export let category;
   export let title;
   export let subtitle;
@@ -53,7 +49,7 @@
   <h2 class="text-xl font-normal text-center tracking-normal mt-0">
     {subtitle}
   </h2>
-  <Image
+  <!-- <Image
     wepImage={mainImageWebP}
     jpegImage={mainImage}
     alt={mainImageAlt}
@@ -61,7 +57,7 @@
     height={1000}
     placeholder={'blur'}
     classes={'mt-6 mb-8 rounded-lg drop-shadow-md'}
-  />
+  /> -->
   <article>
     <slot />
   </article>
