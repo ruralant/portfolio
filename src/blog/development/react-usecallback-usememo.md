@@ -4,10 +4,6 @@ slug: react-usecallback-usememo
 subtitle: How to the advantage of useCallBack and useMemo and when to avoid them
 category: programming
 tags: [react, hooks, memorisation]
-mainImage: https://res.cloudinary.com/antonio-rossi/image/upload/f_auto,q_auto,w_1000/v1653580288/articles/react-memo/memo.jpg
-mainImageWebP: https://res.cloudinary.com/antonio-rossi/image/upload/f_webp,q_auto,w_1000/v1653580288/articles/react-memo/memo.jpg
-mainImageThumb: $lib/assets/article-thumbs/memo.jpg
-mainImageAlt: A blank notepad
 published: true
 date: 2022-05-22
 layout: development
@@ -16,15 +12,15 @@ type: development
 
 <script>
   import Image from '$lib/components/Image.svelte';
-  import topImage from '$lib/assets/images/articles/memo-full.jpg?w=1000';
-  import topImageWebp from '$lib/assets/images/articles/memo-full.jpg?w=656&format=webp&srcset';
-  import topImageSrcset from '$lib/assets/images/articles/memo-full.jpg?w=656&srcset';
+  import topImage from '$lib/assets/images/articles/react-memo-small.jpg?w=1000';
+  import topImageWebp from '$lib/assets/images/articles/react-memo-small.jpg?w=1000&format=webp';
+  // import topImageSrcset from '$lib/assets/images/articles/memo-full.jpg?w=1000&srcset';
 </script>
 
 <Image
 wepImage={topImageWebp}
 jpegImage={topImage}
-alt={mainImageAlt}
+alt='Film camera and pictures'
 width={1000}
 height={1000}
 placeholder={'blur'}
