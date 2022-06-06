@@ -14,6 +14,23 @@ layout: development
 type: development
 ---
 
+<script>
+  import Image from '$lib/components/Image.svelte';
+  import topImage from '$lib/assets/images/articles/memo-full.jpg?w=1000';
+  import topImageWebp from '$lib/assets/images/articles/memo-full.jpg?w=656&format=webp&srcset';
+  import topImageSrcset from '$lib/assets/images/articles/memo-full.jpg?w=656&srcset';
+</script>
+
+<Image
+wepImage={topImageWebp}
+jpegImage={topImage}
+alt={mainImageAlt}
+width={1000}
+height={1000}
+placeholder={'blur'}
+classes={'mt-6 mb-8 rounded-lg drop-shadow-md'}
+/>
+
 ### React Memo
 
 React `memo` is a high order component that wraps around a normal component and memorise the rendered output. Using `memo` will allow React to stop rendering a component if props have not changed.
