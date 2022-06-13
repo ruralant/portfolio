@@ -4,15 +4,29 @@ slug: types-in-typescript-1
 subtitle: A detailed look into the primitive types in Typescript
 category: programming
 tags: [typescript, types, basics]
-mainImage: https://res.cloudinary.com/antonio-rossi/image/upload/f_auto,q_auto,w_1000/v1650352190/articles/types/florian-klauer-mk7D-4UCfmg-unsplash_b4tmof.jpg
-mainImageWebP: https://res.cloudinary.com/antonio-rossi/image/upload/f_webp,q_auto,w_1000/v1650352190/articles/types/florian-klauer-mk7D-4UCfmg-unsplash_b4tmof.jpg
-mainImageAlt: An image of pure water with wite sand
-mainImageThumb: $lib/assets/article-thumbs/types1.jpg
 published: true
 date: 2022-04-18
 layout: development
 type: development
 ---
+
+<script>
+  import mainImage from '$lib/assets/images/articles/types-typewriter.jpg?w=1000&h=600';
+  import mainImageWebP from '$lib/assets/images/articles/types-typewriter.jpg?w=1000&h=600&format=webp&srcset';
+  import mainImageSrcset from '$lib/assets/images/articles/types-typewriter.jpg?w=1000&h=600&srcset';
+  import Image from '$lib/components/Image.svelte';
+</script>
+
+<Image
+wepImage={mainImageWebP}
+jpegImage={mainImage}
+alt='old typewriter'
+width={1000}
+height={600}
+placeholder='blur'
+classes={'mt-6 mb-8 rounded-lg drop-shadow-md'}
+loading='eager'
+/>
 
 I recently joined a new company where we make extensive use of TypeScript in both the front end (React) and the backend (Node.js/AWS Lambda functions). So I decided to write a few articles of my journey in re-learning TypeScript.
 

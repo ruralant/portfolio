@@ -1,18 +1,11 @@
 <script>
   import { fade } from 'svelte/transition';
   import ArrowLeft from '$lib/components/icons/ArrowLeft.svelte';
-  import Image from '$lib/components/Image.svelte';
-
-  const goBack = () => {
-    window.history.back();
-  };
 
   export let category;
   export let title;
   export let subtitle;
   export let mainImage;
-  export let mainImageWebP;
-  export let mainImageThumb;
   export let mainImageAlt;
   export let slug;
   export let type;
@@ -53,15 +46,15 @@
   <h2 class="text-xl font-normal text-center tracking-normal mt-0">
     {subtitle}
   </h2>
-  <Image
-    wepImage={mainImageWebP}
-    jpegImage={mainImage}
+  <!-- <Image
+    wepImage={`${mainImage}?w=656&h=656&format=webp`}
+    jpegImage={`${mainImage}?w=656&h=656`}
     alt={mainImageAlt}
     width={1000}
     height={1000}
     placeholder={'blur'}
     classes={'mt-6 mb-8 rounded-lg drop-shadow-md'}
-  />
+  /> -->
   <article>
     <slot />
   </article>
