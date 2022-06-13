@@ -4,15 +4,29 @@ slug: types-in-typescript-3
 subtitle: Let's talk about two of the most misused types in Typescript and how to handle types unknown at the time you develop.
 category: programming
 tags: [typescript]
-mainImage: https://res.cloudinary.com/antonio-rossi/image/upload/w_1000,fl_progressive/v1648646194/articles/functional-programming/pure_zyijgf.jpg
-mainImageWebp: https://res.cloudinary.com/antonio-rossi/image/upload/w_1000,fl_progressive,f_webp/v1648646194/articles/functional-programming/pure_zyijgf.jpg
-mainImageAlt: An image of pure water with wite sand
-mainImageThumb: $lib/assets/article-thumbs/types2.jpg
 published: false
 date: 2022-04-12
 layout: development
 type: development
 ---
+
+<script>
+  import mainImage from '$lib/assets/images/articles/types-mug.jpg?w=1000&h=600';
+  import mainImageWebP from '$lib/assets/images/articles/types-mug.jpg?w=1000&h=600&format=webp&srcset';
+  import mainImageSrcset from '$lib/assets/images/articles/types-mug.jpg?w=1000&h=600&srcset';
+  import Image from '$lib/components/Image.svelte';
+</script>
+
+<Image
+wepImage={mainImageWebP}
+jpegImage={mainImage}
+alt='mug with a lake in the background'
+width={1000}
+height={600}
+placeholder='blur'
+classes={'mt-6 mb-8 rounded-lg drop-shadow-md'}
+loading='eager'
+/>
 
 ### Assertions
 

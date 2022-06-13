@@ -4,15 +4,29 @@ slug: types-in-typescript-2
 subtitle: Let's talk about two of the most misused types in Typescript and how to handle types unknown at the time you develop.
 category: programming
 tags: [typescript]
-mainImage: https://res.cloudinary.com/antonio-rossi/image/upload/c_scale,w_1000,fl_progressive/v1651690130/articles/types/unknown_hnstj7.jpg
-mainImageWebP: https://res.cloudinary.com/antonio-rossi/image/upload/c_scale,w_1000,fl_progressive,f_webp/v1651690130/articles/types/unknown_hnstj7.jpg
-mainImageAlt: An image of pure water with wite sand
-mainImageThumb: $lib/assets/article-thumbs/types2.jpg
 published: true
 date: 2022-05-04
 layout: development
 type: development
 ---
+
+<script>
+  import mainImage from '$lib/assets/images/articles/types-mug.jpg?w=1000&h=600';
+  import mainImageWebP from '$lib/assets/images/articles/types-mug.jpg?w=1000&h=600&format=webp&srcset';
+  import mainImageSrcset from '$lib/assets/images/articles/types-mug.jpg?w=1000&h=600&srcset';
+  import Image from '$lib/components/Image.svelte';
+</script>
+
+<Image
+wepImage={mainImageWebP}
+jpegImage={mainImage}
+alt='mug with a lake in the background'
+width={1000}
+height={600}
+placeholder='blur'
+classes={'mt-6 mb-8 rounded-lg drop-shadow-md'}
+loading='eager'
+/>
 
 Sometimes, when you write code in a typed language, you have to work with values that are unknown to you at the time you write the code. When that happen, you can use `any` and `unknown` and you can use **type guards** to maintain control of what types your code can handle.
 

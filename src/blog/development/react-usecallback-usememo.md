@@ -4,15 +4,29 @@ slug: react-usecallback-usememo
 subtitle: How to the advantage of useCallBack and useMemo and when to avoid them
 category: programming
 tags: [react, hooks, memorisation]
-mainImage: https://res.cloudinary.com/antonio-rossi/image/upload/f_auto,q_auto,w_1000/v1653580288/articles/react-memo/memo.jpg
-mainImageWebP: https://res.cloudinary.com/antonio-rossi/image/upload/f_webp,q_auto,w_1000/v1653580288/articles/react-memo/memo.jpg
-mainImageThumb: $lib/assets/article-thumbs/memo.jpg
-mainImageAlt: A blank notepad
 published: true
 date: 2022-05-22
 layout: development
 type: development
 ---
+
+<script>
+  import mainImage from '$lib/assets/images/articles/react-memo.jpg?w=1000&h=600';
+  import mainImageWebP from '$lib/assets/images/articles/react-memo.jpg?w=1000&h=600&format=webp&srcset';
+  import mainImageSrcset from '$lib/assets/images/articles/react-memo.jpg?w=1000&h=600&srcset';
+  import Image from '$lib/components/Image.svelte';
+</script>
+
+<Image
+wepImage={mainImageWebP}
+jpegImage={mainImage}
+alt='analog camera with pictures'
+width={1000}
+height={600}
+placeholder='blur'
+classes={'mt-6 mb-8 rounded-lg drop-shadow-md'}
+loading='eager'
+/>
 
 ### React Memo
 
