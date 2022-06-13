@@ -11,10 +11,10 @@ type: development
 ---
 
 <script>
+  import Image from '$lib/components/Image.svelte';
   import mainImage from '$lib/assets/images/articles/react-memo.jpg?w=1000&h=600';
   import mainImageWebP from '$lib/assets/images/articles/react-memo.jpg?w=1000&h=600&format=webp&srcset';
   import mainImageSrcset from '$lib/assets/images/articles/react-memo.jpg?w=1000&h=600&srcset';
-  import Image from '$lib/components/Image.svelte';
 </script>
 
 <Image
