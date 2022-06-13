@@ -4,16 +4,39 @@ slug: new-unfinished-website
 subtitle: After six years and multiple attempts, I finally managed to put a new website together
 category: career
 tags: [career, optimisation, svelte]
-mainImage: https://res.cloudinary.com/antonio-rossi/image/upload/w_1000,fl_progressive/v1648572228/articles/first-article/home-page_fivkuj.png
-mainImageWebP: https://res.cloudinary.com/antonio-rossi/image/upload/w_1000,fl_progressive,f_webp/v1648572228/articles/first-article/home-page_fivkuj.png
-mainImageAlt: A screenshot of the home page of the new website
-mainImageThumb: $lib/assets/article-thumbs/personal.jpg
 published: true
 date: 2022-03-28
 icon: front
 layout: development
 type: development
 ---
+
+<script>
+  import Image from '$lib/components/Image.svelte';
+  import mainImage from '$lib/assets/images/articles/home-page.png?w=1000&h=600';
+  import mainImageWebP from '$lib/assets/images/articles/home-page.png?w=1000&h=600&format=webp&srcset';
+  import mainImageSrcset from '$lib/assets/images/articles/home-page.png?w=1000&h=600&srcset';
+   import oldCarbonScore from '$lib/assets/images/articles/old-website-carbon.png?w=1000&h=600';
+  import oldCarbonScoreWebP from '$lib/assets/images/articles/old-website-carbon.png?w=1000&h=600&format=webp&srcset';
+  import oldCarbonScoreSrcset from '$lib/assets/images/articles/old-website-carbon.png?w=1000&h=600&srcset';
+  import newCarbonScore from '$lib/assets/images/articles/new-website-carbon.png?w=1000&h=600';
+  import newCarbonScoreWebP from '$lib/assets/images/articles/new-website-carbon.png?w=1000&h=600&format=webp&srcset';
+  import newCarbonScoreSrcset from '$lib/assets/images/articles/new-website-carbon.png?w=1000&h=600&srcset';
+   import lightHouseScore from '$lib/assets/images/articles/lighthouse-score.png?w=1000&h=600';
+  import lightHouseScoreWebP from '$lib/assets/images/articles/lighthouse-score.png?w=1000&h=600&format=webp&srcset';
+  import lightHouseScoreSrcset from '$lib/assets/images/articles/lighthouse-score.png?w=1000&h=600&srcset';
+</script>
+
+<Image
+wepImage={mainImageWebP}
+jpegImage={mainImage}
+alt='analog camera with pictures'
+width={1000}
+height={600}
+placeholder='blur'
+classes={'mt-6 mb-8 rounded-lg drop-shadow-md'}
+loading='eager'
+/>
 
 Hello fellow cyber-wanderer, welcome to my humble (and recently renovated) cyber-home.
 
@@ -41,19 +64,25 @@ They are all sections and pages that I'm going to add in the next few week. Befo
 
 ### Energy Efficiency
 
-<picture>
-  <source type="image/webp" srcset="https://res.cloudinary.com/antonio-rossi/image/upload/f_webp,q_auto,w_1000/v1648399548/articles/first-article/new-website-carbon-score.png" />
-  <source type="image/jpeg" srcset="https://res.cloudinary.com/antonio-rossi/image/upload/f_auto,q_auto,w_1000/v1648399548/articles/first-article/new-website-carbon-score.png" />
-  <img
-      src="https://res.cloudinary.com/antonio-rossi/image/upload/f_auto,q_auto,w_1000/v1648399548/articles/first-article/new-website-carbon-score.png"
-      alt="carbon score"
-      width={1000}
-      height={1000}
-      loading="lazy"
-      placeholder="blur"
-      class="rounded-lg drop-shadow-md"
-    />
-</picture>
+<Image
+wepImage={oldCarbonScoreWebP}
+jpegImage={oldCarbonScore}
+alt='old carbon score'
+width={1000}
+height={600}
+placeholder='blur'
+classes={'mt-6 mb-8 rounded-lg drop-shadow-md'}
+/>
+
+<Image
+wepImage={newCarbonScoreWebP}
+jpegImage={newCarbonScore}
+alt='new carbon score'
+width={1000}
+height={600}
+placeholder='blur'
+classes={'mt-6 mb-8 rounded-lg drop-shadow-md'}
+/>
 
 The website is rated as more efficient than the 96% of the world wide web. I achieve it with a combination of assets optimisation, server side rendering and an extremely small amount of JavaScript shipped to the client. Svelte (the framework that I used) really helped me with that.
 
@@ -61,19 +90,15 @@ The website is rated as more efficient than the 96% of the world wide web. I ach
 
 The website has a perfect Lighthouse score. In simple terms, it loads fast also in old devices or with a slow connection and it's accessible by people with disabilities.
 
-<picture>
-  <source type="image/webp" srcset="https://res.cloudinary.com/antonio-rossi/image/upload/w_762,fl_progressive,f_webp/v1648400557/articles/first-article/lighthouse-score.png" />
-  <source type="image/jpeg" srcset="https://res.cloudinary.com/antonio-rossi/image/upload/w_762,fl_progressive/v1648400557/articles/first-article/lighthouse-score.png" />
-  <img
-    src="https://res.cloudinary.com/antonio-rossi/image/upload/w_762,fl_progressive/v1648400557/articles/first-article/lighthouse-score.png"
-    alt="google chrome lighthouse score"
-    width={762}
-    height={753}
-    placeholder="blur"
-    loading="lazy"
-    class="rounded-lg drop-shadow-md"
-    />
-</picture>
+<Image
+wepImage={lightHouseScoreWebP}
+jpegImage={lightHouseScore}
+alt='light house score'
+width={1000}
+height={600}
+placeholder='blur'
+classes={'mt-6 mb-8 rounded-lg drop-shadow-md'}
+/>
 
 ### It feature a blog
 

@@ -4,14 +4,29 @@ slug: first-harvest-2022
 subtitle: With a little bit of planning, even a frosty January was a month of abundance
 category: homesteading
 tags: [brassicas, carrots, winter]
-mainImage: https://res.cloudinary.com/antonio-rossi/image/upload/w_1000,fl_progressive/v1648657621/articles/first-harvest/first-harvest_bxru7f.jpg
-mainImageAlt: A bag of carrots and brussels sprouts
-mainImageThumb: https://res.cloudinary.com/antonio-rossi/image/upload/w_300,fl_progressive/v1648657621/articles/first-harvest/first-harvest_bxru7f.jpg
 published: true
 date: 2021-10-12
 layout: development
 type: personal
 ---
+
+<script>
+  import Image from '$lib/components/Image.svelte';
+  import mainImage from '$lib/assets/images/articles/first-harvest.jpg?w=1000&h=600';
+  import mainImageWebP from '$lib/assets/images/articles/first-harvest.jpg?w=1000&h=600&format=webp&srcset';
+  import mainImageSrcset from '$lib/assets/images/articles/first-harvest.jpg?w=1000&h=600&srcset';
+</script>
+
+<Image
+wepImage={mainImageWebP}
+jpegImage={mainImage}
+alt='analog camera with pictures'
+width={1000}
+height={600}
+placeholder='blur'
+classes={'mt-6 mb-8 rounded-lg drop-shadow-md'}
+loading='eager'
+/>
 
 I recently updated my personal website (you can find the technical article <a href="https://github.com/ruralant/personal-website" target="_blank">here</a>, if you wish).
 
