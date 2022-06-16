@@ -24,7 +24,7 @@ alt='old typewriter'
 width={1000}
 height={600}
 placeholder='blur'
-classes={'mt-6 mb-8 rounded-lg drop-shadow-md'}
+classes='mt-6 mb-8 rounded-lg drop-shadow-md webfeedsFeaturedVisual'
 loading='eager'
 />
 
