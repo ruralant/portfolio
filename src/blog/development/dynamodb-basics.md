@@ -29,7 +29,7 @@ Allow to work with dig data (high vilume, high variety,largely unstructure of se
 
 #### Fast
 
-Latency undr 10ms (DAX can reduce it to microsecond using chaceing strategies)
+Latency under 10ms (DAX can reduce it to microsecond using chaceing strategies)
 
 #### Flexible
 
