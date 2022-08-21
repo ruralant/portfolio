@@ -1,11 +1,6 @@
-<script context="module">
-  export async function load({ session }) {
-    const localTheme = session.theme;
-    return { props: { localTheme } };
-  }
-</script>
-
 <script>
+  throw new Error("@migration task: Add data prop (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292707)");
+
   import { onMount } from 'svelte';
   import { fade } from 'svelte/transition';
   import { theme } from '$lib/shared/store';
