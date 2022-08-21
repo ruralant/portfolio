@@ -1,16 +1,6 @@
-<script context="module">
-  export const load = async ({ fetch }) => {
-    const response = await fetch('/api/posts.json');
-    const posts = await response.json();
-    return {
-      props: {
-        posts,
-      },
-    };
-  };
-</script>
-
 <script>
+  throw new Error("@migration task: Add data prop (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292707)");
+
   import Hero from '$lib/index/Hero.svelte';
   import Contacts from '$lib/index/Contacts.svelte';
   import Articles from '$lib/index/Articles/Articles.svelte';
