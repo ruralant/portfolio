@@ -1,4 +1,4 @@
-export const get = async () => {
+export const GET = async () => {
   const developmentPostsFiles = import.meta.glob('../../blog/development/*.md');
   const personalPostsFiles = import.meta.glob('../../blog/personal/*.md');
   const iterablePostsFiles = Object.entries(developmentPostsFiles).concat(
