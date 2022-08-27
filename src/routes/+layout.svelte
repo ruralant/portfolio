@@ -8,7 +8,6 @@
   import lazyload from 'vanilla-lazyload';
   import '../tailwind.css';
   export let data;
-  let { localTheme } = data;
 
   if (browser && !document.lazyloadInstance) {
     document.lazyloadInstance = new lazyload();
@@ -18,10 +17,10 @@
     if (!('theme' in localStorage)) {
       theme.useLocalStorage();
       if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        localTheme = 'dark';
+        data.localTheme = 'dark';
         theme.set({ ...$theme, mode: 'dark' });
       } else {
-        localTheme = 'light';
+        data.localTheme = 'light';
         theme.set({ ...$theme, mode: 'light' });
       }
     } else {
@@ -48,7 +47,7 @@
   </script>
 </svelte:head>
 
-<div id="core" class={localTheme}>
+<div id="core" class={data.localTheme}>
   <Header />
 
   <main
