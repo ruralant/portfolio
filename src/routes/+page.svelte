@@ -1,10 +1,9 @@
 <script>
-  throw new Error("@migration task: Add data prop (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292707)");
-
   import Hero from '$lib/index/Hero.svelte';
   import Contacts from '$lib/index/Contacts.svelte';
   import Articles from '$lib/index/Articles/Articles.svelte';
-  export let posts;
+  export let data;
+  let { posts } = data;
 </script>
 
 <svelte:head>
