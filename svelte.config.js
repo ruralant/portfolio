@@ -15,6 +15,9 @@ const config = {
       onError: 'continue',
       entries: ['*'],
     },
+    files: {
+      assets: 'static',
+    },
   },
 };
 
