@@ -1,10 +1,3 @@
-<script context="module">
-  export async function load({ session }) {
-    const localTheme = session.theme;
-    return { props: { localTheme } };
-  }
-</script>
-
 <script>
   import { onMount } from 'svelte';
   import { fade } from 'svelte/transition';
@@ -14,7 +7,7 @@
   import { browser } from '$app/env';
   import lazyload from 'vanilla-lazyload';
   import '../tailwind.css';
-  export let localTheme;
+  export let data;
 
   if (browser && !document.lazyloadInstance) {
     document.lazyloadInstance = new lazyload();
@@ -24,10 +17,10 @@
     if (!('theme' in localStorage)) {
       theme.useLocalStorage();
       if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        localTheme = 'dark';
+        data.localTheme = 'dark';
         theme.set({ ...$theme, mode: 'dark' });
       } else {
-        localTheme = 'light';
+        data.localTheme = 'light';
         theme.set({ ...$theme, mode: 'light' });
       }
     } else {
@@ -54,7 +47,7 @@
   </script>
 </svelte:head>
 
-<div id="core" class={localTheme}>
+<div id="core" class={data.localTheme}>
   <Header />
 
   <main
