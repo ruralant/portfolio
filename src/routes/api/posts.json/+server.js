@@ -1,6 +1,10 @@
-export const get = async () => {
-  const developmentPostsFiles = import.meta.glob('../../blog/development/*.md');
-  const personalPostsFiles = import.meta.glob('../../blog/personal/*.md');
+import { json } from '@sveltejs/kit';
+
+export const GET = async () => {
+  const developmentPostsFiles = import.meta.glob(
+    '../../../blog/development/*.md'
+  );
+  const personalPostsFiles = import.meta.glob('../../../blog/personal/*.md');
   const iterablePostsFiles = Object.entries(developmentPostsFiles).concat(
     Object.entries(personalPostsFiles)
   );
@@ -20,7 +24,5 @@ export const get = async () => {
     .sort((a, b) => new Date(b.meta.date) - new Date(a.meta.date))
     .filter((post) => post.meta.published);
 
-  return {
-    body: sortedPosts,
-  };
+  return json(sortedPosts);
 };

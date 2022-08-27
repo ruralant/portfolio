@@ -1,20 +1,9 @@
-<script context="module">
-  export const load = async ({ fetch }) => {
-    const response = await fetch('/api/posts.json');
-    const posts = await response.json();
-    return {
-      props: {
-        posts,
-      },
-    };
-  };
-</script>
-
 <script>
   import Hero from '$lib/index/Hero.svelte';
   import Contacts from '$lib/index/Contacts.svelte';
   import Articles from '$lib/index/Articles/Articles.svelte';
-  export let posts;
+  export let data;
+  let { posts } = data;
 </script>
 
 <svelte:head>
@@ -36,7 +25,7 @@
 </svelte:head>
 
 <Hero />
-{#if posts}
+{#if data.posts}
   <Articles {posts} />
 {/if}
 <Contacts />
