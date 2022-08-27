@@ -25,7 +25,7 @@
 </svelte:head>
 
 <Hero />
-{#if posts}
+{#if data.posts}
   <Articles {posts} />
 {/if}
 <Contacts />

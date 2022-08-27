@@ -1,7 +1,6 @@
 <script>
   import BlogListItem from '$lib/components/blog/BlogListItem.svelte';
   export let data;
-  let { posts } = data;
 </script>
 
 <div class="text-neutral-800 dark:text-white w-full sm:my-9 ">
@@ -19,7 +18,7 @@
     </a>
   </div>
   <ul class="flex flex-col items-center md:mt-5">
-    {#each posts as post}
+    {#each data.posts as post}
       <BlogListItem {post} />
     {/each}
   </ul>
