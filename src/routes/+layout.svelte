@@ -1,6 +1,4 @@
 <script>
-  throw new Error("@migration task: Add data prop (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292707)");
-
   import { onMount } from 'svelte';
   import { fade } from 'svelte/transition';
   import { theme } from '$lib/shared/store';
@@ -9,7 +7,8 @@
   import { browser } from '$app/env';
   import lazyload from 'vanilla-lazyload';
   import '../tailwind.css';
-  export let localTheme;
+  export let data;
+  let { localTheme } = data;
 
   if (browser && !document.lazyloadInstance) {
     document.lazyloadInstance = new lazyload();

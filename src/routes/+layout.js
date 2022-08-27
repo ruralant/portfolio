@@ -1,4 +1,4 @@
-export async function load({ session }) {
-  const localTheme = session.theme;
+export async function load({ parent }) {
+  const localTheme = parent.theme;
   return { localTheme };
 }

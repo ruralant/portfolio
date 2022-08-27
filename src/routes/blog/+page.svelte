@@ -1,8 +1,7 @@
 <script>
-  throw new Error("@migration task: Add data prop (https://github.com/sveltejs/kit/discussions/5774#discussioncomment-3292707)");
-
   import BlogListItem from '$lib/components/blog/BlogListItem.svelte';
-  export let posts;
+  export let data;
+  let { posts } = data;
 </script>
 
 <div class="text-neutral-800 dark:text-white w-full sm:my-9 ">
