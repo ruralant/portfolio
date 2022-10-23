@@ -1,5 +1,5 @@
 <script>
-  import Article from './Article.svelte';
+  import Article from "./Article.svelte";
   export let posts;
 </script>
 
