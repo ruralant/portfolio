@@ -1,5 +1,5 @@
 <script>
-  import ArrowRight from '../icons/ArrowRight.svelte';
+  import ArrowRight from "../icons/ArrowRight.svelte";
   export let post;
 </script>
 
@@ -15,20 +15,18 @@
       >
       <div class="flex my-4">
         <span
-          class="capitalize mr-2 inline-flex rounded-md shadow-sm px-2 py-1 bg-white text-xs text-neutral-600 bg-neutral-200 dark:text-neutral-300 dark:bg-neutral-800"
+          class="capitalize mr-2 inline-flex rounded-md shadow-sm px-2 py-1 text-xs text-neutral-600 bg-neutral-200 dark:text-neutral-300 dark:bg-neutral-800"
           >{post.type}</span
         >
         <span
-          class="capitalize mr-2 inline-flex rounded-md shadow-sm px-2 py-1 bg-white text-xs text-neutral-600 bg-neutral-200 dark:text-neutral-300 dark:bg-neutral-800"
+          class="capitalize mr-2 inline-flex rounded-md shadow-sm px-2 py-1 text-xs text-neutral-600 bg-neutral-200 dark:text-neutral-300 dark:bg-neutral-800"
           >{post.category}</span
         >
       </div>
       <p class="text-neutral-800 dark:text-white mt-4 ">
         {post.subtitle}
       </p>
-      <p
-        class="md:hidden mt-3 uppercase text-xs underline decoration-solid underline-offset-2"
-      >
+      <p class="md:hidden mt-3 uppercase text-xs underline decoration-solid underline-offset-2">
         Read more
       </p>
     </div>
