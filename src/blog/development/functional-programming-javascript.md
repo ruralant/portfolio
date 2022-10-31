@@ -22,9 +22,9 @@ The aim of this particular paradigm is to keep the code as clear as possible and
 
 JavaScript provides multiple methods that allow functional programming. Some examples are:
 
-- `Array.prototype.map()` <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map" target="_blank">MDN</a>
-- `Array.prototype.filter()` <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter" target="_blank">MDN</a>
-- `String.prototype.slice()` <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice" target="_blank">MDN</a>
+- `Array.prototype.map()` <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map" target="_blank" rel="noreferrer">MDN</a>
+- `Array.prototype.filter()` <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/filter" target="_blank" rel="noreferrer">MDN</a>
+- `String.prototype.slice()` <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice" target="_blank" rel="noreferrer">MDN</a>
 
 Let's have a look at each one in more details:
 
