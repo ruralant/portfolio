@@ -1,6 +1,6 @@
 <script>
-  import { fade } from 'svelte/transition';
-  import ArrowLeft from '$lib/components/icons/ArrowLeft.svelte';
+  import { fade } from "svelte/transition";
+  import ArrowLeft from "$lib/components/icons/ArrowLeft.svelte";
 
   export let category;
   export let title;
@@ -18,10 +18,7 @@
   <meta property="og:site_name" content="Antonio Rossi Website" />
   <meta property="og:type" content="article" />
   <meta property="og:description" content={subtitle} />
-  <meta
-    property="og:url"
-    content={`https://www.antoniorossi.net/blog/${type}/${slug}`}
-  />
+  <meta property="og:url" content={`https://www.antoniorossi.net/blog/${type}/${slug}`} />
   <meta property="og:image" itemprop="image" content={mainImage} />
   <meta name="twitter:title" content={title} />
   <meta name="twitter:description" content={subtitle} />
@@ -61,6 +58,6 @@
   <a
     class="inline-block my-10 font-Poppins !text-white"
     href={`/blog/${type}`}
-    sveltekit:noscroll><ArrowLeft /></a
+    sveltekit:data-sveltekit-noscroll><ArrowLeft /></a
   >
 </div>
