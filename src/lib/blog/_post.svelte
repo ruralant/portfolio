@@ -1,6 +1,8 @@
 <script>
-  import { fade } from 'svelte/transition';
-  import ArrowLeft from '$lib/components/icons/ArrowLeft.svelte';
+  import { fade } from "svelte/transition";
+  import ArrowLeft from "$lib/components/icons/ArrowLeft.svelte";
+  import Twitter from "$lib/components/seo/Twitter.svelte";
+  import OpenGraph from "$lib/components/seo/OpenGraph.svelte";
 
   export let category;
   export let title;
@@ -9,27 +11,41 @@
   export let mainImageAlt;
   export let slug;
   export let type;
+  export let timeToRead = 5;
+  export let publishedAt;
+  export let updatedAt;
+
+  console.log("TITLE", title);
+  console.log("MAIN IMAGE", mainImage);
+  console.log("PUBLISHED AT", publishedAt);
+
+  const twitterProps = {
+    article: true,
+    image: mainImage,
+    timeToRead: 10
+  };
+
+  const openGraphProps = {
+    title,
+    description: subtitle,
+    image: mainImage,
+    url: `https://www.antoniorossi.net/blog/${type}/${slug}`,
+    publishedAt,
+    updatedAt
+  };
 </script>
 
 <svelte:head>
   <title>{title}</title>
-  <meta name="description" content={subtitle} />
+  <!-- <meta name="description" content={subtitle} />
   <meta property="og:title" content={title} />
   <meta property="og:site_name" content="Antonio Rossi Website" />
   <meta property="og:type" content="article" />
   <meta property="og:description" content={subtitle} />
-  <meta
-    property="og:url"
-    content={`https://www.antoniorossi.net/blog/${type}/${slug}`}
-  />
-  <meta property="og:image" itemprop="image" content={mainImage} />
-  <meta name="twitter:title" content={title} />
-  <meta name="twitter:description" content={subtitle} />
-  <meta name="twitter:image" content={mainImage} />
-  <meta name="twitter:image:alt" content={mainImageAlt} />
-  <meta property="og:image:width" content="300" />
-  <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:site" content="@ruralant" />
+  <meta property="og:url" content={`https://www.antoniorossi.net/blog/${type}/${slug}`} />
+  <meta property="og:image" itemprop="image" content={mainImage} /> -->
+  <OpenGraph {...openGraphProps} />
+  <Twitter {...twitterProps} />
 </svelte:head>
 
 <div
@@ -61,6 +77,6 @@
   <a
     class="inline-block my-10 font-Poppins !text-white"
     href={`/blog/${type}`}
-    sveltekit:noscroll><ArrowLeft /></a
+    sveltekit:data-sveltekit-noscroll><ArrowLeft /></a
   >
 </div>

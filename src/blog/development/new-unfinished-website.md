@@ -5,7 +5,7 @@ subtitle: After six years and multiple attempts, I finally managed to put a new 
 category: career
 tags: [career, optimisation, svelte]
 published: true
-date: 2022-03-28
+publishedAt: 2022-03-28
 icon: front
 layout: development
 type: development
