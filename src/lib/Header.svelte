@@ -1,32 +1,32 @@
 <script>
-  import { theme } from '$lib/shared/store';
-  import { toggleTheme } from '$lib/shared/theme';
-  import { Sun, Moon } from '$lib/components/icons/index.js';
-  import Logo from './components/Logo.svelte';
-  import Dropdown from './components/Dropdown.svelte';
+  import { theme } from "$lib/shared/store";
+  import { toggleTheme } from "$lib/shared/theme";
+  import { Sun, Moon } from "$lib/components/icons/index.js";
+  import Logo from "./components/Logo.svelte";
+  import Dropdown from "./components/Dropdown.svelte";
   export let workSections = [
     {
-      title: 'Articles',
-      url: '/blog/development',
-      active: true,
+      title: "Articles",
+      url: "/blog/development",
+      active: true
     },
     {
-      title: 'Career (coming soon)',
-      url: '/career',
-      active: false,
-    },
+      title: "Career (coming soon)",
+      url: "/career",
+      active: false
+    }
   ];
   export let personalSections = [
     {
-      title: 'Blog',
-      url: '/blog/personal',
-      active: true,
+      title: "Blog",
+      url: "/blog/personal",
+      active: true
     },
     {
-      title: 'More about me (coming soon)',
-      url: '/myself',
-      active: false,
-    },
+      title: "More about me (coming soon)",
+      url: "/myself",
+      active: false
+    }
   ];
 </script>
 
@@ -39,8 +39,8 @@
     </a>
     <nav class="flex flex-row">
       <div class="flex space-x-4">
-        <Dropdown title={'Work'} items={workSections} />
-        <Dropdown title={'Personal'} items={personalSections} />
+        <Dropdown title={"Work"} items={workSections} />
+        <Dropdown title={"Personal"} items={personalSections} />
       </div>
     </nav>
   </div>
