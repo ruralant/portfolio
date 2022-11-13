@@ -12,9 +12,9 @@ type: personal
 
 <script>
   import Image from '$lib/components/Image.svelte';
-  import mainImage from '$lib/assets/images/articles/first-harvest.jpg?w=1000&h=600';
-  import mainImageWebP from '$lib/assets/images/articles/first-harvest.jpg?w=1000&h=600&format=webp&srcset';
-  import mainImageSrcset from '$lib/assets/images/articles/first-harvest.jpg?w=1000&h=600&srcset';
+  import mainImage from '$lib/assets/images/blog/first-harvest.jpg?w=1000&h=600';
+  import mainImageWebP from '$lib/assets/images/blog/first-harvest.jpg?w=1000&h=600&format=webp&srcset';
+  import mainImageSrcset from '$lib/assets/images/blog/first-harvest.jpg?w=1000&h=600&srcset';
 </script>
 
 <Image
@@ -28,7 +28,7 @@ classes={'mt-6 mb-8 rounded-lg drop-shadow-md'}
 loading='eager'
 />
 
-I recently updated my personal website (you can find the technical article <a href="https://github.com/ruralant/personal-website" target="_blank">here</a>, if you wish).
+I recently updated my personal website (you can find the technical article <a href="https://github.com/ruralant/personal-website" target="_blank" rel="noreferrer">here</a>, if you wish).
 
 However, I also wanted to have a space on my new website where I can write things about my personal life, where I can share considerations about life, celebrate small achievements (like the one on this post) or sharing progress on the next big chapter of my life.
 

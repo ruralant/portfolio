@@ -12,9 +12,9 @@ type: development
 
 <script>
   import Image from '$lib/components/Image.svelte';
-  import mainImage from '$lib/assets/images/articles/types-typewriter.jpg?w=1000&h=600';
-  import mainImageWebP from '$lib/assets/images/articles/types-typewriter.jpg?w=1000&h=600&format=webp&srcset';
-  import mainImageSrcset from '$lib/assets/images/articles/types-typewriter.jpg?w=1000&h=600&srcset';
+  import mainImage from '$lib/assets/images/blog/types-typewriter.jpg?w=1000&h=600';
+  import mainImageWebP from '$lib/assets/images/blog/types-typewriter.jpg?w=1000&h=600&format=webp&srcset';
+  import mainImageSrcset from '$lib/assets/images/blog/types-typewriter.jpg?w=1000&h=600&srcset';
 </script>
 
 <Image
@@ -54,7 +54,7 @@ Let have a bird's eye view at them:
 
 All types in Typescript are a subtype of the `any` type. The `any` type represent any JavaScript value, without constrains.
 
-For a more in-depth analysis of the type `any` and the new type `unknown` please check out my <a href="https://www.antoniorossi.net/blog/development/types-in-typescript-2" target="_blank">dedicated article</a>
+For a more in-depth analysis of the type `any` and the new type `unknown` please check out my <a href="https://www.antoniorossi.net/blog/development/types-in-typescript-2" target="_blank" rel="noreferrer">dedicated article</a>
 
 ### Primitive Types:
 
