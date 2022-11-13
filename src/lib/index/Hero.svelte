@@ -1,7 +1,7 @@
 <script>
-  import meImage from "$lib/assets/images/me-b-and-w.jpg?w=656&h=656";
-  import meImageWebp from "$lib/assets/images/me-b-and-w.jpg?w=656&h=656&format=webp&srcset";
-  import meImageSrcset from "$lib/assets/images/me-b-and-w.jpg?w=656&h=656&srcset";
+  import meImage from "$lib/assets/images/home/me-b-and-w.jpg?w=656&h=656";
+  import meImageWebp from "$lib/assets/images/home/me-b-and-w.jpg?w=656&h=656&format=webp&srcset";
+  import meImageSrcset from "$lib/assets/images/home/me-b-and-w.jpg?w=656&h=656&srcset";
   import Image from "$lib/components/Image.svelte";
 </script>
 
@@ -23,10 +23,8 @@
       {" "}
       <p class="text-neutral-800 dark:text-white ">
         I'm interested in{" "}
-        <span class="md:font-bold w-[200px]">open source</span>,
-        <span class="md:font-bold w-[200px]">energy efficiency</span> of the web,
-        <span class="md:font-bold w-[200px]">homesteading</span>{" "}and{" "}
-        <span class="md:font-bold w-[200px]">soil regeneration</span>.
+        <span class="md:font-bold w-[200px]">energy efficiency</span> of the web and
+        <span class="md:font-bold w-[200px]">regenerative agriculture</span>
       </p>
     </div>
   </div>

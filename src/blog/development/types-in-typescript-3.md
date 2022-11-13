@@ -12,9 +12,9 @@ type: development
 
 <script>
   import Image from '$lib/components/Image.svelte';
-  import mainImage from '$lib/assets/images/articles/types-mug.jpg?w=1000&h=600';
-  import mainImageWebP from '$lib/assets/images/articles/types-mug.jpg?w=1000&h=600&format=webp&srcset';
-  import mainImageSrcset from '$lib/assets/images/articles/types-mug.jpg?w=1000&h=600&srcset';
+  import mainImage from '$lib/assets/images/blog/types-mug.jpg?w=1000&h=600';
+  import mainImageWebP from '$lib/assets/images/blog/types-mug.jpg?w=1000&h=600&format=webp&srcset';
+  import mainImageSrcset from '$lib/assets/images/blog/types-mug.jpg?w=1000&h=600&srcset';
 </script>
 
 <Image
@@ -30,7 +30,7 @@ loading='eager'
 
 ### Assertions
 
-In the <a href="https://www.antoniorossi.net/blog/development/types-in-typescript-2" target="_blank">previous article</a> we had a look a the type `any` and `unknown`.
+In the <a href="https://www.antoniorossi.net/blog/development/types-in-typescript-2" target="_blank" rel="noreferrer">previous article</a> we had a look a the type `any` and `unknown`.
 
 Alongside the two types (but in particular `any`), to avoid errors at runtime, it can be useful to use **type assertion**.
 

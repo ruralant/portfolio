@@ -1,18 +1,20 @@
-import { getPosts } from '$lib/blog/posts';
+import { getPosts } from "$lib/blog/posts";
 
-export async function get() {
+export const GET = async () => {
   const posts = await getPosts();
   const body = xml(posts);
 
   const headers = {
-    'Cache-Control': 'max-age=0, s-maxage=3600',
-    'Content-Type': 'application/xml',
+    "Cache-Control": "max-age=0, s-maxage=3600",
+    "Content-Type": "application/xml"
   };
-  return {
-    headers,
-    body,
-  };
-}
+  return new Response(
+    JSON.stringify({
+      headers,
+      body
+    })
+  );
+};
 
 const xml = (
   posts
@@ -49,6 +51,6 @@ const xml = (
         </item>
       `
       )
-      .join('')}
+      .join("")}
   </channel>
 </rss>`;
