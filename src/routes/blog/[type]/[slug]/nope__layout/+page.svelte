@@ -1,6 +1,6 @@
 <script>
-  import { fade } from 'svelte/transition';
-  import ArrowLeft from '../../../../../lib/components/icons/ArrowLeft.svelte';
+  import { fade } from "svelte/transition";
+  import ArrowLeft from "../../../../../lib/components/icons/ArrowLeft.svelte";
 
   const goBack = () => {
     window.history.back();

@@ -12,9 +12,9 @@ type: development
 
 <script>
   import Image from '$lib/components/Image.svelte';
-  import mainImage from '$lib/assets/images/articles/types-mug.jpg?w=1000&h=600';
-  import mainImageWebP from '$lib/assets/images/articles/types-mug.jpg?w=1000&h=600&format=webp&srcset';
-  import mainImageSrcset from '$lib/assets/images/articles/types-mug.jpg?w=1000&h=600&srcset';
+  import mainImage from '$lib/assets/images/blog/types-mug.jpg?w=1000&h=600';
+  import mainImageWebP from '$lib/assets/images/blog/types-mug.jpg?w=1000&h=600&format=webp&srcset';
+  import mainImageSrcset from '$lib/assets/images/blog/types-mug.jpg?w=1000&h=600&srcset';
 </script>
 
 <Image

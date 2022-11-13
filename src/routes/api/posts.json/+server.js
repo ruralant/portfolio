@@ -1,10 +1,8 @@
-import { json } from '@sveltejs/kit';
+import { json } from "@sveltejs/kit";
 
 export const GET = async () => {
-  const developmentPostsFiles = import.meta.glob(
-    '../../../blog/development/*.md'
-  );
-  const personalPostsFiles = import.meta.glob('../../../blog/personal/*.md');
+  const developmentPostsFiles = import.meta.glob("../../../blog/development/*.md");
+  const personalPostsFiles = import.meta.glob("../../../blog/personal/*.md");
   const iterablePostsFiles = Object.entries(developmentPostsFiles).concat(
     Object.entries(personalPostsFiles)
   );
@@ -15,7 +13,7 @@ export const GET = async () => {
 
       return {
         meta: metadata,
-        path: postPath,
+        path: postPath
       };
     })
   );
