@@ -1,7 +1,7 @@
 <script>
-  import ClickOutside from '../components/ClickOutside.svelte';
-  import { fly } from 'svelte/transition';
-  import ChevronDown from './icons/ChevronDown.svelte';
+  import ClickOutside from "../components/ClickOutside.svelte";
+  import { fly } from "svelte/transition";
+  import ChevronDown from "./icons/ChevronDown.svelte";
 
   export let menuVisible = false;
   export let title;
@@ -47,8 +47,8 @@
               disabled={item.active}
               class={`block px-4 py-2 text-sm ${
                 item.active
-                  ? 'text-neutral-600 dark:text-neutral-300'
-                  : 'text-neutral-400 dark:text-neutral-500 pointer-events-none'
+                  ? "text-neutral-600 dark:text-neutral-300"
+                  : "text-neutral-400 dark:text-neutral-500 pointer-events-none"
               }`}
               role="menuitem"
               tabindex="-1">{item.title}</a

@@ -1,13 +1,13 @@
 const config = {
-  extensions: ['.svelte.md', '.md', '.svx'],
+  extensions: [".svelte.md", ".md", ".svx"],
   smartypants: {
-    dashes: 'oldschool',
+    dashes: "oldschool"
   },
   layout: {
-    development: './src/lib/blog/_post.svelte',
+    development: "./src/lib/blog/_post.svelte"
   },
   remarkPlugins: [],
-  rehypePlugins: [],
+  rehypePlugins: []
 };
 
 export default config;

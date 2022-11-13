@@ -1,5 +1,5 @@
 <script>
-  import { createEventDispatcher } from 'svelte';
+  import { createEventDispatcher } from "svelte";
   export let exclude = [];
   let child;
   const dispatch = createEventDispatcher();
@@ -15,7 +15,7 @@
   }
   function onClickOutside(event) {
     if (!isExcluded(event.target)) {
-      dispatch('clickoutside');
+      dispatch("clickoutside");
     }
   }
 </script>

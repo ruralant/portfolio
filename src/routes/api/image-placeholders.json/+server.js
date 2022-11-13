@@ -1,9 +1,5 @@
-import {
-  dominantColourPlaceholder,
-  IMAGE_DIR,
-  lowResolutionPlaceholder,
-} from '$lib/utils/image';
-import path from 'path';
+import { dominantColourPlaceholder, IMAGE_DIR, lowResolutionPlaceholder } from "$lib/utils/image";
+import path from "path";
 const __dirname = path.resolve();
 
 export const post = async ({ request }) => {
@@ -23,12 +19,12 @@ export const post = async ({ request }) => {
     const dominantColours = await Promise.all(dominantColourPromises);
     const placeholders = await Promise.all(placeholderPromises);
     return {
-      body: JSON.stringify({ placeholders, dominantColours }),
+      body: JSON.stringify({ placeholders, dominantColours })
     };
   } catch (err) {
     return {
       status: 500,
-      error: 'Error retrieving data',
+      error: "Error retrieving data"
     };
   }
 };

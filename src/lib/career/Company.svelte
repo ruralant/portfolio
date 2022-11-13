@@ -1,13 +1,12 @@
 <script>
-  import Database from '$lib/components/icons/Database.svelte';
-  import Desktop from '../components/icons/Desktop.svelte';
-  import Server from '$lib/components/icons/Server.svelte';
+  import Database from "$lib/components/icons/Database.svelte";
+  import Desktop from "../components/icons/Desktop.svelte";
+  import Server from "$lib/components/icons/Server.svelte";
 
   export let company;
   export let index;
   const even = index % 2 == 0;
-  const { name, from, to, position, techStack, location, logo, image } =
-    company;
+  const { name, from, to, position, techStack, location, logo, image } = company;
   const { frontEnd, backEnd, tools } = techStack;
 </script>
 
@@ -19,9 +18,7 @@
   <div>
     <div>
       <div class="flex items-center">
-        <span class="title-text font-Poppins text-neutral-800 dark:text-white"
-          >{name}</span
-        >
+        <span class="title-text font-Poppins text-neutral-800 dark:text-white">{name}</span>
         <div class="w-11 h-11 ml-4">
           <img
             src={logo}
@@ -45,16 +42,12 @@
         <div class="flex-1 mb-4">
           <div class="flex flex-row">
             <Desktop />
-            <p class="icon-text ml-1 text-neutral-800 dark:text-white">
-              Front End
-            </p>
+            <p class="icon-text ml-1 text-neutral-800 dark:text-white">Front End</p>
           </div>
           <ul class="flex flex-wrap">
             {#each frontEnd as tech}
               <li class="ml-1 mr-3 mt-2 text-neutral-800 dark:text-white">
-                <div
-                  class="bg-slate-200 dark:bg-slate-700 rounded-lg py-0.5 px-2"
-                >
+                <div class="bg-slate-200 dark:bg-slate-700 rounded-lg py-0.5 px-2">
                   {tech}
                 </div>
               </li>
@@ -66,16 +59,12 @@
         <div class="flex-1 mb-4">
           <div class="flex flex-row">
             <Server />
-            <p class="backend-icon-text ml-1 text-neutral-800 dark:text-white">
-              Back End
-            </p>
+            <p class="backend-icon-text ml-1 text-neutral-800 dark:text-white">Back End</p>
           </div>
           <ul class="flex flex-wrap">
             {#each backEnd as tech}
               <li class="mr-3 mt-2 text-neutral-800 dark:text-white">
-                <div
-                  class="bg-slate-200 dark:bg-slate-700 rounded-lg py-0.5 px-2"
-                >
+                <div class="bg-slate-200 dark:bg-slate-700 rounded-lg py-0.5 px-2">
                   {tech}
                 </div>
               </li>
@@ -87,16 +76,12 @@
         <divc class="flex-1">
           <div class="flex flex-row items-center">
             <Database />
-            <p class="tools-icon-text ml-1 text-neutral-800 dark:text-white">
-              Other Tools
-            </p>
+            <p class="tools-icon-text ml-1 text-neutral-800 dark:text-white">Other Tools</p>
           </div>
           <ul class="flex flex-wrap">
             {#each tools as tech}
               <li class="mr-3 mt-2 text-neutral-800 dark:text-white">
-                <div
-                  class="bg-slate-200 dark:bg-slate-700 rounded-lg py-0.5 px-2"
-                >
+                <div class="bg-slate-200 dark:bg-slate-700 rounded-lg py-0.5 px-2">
                   {tech}
                 </div>
               </li>
