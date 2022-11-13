@@ -12,9 +12,9 @@ type: development
 
 <script>
   import Image from '$lib/components/Image.svelte';
-  import mainImage from '$lib/assets/images/articles/react-memo.jpg?w=1000&h=600';
-  import mainImageWebP from '$lib/assets/images/articles/react-memo.jpg?w=1000&h=600&format=webp&srcset';
-  import mainImageSrcset from '$lib/assets/images/articles/react-memo.jpg?w=1000&h=600&srcset';
+  import mainImage from '$lib/assets/images/blog/react-memo.jpg?w=1000&h=600';
+  import mainImageWebP from '$lib/assets/images/blog/react-memo.jpg?w=1000&h=600&format=webp&srcset';
+  import mainImageSrcset from '$lib/assets/images/blog/react-memo.jpg?w=1000&h=600&srcset';
 </script>
 
 <Image
@@ -41,13 +41,13 @@ The following code is a good example why you would use `memo`. If the user click
 ```jsx
 // index.js
 
-import { useState } from 'react';
-import ReactDOM from 'react-dom/client';
-import Todos from './Todos';
+import { useState } from "react";
+import ReactDOM from "react-dom/client";
+import Todos from "./Todos";
 
 const App = () => {
   const [count, setCount] = useState(0);
-  const [todos, setTodos] = useState(['todo 1', 'todo 2']);
+  const [todos, setTodos] = useState(["todo 1", "todo 2"]);
 
   const increment = () => {
     setCount((c) => c + 1);
@@ -65,7 +65,7 @@ const App = () => {
   );
 };
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<App />);
 ```
 
@@ -73,7 +73,7 @@ root.render(<App />);
 // Todos.js
 
 const Todos = ({ todos }) => {
-  console.log('child render');
+  console.log("child render");
   return (
     <>
       <h2>My Todos</h2>
@@ -92,10 +92,10 @@ export default Todos;
 ```jsx
 // Todos.js
 
-import { memo } from 'react';
+import { memo } from "react";
 
 const Todos = ({ todos }) => {
-  console.log('child render');
+  console.log("child render");
   return (
     <>
       <h2>My Todos</h2>
@@ -116,9 +116,9 @@ The `useCallback` hook returns a memorised function. The hook will only runs if 
 The following scenario is an example when `useCallback` can be useful to prevent an entire component from re-rendering.
 
 ```jsx
-import { useState } from 'react';
-import ReactDOM from 'react-dom/client';
-import Todos from './Todos';
+import { useState } from "react";
+import ReactDOM from "react-dom/client";
+import Todos from "./Todos";
 
 const App = () => {
   const [count, setCount] = useState(0);
@@ -128,7 +128,7 @@ const App = () => {
     setCount((c) => c + 1);
   };
   const addTodo = () => {
-    setTodos((t) => [...t, 'New Todo']);
+    setTodos((t) => [...t, "New Todo"]);
   };
 
   return (
@@ -143,15 +143,15 @@ const App = () => {
   );
 };
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<App />);
 ```
 
 ```jsx
-import { memo } from 'react';
+import { memo } from "react";
 
 const Todos = ({ todos, addTodo }) => {
-  console.log('child render');
+  console.log("child render");
   return (
     <>
       <h2>My Todos</h2>
@@ -175,9 +175,9 @@ The reason for the re-rendering is that the `addTodo` function is recreated ever
 ```jsx
 // index.js
 
-import { useState, useCallback } from 'react';
-import ReactDOM from 'react-dom/client';
-import Todos from './Todos';
+import { useState, useCallback } from "react";
+import ReactDOM from "react-dom/client";
+import Todos from "./Todos";
 
 const App = () => {
   const [count, setCount] = useState(0);
@@ -187,7 +187,7 @@ const App = () => {
     setCount((c) => c + 1);
   };
   const addTodo = useCallback(() => {
-    setTodos((t) => [...t, 'New Todo']);
+    setTodos((t) => [...t, "New Todo"]);
   }, [todos]);
 
   return (
@@ -202,17 +202,17 @@ const App = () => {
   );
 };
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<App />);
 ```
 
 ```jsx
 // Todos.js
 
-import { memo } from 'react';
+import { memo } from "react";
 
 const Todos = ({ todos, addTodo }) => {
-  console.log('child render');
+  console.log("child render");
   return (
     <>
       <h2>My Todos</h2>
@@ -237,8 +237,8 @@ As `useCallback`, the hook only runs if one of the dependencies updates.
 In the following example, if the `+` button is pressed, the state will change and this mean that, during the re-rended process, the `expensiveCalculation` will run every time. This will create a delay between the user pressing the button and the UI updated.
 
 ```jsx
-import { useState } from 'react';
-import ReactDOM from 'react-dom/client';
+import { useState } from "react";
+import ReactDOM from "react-dom/client";
 
 const App = () => {
   const [count, setCount] = useState(0);
@@ -249,7 +249,7 @@ const App = () => {
     setCount((c) => c + 1);
   };
   const addTodo = () => {
-    setTodos((t) => [...t, 'New Todo']);
+    setTodos((t) => [...t, "New Todo"]);
   };
 
   return (
@@ -273,22 +273,22 @@ const App = () => {
 };
 
 const expensiveCalculation = (num) => {
-  console.log('Calculating...');
+  console.log("Calculating...");
   for (let i = 0; i < 1000000000; i++) {
     num += 1;
   }
   return num;
 };
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<App />);
 ```
 
 **Solution**: wrapping the `expensiveCalculation` with `useMemo`, the function will run only exclusively during the first render cycle. After that, if the component re-render, the funtion won't run again making the page much more responsive.
 
 ```jsx
-import { useState, useMemo } from 'react';
-import ReactDOM from 'react-dom/client';
+import { useState, useMemo } from "react";
+import ReactDOM from "react-dom/client";
 
 const App = () => {
   const [count, setCount] = useState(0);
@@ -299,7 +299,7 @@ const App = () => {
     setCount((c) => c + 1);
   };
   const addTodo = () => {
-    setTodos((t) => [...t, 'New Todo']);
+    setTodos((t) => [...t, "New Todo"]);
   };
 
   return (
@@ -323,14 +323,14 @@ const App = () => {
 };
 
 const expensiveCalculation = (num) => {
-  console.log('Calculating...');
+  console.log("Calculating...");
   for (let i = 0; i < 1000000000; i++) {
     num += 1;
   }
   return num;
 };
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<App />);
 ```
 

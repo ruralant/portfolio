@@ -26,12 +26,7 @@
     stroke-linecap="round"
     stroke-linejoin="round"
   />
-  <path
-    d="M7 22H17"
-    stroke-width="1.5"
-    stroke-linecap="round"
-    stroke-linejoin="round"
-  />
+  <path d="M7 22H17" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
   <path
     d="M7.1947 8.30005H7.20368"
     stroke-width="2"

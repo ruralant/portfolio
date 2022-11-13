@@ -13,18 +13,18 @@ type: development
 
 <script>
   import Image from '$lib/components/Image.svelte';
-  import mainImage from '$lib/assets/images/articles/home-page.png?w=1000&h=600';
-  import mainImageWebP from '$lib/assets/images/articles/home-page.png?w=1000&h=600&format=webp&srcset';
-  import mainImageSrcset from '$lib/assets/images/articles/home-page.png?w=1000&h=600&srcset';
-   import oldCarbonScore from '$lib/assets/images/articles/old-website-carbon.png?w=1000&h=600';
-  import oldCarbonScoreWebP from '$lib/assets/images/articles/old-website-carbon.png?w=1000&h=600&format=webp&srcset';
-  import oldCarbonScoreSrcset from '$lib/assets/images/articles/old-website-carbon.png?w=1000&h=600&srcset';
-  import newCarbonScore from '$lib/assets/images/articles/new-website-carbon.png?w=1000&h=600';
-  import newCarbonScoreWebP from '$lib/assets/images/articles/new-website-carbon.png?w=1000&h=600&format=webp&srcset';
-  import newCarbonScoreSrcset from '$lib/assets/images/articles/new-website-carbon.png?w=1000&h=600&srcset';
-   import lightHouseScore from '$lib/assets/images/articles/lighthouse-score.png?w=1000&h=600';
-  import lightHouseScoreWebP from '$lib/assets/images/articles/lighthouse-score.png?w=1000&h=600&format=webp&srcset';
-  import lightHouseScoreSrcset from '$lib/assets/images/articles/lighthouse-score.png?w=1000&h=600&srcset';
+  import mainImage from '$lib/assets/images/blog/home-page.png?w=1000&h=600';
+  import mainImageWebP from '$lib/assets/images/blog/home-page.png?w=1000&h=600&format=webp&srcset';
+  import mainImageSrcset from '$lib/assets/images/blog/home-page.png?w=1000&h=600&srcset';
+   import oldCarbonScore from '$lib/assets/images/blog/old-website-carbon.png?w=1000&h=600';
+  import oldCarbonScoreWebP from '$lib/assets/images/blog/old-website-carbon.png?w=1000&h=600&format=webp&srcset';
+  import oldCarbonScoreSrcset from '$lib/assets/images/blog/old-website-carbon.png?w=1000&h=600&srcset';
+  import newCarbonScore from '$lib/assets/images/blog/new-website-carbon.png?w=1000&h=600';
+  import newCarbonScoreWebP from '$lib/assets/images/blog/new-website-carbon.png?w=1000&h=600&format=webp&srcset';
+  import newCarbonScoreSrcset from '$lib/assets/images/blog/new-website-carbon.png?w=1000&h=600&srcset';
+   import lightHouseScore from '$lib/assets/images/blog/lighthouse-score.png?w=1000&h=600';
+  import lightHouseScoreWebP from '$lib/assets/images/blog/lighthouse-score.png?w=1000&h=600&format=webp&srcset';
+  import lightHouseScoreSrcset from '$lib/assets/images/blog/lighthouse-score.png?w=1000&h=600&srcset';
 </script>
 
 <Image
@@ -110,6 +110,6 @@ I'm using Markdown to write the articles. Nothing super fancy (so far) but I alr
 
 As mentioned before, it's missing the career page, the list of my skills and about page. I'll build them in the next few weeks.
 
-You can find the code that runs the website on <a href="https://github.com/ruralant/personal-website" target="_blank">Github</a>
+You can find the code that runs the website on <a href="https://github.com/ruralant/personal-website" target="_blank" rel="noreferrer">Github</a>
 
 If you have any comments, you see any issue of or you have suggestions, please do not hesitate to contact me via email, LinkedIn or Github. Fire away, I'll treasure and appreciate any feedback!
