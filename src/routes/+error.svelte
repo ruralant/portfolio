@@ -1,8 +1,17 @@
 <script>
   import { page } from "$app/stores";
+
+  const {
+    status,
+    error: { message }
+  } = $page;
+  const title = `${status}: ${message}`;
 </script>
 
-<h1>Something weird happend</h1>
-
-<h3>{$page.status}</h3>
-<h3>{$page.error.message}</h3>
+<svelte:head>
+  <title>{title}</title>
+</svelte:head>
+<div class="flex flex-col justify-center items-center">
+  <h1 class="text-neutral-800 dark:text-white">Something weird happend</h1>
+  <h2 class="text-neutral-800 dark:text-white">{title}</h2>
+</div>
