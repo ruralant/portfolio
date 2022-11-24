@@ -3,3 +3,6 @@ User-Agent: *
 # Old Pages
 Disallow: /appleblog.html
 Disallow: /blog/photos-2/
+
+# Svelte
+Disallow: /blog/[type]/[slug]
