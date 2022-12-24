@@ -1,6 +1,5 @@
 import { dominantColourPlaceholder, IMAGE_DIR, lowResolutionPlaceholder } from "$lib/utils/image";
 import path from "path";
-const __dirname = path.resolve();
 
 export const post = async ({ request }) => {
   try {
