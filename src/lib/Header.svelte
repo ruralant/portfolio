@@ -31,7 +31,7 @@
 </script>
 
 <header
-  class="flex flex-row justify-between items-center px-5 pt-8 pb-1 md:pb-20 bg-spaceWhite dark:bg-spaceGrey "
+  class="flex flex-row justify-between items-center px-5 pt-8 pb-1 md:pb-20 bg-space-white dark:bg-space-grey "
 >
   <div class="flex items-center">
     <a class="flex items-center text-neutral-800 dark:text-white " href="/">

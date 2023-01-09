@@ -3,9 +3,9 @@
   export let posts;
 </script>
 
-<div class="w-full flex flex-col max-w-6xl m-auto py-10 lg:py-20">
+<div class="w-full flex flex-col max-w-6xl m-auto py-20 lg:py-20">
   <p
-    class="title-text font-Cormorant text-3xl m-0 text-neutral-800 dark:text-white text-center pb-10"
+    class="title-text font-Cormorant text-3xl m-0 text-neutral-800 dark:text-white text-center pb-5"
   >
     Latest Articles
   </p>
