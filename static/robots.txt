@@ -5,6 +5,6 @@ Disallow: /appleblog.html
 Disallow: /blog/photos-2/
 
 # Svelte
-Disallow /blog/[type]
+Disallow: /blog/[type]
 Disallow: /blog/[type]/[slug]
 
