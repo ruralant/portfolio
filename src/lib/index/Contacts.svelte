@@ -4,7 +4,7 @@
 </script>
 
 <div
-  class="flex flex-col justify-center items-center flex-wrap bg-spaceWhite dark:bg-spaceGrey  pb-10 lg:pb-16"
+  class="flex flex-col justify-center items-center flex-wrap bg-space-white dark:bg-space-grey  pb-10 lg:pb-16"
 >
   <div class="flex">
     <h3
@@ -14,7 +14,7 @@
     </h3>
   </div>
   <div
-    class="font-Poppins text-2xl md:text-3xl text-center font-light leading-extraRelaxed text-neutral-800 dark:text-white mt-10"
+    class="font-Poppins text-2xl md:text-3xl text-center font-light leading-extraRelaxed text-neutral-800 dark:text-white mt-5"
   >
     <p>
       Pop me an email at{" "}
