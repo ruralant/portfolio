@@ -4,16 +4,13 @@ export const GET = async () => {
   const posts = await getPosts();
   const body = xml(posts);
 
-  const headers = {
-    "Cache-Control": "max-age=0, s-maxage=3600",
-    "Content-Type": "application/xml"
+  const options = {
+    headers: {
+      "Cache-Control": "max-age=0, s-maxage=3600",
+      "Content-Type": "application/xml"
+    }
   };
-  return new Response(
-    JSON.stringify({
-      headers,
-      body
-    })
-  );
+  return new Response(body, options);
 };
 
 const xml = (

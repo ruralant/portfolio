@@ -8,7 +8,7 @@
   xmlns="http://www.w3.org/2000/svg"
 >
   <title id="rss-icon-title">Rss feed</title>
-  <desc id="rss-icon-desc">Ress feed icon</desc>
+  <desc id="rss-icon-desc">Rss feed icon</desc>
   <path
     d="M12 19C12 14.8 9.2 12 5 12"
     stroke="currentColor"
