@@ -28,14 +28,15 @@ type: development
 </script>
 
 <Image
-wepImage={mainImageWebP}
-jpegImage={mainImage}
-alt='analog camera with pictures'
-width={1000}
-height={600}
-placeholder='blur'
-classes='mt-6 mb-8 rounded-lg drop-shadow-md webfeedsFeaturedVisual'
-loading='eager'
+  wepImage={mainImageWebP}
+  jpegImage={mainImage}
+  alt='analog camera with pictures'
+  width={1000}
+  height={600}
+  placeholder='blur'
+  classes='mt-6 mb-8 rounded-lg drop-shadow-md'
+  loading='eager'
+  feedImage=true
 />
 
 Hello fellow cyber-wanderer, welcome to my humble (and recently renovated) cyber-home.

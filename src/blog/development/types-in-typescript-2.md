@@ -18,14 +18,15 @@ type: development
 </script>
 
 <Image
-wepImage={mainImageWebP}
-jpegImage={mainImage}
-alt='mug with a lake in the background'
-width={1000}
-height={600}
-placeholder='blur'
-classes='mt-6 mb-8 rounded-lg drop-shadow-md webfeedsFeaturedVisual'
-loading='eager'
+  wepImage={mainImageWebP}
+  jpegImage={mainImage}
+  alt='mug with a lake in the background'
+  width={1000}
+  height={600}
+  placeholder='blur'
+  classes='mt-6 mb-8 rounded-lg drop-shadow-md'
+  loading='eager'
+  feedImage=true
 />
 
 Sometimes, when you write code in a typed language, you have to work with values that are unknown to you at the time you write the code. When that happen, you can use `any` and `unknown` and you can use **type guards** to maintain control of what types your code can handle.

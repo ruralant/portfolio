@@ -6,10 +6,11 @@
   export let width;
   export let height;
   export let classes;
+  export let feedImage = false;
   export let loading = "lazy";
 </script>
 
-<picture>
+<picture class={feedImage ? "webfeedsFeaturedVisual" : null}>
   <source srcset={wepImage} type="image/webp" {width} {height} />
   <source srcset={srcsetImage} type="image/jpeg" {width} {height} />
   <img class={classes} {alt} {loading} decoding="async" {width} {height} src={jpegImage} />
