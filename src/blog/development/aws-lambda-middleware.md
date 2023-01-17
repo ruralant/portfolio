@@ -18,14 +18,15 @@ type: development
 </script>
 
 <Image
-wepImage={mainImageWebP}
-jpegImage={mainImage}
-alt='green leaves surrounded by yellow ones'
-width={1000}
-height={600}
-placeholder='blur'
-classes='mt-6 mb-8 rounded-lg drop-shadow-md webfeedsFeaturedVisual'
-loading='eager'
+	wepImage={mainImageWebP}
+	jpegImage={mainImage}
+	alt='green leaves surrounded by yellow ones'
+	width={1000}
+	height={600}
+	placeholder='blur'
+	classes='mt-6 mb-8 rounded-lg drop-shadow-md'
+	loading='eager'
+	feedImage=true
 />
 
 Recently I had the necessity to store the request payloads hitting our lambdas in a S3 bucket (do not ask me why :D).

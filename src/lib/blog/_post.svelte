@@ -58,6 +58,8 @@
   <a
     class="inline-block my-10 font-Poppins !text-white"
     href={`/blog/${type}`}
-    sveltekit:data-sveltekit-noscroll><ArrowLeft /></a
+    data-sveltekit-noscroll
   >
+    <ArrowLeft />
+  </a>
 </div>

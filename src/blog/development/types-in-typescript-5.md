@@ -18,14 +18,15 @@ type: development
 </script>
 
 <Image
-wepImage={mainImageWebP}
-jpegImage={mainImage}
-alt='mug with a lake in the background'
-width={1000}
-height={600}
-placeholder='blur'
-classes='mt-6 mb-8 rounded-lg drop-shadow-md webfeedsFeaturedVisual'
-loading='eager'
+  wepImage={mainImageWebP}
+  jpegImage={mainImage}
+  alt='mug with a lake in the background'
+  width={1000}
+  height={600}
+  placeholder='blur'
+  classes='mt-6 mb-8 rounded-lg drop-shadow-md'
+  loading='eager'
+  feedImage=true
 />
 
 The type `never` is not as popular as the other types we discussed in the previous articles. Personally speaking, before realised it existed, it took me more than an year. And, even after that, I used it a handful of times.
