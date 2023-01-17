@@ -18,14 +18,15 @@ type: development
 </script>
 
 <Image
-wepImage={mainImageWebP}
-jpegImage={mainImage}
-alt='mug with a lake in the background'
-width={1000}
-height={600}
-placeholder='blur'
-classes='mt-6 mb-8 rounded-lg drop-shadow-md webfeedsFeaturedVisual'
-loading='eager'
+  wepImage={mainImageWebP}
+  jpegImage={mainImage}
+  alt='mug with a lake in the background'
+  width={1000}
+  height={600}
+  placeholder='blur'
+  classes='mt-6 mb-8 rounded-lg drop-shadow-md'
+  loading='eager'
+  feedImage=true
 />
 
 `enum` is a data type that can use to create a set of constants to be used with variables and properties.
