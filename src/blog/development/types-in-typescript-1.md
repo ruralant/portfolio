@@ -148,4 +148,4 @@ This was a quick overview of the types in TypeScript. In the next few articles, 
 Thank you for reading my very first technical article. I'm looking forward to re-reading it in a year time and see (hopefully) some improvements.
 I'm really exited to start this blog and I hope it'll be as useful to you as it's for me. Teaching and writing is a great way to solidify knowledge and giving back to the community.
 
-Until the nex time, keep on coding! (as people from Red Hat would say)
+Until the next time, keep on coding!

@@ -106,4 +106,4 @@ const buildHandlerWithDefaultMiddleware(
 
 It's a quite straightforward implementation. However, if you have any question or feedback, please reach out.
 
-Keep on coding!
+Until the next time, keep on coding!

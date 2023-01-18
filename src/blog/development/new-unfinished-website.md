@@ -16,13 +16,13 @@ type: development
   import mainImage from '$lib/assets/images/blog/home-page.png?w=1000&h=600';
   import mainImageWebP from '$lib/assets/images/blog/home-page.png?w=1000&h=600&format=webp&srcset';
   import mainImageSrcset from '$lib/assets/images/blog/home-page.png?w=1000&h=600&srcset';
-   import oldCarbonScore from '$lib/assets/images/blog/old-website-carbon.png?w=1000&h=600';
+  import oldCarbonScore from '$lib/assets/images/blog/old-website-carbon.png?w=1000&h=600';
   import oldCarbonScoreWebP from '$lib/assets/images/blog/old-website-carbon.png?w=1000&h=600&format=webp&srcset';
   import oldCarbonScoreSrcset from '$lib/assets/images/blog/old-website-carbon.png?w=1000&h=600&srcset';
   import newCarbonScore from '$lib/assets/images/blog/new-website-carbon.png?w=1000&h=600';
   import newCarbonScoreWebP from '$lib/assets/images/blog/new-website-carbon.png?w=1000&h=600&format=webp&srcset';
   import newCarbonScoreSrcset from '$lib/assets/images/blog/new-website-carbon.png?w=1000&h=600&srcset';
-   import lightHouseScore from '$lib/assets/images/blog/lighthouse-score.png?w=1000&h=600';
+  import lightHouseScore from '$lib/assets/images/blog/lighthouse-score.png?w=1000&h=600';
   import lightHouseScoreWebP from '$lib/assets/images/blog/lighthouse-score.png?w=1000&h=600&format=webp&srcset';
   import lightHouseScoreSrcset from '$lib/assets/images/blog/lighthouse-score.png?w=1000&h=600&srcset';
 </script>
@@ -114,3 +114,5 @@ As mentioned before, it's missing the career page, the list of my skills and abo
 You can find the code that runs the website on <a href="https://github.com/ruralant/personal-website" target="_blank" rel="noreferrer">Github</a>
 
 If you have any comments, you see any issue of or you have suggestions, please do not hesitate to contact me via email, LinkedIn or Github. Fire away, I'll treasure and appreciate any feedback!
+
+Until the next time, keep on coding!
