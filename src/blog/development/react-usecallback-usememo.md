@@ -340,3 +340,5 @@ root.render(<App />);
 Memorisation in React can make a real difference in properly implemented. But in this particular case, the cliché _with great power comes great responsibility_ comes handy. Re-renders are not a problem and we shouldn't try to avoid them at all costs. Sometimes the memorisation of values when is not necessary can cause more performance drawbacks that advantages.
 
 So, before you start to wrap all your functions in a `useCallback`, ask yourself if it's really necessary. If the amount of data you're handling tiny and the components are already responding instantly to changes, probably it's not worth to over-complicate things.
+
+Until the next time, keep on coding!
