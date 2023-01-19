@@ -88,3 +88,5 @@ On the other hand, you can, always interact with a variable of type `any` and it
 The `unknown` type would have been really useful in one of my previous companies. We were using Angular (framework based on TypeScript) but he had to move really fast and build several product from scratch in a very short period of time. We abused of the type `any`, to the extent that the only difference with JavaScript, was the possibility to use the latest syntactic sugar additions.
 
 The type `unknown` would have been really useful for the developers that wanted to move fast, without breaking things. We didn't have it at that time, but now we do and it's awesome to break things!
+
+If you have been, thank you for reading, keep on coding!
