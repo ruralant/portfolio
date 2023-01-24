@@ -43,23 +43,10 @@
   <h2 class="text-xl font-normal text-center tracking-normal mt-0">
     {subtitle}
   </h2>
-  <!-- <Image
-    wepImage={`${mainImage}?w=656&h=656&format=webp`}
-    jpegImage={`${mainImage}?w=656&h=656`}
-    alt={mainImageAlt}
-    width={1000}
-    height={1000}
-    placeholder={'blur'}
-    classes={'mt-6 mb-8 rounded-lg drop-shadow-md'}
-  /> -->
   <article>
     <slot />
   </article>
-  <a
-    class="inline-block my-10 font-Poppins !text-white"
-    href={`/blog/${type}`}
-    data-sveltekit-noscroll
-  >
+  <a class="inline-block my-10 font-Poppins !text-white" href={`/blog/${type}`}>
     <ArrowLeft />
   </a>
 </div>
