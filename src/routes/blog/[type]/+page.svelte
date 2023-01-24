@@ -1,4 +1,9 @@
 <script>
+  import { disableScrollHandling } from "$app/navigation";
+  import { onMount } from "svelte";
+  onMount(async () => {
+    disableScrollHandling();
+  });
   import BlogListItem from "$lib/components/blog/BlogListItem.svelte";
   export let data;
 </script>
