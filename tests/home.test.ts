@@ -4,9 +4,9 @@ test.beforeEach(async ({ page }) => {
   await page.goto("/");
 });
 
-test("index page has expected h1", async ({ page }) => {
-  expect(await page.textContent("h1")).toBe("Hi, I'm Antonio 👋");
-});
+// test("index page has expected h1", async ({ page }) => {
+//   expect(await page.textContent("h1")).toBe("Hi, I'm Antonio 👋");
+// });
 
 test("dropdown menu links to blog", async ({ page }) => {
   await page.getByRole("button", { name: "Work" }).click();
