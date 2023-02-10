@@ -8,6 +8,7 @@ node_modules
 .env.*
 !.env.example
 /.vscode
+/.netlify
 /test-results/
 /playwright-report/
 /playwright/.cache/
