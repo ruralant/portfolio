@@ -9,6 +9,5 @@ node_modules
 !.env.example
 /.vscode
 /.netlify
-/test-results/
 /playwright-report/
 /playwright/.cache/
