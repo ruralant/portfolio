@@ -1,9 +1,4 @@
-<svg
-  class="h-[1.2rem]"
-  xmlns="http://www.w3.org/2000/svg"
-  viewBox="0 0 30.2 28.9"
-  overflow="visible"
->
+<svg class="h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30.2 28.9" overflow="visible">
   <title id="linkedin-title">LinkedIn</title>
   <desc id="linkedin-desc">Linkedin icon</desc>
   <path
