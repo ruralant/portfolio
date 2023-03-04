@@ -1,6 +1,6 @@
 {
   "name": "personal-website",
-  "version": "2.6.8",
+  "version": "2.6.10",
   "scripts": {
     "dev": "vite dev",
     "build": "vite build",
@@ -17,7 +17,7 @@
     "@playwright/test": "^1.31.2",
     "@sveltejs/adapter-auto": "^2.0.0",
     "@sveltejs/adapter-netlify": "^2.0.5",
-    "@sveltejs/kit": "^1.9.3",
+    "@sveltejs/kit": "^1.10.0",
     "@tailwindcss/typography": "^0.5.2",
     "autoprefixer": "^10.4.2",
     "eslint": "^8.35.0",
