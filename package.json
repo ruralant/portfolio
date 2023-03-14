@@ -1,6 +1,6 @@
 {
   "name": "personal-website",
-  "version": "2.6.12",
+  "version": "2.6.13",
   "scripts": {
     "dev": "vite dev",
     "build": "vite build",
