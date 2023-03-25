@@ -31,10 +31,10 @@
 </script>
 
 <header
-  class="flex flex-row justify-between items-center px-5 pt-8 pb-1 md:pb-20 bg-space-white dark:bg-space-grey "
+  class="flex flex-row justify-between items-center px-5 pt-8 pb-1 md:pb-20 bg-space-white dark:bg-space-grey"
 >
   <div class="flex items-center">
-    <a class="flex items-center text-neutral-800 dark:text-white " href="/">
+    <a class="flex items-center text-neutral-800 dark:text-white" href="/">
       <Logo />
     </a>
     <nav class="flex flex-row">
@@ -44,7 +44,7 @@
       </div>
     </nav>
   </div>
-  <div class="flex-0 ">
+  <div class="flex-0">
     <a
       href="/app/theme"
       class="block"
@@ -53,10 +53,10 @@
         toggleTheme(theme, $theme);
       }}
     >
-      <div class="hidden dark:block ">
+      <div class="hidden dark:block">
         <Sun />
       </div>
-      <div class="dark:hidden ">
+      <div class="dark:hidden">
         <Moon />
       </div>
     </a>
