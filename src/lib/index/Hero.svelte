@@ -19,9 +19,9 @@
       </h1>
     </div>
     <div class="font-Poppins text-2xl md:text-3xl font-light mt-2.5 leading-extraRelaxed">
-      <p class="text-neutral-800 dark:text-white ">I'm a full stack developer in Reading, UK.</p>
+      <p class="text-neutral-800 dark:text-white">I'm a full stack developer in Reading, UK.</p>
       {" "}
-      <p class="text-neutral-800 dark:text-white ">
+      <p class="text-neutral-800 dark:text-white">
         I'm interested in{" "}
         <span class="md:font-bold w-[200px]">energy efficiency</span> of the web and
         <span class="md:font-bold w-[200px]">regenerative agriculture</span>

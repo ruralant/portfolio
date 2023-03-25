@@ -30,10 +30,10 @@
           />
         </div>
       </div>
-      <p class="text-neutral-800 dark:text-white ">
+      <p class="text-neutral-800 dark:text-white">
         {position}, {location}
       </p>
-      <p class="text-neutral-800 dark:text-white  text-xl mb-6">
+      <p class="text-neutral-800 dark:text-white text-xl mb-6">
         {from} - {to}
       </p>
     </div>
