@@ -7,7 +7,7 @@
 </script>
 
 <div
-  class="flex flex-col justify-center items-center flex-wrap bg-space-white dark:bg-space-grey  pb-10 lg:pb-16"
+  class="flex flex-col justify-center items-center flex-wrap bg-space-white dark:bg-space-grey pb-10 lg:pb-16"
 >
   <div class="flex">
     <h3

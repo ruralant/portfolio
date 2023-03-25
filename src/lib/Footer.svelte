@@ -3,7 +3,7 @@
 </script>
 
 <footer
-  class="w-full flex flex-col justify-center items-center bg-space-white dark:bg-space-grey  pb-8"
+  class="w-full flex flex-col justify-center items-center bg-space-white dark:bg-space-grey pb-8"
 >
   <p class="text-neutral-800 dark:text-white">
     © 2016-{year} Made with ❤️ by Antonio Rossi

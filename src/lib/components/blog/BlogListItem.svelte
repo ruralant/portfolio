@@ -22,7 +22,7 @@
         >{post.category}</span
       >
     </div>
-    <p class="text-neutral-800 dark:text-white mt-4 ">
+    <p class="text-neutral-800 dark:text-white mt-4">
       {post.subtitle}
     </p>
     <p class="md:hidden mt-3 uppercase text-xs underline decoration-solid underline-offset-2">
