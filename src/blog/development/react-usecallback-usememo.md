@@ -1,7 +1,7 @@
 ---
 title: How to optimise React with useMemo and useCallBack
 slug: react-usecallback-usememo
-subtitle: How to the advantage of useCallBack and useMemo and when to avoid them
+subtitle: How to take advantage of useCallBack and useMemo and when to avoid them
 category: front end
 tags: [react, hooks, memorisation]
 published: true
