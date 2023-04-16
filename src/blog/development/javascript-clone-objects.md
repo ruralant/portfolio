@@ -1,11 +1,11 @@
 ---
 title: How to clone an object in JavaScript
-slug: javascript-clone-object
+slug: javascript-clone-objects
 subtitle: Shallow copy vs deep copy. A comparison of the different ways to clone an object in JavaScript
 category: javascript
 tags: [javascript]
 published: true
-date: 2023-04-15
+date: 2023-04-16
 layout: development
 type: development
 ---
