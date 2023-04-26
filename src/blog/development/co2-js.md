@@ -18,10 +18,9 @@ Getting Started with CO2.js
 
 CO2.js is a lightweight library that can be easily added to any web application. You can install it using npm or add it as a script tag directly in the HTML file.
 
-html
-Copy code
-
+```html
 <script src="https://cdn.jsdelivr.net/npm/co2-js/dist/co2.min.js"></script>
+```
 
 Once you've added the library, you can start using it to measure the carbon emissions of your web application.
 
@@ -33,8 +32,7 @@ CO2.js can also integrate with various third-party tools such as Google Analytic
 
 Here's an example of how to use CO2.js to measure the carbon emissions of a web page:
 
-javascript
-Copy code
+```javascript
 // Initialize the CO2.js library
 const co2 = new CO2();
 
@@ -43,6 +41,8 @@ co2.trackPage();
 
 // Log the estimated carbon emissions in the console
 console.log(`Estimated carbon emissions: ${co2.getEmissions()} grams of CO2`);
+```
+
 In this example, we initialize the CO2.js library, track the carbon emissions of the web page, and then log the estimated carbon emissions in the console.
 
 Use Cases for CO2.js

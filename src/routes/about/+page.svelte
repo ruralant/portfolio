@@ -1,3 +1,7 @@
+<script>
+  import HeroImage from "$lib/components/hero/HeroImage.svelte";
+</script>
+
 <h1>About me</h1>
 
 <div
@@ -34,3 +38,4 @@
     contact me at hello@antoniorossi.net
   </p>
 </div>
+<HeroImage />
