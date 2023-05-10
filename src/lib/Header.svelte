@@ -11,9 +11,9 @@
       active: true
     },
     {
-      title: "Career (coming soon)",
-      url: "/career",
-      active: false
+      title: "About Me",
+      url: "/about",
+      active: true
     }
   ];
   export let personalSections = [
@@ -21,11 +21,6 @@
       title: "Blog",
       url: "/blog/personal",
       active: true
-    },
-    {
-      title: "More about me (coming soon)",
-      url: "/myself",
-      active: false
     }
   ];
 </script>
