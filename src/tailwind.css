@@ -8,12 +8,12 @@
   font-style: normal;
   font-weight: 700;
   display: swap;
-  src: url("/fonts/cormorant-v18-latin-700.eot"); /* IE9 Compat Modes */
-  src: local(""), url("/fonts/cormorant-v18-latin-700.eot?#iefix") format("embedded-opentype"),
-    /* IE6-IE8 */ url("/fonts/cormorant-v18-latin-700.woff2") format("woff2"),
-    /* Super Modern Browsers */ url("/fonts/cormorant-v18-latin-700.woff") format("woff"),
-    /* Modern Browsers */ url("/fonts/cormorant-v18-latin-700.ttf") format("truetype"),
-    /* Safari, Android, iOS */ url("/fonts/cormorant-v18-latin-700.svg#Cormorant") format("svg"); /* Legacy iOS */
+  src: url("/fonts/cormorant-v21-latin-700.eot"); /* IE9 Compat Modes */
+  src: local(""), url("/fonts/cormorant-v21-latin-700.eot?#iefix") format("embedded-opentype"),
+    /* IE6-IE8 */ url("/fonts/cormorant-v21-latin-700.woff2") format("woff2"),
+    /* Super Modern Browsers */ url("/fonts/cormorant-v21-latin-700.woff") format("woff"),
+    /* Modern Browsers */ url("/fonts/cormorant-v21-latin-700.ttf") format("truetype"),
+    /* Safari, Android, iOS */ url("/fonts/cormorant-v21-latin-700.svg#Cormorant") format("svg"); /* Legacy iOS */
 }
 
 /* poppins-300 - latin */
@@ -36,12 +36,13 @@
   font-style: normal;
   font-weight: 400;
   display: swap;
-  src: url("/fonts/roboto-serif-v8-latin-500.eot"); /* IE9 Compat Modes */
-  src: local(""), url("/fonts/roboto-serif-v8-latin-500.eot?#iefix") format("embedded-opentype"),
-    /* IE6-IE8 */ url("/fonts/roboto-serif-v8-latin-500.woff2") format("woff2"),
-    /* Super Modern Browsers */ url("/fonts/roboto-serif-v8-latin-500.woff") format("woff"),
-    /* Modern Browsers */ url("/fonts/roboto-serif-v8-latin-500.ttf") format("truetype"),
-    /* Safari, Android, iOS */ url("/fonts/roboto-serif-v8-latin-500.svg#RobotoSerif") format("svg"); /* Legacy iOS */
+  src: url("/fonts/roboto-serif-v13-latin-500.eot"); /* IE9 Compat Modes */
+  src: local(""), url("/fonts/roboto-serif-v13-latin-500.eot?#iefix") format("embedded-opentype"),
+    /* IE6-IE8 */ url("/fonts/roboto-serif-v13-latin-500.woff2") format("woff2"),
+    /* Super Modern Browsers */ url("/fonts/roboto-serif-v13-latin-500.woff") format("woff"),
+    /* Modern Browsers */ url("/fonts/roboto-serif-v13-latin-500.ttf") format("truetype"),
+    /* Safari, Android, iOS */ url("/fonts/roboto-serif-v13-latin-500.svg#RobotoSerif")
+      format("svg"); /* Legacy iOS */
 }
 
 /* roboto-serif-300 - latin */
