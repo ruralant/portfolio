@@ -2,14 +2,26 @@
   import HeroImage from "$lib/components/hero/HeroImage.svelte";
 </script>
 
-<h1>About me</h1>
+<h1
+  class="title-text font-Cormorant text-5xl m-0 text-neutral-800 dark:text-white text-center pb-5"
+>
+  About me
+</h1>
 
 <div
   class="font-Roboto lg:prose-xl text-neutral-900 dark:text-white dark:prose-invert prose-a:text-teal-400 prose-pre:max-w-xs prose-pre:min-w-full prose-pre:whitespace-pre-wrap prose-pre:text-left md:prose-pre:max-w-full prose-pre:bg-neutral-200 dark:prose-pre:bg-neutral-800 prose-pre:text-neutral-700 dark:prose-pre:text-neutral-100 prose-code:bg-neutral-200 dark:prose-code:bg-neutral-800 prose-code:text-neutral-700 dark:prose-code:text-neutral-100 tracking-wide"
 >
+  <div class="float-right bg-clip-content">
+    <HeroImage />
+  </div>
   <p>
     My name is Antonio and I am a software engineer with a passion for developing green software. I
     specialize in React, Svelte, Node, AWS, and Typescript, and I have years of experience
+    developing efficient and sustainable software solutions.
+  </p>
+
+  <p>
+    I specialize in React, Svelte, Node, AWS, and Typescript, and I have years of experience
     developing efficient and sustainable software solutions.
   </p>
 
@@ -38,4 +50,3 @@
     contact me at hello@antoniorossi.net
   </p>
 </div>
-<HeroImage />
