@@ -14,6 +14,7 @@ The website has the following sections:
 As per today:
 
 - Home page
+- About page
 - Blog page (aggregated)
 - Tech blog
 - Personal blog
@@ -21,9 +22,6 @@ As per today:
 Coming soon:
 
 - Career page
-- About page
-- Books suggestions
-- Photo gallery
 
 ### See it in action
 
@@ -46,5 +44,5 @@ During the development process I used also the following tools:
 ## How to run the application locally
 
 - Clone the repository
-- Install the required pachages with `npm install`
+- Install the required packages with `npm install`
 - Build with the command `npm run build` or run it in dev mode with `npm run dev -- --open`
