@@ -63,9 +63,10 @@
   <p class="mt-5">
     Thank you for taking your time to learn a little but more about myself. If you have any
     questions, if we have passions in common, or if you just want to say hi, do not hesitate to
-    contact me at <span
+    contact me at
+    <a
       class="bg-gradient-271 from-darkFromColor via-darkViaColor1 via-darkViaColor2 to-lightToColor dark:from-darkFromColor dark:via-darkViaColor1 dark:via-darkViaColor2 dark:to-darkToColor m-0 leading-standard"
-      >hello@antoniorossi.net</span
+      href="mailto:hello@antoniorossi.net">hello@antoniorossi.net</a
     >
   </p>
 </div>
