@@ -10,7 +10,7 @@
   export let loading = "lazy";
 </script>
 
-<picture class={feedImage ? "webfeedsFeaturedVisual" : null}>
+<picture class={`${feedImage ? "webfeedsFeaturedVisual" : null} flex justify-center`}>
   <source srcset={wepImage} type="image/webp" {width} {height} />
   <source srcset={srcsetImage} type="image/jpeg" {width} {height} />
   <img class={classes} {alt} {loading} decoding="async" {width} {height} src={jpegImage} />
