@@ -3,26 +3,7 @@
   import { toggleTheme } from "$lib/shared/theme";
   import { Sun, Moon } from "$lib/components/icons/index.js";
   import Logo from "./components/Logo.svelte";
-  import Dropdown from "./components/Dropdown.svelte";
-  export let workSections = [
-    {
-      title: "Articles",
-      url: "/blog/development",
-      active: true
-    },
-    {
-      title: "About Me",
-      url: "/about",
-      active: true
-    }
-  ];
-  export let personalSections = [
-    {
-      title: "Blog",
-      url: "/blog/personal",
-      active: true
-    }
-  ];
+  import NavItem from "./components/NavItem.svelte";
 </script>
 
 <header
@@ -32,11 +13,9 @@
     <a class="flex items-center text-neutral-800 dark:text-white" href="/">
       <Logo />
     </a>
-    <nav class="flex flex-row">
-      <div class="flex space-x-4">
-        <Dropdown title={"Work"} items={workSections} />
-        <Dropdown title={"Personal"} items={personalSections} />
-      </div>
+    <nav class="flex flex-row space-x-4">
+      <NavItem text={"Blog"} url={"/blog/development"} />
+      <NavItem text={"About Me"} url={"/about"} />
     </nav>
   </div>
   <div class="flex-0">

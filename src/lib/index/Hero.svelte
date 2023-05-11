@@ -25,5 +25,9 @@
       </p>
     </div>
   </div>
-  <HeroImage />
+  <HeroImage
+    width="400"
+    height="400"
+    classes="rounded-full overflow-hidden mt-10 xl:mt-0 lg:ml-20"
+  />
 </div>
