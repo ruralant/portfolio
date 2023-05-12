@@ -1,7 +1,7 @@
 ---
 title: Co2.js - A library to Measure the web carbon emissions
 slug: co2-js
-subtitle: It's a lightweight library that can be easily added to any web application and used to track and analyze its carbon footprint
+subtitle: It's a lightweight library that can be easily added to any web application and used to track and analyse its carbon footprint
 category: green software
 tags: [javascript, carbon, emissions]
 published: true
@@ -87,7 +87,7 @@ const oneByte = new co2({ model: "1byte" });
 
 #### Sustainable Web Design
 
-The Sustainable Web Design model is based on the [Sustainable Web Design](https://sustainablewebdesign.org/) project. It is a more complex model that takes into account the device type, network type, and CPU utilization to calculate the carbon emissions per byte of data.
+The Sustainable Web Design model is based on the [Sustainable Web Design](https://sustainablewebdesign.org/) project. It is a more complex model that takes into account the device type, network type, and CPU utilisation to calculate the carbon emissions per byte of data.
 
 ```javascript
 import { co2 } from "@tgwf/co2";
@@ -97,7 +97,7 @@ const swd = new co2();
 const declaredSwd = new co2({ model: "swd" });
 ```
 
-Alongside the `perByte()` function, `CO2.js` provides also a `perVisit()` function. It's the best function to calculate the carbon emissions of a website, however, it important to read and understand the model used and be comfortable with the assumptions made. You can find all the information in the following link: [Calculating Digital Emissions](https://sustainablewebdesign.org/calculating-digital-emissions/).
+Alongside the `perByte()` function, `CO2.js` provides also a `perVisit()` function. It's the best function to calculate the carbon emissions of a website, however, it's important to read and understand the model used and be comfortable with the assumptions made. You can find all the information in the following link: [Calculating Digital Emissions](https://sustainablewebdesign.org/calculating-digital-emissions/).
 
 I also will have an article on this topic soon.
 
