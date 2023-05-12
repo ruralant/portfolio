@@ -37,7 +37,7 @@ In this blog post, we'll take a closer look at CO2.js and explore its features, 
 
 ### Getting Started with CO2.js in the browser or Node.js
 
-The easiest way to start to use the library in the browser is to use SkyPack. SkyPack is a CDN that allows you to import npm packages directly in the browser.
+The easiest way to start to use the library in the browser is to use SkyPack. SkyPack is a CDN that allows us to import npm packages directly in the browser.
 
 ```html
 <script type="module">
@@ -45,7 +45,7 @@ The easiest way to start to use the library in the browser is to use SkyPack. Sk
 </script>
 ```
 
-Both in the browser and in Node.js, you can use NPM to install the library:
+Both in the browser and in Node.js, we can use NPM to install the library:
 
 ```bash
 npm install @tgwf/co2
@@ -73,7 +73,7 @@ const estimatedEmissions = perByte(bytes, greenHost).toFixed(3);
 console.log(emissions); // 0.01kgCO2e
 ```
 
-For most of the use cases, this can be enough. However, you can also choose which model to use between the **_OneByte_** and the **_Sustainable Web Design_** model.
+For most of the use cases, this can be enough. However, we can also choose which model to use between the **_OneByte_** and the **_Sustainable Web Design_** model.
 
 #### OneByte
 
@@ -93,15 +93,15 @@ The Sustainable Web Design model is based on the [Sustainable Web Design](https:
 import { co2 } from "@tgwf/co2";
 
 const swd = new co2();
-// You can also explicitly declare the model
+
 const declaredSwd = new co2({ model: "swd" });
 ```
 
-Alongside the `perByte()` function, `CO2.js` provides also a `perVisit()` function. It's the best function to calculate the carbon emissions of a website, however, it's important to read and understand the model used and be comfortable with the assumptions made. You can find all the information in the following link: [Calculating Digital Emissions](https://sustainablewebdesign.org/calculating-digital-emissions/).
+Alongside the `perByte()` function, `CO2.js` provides also a `perVisit()` function. It's the best function to calculate the carbon emissions of a website, however, it's important to read and understand the model used and be comfortable with the assumptions made. We can find all the information in the following link: [Calculating Digital Emissions](https://sustainablewebdesign.org/calculating-digital-emissions/).
 
 I also will have an article on this topic soon.
 
-Anyway, if you want to use the `perVisit()` function, you can do it in the following way:
+Anyway, if we want to use the `perVisit()` function, we can do it in the following way:
 
 ```javascript
 import { co2 } from "@tgwf/co2";
@@ -123,7 +123,7 @@ hosting.check("antoniorossi.net").then((result) => {
 });
 ```
 
-You can also check multiple domains:
+We can also check multiple domains:
 
 ```javascript
 const { hosting } = require("@tgwf/co2");
@@ -135,11 +135,11 @@ hosting.check(["antoniorossi.net", "google.com"]).then((result) => {
 });
 ```
 
-As you can see, the API will return only the domains that are hosted on a green host.
+As we can see, the API will return only the domains that are hosted on a green host.
 
 ### Other APIs
 
-CO2.js provides also other APIs that can be useful for developers. For example, you can use the `grid-intensity` API to get the carbon intensity of the grid in a specific country or the `ip-to-co2intensity` API to get the carbon intensity of the grid in the country where the user is located.
+CO2.js provides also other APIs that can be useful for developers. For example, we can use the `grid-intensity` API to get the carbon intensity of the grid in a specific country or the `ip-to-co2intensity` API to get the carbon intensity of the grid in the country where the user is located.
 
 I'll have a dedicated article on these APIs soon.
 
