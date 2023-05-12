@@ -1,72 +1,152 @@
 ---
-title: Co2.js - A JavaScript Library to Measure the Carbon Emissions of Web Applications
+title: Co2.js - A library to Measure the web carbon emissions
 slug: co2-js
-subtitle: CO2.js is a JavaScript library designed to measure the carbon emissions of web applications. It's a lightweight library that can be easily added to any web application and used to track and analyze the carbon footprint of web applications.
+subtitle: It's a lightweight library that can be easily added to any web application and used to track and analyse its carbon footprint
 category: green software
 tags: [javascript, carbon, emissions]
-published: false
-date: 2023-04-16
+published: true
+date: 2023-05-12
 layout: development
 type: development
 ---
 
-CO2.js is a JavaScript library designed to measure the carbon emissions of web applications. It's a lightweight library that can be easily added to any web application and used to track and analyze the carbon footprint of web applications.
+<script>
+  import Image from '$lib/components/Image.svelte';
+  import mainImage from '$lib/assets/images/blog/co2.jpg?w=1000&h=600';
+  import mainImageWebP from '$lib/assets/images/blog/co2.jpg?w=1000&h=600&format=webp&srcset';
+  import mainImageSrcset from '$lib/assets/images/blog/co2.jpg?w=1000&h=600&srcset';
+</script>
+
+<Image
+	wepImage={mainImageWebP}
+	jpegImage={mainImage}
+	alt='a stormtrooper picking up a flower'
+	width={1000}
+	height={600}
+	placeholder='blur'
+	classes='mt-6 mb-8 rounded-lg drop-shadow-md'
+	loading='eager'
+	feedImage=true
+/>
+
+The world wide web is a major contributor to climate change. In fact, it is estimated that the internet accounts for about 2% of global carbon emissions. This is due to the energy required to power data centers, transmit data over networks, and cool servers.
+
+CO2.js is a lightweight library that helps developers estimate the carbon emissions associated with their websites and apps.
 
 In this blog post, we'll take a closer look at CO2.js and explore its features, use cases, and benefits. We'll also provide a code example to show how to use the library.
 
-Getting Started with CO2.js
+### Getting Started with CO2.js in the browser or Node.js
 
-CO2.js is a lightweight library that can be easily added to any web application. You can install it using npm or add it as a script tag directly in the HTML file.
+The easiest way to start to use the library in the browser is to use SkyPack. SkyPack is a CDN that allows us to import npm packages directly in the browser.
 
 ```html
-<script src="https://cdn.jsdelivr.net/npm/co2-js/dist/co2.min.js"></script>
+<script type="module">
+  import tgwf from "https://cdn.skypack.dev/@tgwf/co2";
+</script>
 ```
 
-Once you've added the library, you can start using it to measure the carbon emissions of your web application.
+Both in the browser and in Node.js, we can use NPM to install the library:
 
-Measuring Carbon Emissions with CO2.js
+```bash
+npm install @tgwf/co2
+```
 
-CO2.js uses a combination of metrics such as device type, network type, and CPU utilization to estimate the carbon emissions of a web application. The library collects data points such as CPU utilization, network speed, device type, and location to make accurate predictions.
+### Calculating Carbon Emissions per byte of data
 
-CO2.js can also integrate with various third-party tools such as Google Analytics, which enables you to track the carbon emissions of your website and user behavior simultaneously.
+CO2.js has a `perByte` function that accepts two arguments:
 
-Here's an example of how to use CO2.js to measure the carbon emissions of a web page:
+- `bytes`: The number of bytes transferred
+- `green`: A boolean indicating whether the transfer was green or not
+
+The function returns the amount of carbon emissions in grams of CO2.
+
+Here is an example:
 
 ```javascript
-// Initialize the CO2.js library
-const co2 = new CO2();
+import { perByte } from "@tgwf/co2";
 
-// Track the carbon emissions of a web page
-co2.trackPage();
+const bytes = 1000000; // 1MB
+const greenHost = true;
 
-// Log the estimated carbon emissions in the console
-console.log(`Estimated carbon emissions: ${co2.getEmissions()} grams of CO2`);
+const estimatedEmissions = perByte(bytes, greenHost).toFixed(3);
+
+console.log(emissions); // 0.01kgCO2e
 ```
 
-In this example, we initialize the CO2.js library, track the carbon emissions of the web page, and then log the estimated carbon emissions in the console.
+For most of the use cases, this can be enough. However, we can also choose which model to use between the **_OneByte_** and the **_Sustainable Web Design_** model.
 
-Use Cases for CO2.js
+#### OneByte
 
-CO2.js is an ideal tool for web developers who want to build environmentally friendly web applications. Here are some of the use cases for CO2.js:
+The OneByte model is based on the [OneByte](https://onebyte.dev/) project. It is a simple model that uses the average carbon intensity of the internet to calculate the carbon emissions per byte of data.
 
-Carbon offsetting: CO2.js can be used to calculate the carbon emissions of a web application, and the resulting data can be used to purchase carbon credits to offset the carbon footprint.
+```javascript
+import { co2 } from "@tgwf/co2";
 
-Environmental impact reporting: CO2.js can be used to generate reports on the carbon emissions of a web application, which can be used for sustainability reporting and compliance purposes.
+const oneByte = new co2({ model: "1byte" });
+```
 
-Environmental optimization: CO2.js can be used to identify areas of a web application that consume the most energy and carbon emissions, which can be optimized to reduce the carbon footprint.
+#### Sustainable Web Design
 
-Benefits of CO2.js
+The Sustainable Web Design model is based on the [Sustainable Web Design](https://sustainablewebdesign.org/) project. It is a more complex model that takes into account the device type, network type, and CPU utilisation to calculate the carbon emissions per byte of data.
 
-Using CO2.js provides several benefits for web developers:
+```javascript
+import { co2 } from "@tgwf/co2";
 
-Improved sustainability: CO2.js helps web developers build environmentally friendly web applications, reducing the carbon footprint of the web.
+const swd = new co2();
 
-Better user experience: CO2.js can optimize web applications for energy efficiency, leading to faster load times and improved user experience.
+const declaredSwd = new co2({ model: "swd" });
+```
 
-Increased transparency: CO2.js provides developers with a clear understanding of the carbon emissions of their web application, enabling them to make informed decisions about sustainability.
+Alongside the `perByte()` function, `CO2.js` provides also a `perVisit()` function. It's the best function to calculate the carbon emissions of a website, however, it's important to read and understand the model used and be comfortable with the assumptions made. We can find all the information in the following link: [Calculating Digital Emissions](https://sustainablewebdesign.org/calculating-digital-emissions/).
 
-Conclusion
+I also will have an article on this topic soon.
+
+Anyway, if we want to use the `perVisit()` function, we can do it in the following way:
+
+```javascript
+import { co2 } from "@tgwf/co2";
+
+const swd = new co2({ model: "swd" });
+
+const emissions = swd.perVisit(1000000);
+```
+
+### Checking if a domain for green hosting
+
+Another use case for CO2.js is to check if a domain is hosted on a green host. This can be achieved in the following way:
+
+```javascript
+const { hosting } = require("@tgwf/co2");
+
+hosting.check("antoniorossi.net").then((result) => {
+  console.log(result); // Output: true
+});
+```
+
+We can also check multiple domains:
+
+```javascript
+const { hosting } = require("@tgwf/co2");
+
+const domains = ["antoniorossi.net", "twitter.com"];
+
+hosting.check(["antoniorossi.net", "google.com"]).then((result) => {
+  console.log(result); // Output: ["antoniorossi.net"]
+});
+```
+
+As we can see, the API will return only the domains that are hosted on a green host.
+
+### Other APIs
+
+CO2.js provides also other APIs that can be useful for developers. For example, we can use the `grid-intensity` API to get the carbon intensity of the grid in a specific country or the `ip-to-co2intensity` API to get the carbon intensity of the grid in the country where the user is located.
+
+I'll have a dedicated article on these APIs soon.
+
+### Conclusion
 
 CO2.js is a powerful tool for web developers who want to build environmentally friendly web applications. The library is easy to use and integrates with various third-party tools, making it an ideal solution for sustainability reporting, carbon offsetting, and environmental optimization.
 
 By using CO2.js, developers can reduce the carbon footprint of their web applications, improve the user experience, and increase transparency about the environmental impact of their web application.
+
+Keep on building green software!
