@@ -16,6 +16,5 @@
   alt={"myself speaking in public"}
   {width}
   {height}
-  loading={"eager"}
   {classes}
 />
