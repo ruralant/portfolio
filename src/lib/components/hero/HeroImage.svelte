@@ -16,5 +16,6 @@
   alt={"myself speaking in public"}
   {width}
   {height}
+  loading={"lazy"}
   {classes}
 />
