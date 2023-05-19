@@ -1,5 +1,5 @@
 ---
-title: Co2.js - A library to Measure the web carbon emissions
+title: Co2.js - A library to measure the web carbon emissions
 slug: co2-js
 subtitle: It's a lightweight library that can be easily added to any web application and used to track and analyse its carbon footprint
 category: green software
