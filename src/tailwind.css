@@ -7,7 +7,7 @@
   font-family: "Cormorant";
   font-style: normal;
   font-weight: 700;
-  display: swap;
+  font-display: swap;
   src: url("/fonts/cormorant-v21-latin-700.woff2") format("woff2"),
     url("/fonts/cormorant-v21-latin-700.woff") format("woff");
 }
@@ -17,27 +17,27 @@
   font-family: "Poppins";
   font-style: normal;
   font-weight: 300;
-  display: swap;
+  font-display: swap;
   src: url("/fonts/poppins-v20-latin-300.woff2") format("woff2"),
     url("/fonts/poppins-v20-latin-300.woff") format("woff");
 }
 
 /* roboto-serif-300 - latin */
 @font-face {
-  font-display: swap;
   font-family: "Roboto Serif";
   font-style: normal;
   font-weight: 300;
+  font-display: swap;
   src: url("/fonts/roboto-serif-v13-latin-300.woff2") format("woff2"),
     url("/fonts/roboto-serif-v13-latin-300.woff") format("woff");
 }
 
 /* roboto-serif-500 - latin */
 @font-face {
-  font-display: swap;
   font-family: "Roboto Serif";
   font-style: normal;
   font-weight: 500;
+  font-display: swap;
   src: url("/fonts/roboto-serif-v13-latin-500.woff2") format("woff2"),
     url("/fonts/roboto-serif-v13-latin-500.woff") format("woff");
 }
