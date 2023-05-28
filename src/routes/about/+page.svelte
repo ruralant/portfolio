@@ -1,5 +1,31 @@
 <script>
+  import Skill from "$lib/components/about/Skill.svelte";
   import HeroImage from "$lib/components/hero/HeroImage.svelte";
+  import { calculateExperience } from "$lib/utils/utils.js";
+  import { calculatePastExperience } from "$lib/utils/utils.js";
+  const skills = [
+    { skill: "React", start: "2020-01-01" },
+    { skill: "Svelte", start: "2020-12-01" },
+    { skill: "Node", start: "2016-05-01" },
+    { skill: "AWS", start: "2022-04-01" },
+    { skill: "Typescript", start: "2017-01-01" },
+    { skill: "Angular", start: "2017-01-01", end: "2019-12-30" },
+    { skill: "Google Cloud", start: "2016-11-1", end: "2022-04-01" },
+    { skill: "React Native", start: "2019-11-30", end: "2022-04-01" },
+    { skill: "Redux", start: "2019-11-30", end: "2022-04-01" },
+    { skill: "Next.js", start: "2019-11-30", end: "2022-12-01" },
+    { skill: "Playwright", start: "2019-11-30" },
+    { skill: "MongoDB", start: "2017-01-01", end: "2019-12-30" },
+    { skill: "Jest", start: "2017-01-01" },
+    { skill: "Express.js", start: "2017-01-01", end: "2019-12-30" }
+  ];
+  const orderedSkills = skills.reduce((acc, skill) => {
+    const { start, end } = skill;
+    const experience = end ? calculatePastExperience(start, end) : calculateExperience(start);
+    acc.push({ ...skill, ...experience });
+    acc.sort((a, b) => b.value - a.value);
+    return acc;
+  }, []);
 </script>
 
 <h1
@@ -69,4 +95,11 @@
       href="mailto:hello@antoniorossi.net">hello@antoniorossi.net</a
     >
   </p>
+  <div>
+    <h2>Skills and Experience</h2>
+    <!-- loop over orderedSkills -->
+    {#each orderedSkills as skill}
+      <Skill {skill} maxValue={orderedSkills[0].value} />
+    {/each}
+  </div>
 </div>
