@@ -26,6 +26,8 @@
     acc.sort((a, b) => b.value - a.value);
     return acc;
   }, []);
+  const maxExperience = Math.round(orderedSkills[0].value / 12);
+  const halfWayExperience = Math.round(maxExperience / 2);
 </script>
 
 <h1
@@ -97,9 +99,23 @@
   </p>
   <div>
     <h2>Skills and Experience</h2>
-    <!-- loop over orderedSkills -->
+    <h3>Legend</h3>
+    <div class="flex">
+      <p class="mr-2">Icon</p>
+      <span>Currently professionally working</span>
+    </div>
+    <div class="flex">
+      <p class="mr-2">Icon</p>
+      <span>Keen to work with</span>
+    </div>
+    <div class="flex justify-between">
+      <p>Years</p>
+      <p>{halfWayExperience}</p>
+      <p>{maxExperience}</p>
+    </div>
     {#each orderedSkills as skill}
       <Skill {skill} maxValue={orderedSkills[0].value} />
     {/each}
   </div>
+  <div>List of other skills as rounded containers</div>
 </div>
