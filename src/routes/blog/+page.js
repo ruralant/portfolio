@@ -1,11 +1,5 @@
-export async function load({ params, url }) {
-  const { type } = params;
-  let posts;
-  if (type === "development") {
-    posts = import.meta.glob(`../../../blog/development/*.md`, { eager: true });
-  } else if (type === "personal") {
-    posts = import.meta.glob(`../../../blog/personal/*.md`, { eager: true });
-  }
+export async function load() {
+  const posts = import.meta.glob(`../../blog/*.md`, { eager: true });
   const postList = Object.values(posts);
   const postsMeta = postList
     .reduce((posts, next) => {
