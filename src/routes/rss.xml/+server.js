@@ -37,11 +37,11 @@ const xml = (
           `
         <item>
           <guid isPermaLink="true">
-            https://www.antoniorossi.net/blog/${post.type}/${post.slug}
+            https://www.antoniorossi.net/blog/${post.slug}
           </guid>
           <title>${post.title}</title>
           <link>
-            https://www.antoniorossi.net/blog/${post.type}/${post.slug}
+            https://www.antoniorossi.net/blog/${post.slug}
           </link>
           <description>${post.subtitle}</description>
           <pubDate>${post.date}</pubDate>
