@@ -2,7 +2,6 @@ import { json } from "@sveltejs/kit";
 
 export const GET = async () => {
   const postsFiles = import.meta.glob("../../../blog/*.md");
-  console.log(postsFiles);
   const iterablePostsFiles = Object.entries(postsFiles);
   const posts = await Promise.all(
     iterablePostsFiles.map(async ([path, resolver]) => {
