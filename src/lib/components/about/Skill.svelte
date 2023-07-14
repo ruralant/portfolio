@@ -7,11 +7,19 @@
 </script>
 
 <div>
-  <div class="flex items-center">
+  <div class="flex items-center justify-between">
     <span class="mr-2">{skill.skill}</span>
-    {#if !skill.end}
-      <span><Laptop /></span>
-    {/if}
+    <!-- <div>
+      {#if skill.love}
+        <span>❤️</span>
+      {/if}
+      {#if skill.love === false}
+        <span>🫣</span>
+      {/if}
+      {#if !skill.end}
+        <span>🚀</span>
+      {/if}
+    </div> -->
   </div>
   <div class="progress-bar w-full h-4 bg-slate-200 dark:bg-neutral-800">
     <div class="progress-bar-fill bg-progressBarBlue" style={`width: ${percentage}%`}>
