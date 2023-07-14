@@ -8,7 +8,6 @@
   export let mainImage;
   export let mainImageAlt;
   export let slug;
-  export let type;
 </script>
 
 <svelte:head>
@@ -18,7 +17,7 @@
   <meta property="og:site_name" content="Antonio Rossi Website" />
   <meta property="og:type" content="article" />
   <meta property="og:description" content={subtitle} />
-  <meta property="og:url" content={`https://www.antoniorossi.net/blog/${type}/${slug}`} />
+  <meta property="og:url" content={`https://www.antoniorossi.net/blog/${slug}`} />
   <meta property="og:image" itemprop="image" content={mainImage} />
   <meta name="twitter:title" content={title} />
   <meta name="twitter:description" content={subtitle} />
@@ -46,7 +45,7 @@
   <article>
     <slot />
   </article>
-  <a class="inline-block my-10 font-Poppins !text-white" href={`/blog/${type}`}>
+  <a class="inline-block my-10 font-Poppins !text-white" href={`/blog`}>
     <ArrowLeft />
   </a>
 </div>

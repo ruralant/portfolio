@@ -7,4 +7,5 @@ Disallow: /blog/photos-2/
 # Svelte
 Disallow: /blog/[type]
 Disallow: /blog/[type]/[slug]
+Disallow: /blog/[slug]
 
