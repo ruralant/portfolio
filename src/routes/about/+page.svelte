@@ -23,6 +23,7 @@
   const orderedSkills = skills.reduce((acc, skill) => {
     const { start, end } = skill;
     const experience = end ? calculatePastExperience(start, end) : calculateExperience(start);
+    console.log("experience", experience);
     acc.push({ ...skill, ...experience });
     acc.sort((a, b) => b.value - a.value);
     return acc;
