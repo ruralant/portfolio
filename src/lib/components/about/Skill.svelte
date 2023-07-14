@@ -1,9 +1,7 @@
 <script>
-  import Laptop from "../icons/Laptop.svelte";
-
   export let skill;
-  export let maxValue;
-  const percentage = (skill.value / maxValue) * 100;
+  export let percentage;
+  // const percentage = (skill.value / maxValue) * 100;
 </script>
 
 <div>
