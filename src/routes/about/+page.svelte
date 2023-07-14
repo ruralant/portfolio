@@ -3,6 +3,7 @@
   import HeroImage from "$lib/components/hero/HeroImage.svelte";
   import { calculateExperience } from "$lib/utils/utils.js";
   import { calculatePastExperience } from "$lib/utils/utils.js";
+
   const skills = [
     { skill: "React", start: "2020-01-01", love: true },
     { skill: "Svelte", start: "2020-12-01", love: true },
@@ -22,6 +23,7 @@
   const orderedSkills = skills.reduce((acc, skill) => {
     const { start, end } = skill;
     const experience = end ? calculatePastExperience(start, end) : calculateExperience(start);
+    console.log("experience", experience);
     acc.push({ ...skill, ...experience });
     acc.sort((a, b) => b.value - a.value);
     return acc;
@@ -115,13 +117,13 @@
       <span class="flex-1 mt-5 mb-0 text-neutral-600">Years</span>
       <span class="flex-1 flex justify-center mt-5 mb-0 text-neutral-500"
         ><span
-          class="flex justify-center items-center w-7 h-7 border-solid border-2 border-neutral-800 rounded-full"
+          class="flex justify-center items-center w-7 h-7 border-solid border-2 border-neutral-200 dark:border-neutral-800 rounded-full"
           >{halfWayExperience}
         </span></span
       >
       <span class="flex-1 flex justify-end text-left mt-5 mb-0 text-neutral-500"
         ><span
-          class="flex justify-center items-center w-7 h-7 border-solid border-2 border-neutral-800 rounded-full"
+          class="flex justify-center items-center w-7 h-7 border-solid border-2 border-neutral-200 dark:border-neutral-800 rounded-full"
           >{maxExperience}</span
         >
       </span>
@@ -129,13 +131,15 @@
     <div style="margin-top: -1px" class="grid grid-cols-1 grid-rows-1">
       <table style="grid-column: 1; grid-row: 1;">
         <tr>
-          <td class="w-6/12 border-solid border-l-0 border-r-2 border-neutral-800" />
-          <td class="w-6/12 border-solid border-neutral-800" />
+          <td
+            class="w-6/12 border-solid border-l-0 border-r-2 border-neutral-200 dark:border-neutral-800"
+          />
+          <td class="w-6/12 border-solid border-neutral-200 dark:border-neutral-800" />
         </tr>
       </table>
       <div style="grid-column: 1; grid-row: 1;">
         {#each orderedSkills as skill}
-          <Skill {skill} maxValue={orderedSkills[0].value} />
+          <Skill {skill} percentage={(skill.value / orderedSkills[0].value) * 100} />
         {/each}
       </div>
     </div>
