@@ -1,9 +1,6 @@
 <script>
   export let skill;
   export let percentage;
-  console.log("S", skill);
-  console.log("P", percentage);
-  // const percentage = (skill.value / maxValue) * 100;
 </script>
 
 {#if skill && percentage}
