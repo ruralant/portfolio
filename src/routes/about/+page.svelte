@@ -4,17 +4,17 @@
   import { calculateExperience } from "$lib/utils/utils.js";
   import { calculatePastExperience } from "$lib/utils/utils.js";
   const skills = [
-    { skill: "React", start: "2020-01-01" },
-    { skill: "Svelte", start: "2020-12-01" },
-    { skill: "Node", start: "2016-05-01" },
+    { skill: "React", start: "2020-01-01", love: true },
+    { skill: "Svelte", start: "2020-12-01", love: true },
+    { skill: "Node", start: "2016-05-01", love: true },
     { skill: "AWS", start: "2022-04-01" },
-    { skill: "Typescript", start: "2017-01-01" },
-    { skill: "Angular", start: "2017-01-01", end: "2019-12-30" },
+    { skill: "Typescript", start: "2017-01-01", love: true },
+    { skill: "Angular", start: "2017-01-01", end: "2019-12-30", love: false },
     { skill: "Google Cloud", start: "2016-11-1", end: "2022-04-01" },
-    { skill: "React Native", start: "2019-11-30", end: "2022-04-01" },
+    { skill: "React Native", start: "2019-11-30", end: "2022-04-01", love: true },
     { skill: "Redux", start: "2019-11-30", end: "2022-04-01" },
-    { skill: "Next.js", start: "2019-11-30", end: "2022-12-01" },
-    { skill: "Playwright", start: "2019-11-30" },
+    { skill: "Next.js", start: "2019-11-30", end: "2022-12-01", love: true },
+    { skill: "Playwright", start: "2019-11-30", love: true },
     { skill: "MongoDB", start: "2017-01-01", end: "2019-12-30" },
     { skill: "Jest", start: "2017-01-01" },
     { skill: "Express.js", start: "2017-01-01", end: "2019-12-30" }
@@ -99,23 +99,46 @@
   </p>
   <div>
     <h2>Skills and Experience</h2>
-    <h3>Legend</h3>
-    <div class="flex">
-      <p class="mr-2">Icon</p>
-      <span>Currently professionally working</span>
+    <!-- <div class="flex items-center">
+      <span class="mr-2">🚀</span>
+      <span class="text-base">Currently professionally working</span>
     </div>
-    <div class="flex">
-      <p class="mr-2">Icon</p>
-      <span>Keen to work with</span>
+    <div class="flex items-center">
+      <span class="mr-2">❤️</span>
+      <span class="text-base">Keen to work with</span>
     </div>
-    <div class="flex justify-between">
-      <p>Years</p>
-      <p>{halfWayExperience}</p>
-      <p>{maxExperience}</p>
+    <div class="flex items-center">
+      <span class="mr-2">🫣</span>
+      <span class="text-base">Not anymore</span>
+    </div> -->
+    <div class="flex justify-between text-base">
+      <span class="flex-1 mt-5 mb-0 text-neutral-600">Years</span>
+      <span class="flex-1 flex justify-center mt-5 mb-0 text-neutral-500"
+        ><span
+          class="flex justify-center items-center w-7 h-7 border-solid border-2 border-neutral-800 rounded-full"
+          >{halfWayExperience}
+        </span></span
+      >
+      <span class="flex-1 flex justify-end text-left mt-5 mb-0 text-neutral-500"
+        ><span
+          class="flex justify-center items-center w-7 h-7 border-solid border-2 border-neutral-800 rounded-full"
+          >{maxExperience}</span
+        >
+      </span>
     </div>
-    {#each orderedSkills as skill}
-      <Skill {skill} maxValue={orderedSkills[0].value} />
-    {/each}
+    <div style="margin-top: -1px" class="grid grid-cols-1 grid-rows-1">
+      <table style="grid-column: 1; grid-row: 1;">
+        <tr>
+          <td class="w-6/12 border-solid border-l-0 border-r-2 border-neutral-800" />
+          <td class="w-6/12 border-solid border-neutral-800" />
+        </tr>
+      </table>
+      <div style="grid-column: 1; grid-row: 1;">
+        {#each orderedSkills as skill}
+          <Skill {skill} maxValue={orderedSkills[0].value} />
+        {/each}
+      </div>
+    </div>
   </div>
-  <div>List of other skills as rounded containers</div>
+  <!-- <div>List of other skills as rounded containers</div> -->
 </div>
