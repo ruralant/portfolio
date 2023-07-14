@@ -3,6 +3,7 @@
   import HeroImage from "$lib/components/hero/HeroImage.svelte";
   import { calculateExperience } from "$lib/utils/utils.js";
   import { calculatePastExperience } from "$lib/utils/utils.js";
+
   const skills = [
     { skill: "React", start: "2020-01-01", love: true },
     { skill: "Svelte", start: "2020-12-01", love: true },
