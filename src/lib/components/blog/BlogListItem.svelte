@@ -5,7 +5,7 @@
 
 <a
   class="font-Poppins md:w-full flex w-full p-4 mt-5 justify-between text-left items-center rounded-md overflow-hidden shadow-md bg-white dark:bg-neutral-900 hover:scale-105 transition duration-300 ease-in-out"
-  href={`/blog/${post.type}/${post.slug}`}
+  href={`/blog/${post.slug}`}
 >
   <div>
     <span

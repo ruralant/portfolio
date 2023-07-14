@@ -26,7 +26,7 @@
 </svelte:head>
 
 <Hero />
-<Quote />
+<!-- <Quote /> -->
 {#if data.posts}
   <Articles {posts} />
 {/if}

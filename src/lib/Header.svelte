@@ -14,7 +14,7 @@
       <Logo />
     </a>
     <nav class="flex flex-row space-x-4">
-      <NavItem text={"Blog"} url={"/blog/development"} />
+      <NavItem text={"Blog"} url={"/blog"} />
       <NavItem text={"About Me"} url={"/about"} />
     </nav>
   </div>

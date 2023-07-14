@@ -48,7 +48,8 @@ module.exports = {
       darkViaColor2: `#f093b0 70%`,
       darkToColor: `#dab56c 94%`,
       lightViaColor2: `#e47c9d 70%`,
-      lightToColor: `#dd9f22 94%`
+      lightToColor: `#dd9f22 94%`,
+      progressBarBlue: "#BF41E0"
     },
     fontFamily: {
       Cormorant: ["Cormorant", "serif"],
