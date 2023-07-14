@@ -1,6 +1,8 @@
 <script>
   export let skill;
   export let percentage;
+  console.log("S", skill);
+  console.log("P", percentage);
   // const percentage = (skill.value / maxValue) * 100;
 </script>
 
@@ -38,16 +40,16 @@
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    animation: progress 1s ease-in-out forwards;
+    /* animation: progress 1s ease-in-out forwards; */
   }
   /* 
   .progress-bar-fill span {
     padding-right: 0.5rem;
     color: #fff;
   } */
-  @keyframes progress {
+  /* @keyframes progress {
     0% {
       width: 0%;
     }
-  }
+  } */
 </style>
