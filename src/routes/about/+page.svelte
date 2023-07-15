@@ -7,7 +7,7 @@
   const skills = [
     { skill: "React", start: "2020-01-01", love: true },
     { skill: "Svelte", start: "2020-12-01", love: true },
-    { skill: "Node", start: "2016-05-01", love: true },
+    { skill: "Node.js", start: "2016-05-01", love: true },
     { skill: "AWS", start: "2022-04-01" },
     { skill: "Typescript", start: "2017-01-01", love: true },
     { skill: "Angular", start: "2017-01-01", end: "2019-12-30", love: false },
@@ -15,7 +15,7 @@
     { skill: "React Native", start: "2019-11-30", end: "2022-04-01", love: true },
     { skill: "Redux", start: "2019-11-30", end: "2022-04-01" },
     { skill: "Next.js", start: "2019-11-30", end: "2022-12-01", love: true },
-    { skill: "Playwright", start: "2019-11-30", love: true },
+    { skill: "Playwright", start: "2020-05-01", love: true },
     { skill: "MongoDB", start: "2017-01-01", end: "2019-12-30" },
     { skill: "Jest", start: "2017-01-01" },
     { skill: "Express.js", start: "2017-01-01", end: "2019-12-30" }
@@ -23,7 +23,6 @@
   const orderedSkills = skills.reduce((acc, skill) => {
     const { start, end } = skill;
     const experience = end ? calculatePastExperience(start, end) : calculateExperience(start);
-    console.log("experience", experience);
     acc.push({ ...skill, ...experience });
     acc.sort((a, b) => b.value - a.value);
     return acc;
@@ -100,28 +99,16 @@
     >
   </p>
   <div>
-    <h2>Skills and Experience</h2>
-    <!-- <div class="flex items-center">
-      <span class="mr-2">🚀</span>
-      <span class="text-base">Currently professionally working</span>
-    </div>
-    <div class="flex items-center">
-      <span class="mr-2">❤️</span>
-      <span class="text-base">Keen to work with</span>
-    </div>
-    <div class="flex items-center">
-      <span class="mr-2">🫣</span>
-      <span class="text-base">Not anymore</span>
-    </div> -->
+    <h2 class="text-xl font-normal tracking-normal mt-5 !mb-0">Skills and Experience</h2>
     <div class="flex justify-between text-base">
-      <span class="flex-1 mt-5 mb-0 text-neutral-600">Years</span>
-      <span class="flex-1 flex justify-center mt-5 mb-0 text-neutral-500"
+      <span class="flex-1 mt-5 mb-0 text-neutral-400 dark:text-neutral-600">YEARS</span>
+      <span class="flex-1 flex justify-center mt-5 mb-0 text-neutral-400 dark:text-neutral-600"
         ><span
           class="flex justify-center items-center w-7 h-7 border-solid border-2 border-neutral-200 dark:border-neutral-800 rounded-full"
           >{halfWayExperience}
         </span></span
       >
-      <span class="flex-1 flex justify-end text-left mt-5 mb-0 text-neutral-500"
+      <span class="flex-1 flex justify-end text-left mb-0 text-neutral-400 dark:text-neutral-600"
         ><span
           class="flex justify-center items-center w-7 h-7 border-solid border-2 border-neutral-200 dark:border-neutral-800 rounded-full"
           >{maxExperience}</span
@@ -144,5 +131,4 @@
       </div>
     </div>
   </div>
-  <!-- <div>List of other skills as rounded containers</div> -->
 </div>
