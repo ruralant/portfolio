@@ -1,6 +1,6 @@
 {
   "name": "personal-website",
-  "version": "2.15.1",
+  "version": "2.15.2",
   "scripts": {
     "dev": "vite dev",
     "build": "vite build",
@@ -14,7 +14,7 @@
   "devDependencies": {
     "@commitlint/cli": "^17.6.6",
     "@commitlint/config-conventional": "^17.6.6",
-    "@playwright/test": "^1.36.0",
+    "@playwright/test": "^1.36.1",
     "@sveltejs/adapter-auto": "^2.1.0",
     "@sveltejs/adapter-netlify": "^2.0.8",
     "@sveltejs/kit": "^1.22.3",

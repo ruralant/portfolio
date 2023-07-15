@@ -7,22 +7,9 @@
   <div>
     <div class="flex items-center justify-between">
       <span class="mr-2">{skill.skill}</span>
-      <!-- <div>
-      {#if skill.love}
-        <span>❤️</span>
-      {/if}
-      {#if skill.love === false}
-        <span>🫣</span>
-      {/if}
-      {#if !skill.end}
-        <span>🚀</span>
-      {/if}
-    </div> -->
     </div>
     <div class="progress-bar w-full h-4 bg-slate-200 dark:bg-neutral-800">
-      <div class="progress-bar-fill bg-progressBarBlue" style={`width: ${percentage}%`}>
-        <!-- <span>{skill.text}</span> -->
-      </div>
+      <div class="progress-bar-fill bg-progressBarBlue" style={`width: ${percentage}%`} />
     </div>
   </div>
   <style>
@@ -32,22 +19,16 @@
     }
     .progress-bar-fill {
       height: 100%;
-      /* background-color: rgb(168, 85, 247); */
       border-radius: 0.25rem;
       display: flex;
       align-items: center;
       justify-content: flex-end;
-      /* animation: progress 1s ease-in-out forwards; */
+      animation: progress 1s ease-in-out forwards;
     }
-    /* 
-    .progress-bar-fill span {
-      padding-right: 0.5rem;
-      color: #fff;
-    } */
-    /* @keyframes progress {
+    @keyframes progress {
       0% {
         width: 0%;
       }
-    } */
+    }
   </style>
 {/if}
