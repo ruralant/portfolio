@@ -1,4 +1,5 @@
 <script>
+  import "prism-themes/themes/prism-one-dark.min.css";
   import { theme } from "$lib/shared/store";
   import { toggleTheme } from "$lib/shared/theme";
   import { Sun, Moon } from "$lib/components/icons/index.js";
