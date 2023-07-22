@@ -11,6 +11,7 @@ type: development
 ---
 
 <script>
+	import "prism-themes/themes/prism-one-dark.min.css";
   import Image from '$lib/components/Image.svelte';
   import mainImage from '$lib/assets/images/blog/2023.jpg?w=1000&h=600';
   import mainImageWebP from '$lib/assets/images/blog/2023.jpg?w=1000&h=600&format=webp&srcset';
