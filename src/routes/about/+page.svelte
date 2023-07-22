@@ -108,7 +108,8 @@
           >{halfWayExperience}
         </span></span
       >
-      <span class="flex-1 flex justify-end text-left mb-0 text-neutral-400 dark:text-neutral-600"
+      <span
+        class="flex-1 flex justify-end text-left mt-5 mb-0 text-neutral-400 dark:text-neutral-600"
         ><span
           class="flex justify-center items-center w-7 h-7 border-solid border-2 border-neutral-200 dark:border-neutral-800 rounded-full"
           >{maxExperience}</span
