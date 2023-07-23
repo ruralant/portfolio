@@ -1,5 +1,5 @@
 ---
-title: ECMAScript 2023 - JavaScript get's new goodies
+title: ECMAScript 2023 - JavaScript gets new goodies
 slug: ecmascript-2023
 subtitle: What's coming in the 2023 version of JavaScript. A quick overview of the new features
 category: javascript
