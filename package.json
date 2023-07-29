@@ -35,7 +35,7 @@
     "typescript": "^5.1.6",
     "vanilla-lazyload": "^17.8.4",
     "vite": "^4.4.7",
-    "vite-imagetools": "^5.0.6"
+    "vite-imagetools": "^4.0.19"
   },
   "type": "module"
 }
