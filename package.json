@@ -1,6 +1,6 @@
 {
   "name": "personal-website",
-  "version": "2.16.2",
+  "version": "2.16.3",
   "scripts": {
     "dev": "vite dev",
     "build": "vite build",
@@ -14,19 +14,19 @@
   "devDependencies": {
     "@commitlint/cli": "^17.6.7",
     "@commitlint/config-conventional": "^17.6.7",
-    "@playwright/test": "^1.36.1",
+    "@playwright/test": "^1.36.2",
     "@sveltejs/adapter-auto": "^2.1.0",
     "@sveltejs/adapter-netlify": "^2.0.8",
     "@sveltejs/kit": "^1.22.3",
     "@tailwindcss/typography": "^0.5.2",
     "autoprefixer": "^10.4.14",
-    "eslint": "^8.45.0",
-    "eslint-config-prettier": "^8.8.0",
+    "eslint": "^8.46.0",
+    "eslint-config-prettier": "^8.9.0",
     "eslint-plugin-svelte": "^2.32.4",
     "husky": "^8.0.1",
     "mdsvex": "^0.11.0",
     "prettier": "^3.0.0",
-    "prettier-plugin-svelte": "^3.0.0",
+    "prettier-plugin-svelte": "^3.0.1",
     "prism-themes": "^1.9.0",
     "sharp": "^0.32.4",
     "svelte": "^4.1.1",
@@ -34,8 +34,8 @@
     "tailwindcss": "^3.3.3",
     "typescript": "^5.1.6",
     "vanilla-lazyload": "^17.8.4",
-    "vite": "^4.4.6",
-    "vite-imagetools": "^5.0.5"
+    "vite": "^4.4.7",
+    "vite-imagetools": "^5.0.6"
   },
   "type": "module"
 }
