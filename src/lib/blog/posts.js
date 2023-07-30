@@ -1,11 +1,8 @@
 export async function getPosts() {
-  const posts = Object.entries(import.meta.glob("../../blog/*.md", { eager: true }))
-    .reduce((posts, [, next]) => {
-      next.metadata.published && posts.push(next.metadata);
-      return posts;
-    }, [])
-    .slice()
-    .sort((post, next) => +new Date(next.date) - +new Date(post.date));
+  const posts = Object.values(import.meta.glob("../../blog/*.md", { eager: true }))
+    .map((post) => post.metadata)
+    .filter((post) => post.published)
+    .sort((post, next) => Date.parse(next.date) - Date.parse(post.date));
 
   return posts;
 }
