@@ -1,7 +1,7 @@
 <script>
-  import meImage from "$lib/assets/images/home/me-b-and-w.jpg?w=656&h=656";
-  import meImageWebp from "$lib/assets/images/home/me-b-and-w.jpg?w=656&h=656&format=webp&as=srcset";
-  import meImageSrcset from "$lib/assets/images/home/me-b-and-w.jpg?w=656&h=656&format=jpeg&as=srcset";
+  import meImage from "$lib/assets/images/home/me-b-and-w.jpg?w=400&h=400";
+  import meImageWebp from "$lib/assets/images/home/me-b-and-w.jpg?w=400&h=400&format=webp&as=srcset";
+  import meImageSrcset from "$lib/assets/images/home/me-b-and-w.jpg?w=400&h=400&format=jpeg&as=srcset";
   import Image from "$lib/components/Image.svelte";
 
   export let width;
