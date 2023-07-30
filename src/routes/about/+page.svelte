@@ -23,10 +23,12 @@
   const orderedSkills = skills.reduce((acc, skill) => {
     const { start, end } = skill;
     const experience = end ? calculatePastExperience(start, end) : calculateExperience(start);
-    acc.push({ ...skill, ...experience });
-    acc.sort((a, b) => b.value - a.value);
+    acc = [...acc, { ...skill, ...experience }];
     return acc;
   }, []);
+
+  orderedSkills.sort((a, b) => b.value - a.value);
+
   const maxExperience = Math.round(orderedSkills[0].value / 12);
   const halfWayExperience = Math.round(maxExperience / 2);
 </script>

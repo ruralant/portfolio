@@ -8,17 +8,6 @@
   export let classes;
   export let feedImage = false;
   export let loading = "lazy";
-  console.log("Image.svelte", {
-    jpegImage,
-    srcsetImage,
-    wepImage,
-    alt,
-    width,
-    height,
-    classes,
-    feedImage,
-    loading
-  });
 </script>
 
 <picture class={`${feedImage ? "webfeedsFeaturedVisual" : null} flex justify-center`}>
