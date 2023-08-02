@@ -10,11 +10,11 @@
   <a class="h-full flex flex-col justify-between" href={postPath}>
     <div>
       <div
-        class="font-Cormorant text-neutral-800 dark:text-white bg-gradient-90 from-purple-600 to-red-500 dark:from-purple-500 dark:to-red-400 font-bold text-[1.7rem] mb-2"
+        class="font-Cormorant text-neutral-800 dark:text-neutral-50 bg-gradient-90 from-purple-600 to-red-500 dark:from-purple-500 dark:to-red-400 font-bold text-[1.7rem] mb-2"
       >
         {title}
       </div>
-      <p class="font-Poppins font-text-neutral-800 dark:text-white">
+      <p class="font-Poppins font-text-neutral-800 dark:text-neutral-50">
         {subtitle}
       </p>
     </div>
