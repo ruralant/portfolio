@@ -18,7 +18,7 @@
   <div>
     <div>
       <div class="flex items-center">
-        <span class="title-text font-Poppins text-neutral-800 dark:text-white">{name}</span>
+        <span class="title-text font-Poppins text-neutral-800 dark:text-neutral-50">{name}</span>
         <div class="w-11 h-11 ml-4">
           <img
             src={logo}
@@ -30,10 +30,10 @@
           />
         </div>
       </div>
-      <p class="text-neutral-800 dark:text-white">
+      <p class="text-neutral-800 dark:text-neutral-50">
         {position}, {location}
       </p>
-      <p class="text-neutral-800 dark:text-white text-xl mb-6">
+      <p class="text-neutral-800 dark:text-neutral-50 text-xl mb-6">
         {from} - {to}
       </p>
     </div>
@@ -42,11 +42,11 @@
         <div class="flex-1 mb-4">
           <div class="flex flex-row">
             <Desktop />
-            <p class="icon-text ml-1 text-neutral-800 dark:text-white">Front End</p>
+            <p class="icon-text ml-1 text-neutral-800 dark:text-neutral-50">Front End</p>
           </div>
           <ul class="flex flex-wrap">
             {#each frontEnd as tech}
-              <li class="ml-1 mr-3 mt-2 text-neutral-800 dark:text-white">
+              <li class="ml-1 mr-3 mt-2 text-neutral-800 dark:text-neutral-50">
                 <div class="bg-slate-200 dark:bg-slate-700 rounded-lg py-0.5 px-2">
                   {tech}
                 </div>
@@ -59,11 +59,11 @@
         <div class="flex-1 mb-4">
           <div class="flex flex-row">
             <Server />
-            <p class="backend-icon-text ml-1 text-neutral-800 dark:text-white">Back End</p>
+            <p class="backend-icon-text ml-1 text-neutral-800 dark:text-neutral-50">Back End</p>
           </div>
           <ul class="flex flex-wrap">
             {#each backEnd as tech}
-              <li class="mr-3 mt-2 text-neutral-800 dark:text-white">
+              <li class="mr-3 mt-2 text-neutral-800 dark:text-neutral-50">
                 <div class="bg-slate-200 dark:bg-slate-700 rounded-lg py-0.5 px-2">
                   {tech}
                 </div>
@@ -76,11 +76,11 @@
         <divc class="flex-1">
           <div class="flex flex-row items-center">
             <Database />
-            <p class="tools-icon-text ml-1 text-neutral-800 dark:text-white">Other Tools</p>
+            <p class="tools-icon-text ml-1 text-neutral-800 dark:text-neutral-50">Other Tools</p>
           </div>
           <ul class="flex flex-wrap">
             {#each tools as tech}
-              <li class="mr-3 mt-2 text-neutral-800 dark:text-white">
+              <li class="mr-3 mt-2 text-neutral-800 dark:text-neutral-50">
                 <div class="bg-slate-200 dark:bg-slate-700 rounded-lg py-0.5 px-2">
                   {tech}
                 </div>

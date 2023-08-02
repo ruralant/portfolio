@@ -49,6 +49,7 @@ module.exports = {
       darkToColor: `#dab56c 94%`,
       lightViaColor2: `#e47c9d 70%`,
       lightToColor: `#dd9f22 94%`,
+      textLight: "#FCFCFC",
       progressBarBlue: "#BF41E0"
     },
     fontFamily: {
