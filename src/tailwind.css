@@ -8,7 +8,7 @@
   font-style: normal;
   font-weight: 700;
   font-display: swap;
-  src: url("/fonts/cormorant-v21-latin-700.woff2") format("woff2");
+  src: url("/fonts/cormorant-v21-latin-700-subset.woff2") format("woff2");
 }
 
 /* poppins-300 - latin */
@@ -17,7 +17,7 @@
   font-style: normal;
   font-weight: 300;
   font-display: swap;
-  src: url("/fonts/poppins-v20-latin-300.woff2") format("woff2");
+  src: url("/fonts/poppins-v20-latin-300-subset.woff2") format("woff2");
 }
 
 /* roboto-serif-regular - latin */
@@ -26,7 +26,7 @@
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url("../fonts/roboto-serif-v13-latin-regular.woff2") format("woff2");
+  src: url("../fonts/roboto-serif-v13-latin-regular-subset.woff2") format("woff2");
 }
 
 /* roboto-serif-500 - latin */
@@ -35,5 +35,5 @@
   font-style: normal;
   font-weight: 500;
   font-display: swap;
-  src: url("/fonts/roboto-serif-v13-latin-500.woff2") format("woff2");
+  src: url("/fonts/roboto-serif-v13-latin-500-subset.woff2") format("woff2");
 }
