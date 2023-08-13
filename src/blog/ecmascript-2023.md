@@ -3,7 +3,7 @@ title: ECMAScript 2023 - JavaScript gets new goodies
 slug: ecmascript-2023
 subtitle: What's coming in the 2023 version of JavaScript. A quick overview of the new features
 category: javascript
-tags: [javascript, ecma, ecmascript, es2023]
+tags: [javascript, ecma, ecmascript]
 published: true
 date: 2023-07-22
 layout: development
