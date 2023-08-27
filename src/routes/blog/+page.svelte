@@ -1,21 +1,25 @@
 <script>
   import BlogListItem from "$lib/components/blog/BlogListItem.svelte";
+  import Pagination from "$lib/components/blog/Pagination.svelte";
   export let data;
+
+  let postsToDisplay = data.posts.slice(0, 10);
+
+  const nextPosts = (start, end) => {
+    postsToDisplay = data.posts.slice(start, end);
+  };
 </script>
 
 <div class="text-neutral-800 dark:text-neutral-50 w-full sm:my-9">
   <div class="flex items-center md:justify-center">
-    <h1 class="m-0 leading-standard font-Cormorant text-3xl pl-4">Latest Articles</h1>
-    <a
-      class="ml-6 inline-flex rounded-md shadow-sm px-2 py-1 bg-white dark:bg-neutral-800 text-sm"
-      href="/"
-    >
-      <span class="text-neutral-600 dark:text-neutral-300 pointer-events-none">Archive</span>
-    </a>
+    <h1 class="m-0 leading-standard font-Cormorant text-3xl">Latest Articles</h1>
   </div>
   <ul class="flex flex-col items-center md:mt-5">
-    {#each data.posts as post}
+    {#each postsToDisplay as post}
       <BlogListItem {post} />
     {/each}
+    {#if data.posts.length > 10}
+      <Pagination total={data.posts.length} {nextPosts} />
+    {/if}
   </ul>
 </div>
