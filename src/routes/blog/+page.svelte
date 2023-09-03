@@ -4,9 +4,11 @@
   export let data;
 
   let postsToDisplay = data.posts.slice(0, 10);
+  let currentPage = 1;
 
   const nextPosts = (start, end) => {
     postsToDisplay = data.posts.slice(start, end);
+    currentPage = end / 10;
   };
 </script>
 
@@ -19,7 +21,7 @@
       <BlogListItem {post} />
     {/each}
     {#if data.posts.length > 10}
-      <Pagination total={data.posts.length} {nextPosts} />
+      <Pagination total={data.posts.length} {nextPosts} {currentPage} />
     {/if}
   </ul>
 </div>
