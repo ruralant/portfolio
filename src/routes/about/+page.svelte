@@ -5,20 +5,20 @@
   import { calculatePastExperience } from "$lib/utils/utils.js";
 
   const skills = [
-    { skill: "React", start: "2020-01-01", love: true },
-    { skill: "Svelte", start: "2020-12-01", love: true },
-    { skill: "Node.js", start: "2016-05-01", love: true },
-    { skill: "AWS", start: "2022-04-01" },
-    { skill: "Typescript", start: "2017-01-01", love: true },
-    { skill: "Angular", start: "2017-01-01", end: "2019-12-30", love: false },
-    { skill: "Google Cloud", start: "2016-11-1", end: "2022-04-01" },
-    { skill: "React Native", start: "2019-11-30", end: "2022-04-01", love: true },
-    { skill: "Redux", start: "2019-11-30", end: "2022-04-01" },
-    { skill: "Next.js", start: "2019-11-30", end: "2022-12-01", love: true },
-    { skill: "Playwright", start: "2020-05-01", love: true },
-    { skill: "MongoDB", start: "2017-01-01", end: "2019-12-30" },
-    { skill: "Jest", start: "2017-01-01" },
-    { skill: "Express.js", start: "2017-01-01", end: "2019-12-30" }
+    { name: "React", start: "2020-01-01" },
+    { name: "Svelte", start: "2020-12-01" },
+    { name: "Node.js", start: "2016-05-01" },
+    { name: "AWS", start: "2022-04-01" },
+    { name: "Typescript", start: "2017-01-01" },
+    { name: "Angular", start: "2017-01-01", end: "2019-12-30" },
+    { name: "Google Cloud", start: "2016-11-1", end: "2022-04-01" },
+    { name: "React Native", start: "2019-11-30", end: "2022-04-01" },
+    { name: "Redux", start: "2019-11-30", end: "2022-04-01" },
+    { name: "Next.js", start: "2019-11-30", end: "2022-12-01" },
+    { name: "Playwright", start: "2020-05-01" },
+    { name: "MongoDB", start: "2017-01-01", end: "2019-12-30" },
+    { name: "Jest", start: "2017-01-01" },
+    { name: "Express.js", start: "2017-01-01", end: "2019-12-30" }
   ];
   const orderedSkills = skills.reduce((acc, skill) => {
     const { start, end } = skill;
