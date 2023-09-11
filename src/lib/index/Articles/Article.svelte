@@ -20,11 +20,12 @@
     </div>
     <div>
       {#each tags as tag}
-        <span
+        <a
           class="capitalize mr-2 inline-flex rounded-md shadow-sm px-2 py-1 text-xs text-neutral-600 bg-neutral-100 dark:text-neutral-300 dark:bg-neutral-800"
+          href={`/blog/tags/${tag}`}
         >
           {tag}
-        </span>
+        </a>
       {/each}
     </div>
   </a>
