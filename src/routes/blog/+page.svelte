@@ -12,7 +12,7 @@
   };
 </script>
 
-<div class="text-neutral-800 dark:text-neutral-50 w-full sm:my-9">
+<div class="text-neutral-800 dark:text-neutral-100 w-full sm:my-9">
   <div class="flex items-center md:justify-center">
     <h1 class="m-0 leading-standard font-Cormorant text-3xl">Latest Articles</h1>
   </div>

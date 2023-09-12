@@ -1,5 +1,6 @@
 <script>
   import ArrowRight from "../icons/ArrowRight.svelte";
+  import Tag from "./Tag.svelte";
   export let post;
 </script>
 
@@ -15,15 +16,10 @@
     </span>
     <div class="flex my-4">
       {#each post.tags as tag}
-        <a
-          class="capitalize mr-2 inline-flex rounded-md shadow-sm px-2 py-1 text-xs text-neutral-600 bg-neutral-200 dark:text-neutral-300 dark:bg-neutral-800"
-          href={`/blog/tags/${tag}`}
-        >
-          {tag}
-        </a>
+        <Tag tagName={tag} url={`/blog/tags/${tag}`} />
       {/each}
     </div>
-    <p class="text-neutral-800 dark:text-neutral-50 mt-4">
+    <p class="text-neutral-800 dark:text-neutral-100 mt-4">
       {post.subtitle}
     </p>
     <p class="md:hidden mt-3 uppercase text-xs underline decoration-solid underline-offset-2">

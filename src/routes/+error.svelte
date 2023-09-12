@@ -12,6 +12,6 @@
   <title>{title}</title>
 </svelte:head>
 <div class="flex flex-col justify-center items-center">
-  <h1 class="text-neutral-800 dark:text-neutral-50">Something weird happend</h1>
-  <h2 class="text-neutral-800 dark:text-neutral-50">{title}</h2>
+  <h1 class="text-neutral-800 dark:text-neutral-100">Something weird happend</h1>
+  <h2 class="text-neutral-800 dark:text-neutral-100">{title}</h2>
 </div>
