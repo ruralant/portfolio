@@ -15,12 +15,12 @@
     </h2>
   </div>
   <div
-    class="font-Poppins text-2xl md:text-3xl text-center font-light leading-extraRelaxed text-neutral-800 dark:text-neutral-50 mt-5"
+    class="font-Poppins text-2xl md:text-3xl text-center font-light leading-extraRelaxed text-neutral-800 dark:text-neutral-100 mt-5"
   >
     <p>
       Pop me an email at{" "}
       <a
-        class="text-[1.7rem] font-extrabold text-neutral-800 dark:text-neutral-50"
+        class="text-[1.7rem] font-extrabold text-neutral-800 dark:text-neutral-100"
         href="mailto:hello@antoniorossi.net">hello@antoniorossi.net</a
       >
     </p>
@@ -28,7 +28,7 @@
     <p>or give me a shout on social media</p>
     <div class="flex justify-center mt-5">
       <a
-        class="text-neutral-800 dark:text-neutral-50 mr-4"
+        class="text-neutral-800 dark:text-neutral-100 mr-4"
         href="https://twitter.com/antoniorossidev/"
         target="_blank"
         rel="noopener noreferrer"
@@ -37,7 +37,7 @@
         <Twitter />
       </a>
       <a
-        class="text-neutral-800 dark:text-neutral-50 mr-4"
+        class="text-neutral-800 dark:text-neutral-100 mr-4"
         href="https://www.linkedin.com/in/antoniorossii/"
         target="_blank"
         rel="noopener noreferrer"
@@ -46,21 +46,21 @@
         <LinkedIn />
       </a>
       <a
-        class="text-neutral-800 dark:text-neutral-50 mr-4"
+        class="text-neutral-800 dark:text-neutral-100 mr-4"
         href="https://www.instagram.com/antoniorossidigital/"
         aria-label="instagram logo"
       >
         <Instagram />
       </a>
       <a
-        class="text-neutral-800 dark:text-neutral-50 mr-4 -mt-[1px]"
+        class="text-neutral-800 dark:text-neutral-100 mr-4 -mt-[1px]"
         href="mailto:hello@antoniorossi.net"
         aria-label="mail icon"
       >
         <Email />
       </a>
       <a
-        class="text-neutral-800 dark:text-neutral-50 -ml-[2px] -mt-[1px]"
+        class="text-neutral-800 dark:text-neutral-100 -ml-[2px] -mt-[1px]"
         href="https://www.antoniorossi.net/rss.xml"
         aria-label="rss feed icon"
       >
