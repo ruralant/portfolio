@@ -5,20 +5,20 @@
   import { calculatePastExperience } from "$lib/utils/utils.js";
 
   const skills = [
-    { skill: "React", start: "2020-01-01", love: true },
-    { skill: "Svelte", start: "2020-12-01", love: true },
-    { skill: "Node.js", start: "2016-05-01", love: true },
-    { skill: "AWS", start: "2022-04-01" },
-    { skill: "Typescript", start: "2017-01-01", love: true },
-    { skill: "Angular", start: "2017-01-01", end: "2019-12-30", love: false },
-    { skill: "Google Cloud", start: "2016-11-1", end: "2022-04-01" },
-    { skill: "React Native", start: "2019-11-30", end: "2022-04-01", love: true },
-    { skill: "Redux", start: "2019-11-30", end: "2022-04-01" },
-    { skill: "Next.js", start: "2019-11-30", end: "2022-12-01", love: true },
-    { skill: "Playwright", start: "2020-05-01", love: true },
-    { skill: "MongoDB", start: "2017-01-01", end: "2019-12-30" },
-    { skill: "Jest", start: "2017-01-01" },
-    { skill: "Express.js", start: "2017-01-01", end: "2019-12-30" }
+    { name: "React", start: "2020-01-01" },
+    { name: "Svelte", start: "2020-12-01" },
+    { name: "Node.js", start: "2016-05-01" },
+    { name: "AWS", start: "2022-04-01" },
+    { name: "Typescript", start: "2017-01-01" },
+    { name: "Angular", start: "2017-01-01", end: "2019-12-30" },
+    { name: "Google Cloud", start: "2016-11-1", end: "2022-04-01" },
+    { name: "React Native", start: "2019-11-30", end: "2022-04-01" },
+    { name: "Redux", start: "2019-11-30", end: "2022-04-01" },
+    { name: "Next.js", start: "2019-11-30", end: "2022-12-01" },
+    { name: "Playwright", start: "2020-05-01" },
+    { name: "MongoDB", start: "2017-01-01", end: "2019-12-30" },
+    { name: "Jest", start: "2017-01-01" },
+    { name: "Express.js", start: "2017-01-01", end: "2019-12-30" }
   ];
   const orderedSkills = skills.reduce((acc, skill) => {
     const { start, end } = skill;
@@ -34,13 +34,13 @@
 </script>
 
 <h1
-  class="title-text font-Cormorant text-5xl m-0 text-neutral-800 dark:text-neutral-50 pb-5 pt-10 md:pt-0"
+  class="title-text font-Cormorant text-5xl m-0 text-neutral-800 dark:text-neutral-100 pb-5 pt-10 md:pt-0"
 >
   About me
 </h1>
 
 <div
-  class="font-Roboto font-normal lg:prose-xl text-neutral-900 dark:text-neutral-50 dark:prose-invert prose-a:text-teal-400 prose-pre:max-w-xs prose-pre:min-w-full prose-pre:whitespace-pre-wrap prose-pre:text-left md:prose-pre:max-w-full prose-pre:bg-neutral-200 dark:prose-pre:bg-neutral-800 prose-pre:text-neutral-700 dark:prose-pre:text-neutral-100 prose-code:bg-neutral-200 dark:prose-code:bg-neutral-800 prose-code:text-neutral-700 dark:prose-code:text-neutral-100 tracking-wide leading-relaxed max-w-prose"
+  class="font-Roboto font-normal lg:prose-xl text-neutral-900 dark:text-neutral-100 dark:prose-invert prose-a:text-teal-400 prose-pre:max-w-xs prose-pre:min-w-full prose-pre:whitespace-pre-wrap prose-pre:text-left md:prose-pre:max-w-full prose-pre:bg-neutral-200 dark:prose-pre:bg-neutral-800 prose-pre:text-neutral-700 dark:prose-pre:text-neutral-100 prose-code:bg-neutral-200 dark:prose-code:bg-neutral-800 prose-code:text-neutral-700 dark:prose-code:text-neutral-100 tracking-wide leading-relaxed max-w-prose"
 >
   <div class="md:float-right bg-clip-content mb-10 md:mb-0">
     <HeroImage classes="rounded-full overflow-hidden md:ml-5" width="300" height="300" />
