@@ -8,7 +8,7 @@
 <li
   class="w-full max-w-sm h-72 rounded-md overflow-hidden bg-almost-white dark:bg-light-space-grey shadow-md p-6"
 >
-  <a class="h-full flex flex-col justify-between" href={postPath}>
+  <a class="h-full flex flex-col justify-between no-underline" href={postPath}>
     <div>
       <div
         class="font-Cormorant text-neutral-800 dark:text-neutral-100 bg-gradient-90 from-purple-600 to-red-500 dark:from-purple-500 dark:to-red-400 font-bold text-[1.7rem] mb-2"
