@@ -45,7 +45,7 @@
   <article>
     <slot />
   </article>
-  <a class="inline-block my-10 font-Poppins !text-white" href={`/blog`}>
+  <a class="inline-block my-10 font-Poppins !text-white no-underline" href={`/blog`}>
     <ArrowLeft />
   </a>
 </div>

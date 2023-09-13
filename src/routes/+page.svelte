@@ -2,7 +2,6 @@
   import Hero from "$lib/index/Hero.svelte";
   import Contacts from "$lib/index/Contacts.svelte";
   import Articles from "$lib/index/Articles/Articles.svelte";
-  import Quote from "$lib/index/Quote.svelte";
   export let data;
   let { posts } = data;
 </script>
@@ -26,7 +25,6 @@
 </svelte:head>
 
 <Hero />
-<!-- <Quote /> -->
 {#if data.posts}
   <Articles {posts} />
 {/if}

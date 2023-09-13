@@ -14,11 +14,13 @@ export const GET = async () => {
       };
     })
   );
+
   const tags = posts
     .filter((post) => post.meta.published)
     .map((post) => post.meta.tags)
     .flat();
   const uniqueTags = [...new Set(tags)];
   const sortedTags = uniqueTags.sort((a, b) => a.localeCompare(b));
+
   return json(sortedTags);
 };
