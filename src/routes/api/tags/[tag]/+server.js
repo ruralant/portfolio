@@ -14,10 +14,10 @@ export const GET = async ({ params }) => {
       };
     })
   );
-  const postWithTag = posts.filter((post) => post.meta.tags.includes(params.tag));
 
-  const sortedPosts = postWithTag
-    .sort((a, b) => new Date(b.meta.date) - new Date(a.meta.date))
-    .filter((post) => post.meta.published);
+  const sortedPosts = posts
+    .filter((post) => post.meta.tags.includes(params.tag) && post.meta.published)
+    .sort((a, b) => new Date(b.meta.date) - new Date(a.meta.date));
+
   return json(sortedPosts);
 };
