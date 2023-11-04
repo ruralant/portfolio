@@ -7,7 +7,6 @@ tags: [react, hooks, memorisation]
 published: true
 date: 2022-05-22
 layout: development
-type: development
 ---
 
 <script>

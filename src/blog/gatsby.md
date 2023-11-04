@@ -9,10 +9,7 @@ published: false
 slug: gatsby
 subtitle: This is the post description used on the post lists as a preview of the content.
 tags: [react, front end]
-icon: front
 layout: development
-author: Antonio
-type: development
 ---
 
 ## Introduction

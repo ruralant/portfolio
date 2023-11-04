@@ -7,7 +7,6 @@ tags: [typescript]
 published: true
 date: 2022-05-04
 layout: development
-type: development
 ---
 
 <script>

@@ -11,7 +11,6 @@ mainImageThumb: https://res.cloudinary.com/antonio-rossi/image/upload/w_300,fl_p
 published: false
 date: 2022-05-10
 layout: development
-type: development
 ---
 
 Open soarch anail

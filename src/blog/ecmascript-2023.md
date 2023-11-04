@@ -7,7 +7,6 @@ tags: [javascript, ecma, ecmascript]
 published: true
 date: 2023-07-22
 layout: development
-type: development
 ---
 
 <script>
