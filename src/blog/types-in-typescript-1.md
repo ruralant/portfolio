@@ -7,7 +7,6 @@ tags: [typescript, types, basics]
 published: true
 date: 2022-04-18
 layout: development
-type: development
 ---
 
 <script>

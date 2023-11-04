@@ -7,7 +7,6 @@ tags: [css, z-index, insolation, stacking contexts]
 published: true
 date: 2023-01-18
 layout: development
-type: development
 ---
 
 <script>

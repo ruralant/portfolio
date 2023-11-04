@@ -11,7 +11,6 @@ mainImageThumb: $lib/assets/article-thumbs/pure.jpg
 published: false
 date: 2022-03-30
 layout: development
-type: development
 ---
 
 Functional programming is a paradigm of writing code using functions and expressions without mutating data and state.
