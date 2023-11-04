@@ -6,9 +6,7 @@ category: career
 tags: [career, optimisation, svelte]
 published: true
 date: 2022-03-28
-icon: front
 layout: development
-type: development
 ---
 
 <script>

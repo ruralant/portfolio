@@ -7,7 +7,6 @@ tags: [javascript, carbon, emissions]
 published: true
 date: 2023-05-12
 layout: development
-type: development
 ---
 
 <script>

@@ -7,9 +7,7 @@ tags: [react, front end]
 mainImage: https://res.cloudinary.com/antonio-rossi/image/upload/w_1000,fl_progressive/v1646323595/kelly-sikkema-gcHFXsdcmJE-unsplash_w2qpxu.jpg
 published: false
 date: 2022-03-15
-icon: front
 layout: development
-type: development
 ---
 
 The discovery of the text’s origin is attributed to Richard McClintock, a Latin scholar at Hampden–Sydney College. McClintock connected Lorem ipsum to Cicero’s writing sometime before 1982 while searching for instances of the Latin word consectetur, which was rarely used in classical literature. McClintock first published his discovery in a 1994 letter to the editor of Before & After magazine, contesting the editor’s earlier claim that Lorem ipsum held no meaning.

@@ -7,7 +7,6 @@ tags: [javascript]
 published: true
 date: 2023-04-16
 layout: development
-type: development
 ---
 
 <script>

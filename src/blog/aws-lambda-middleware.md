@@ -7,7 +7,6 @@ tags: [aws, lambda]
 published: true
 date: 2023-01-12
 layout: development
-type: development
 ---
 
 <script>
