@@ -11,7 +11,6 @@ mainImageThumb: https://res.cloudinary.com/antonio-rossi/image/upload/w_300,fl_p
 published: false
 date: 2022-05-10
 layout: development
-type: development
 ---
 
 Relational database are ineficient when we need to process largely unstructure data with hugn volume and high frequency. This is where NoSQL dataase can help.

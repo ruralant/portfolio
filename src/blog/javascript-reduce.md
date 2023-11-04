@@ -7,9 +7,7 @@ tags: [javascript]
 mainImage: /og-images/dsg-analytics.png?v=1
 published: false
 date: 2021-10-25
-icon: front
-layout: blog
-type: development
+layout: development
 ---
 
 # { title }

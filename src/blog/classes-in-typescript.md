@@ -11,7 +11,6 @@ mainImageThumb: https://res.cloudinary.com/antonio-rossi/image/upload/w_300,fl_p
 published: false
 date: 2022-04-12
 layout: development
-type: development
 ---
 
 Classes in TypeScrip are extend the ES6 functionality by adding TypeScript specific features like type annotation (see here for more about types), access modifiers and the ability to specify required or oprional parameters.
