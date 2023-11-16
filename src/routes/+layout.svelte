@@ -9,9 +9,9 @@
   import "../tailwind.css";
   export let data;
 
-  if (browser && !document.lazyloadInstance) {
-    document.lazyloadInstance = new lazyload();
-  }
+  // if (browser && !document.lazyloadInstance) {
+  //   document.lazyloadInstance = new lazyload();
+  // }
 
   onMount(() => {
     if (!("theme" in localStorage)) {
