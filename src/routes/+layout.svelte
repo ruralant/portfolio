@@ -4,14 +4,8 @@
   import { theme } from "$lib/shared/store";
   import Header from "$lib/Header.svelte";
   import Footer from "$lib/Footer.svelte";
-  import { browser } from "$app/environment";
-  import lazyload from "vanilla-lazyload";
   import "../tailwind.css";
   export let data;
-
-  if (browser && !document.lazyloadInstance) {
-    document.lazyloadInstance = new lazyload();
-  }
 
   onMount(() => {
     if (!("theme" in localStorage)) {
