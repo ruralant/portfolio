@@ -6,16 +6,16 @@
 </script>
 
 <li
-  class="w-full max-w-sm h-72 rounded-md overflow-hidden bg-almost-white dark:bg-light-space-grey shadow-md p-6"
+  class="h-72 w-full max-w-sm overflow-hidden rounded-md bg-almost-white p-6 shadow-md dark:bg-light-space-grey"
 >
-  <a class="h-full flex flex-col justify-between no-underline" href={postPath}>
+  <a class="flex h-full flex-col justify-between no-underline" href={postPath}>
     <div>
       <div
-        class="font-Cormorant text-neutral-800 dark:text-neutral-100 bg-gradient-90 from-purple-600 to-red-500 dark:from-purple-500 dark:to-red-400 font-bold text-[1.7rem] mb-2"
+        class="mb-2 from-purple-600 to-red-500 font-Cormorant text-[1.7rem] font-bold text-neutral-800 bg-gradient-90 dark:from-purple-500 dark:to-red-400 dark:text-neutral-100"
       >
         {title}
       </div>
-      <p class="font-Poppins font-text-neutral-800 dark:text-neutral-100">
+      <p class="font-text-neutral-800 font-Poppins dark:text-neutral-100">
         {subtitle}
       </p>
     </div>

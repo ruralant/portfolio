@@ -12,9 +12,9 @@
   };
 </script>
 
-<div class="text-neutral-800 dark:text-neutral-100 w-full sm:my-9">
+<div class="w-full text-neutral-800 dark:text-neutral-100 sm:my-9">
   <div class="flex items-center md:justify-center">
-    <h1 class="m-0 leading-standard font-Cormorant text-3xl">Latest Articles</h1>
+    <h1 class="m-0 font-Cormorant text-3xl leading-standard">Latest Articles</h1>
   </div>
   <ul class="flex flex-col items-center md:mt-5">
     {#each postsToDisplay as post}

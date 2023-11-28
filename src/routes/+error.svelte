@@ -11,17 +11,17 @@
 <svelte:head>
   <title>{title}</title>
 </svelte:head>
-<div class="flex flex-col justify-center items-center">
-  <div class="text-4xl md:text-5xl mt-10 mb-5 md:mb-10">😱</div>
-  <h1 class="text-3xl md:text-4xl text-neutral-800 dark:text-neutral-100 text-center mb-3">
+<div class="flex flex-col items-center justify-center">
+  <div class="mb-5 mt-10 text-4xl md:mb-10 md:text-5xl">😱</div>
+  <h1 class="mb-3 text-center text-3xl text-neutral-800 dark:text-neutral-100 md:text-4xl">
     Oops, Something weird happened
   </h1>
-  <h2 class="text-2xl md:text-3xl text-neutral-800 dark:text-neutral-100 text-center mb-3">
+  <h2 class="mb-3 text-center text-2xl text-neutral-800 dark:text-neutral-100 md:text-3xl">
     If you were looking for a blog post, I recently made some changes on the structure of the
     website.
   </h2>
   <h2 class="text-xl text-neutral-800 dark:text-neutral-100">
-    You can find all the blog posts <a class="underline font-medium text-teal-500" href="/blog"
+    You can find all the blog posts <a class="font-medium text-teal-500 underline" href="/blog"
       >here</a
     >.
   </h2>

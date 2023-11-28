@@ -31,21 +31,21 @@
 <div
   in:fade={{ duration: 150, delay: 100 }}
   out:fade={{ duration: 150 }}
-  class="prose font-Roboto font-normal lg:prose-xl text-neutral-900 dark:text-neutral-100 dark:prose-invert prose-a:text-teal-400 prose-pre:max-w-xs prose-pre:min-w-full prose-pre:whitespace-pre-wrap prose-pre:text-left md:prose-pre:max-w-full prose-pre:bg-neutral-200 dark:prose-pre:bg-neutral-800 prose-pre:text-neutral-700 dark:prose-pre:text-neutral-100 prose-code:bg-neutral-200 dark:prose-code:bg-neutral-800 prose-code:text-neutral-700 dark:prose-code:text-neutral-100 tracking-wide"
+  class="prose font-Roboto font-normal tracking-wide text-neutral-900 dark:prose-invert lg:prose-xl prose-a:text-teal-400 prose-code:bg-neutral-200 prose-code:text-neutral-700 prose-pre:min-w-full prose-pre:max-w-xs prose-pre:whitespace-pre-wrap prose-pre:bg-neutral-200 prose-pre:text-left prose-pre:text-neutral-700 dark:text-neutral-100 dark:prose-code:bg-neutral-800 dark:prose-code:text-neutral-100 dark:prose-pre:bg-neutral-800 dark:prose-pre:text-neutral-100 md:prose-pre:max-w-full"
 >
-  <p class="uppercase text-center tracking-wider mt-10 md:mt-0">
+  <p class="mt-10 text-center uppercase tracking-wider md:mt-0">
     {category}
   </p>
-  <h1 class="text-4xl font-normal text-center tracking-normal mb-4">
+  <h1 class="mb-4 text-center text-4xl font-normal tracking-normal">
     {title}
   </h1>
-  <h2 class="text-xl font-normal text-center tracking-normal mt-0">
+  <h2 class="mt-0 text-center text-xl font-normal tracking-normal">
     {subtitle}
   </h2>
   <article>
     <slot />
   </article>
-  <a class="inline-block my-10 font-Poppins !text-white no-underline" href={`/blog`}>
+  <a class="my-10 inline-block font-Poppins !text-white no-underline" href={`/blog`}>
     <ArrowLeft />
   </a>
 </div>
