@@ -5,28 +5,28 @@
 </script>
 
 <a
-  class="font-Poppins md:w-full flex w-full p-4 mt-5 justify-between text-left items-center rounded-md overflow-hidden shadow-md bg-white dark:bg-neutral-900 hover:scale-105 transition duration-300 ease-in-out"
+  class="mt-5 flex w-full items-center justify-between overflow-hidden rounded-md bg-white p-4 text-left font-Poppins shadow-md transition duration-300 ease-in-out hover:scale-105 dark:bg-neutral-900 md:w-full"
   href={`/blog/${post.slug}`}
 >
   <div>
     <span
-      class="title-text font-Cormorant text-mediumTitle color-white m-0 bg-gradient-271 from-darkFromColor via-lightViaColor1 via-darkViaColor2 to-lightToColor dark:from-darkFromColor dark:via-darkViaColor1 dark:via-darkViaColor2 dark:to-darkToColor"
+      class="title-text color-white via-lightViaColor1 m-0 from-darkFromColor via-darkViaColor2 to-lightToColor font-Cormorant text-mediumTitle bg-gradient-271 dark:from-darkFromColor dark:via-darkViaColor1 dark:via-darkViaColor2 dark:to-darkToColor"
     >
       {post.title}
     </span>
-    <div class="flex my-4">
+    <div class="my-4 flex">
       {#each post.tags as tag}
         <Tag tagName={tag} url={`/blog/tags/${tag}`} />
       {/each}
     </div>
-    <p class="text-neutral-800 dark:text-neutral-100 mt-4">
+    <p class="mt-4 text-neutral-800 dark:text-neutral-100">
       {post.subtitle}
     </p>
-    <p class="md:hidden mt-3 uppercase text-xs underline decoration-solid underline-offset-2">
+    <p class="mt-3 text-xs uppercase underline decoration-solid underline-offset-2 md:hidden">
       Read more
     </p>
   </div>
-  <div class="hidden md:block w-10">
+  <div class="hidden w-10 md:block">
     <ArrowRight />
   </div>
 </a>
