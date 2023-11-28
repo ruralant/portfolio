@@ -8,10 +8,10 @@
 </script>
 
 <header
-  class="flex flex-row justify-between items-center px-5 pt-8 pb-1 md:pb-20 bg-space-white dark:bg-space-grey"
+  class="flex flex-row items-center justify-between bg-space-white px-5 pb-1 pt-8 dark:bg-space-grey md:pb-20"
 >
   <div class="flex items-center">
-    <a class="flex items-center text-neutral-800 dark:text-neutral-100 no-underline" href="/">
+    <a class="flex items-center text-neutral-800 no-underline dark:text-neutral-100" href="/">
       <Logo />
     </a>
     <nav class="flex flex-row space-x-4">

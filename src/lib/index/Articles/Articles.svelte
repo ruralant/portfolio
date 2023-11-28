@@ -3,14 +3,14 @@
   export let posts;
 </script>
 
-<div class="w-full flex flex-col max-w-6xl m-auto py-20 lg:py-20">
+<div class="m-auto flex w-full max-w-6xl flex-col py-20 lg:py-20">
   <p
-    class="title-text font-Cormorant text-3xl m-0 text-neutral-800 dark:text-neutral-100 text-center pb-5"
+    class="title-text m-0 pb-5 text-center font-Cormorant text-3xl text-neutral-800 dark:text-neutral-100"
   >
     Latest Articles
   </p>
   <ul
-    class="articles-container grid grid-cols-articlesSm md:grid-cols-articlesMd lg:grid-cols-articlesLg list-none justify-items-center py-0 lg:px-0 gap-4 lg:gap-10"
+    class="articles-container grid list-none grid-cols-articlesSm justify-items-center gap-4 py-0 md:grid-cols-articlesMd lg:grid-cols-articlesLg lg:gap-10 lg:px-0"
   >
     {#each posts as post}
       <Article postData={post.meta} postPath={post.path} />

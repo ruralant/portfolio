@@ -3,9 +3,9 @@
   export let data;
 </script>
 
-<div class="text-neutral-800 dark:text-neutral-100 w-full sm:my-9">
+<div class="w-full text-neutral-800 dark:text-neutral-100 sm:my-9">
   <div class="flex items-center md:justify-center">
-    <h1 class="m-0 leading-standard font-Cormorant text-3xl text-center pl-4">
+    <h1 class="m-0 pl-4 text-center font-Cormorant text-3xl leading-standard">
       This is what I wrote about <span class="capitalize">{data.tag}</span>
     </h1>
   </div>
