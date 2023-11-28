@@ -8,7 +8,7 @@
   stroke-width="1.5"
   stroke-linecap="round"
   stroke-linejoin="round"
-  class="h-6 w-6 stroke-current stroke-grey-800 dark:stroke-white"
+  class="stroke-current h-6 w-6 stroke-grey-800 dark:stroke-white"
 >
   <title id="mail-title">Email</title>
   <desc id="mail-desc">A closed mail icon</desc>

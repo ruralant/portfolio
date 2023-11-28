@@ -8,7 +8,7 @@
   stroke-width="1.5"
   stroke-linecap="round"
   stroke-linejoin="round"
-  class="h-6 w-[1.4rem] stroke-current stroke-grey-800 dark:stroke-white"
+  class="stroke-current h-6 w-[1.4rem] stroke-grey-800 dark:stroke-white"
 >
   <title id="rss-feed-title">RSS feed</title>
   <desc id="rss-feed-desc">RSS feed icon</desc>

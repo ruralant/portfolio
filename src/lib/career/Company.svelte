@@ -11,7 +11,7 @@
 </script>
 
 <div
-  class="flex w-4/5 justify-between items-center font-Poppins subtitle m-auto mb-24 p-8 rounded-md overflow-hidden shadow-md bg-white dark:bg-neutral-900 {even
+  class="subtitle m-auto mb-24 flex w-4/5 items-center justify-between overflow-hidden rounded-md bg-white p-8 font-Poppins shadow-md dark:bg-neutral-900 {even
     ? ''
     : 'flex-row-reverse'}"
 >
@@ -19,7 +19,7 @@
     <div>
       <div class="flex items-center">
         <span class="title-text font-Poppins text-neutral-800 dark:text-neutral-100">{name}</span>
-        <div class="w-11 h-11 ml-4">
+        <div class="ml-4 h-11 w-11">
           <img
             src={logo}
             alt=""
@@ -33,13 +33,13 @@
       <p class="text-neutral-800 dark:text-neutral-100">
         {position}, {location}
       </p>
-      <p class="text-neutral-800 dark:text-neutral-100 text-xl mb-6">
+      <p class="mb-6 text-xl text-neutral-800 dark:text-neutral-100">
         {from} - {to}
       </p>
     </div>
     <div class="flex flex-col text-base">
       {#if frontEnd.length}
-        <div class="flex-1 mb-4">
+        <div class="mb-4 flex-1">
           <div class="flex flex-row">
             <Desktop />
             <p class="icon-text ml-1 text-neutral-800 dark:text-neutral-100">Front End</p>
@@ -47,7 +47,7 @@
           <ul class="flex flex-wrap">
             {#each frontEnd as tech}
               <li class="ml-1 mr-3 mt-2 text-neutral-800 dark:text-neutral-100">
-                <div class="bg-slate-200 dark:bg-slate-700 rounded-lg py-0.5 px-2">
+                <div class="rounded-lg bg-slate-200 px-2 py-0.5 dark:bg-slate-700">
                   {tech}
                 </div>
               </li>
@@ -56,7 +56,7 @@
         </div>
       {/if}
       {#if backEnd.length}
-        <div class="flex-1 mb-4">
+        <div class="mb-4 flex-1">
           <div class="flex flex-row">
             <Server />
             <p class="backend-icon-text ml-1 text-neutral-800 dark:text-neutral-100">Back End</p>
@@ -64,7 +64,7 @@
           <ul class="flex flex-wrap">
             {#each backEnd as tech}
               <li class="mr-3 mt-2 text-neutral-800 dark:text-neutral-100">
-                <div class="bg-slate-200 dark:bg-slate-700 rounded-lg py-0.5 px-2">
+                <div class="rounded-lg bg-slate-200 px-2 py-0.5 dark:bg-slate-700">
                   {tech}
                 </div>
               </li>
@@ -81,7 +81,7 @@
           <ul class="flex flex-wrap">
             {#each tools as tech}
               <li class="mr-3 mt-2 text-neutral-800 dark:text-neutral-100">
-                <div class="bg-slate-200 dark:bg-slate-700 rounded-lg py-0.5 px-2">
+                <div class="rounded-lg bg-slate-200 px-2 py-0.5 dark:bg-slate-700">
                   {tech}
                 </div>
               </li>
@@ -93,7 +93,7 @@
   </div>
   <div>
     <img
-      class="align-middle rounded-lg shadow-sm"
+      class="rounded-lg align-middle shadow-sm"
       src={image}
       alt={`${name} logo`}
       width={450}
