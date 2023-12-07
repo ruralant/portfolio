@@ -49,7 +49,7 @@ alt='old carbon score'
 width={1000}
 height={600}
 placeholder='blur'
-classes={'mt-6 mb-8 rounded-lg drop-shadow-md'}
+classes='mt-6 mb-8 rounded-lg drop-shadow-md'
 />
 
 Let's assume the website had a sticky navigation bar on the top of the screen with the company logo and the links to different pages (yes, yes, old school, I know!)

@@ -70,7 +70,8 @@ alt='old carbon score'
 width={1000}
 height={600}
 placeholder='blur'
-classes={'mt-6 mb-8 rounded-lg drop-shadow-md'}
+classes='mt-6 mb-8 rounded-lg drop-shadow-md'
+loading='lazy'
 />
 
 <Image
@@ -80,7 +81,8 @@ alt='new carbon score'
 width={1000}
 height={600}
 placeholder='blur'
-classes={'mt-6 mb-8 rounded-lg drop-shadow-md'}
+classes='mt-6 mb-8 rounded-lg drop-shadow-md'
+loading='lazy'
 />
 
 The website is rated as more efficient than the 96% of the world wide web. I achieve it with a combination of assets optimisation, server side rendering and an extremely small amount of JavaScript shipped to the client. Svelte (the framework that I used) really helped me with that.
@@ -96,7 +98,8 @@ alt='light house score'
 width={1000}
 height={600}
 placeholder='blur'
-classes={'mt-6 mb-8 rounded-lg drop-shadow-md'}
+classes='mt-6 mb-8 rounded-lg drop-shadow-md'
+loading='lazy'
 />
 
 ### It feature a blog
