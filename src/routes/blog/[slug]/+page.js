@@ -1,7 +1,6 @@
 import { redirect } from "@sveltejs/kit";
 
 export async function load({ params }) {
-  console.log(params.slug);
   try {
     const Post = await import(`../../../blog/${params.slug}.md`);
 
