@@ -10,6 +10,6 @@ export async function load({ params }) {
     };
   } catch (e) {
     console.error(e);
-    throw redirect(307, "/blog");
+    redirect(307, "/blog");
   }
 }
