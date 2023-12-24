@@ -1,7 +1,7 @@
 <script>
-  import meImage from "$lib/assets/images/home/me-b-and-w.jpg?w=656&h=656";
-  import meImageWebp from "$lib/assets/images/home/me-b-and-w.jpg?w=656&h=656&format=webp&as=srcset";
-  import meImageSrcset from "$lib/assets/images/home/me-b-and-w.jpg?w=656&h=656&format=jpeg&as=srcset";
+  import meImage from "$lib/assets/images/home/me-b-and-w.jpg";
+  import meImageWebp from "$lib/assets/images/home/me-b-w.webp";
+  import meImageAvif from "$lib/assets/images/home/me-b-w.avif";
   import Image from "$lib/components/Image.svelte";
 
   export let width;
@@ -12,7 +12,7 @@
 <Image
   wepImage={meImageWebp}
   jpegImage={meImage}
-  srcsetImage={meImageSrcset}
+  avifImage={meImageAvif}
   alt={"myself speaking in public"}
   {width}
   {height}
