@@ -5,7 +5,7 @@
 </script>
 
 <a
-  class="mt-5 flex w-full items-center justify-between overflow-hidden rounded-md bg-white p-4 text-left font-Poppins shadow-md transition duration-300 ease-in-out hover:scale-105 dark:bg-neutral-900 md:w-full"
+  class="mt-5 flex w-full items-center justify-between overflow-hidden rounded-md bg-white p-4 text-left font-Poppins shadow-md transition duration-300 ease-in-out hover:scale-105 md:w-full dark:bg-neutral-900"
   href={`/blog/${post.slug}`}
 >
   <div>
