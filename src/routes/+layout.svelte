@@ -47,7 +47,7 @@
   <main
     in:fade={{ duration: 150, delay: 100 }}
     out:fade={{ duration: 150 }}
-    class="m-auto flex min-h-[calc(100vh-210px)] max-w-screen-xl2 flex-col items-center bg-space-white px-4 dark:bg-space-grey md:px-22 lg:px-36"
+    class="m-auto flex min-h-[calc(100vh-210px)] max-w-screen-xl2 flex-col items-center bg-space-white px-4 md:px-22 lg:px-36 dark:bg-space-grey"
   >
     <div>
       <slot />

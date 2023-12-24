@@ -9,13 +9,13 @@
 <div class="flex flex-col flex-wrap items-center justify-center bg-space-white dark:bg-space-grey">
   <div class="flex">
     <h2
-      class="m-0 from-darkFromColor via-darkViaColor1 via-darkViaColor2 to-lightToColor text-center font-Cormorant text-[2.5rem] leading-standard bg-gradient-271 dark:from-darkFromColor dark:via-darkViaColor1 dark:via-darkViaColor2 dark:to-darkToColor md:text-5xl"
+      class="m-0 from-darkFromColor via-darkViaColor1 via-darkViaColor2 to-lightToColor text-center font-Cormorant text-[2.5rem] leading-standard bg-gradient-271 md:text-5xl dark:from-darkFromColor dark:via-darkViaColor1 dark:via-darkViaColor2 dark:to-darkToColor"
     >
       I'm always up for a chat.
     </h2>
   </div>
   <div
-    class="mt-5 text-center font-Poppins text-2xl font-light leading-extraRelaxed text-neutral-800 dark:text-neutral-100 md:text-3xl"
+    class="mt-5 text-center font-Poppins text-2xl font-light leading-extraRelaxed text-neutral-800 md:text-3xl dark:text-neutral-100"
   >
     <p>
       Pop me an email at{" "}
