@@ -34,13 +34,13 @@
 </script>
 
 <h1
-  class="title-text m-0 pb-5 pt-10 font-Cormorant text-5xl text-neutral-800 dark:text-neutral-100 md:pt-0"
+  class="title-text m-0 pb-5 pt-10 font-Cormorant text-5xl text-neutral-800 md:pt-0 dark:text-neutral-100"
 >
   About me
 </h1>
 
 <div
-  class="max-w-prose font-Roboto font-normal leading-relaxed tracking-wide text-neutral-900 dark:prose-invert lg:prose-xl prose-a:text-teal-400 prose-code:bg-neutral-200 prose-code:text-neutral-700 prose-pre:min-w-full prose-pre:max-w-xs prose-pre:whitespace-pre-wrap prose-pre:bg-neutral-200 prose-pre:text-left prose-pre:text-neutral-700 dark:text-neutral-100 dark:prose-code:bg-neutral-800 dark:prose-code:text-neutral-100 dark:prose-pre:bg-neutral-800 dark:prose-pre:text-neutral-100 md:prose-pre:max-w-full"
+  class="max-w-prose font-Roboto font-normal leading-relaxed tracking-wide text-neutral-900 lg:prose-xl dark:prose-invert prose-a:text-teal-400 prose-code:bg-neutral-200 prose-code:text-neutral-700 prose-pre:min-w-full prose-pre:max-w-xs prose-pre:whitespace-pre-wrap prose-pre:bg-neutral-200 prose-pre:text-left prose-pre:text-neutral-700 md:prose-pre:max-w-full dark:text-neutral-100 dark:prose-code:bg-neutral-800 dark:prose-code:text-neutral-100 dark:prose-pre:bg-neutral-800 dark:prose-pre:text-neutral-100"
 >
   <div class="mb-10 bg-clip-content md:float-right md:mb-0">
     <HeroImage classes="rounded-full overflow-hidden md:ml-5" width="300" height="300" />
