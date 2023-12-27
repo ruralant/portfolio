@@ -3,7 +3,7 @@ title: Fetch priority and Largest Contentful Paint (LCP)
 slug: fetch-priority
 subtitle: How to use the fetch priority API to improve LCP and the user experience
 category: frontend
-tags: [fetch, lcp, fcp, tbt, cls, performance]
+tags: [fetch priority, lcp, core web vitals]
 published: true
 date: 2023-12-27
 layout: development
