@@ -31,7 +31,7 @@
 <div
   in:fade={{ duration: 150, delay: 100 }}
   out:fade={{ duration: 150 }}
-  class="prose font-Roboto font-normal tracking-wide text-neutral-900 lg:prose-xl dark:prose-invert prose-a:text-teal-400 prose-code:bg-neutral-200 prose-code:text-neutral-700 prose-pre:min-w-full prose-pre:max-w-xs prose-pre:whitespace-pre-wrap prose-pre:bg-neutral-200 prose-pre:text-left prose-pre:text-neutral-700 md:prose-pre:max-w-full dark:text-neutral-100 dark:prose-code:bg-neutral-800 dark:prose-code:text-neutral-100 dark:prose-pre:bg-neutral-800 dark:prose-pre:text-neutral-100"
+  class="prose font-Roboto font-normal tracking-wide text-neutral-900 dark:prose-invert lg:prose-xl prose-a:text-teal-400 prose-code:bg-neutral-200 prose-code:text-neutral-700 prose-pre:min-w-full prose-pre:max-w-xs prose-pre:whitespace-pre-wrap prose-pre:bg-neutral-200 prose-pre:text-left prose-pre:text-neutral-700 dark:text-neutral-100 dark:prose-code:bg-neutral-800 dark:prose-code:text-neutral-100 dark:prose-pre:bg-neutral-800 dark:prose-pre:text-neutral-100 md:prose-pre:max-w-full"
 >
   <div class="mt-10 flex flex-row items-center justify-between md:mt-0">
     <a class="inline-block font-Poppins !text-white no-underline" href={`/blog`}>
