@@ -3,7 +3,7 @@
   export let data;
 </script>
 
-<div class="w-full text-neutral-800 sm:my-9 dark:text-neutral-100">
+<div class="w-full text-neutral-800 dark:text-neutral-100 sm:my-9">
   <div class="flex flex-col items-center md:justify-center">
     <h1 class="m-0 pl-4 font-Cormorant text-3xl leading-standard">Tags</h1>
     <h2 class="mb-5 mt-4 pl-4 font-Cormorant text-xl leading-standard">
