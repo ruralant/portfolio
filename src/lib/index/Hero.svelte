@@ -8,7 +8,7 @@
       <h1 class="flex flex-nowrap items-center">
         <span>
           <span
-            class="m-0 from-darkFromColor via-darkViaColor1 via-lightViaColor2 to-lightToColor font-Cormorant text-6xl leading-standard bg-gradient-271 md:text-8xl dark:from-darkFromColor dark:via-darkViaColor1 dark:via-darkViaColor2 dark:to-darkToColor"
+            class="m-0 from-darkFromColor via-darkViaColor1 via-lightViaColor2 to-lightToColor font-Cormorant text-6xl leading-standard bg-gradient-271 dark:from-darkFromColor dark:via-darkViaColor1 dark:via-darkViaColor2 dark:to-darkToColor md:text-8xl"
             >Hi, I&apos;m Antonio</span
           >
           <span class="ml-1 text-5xl md:hidden lg:ml-5 lg:inline">👋</span>
