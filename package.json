@@ -27,18 +27,14 @@
     "mdsvex": "^0.11.0",
     "prettier": "^3.2.5",
     "prettier-plugin-svelte": "^3.2.3",
-    "prettier-plugin-tailwindcss": "^0.5.13",
+    "prettier-plugin-tailwindcss": "^0.5.14",
     "prism-themes": "^1.9.0",
     "sharp": "^0.33.3",
-    "svelte": "^4.2.14",
+    "svelte": "^4.2.15",
     "svelte-check": "^3.6.9",
     "tailwindcss": "^3.4.3",
-    "vite": "^5.2.8",
+    "vite": "^5.2.9",
     "vite-imagetools": "^7.0.1"
   },
-  "type": "module",
-  "dependencies": {
-    "corepack": "^0.26.0",
-    "npm": "^10.5.2"
-  }
+  "type": "module"
 }
