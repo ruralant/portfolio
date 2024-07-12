@@ -11,12 +11,13 @@ test.describe("Home page", () => {
   });
 
   test("should show the main page subtitle", async ({ page }) => {
-    const subtitleLine1 = await page.getByText("I'm a full stack developer in Reading, UK.");
+    const subtitleLine1 = await page.getByText("I'm a software engineer based in Reading, UK.");
     await expect(subtitleLine1).toBeVisible();
     const subtitleLine2 = await page.getByText(
-      "I'm interested in energy efficiency of the web and regenerative agriculture"
+      "I'm interested in energy efficiency of the web, degrowth and regenerative agriculture"
     );
     await expect(subtitleLine1).toBeVisible();
+    await expect(subtitleLine2).toBeVisible();
   });
 
   test("should show the homepage photo", async ({ page }) => {
