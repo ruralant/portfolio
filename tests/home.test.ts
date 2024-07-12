@@ -14,7 +14,7 @@ test.describe("Home page", () => {
     const subtitleLine1 = await page.getByText("I'm a software engineer based in Reading, UK.");
     await expect(subtitleLine1).toBeVisible();
     const subtitleLine2 = await page.getByText(
-      "I'm interested in energy efficiency of the web, degrowth and regenerative agriculture"
+      "I'm interested in green software, regenerative agriculture and degrowth."
     );
     await expect(subtitleLine1).toBeVisible();
     await expect(subtitleLine2).toBeVisible();
