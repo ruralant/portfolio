@@ -17,12 +17,13 @@
     </div>
     <div class="mt-2.5 font-Poppins text-2xl font-light leading-extraRelaxed md:text-3xl">
       <p class="text-neutral-800 dark:text-neutral-100">
-        I'm a full stack developer in Reading, UK.
+        I'm a software engineer based in Reading, UK.
       </p>
       {" "}
       <p class="text-neutral-800 dark:text-neutral-100">
         I'm interested in{" "}
-        <span class="w-[200px] md:font-bold">energy efficiency</span> of the web and
+        <span class="w-[200px] md:font-bold">energy efficiency</span> of the web,
+        <span class="w-[200px] md:font-bold">degrowth</span> and
         <span class="w-[200px] md:font-bold">regenerative agriculture</span>
       </p>
     </div>
