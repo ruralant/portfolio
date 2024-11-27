@@ -1,6 +1,6 @@
 {
   "name": "personal-website",
-  "version": "2.22.15",
+  "version": "2.22.16",
   "scripts": {
     "dev": "vite dev",
     "build": "vite build",
@@ -16,7 +16,7 @@
     "@commitlint/config-conventional": "^19.6.0",
     "@playwright/test": "^1.49.0",
     "@sveltejs/adapter-netlify": "^4.3.6",
-    "@sveltejs/kit": "^2.8.4",
+    "@sveltejs/kit": "^2.8.5",
     "@sveltejs/vite-plugin-svelte": "^3.1.2",
     "@tailwindcss/typography": "^0.5.15",
     "autoprefixer": "^10.4.20",
@@ -25,7 +25,7 @@
     "eslint-plugin-svelte": "^2.46.0",
     "husky": "^9.1.7",
     "mdsvex": "^0.12.3",
-    "prettier": "^3.4.0",
+    "prettier": "^3.4.1",
     "prettier-plugin-svelte": "^3.3.2",
     "prettier-plugin-tailwindcss": "^0.6.9",
     "prism-themes": "^1.9.0",

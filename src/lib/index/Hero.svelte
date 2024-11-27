@@ -23,9 +23,8 @@
     <div class="font-Poppins text-xl font-light leading-extraRelaxed md:text-2xl">
       <p class="text-neutral-800 dark:text-neutral-100">
         I'm interested in{" "}
-        <span class="w-[200px] md:font-bold">green software</span>,
-        <span class="w-[200px] md:font-bold">regenerative agriculture</span> and
-        <span class="w-[200px] md:font-bold">degrowth</span>.
+        <span class="w-[200px] md:font-bold">green software</span> and
+        <span class="w-[200px] md:font-bold">climate adaptation.</span>
       </p>
     </div>
   </div>
