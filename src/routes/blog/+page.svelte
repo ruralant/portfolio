@@ -1,10 +1,10 @@
 <script>
   import BlogListItem from "$lib/components/blog/BlogListItem.svelte";
   import Pagination from "$lib/components/blog/Pagination.svelte";
-  export let data;
+  let { data } = $props();
 
-  let postsToDisplay = data.posts.slice(0, 10);
-  let currentPage = 1;
+  let postsToDisplay = $state(data.posts.slice(0, 10));
+  let currentPage = $state(1);
 
   const nextPosts = (start, end) => {
     postsToDisplay = data.posts.slice(start, end);

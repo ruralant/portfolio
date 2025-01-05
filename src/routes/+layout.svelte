@@ -5,7 +5,7 @@
   import Header from "$lib/Header.svelte";
   import Footer from "$lib/Footer.svelte";
   import "../tailwind.css";
-  export let data;
+  let { data = $bindable(), children } = $props();
 
   onMount(() => {
     if (!("theme" in localStorage)) {
@@ -50,7 +50,7 @@
     class="m-auto flex min-h-[calc(100vh-210px)] max-w-screen-xl2 flex-col items-center bg-space-white px-4 dark:bg-space-grey md:px-22 lg:px-36"
   >
     <div>
-      <slot />
+      {@render children?.()}
     </div>
   </main>
 </div>
