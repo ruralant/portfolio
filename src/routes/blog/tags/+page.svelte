@@ -1,6 +1,6 @@
 <script>
   import Tag from "$lib/components/blog/Tag.svelte";
-  export let data;
+  let { data } = $props();
 </script>
 
 <div class="w-full text-neutral-800 dark:text-neutral-100 sm:my-9">

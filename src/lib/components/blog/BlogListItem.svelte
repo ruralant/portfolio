@@ -1,7 +1,7 @@
 <script>
   import ArrowRight from "../icons/ArrowRight.svelte";
   import Tag from "./Tag.svelte";
-  export let post;
+  let { post } = $props();
 </script>
 
 <a

@@ -1,13 +1,29 @@
 <script>
-  export let jpegImage;
-  export let wepImage;
-  export let avifImage;
-  export let alt;
-  export let width;
-  export let height;
-  export let classes;
-  export let feedImage = false;
-  export let loading = "lazy";
+  /**
+   * @typedef {Object} Props
+   * @property {any} jpegImage
+   * @property {any} wepImage
+   * @property {any} avifImage
+   * @property {any} alt
+   * @property {any} width
+   * @property {any} height
+   * @property {any} classes
+   * @property {boolean} [feedImage]
+   * @property {string} [loading]
+   */
+
+  /** @type {Props} */
+  let {
+    jpegImage,
+    wepImage,
+    avifImage,
+    alt,
+    width,
+    height,
+    classes,
+    feedImage = false,
+    loading = "lazy"
+  } = $props();
 </script>
 
 <picture class={`${feedImage ? "webfeedsFeaturedVisual" : null} flex justify-center`}>
