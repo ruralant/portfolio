@@ -3,7 +3,7 @@
   import Tag from "$lib/components/blog/Tag.svelte";
   export let postData;
   export let postPath;
-  export let { title, subtitle, tags, icon, date, type, slug } = postData;
+  export let { title, subtitle, tags } = postData;
 </script>
 
 <li
