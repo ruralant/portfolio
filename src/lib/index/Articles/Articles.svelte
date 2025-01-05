@@ -1,6 +1,6 @@
 <script>
   import Article from "./Article.svelte";
-  export let posts;
+  let { posts } = $props();
 </script>
 
 <div class="m-auto flex w-full max-w-6xl flex-col py-20 lg:py-20">

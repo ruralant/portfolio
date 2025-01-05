@@ -1,4 +1,6 @@
 <script>
+  import { preventDefault } from "svelte/legacy";
+
   import "prism-themes/themes/prism-one-dark.min.css";
   import { theme } from "$lib/shared/store";
   import { toggleTheme } from "$lib/shared/theme";
@@ -24,9 +26,9 @@
       href="/app/theme"
       class="block"
       aria-label="toggle light and dark mode"
-      on:click|preventDefault={() => {
+      onclick={preventDefault(() => {
         toggleTheme(theme, $theme);
-      }}
+      })}
     >
       <div class="hidden dark:block">
         <Sun />

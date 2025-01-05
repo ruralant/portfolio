@@ -1,6 +1,5 @@
 <script>
-  export let skill;
-  export let percentage;
+  let { skill, percentage } = $props();
 </script>
 
 {#if skill && percentage}
@@ -9,7 +8,7 @@
       <span class="mr-2">{skill.name}</span>
     </div>
     <div class="progress-bar h-4 w-full bg-slate-200 dark:bg-neutral-800">
-      <div class="progress-bar-fill bg-progressBarBlue" style={`width: ${percentage}%`} />
+      <div class="progress-bar-fill bg-progressBarBlue" style={`width: ${percentage}%`}></div>
     </div>
   </div>
   <style>
