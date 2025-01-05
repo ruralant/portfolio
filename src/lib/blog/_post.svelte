@@ -2,12 +2,7 @@
   import { fade } from "svelte/transition";
   import ArrowLeft from "$lib/components/icons/ArrowLeft.svelte";
 
-  export let category;
-  export let title;
-  export let subtitle;
-  export let mainImage;
-  export let mainImageAlt;
-  export let slug;
+  let { category, title, subtitle, mainImage, mainImageAlt, slug, children } = $props();
 </script>
 
 <svelte:head>
@@ -49,7 +44,7 @@
     {subtitle}
   </h2>
   <article>
-    <slot />
+    {@render children?.()}
   </article>
   <a class="my-10 inline-block font-Poppins !text-white no-underline" href={`/blog`}>
     <ArrowLeft />

@@ -2,7 +2,7 @@
   import Hero from "$lib/index/Hero.svelte";
   import Contacts from "$lib/index/Contacts.svelte";
   import Articles from "$lib/index/Articles/Articles.svelte";
-  export let data;
+  let { data } = $props();
   let { posts } = data;
 </script>
 

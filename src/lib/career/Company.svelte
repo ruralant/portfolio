@@ -3,8 +3,7 @@
   import Desktop from "../components/icons/Desktop.svelte";
   import Server from "$lib/components/icons/Server.svelte";
 
-  export let company;
-  export let index;
+  let { company, index } = $props();
   const even = index % 2 == 0;
   const { name, from, to, position, techStack, location, logo, image } = company;
   const { frontEnd, backEnd, tools } = techStack;

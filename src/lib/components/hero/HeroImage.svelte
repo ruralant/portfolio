@@ -4,9 +4,7 @@
   import meImageAvif from "$lib/assets/images/home/me-b-w.avif";
   import Image from "$lib/components/Image.svelte";
 
-  export let width;
-  export let height;
-  export let classes;
+  let { width, height, classes } = $props();
 </script>
 
 <Image

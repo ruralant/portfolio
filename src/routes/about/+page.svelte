@@ -1,3 +1,5 @@
+<!-- @migration-task Error while migrating Svelte code: `<tr>` cannot be a child of `<table>`. `<table>` only allows these children: `<caption>`, `<colgroup>`, `<tbody>`, `<thead>`, `<tfoot>`, `<style>`, `<script>`, `<template>`. The browser will 'repair' the HTML (by moving, removing, or inserting elements) which breaks Svelte's assumptions about the structure of your components.
+https://svelte.dev/e/node_invalid_placement -->
 <script>
   import Skill from "$lib/components/about/Skill.svelte";
   import HeroImage from "$lib/components/hero/HeroImage.svelte";
@@ -120,12 +122,14 @@
     </div>
     <div style="margin-top: -1px" class="grid grid-cols-1 grid-rows-1">
       <table style="grid-column: 1; grid-row: 1;">
-        <tr>
-          <td
-            class="w-6/12 border-l-0 border-r-2 border-solid border-neutral-200 dark:border-neutral-800"
-          />
-          <td class="w-6/12 border-solid border-neutral-200 dark:border-neutral-800" />
-        </tr>
+        <tbody>
+          <tr>
+            <td
+              class="w-6/12 border-l-0 border-r-2 border-solid border-neutral-200 dark:border-neutral-800"
+            ></td>
+            <td class="w-6/12 border-solid border-neutral-200 dark:border-neutral-800"></td>
+          </tr>
+        </tbody>
       </table>
       <div style="grid-column: 1; grid-row: 1;">
         {#each orderedSkills as skill}
