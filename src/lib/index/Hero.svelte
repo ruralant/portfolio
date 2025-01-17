@@ -16,9 +16,7 @@
       </h1>
     </div>
     <div class="mt-2.5 font-Poppins text-2xl font-light leading-extraRelaxed md:text-3xl">
-      <p class=" text-neutral-800 dark:text-neutral-100">
-        I'm a software engineer based in Reading, UK.
-      </p>
+      <p class=" text-neutral-800 dark:text-neutral-100">Software engineer based in Reading, UK.</p>
     </div>
     <div class="font-Poppins text-xl font-light leading-extraRelaxed md:text-2xl">
       <p class="text-neutral-800 dark:text-neutral-100">
