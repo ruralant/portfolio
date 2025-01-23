@@ -15,8 +15,8 @@
     "@commitlint/cli": "^19.6.1",
     "@commitlint/config-conventional": "^19.6.0",
     "@playwright/test": "^1.49.1",
-    "@sveltejs/adapter-netlify": "^4.4.0",
-    "@sveltejs/kit": "^2.16.0",
+    "@sveltejs/adapter-netlify": "^4.4.1",
+    "@sveltejs/kit": "^2.16.1",
     "@sveltejs/vite-plugin-svelte": "^5.0.3",
     "@tailwindcss/typography": "^0.5.16",
     "autoprefixer": "^10.4.20",
@@ -30,10 +30,10 @@
     "prettier-plugin-tailwindcss": "^0.6.10",
     "prism-themes": "^1.9.0",
     "sharp": "^0.33.5",
-    "svelte": "^5.18.0",
+    "svelte": "^5.19.2",
     "svelte-check": "^4.1.4",
     "tailwindcss": "^3.4.17",
-    "vite": "^6.0.7",
+    "vite": "^6.0.11",
     "vite-imagetools": "^7.0.5"
   },
   "type": "module"
