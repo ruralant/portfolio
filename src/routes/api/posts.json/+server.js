@@ -2,23 +2,25 @@ import { json } from "@sveltejs/kit";
 
 export const GET = async () => {
   const postsFiles = import.meta.glob("../../../blog/*.md");
-  const iterablePostsFiles = Object.entries(postsFiles);
-  const posts = await Promise.all(
-    iterablePostsFiles.map(async ([path, resolver]) => {
-      const { metadata } = await resolver();
-      const postPath = path.slice(2, -3);
 
+  // Convert to array and process in a single pass
+  const posts = await Promise.all(
+    Object.entries(postsFiles).map(async ([path, resolver]) => {
+      // @ts-ignore
+      const { metadata } = await resolver();
       return {
         meta: metadata,
-        path: postPath
+        path: path.slice(2, -3),
+        image: metadata.image || "/default-blog-image.jpg"
       };
     })
   );
 
-  const sortedPosts = posts
-    .filter((post) => post.meta.published)
-    .sort((a, b) => new Date(b.meta.date) - new Date(a.meta.date))
-    .slice(0, 6);
-
-  return json(sortedPosts);
+  // Chain operations efficiently and be explicit with types
+  return json(
+    posts
+      .filter((post) => post.meta.published)
+      .sort((a, b) => Date.parse(b.meta.date) - Date.parse(a.meta.date))
+      .slice(0, 6)
+  );
 };
