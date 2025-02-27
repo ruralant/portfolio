@@ -25,7 +25,7 @@ Coming soon:
 
 ### See it in action
 
-[Homepage](www.antoniorossi.net)
+[Homepage](https://www.antoniorossi.net)
 
 ## Technologies Used
 
