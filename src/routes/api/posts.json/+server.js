@@ -6,7 +6,6 @@ export const GET = async () => {
   // Convert to array and process in a single pass
   const posts = await Promise.all(
     Object.entries(postsFiles).map(async ([path, resolver]) => {
-      // @ts-ignore
       const { metadata } = await resolver();
       return {
         meta: metadata,
