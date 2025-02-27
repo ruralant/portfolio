@@ -22,12 +22,11 @@ https://svelte.dev/e/node_invalid_placement -->
     { name: "Jest", start: "2017-01-01" },
     { name: "Express.js", start: "2017-01-01", end: "2019-12-30" }
   ];
-  const orderedSkills = skills.reduce((acc, skill) => {
+  const orderedSkills = skills.map((skill) => {
     const { start, end } = skill;
     const experience = end ? calculatePastExperience(start, end) : calculateExperience(start);
-    acc = [...acc, { ...skill, ...experience }];
-    return acc;
-  }, []);
+    return { ...skill, ...experience };
+  });
 
   orderedSkills.sort((a, b) => b.value - a.value);
 
