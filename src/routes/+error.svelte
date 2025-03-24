@@ -12,11 +12,11 @@
   <title>{title}</title>
 </svelte:head>
 <div class="flex flex-col items-center justify-center">
-  <div class="mb-5 mt-10 text-4xl md:mb-10 md:text-5xl">😱</div>
-  <h1 class="mb-3 text-center text-3xl text-neutral-800 dark:text-neutral-100 md:text-4xl">
+  <div class="mt-10 mb-5 text-4xl md:mb-10 md:text-5xl">😱</div>
+  <h1 class="mb-3 text-center text-3xl text-neutral-800 md:text-4xl dark:text-neutral-100">
     Oops, Something weird happened
   </h1>
-  <h2 class="mb-3 text-center text-2xl text-neutral-800 dark:text-neutral-100 md:text-3xl">
+  <h2 class="mb-3 text-center text-2xl text-neutral-800 md:text-3xl dark:text-neutral-100">
     If you were looking for a blog post, I recently made some changes on the structure of the
     website.
   </h2>
