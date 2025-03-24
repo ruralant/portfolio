@@ -3,10 +3,10 @@
   let { data } = $props();
 </script>
 
-<div class="w-full text-neutral-800 dark:text-neutral-100 sm:my-9">
+<div class="w-full text-neutral-800 sm:my-9 dark:text-neutral-100">
   <div class="flex flex-col items-center md:justify-center">
-    <h1 class="m-0 pl-4 font-Cormorant text-3xl leading-standard">Tags</h1>
-    <h2 class="mb-5 mt-4 pl-4 font-Cormorant text-xl leading-standard">
+    <h1 class="font-Cormorant m-0 pl-4 text-3xl leading-[1.15]">Tags</h1>
+    <h2 class="font-Cormorant mt-4 mb-5 pl-4 text-xl leading-[1.15]">
       Select a tag to see all the related posts
     </h2>
   </div>
