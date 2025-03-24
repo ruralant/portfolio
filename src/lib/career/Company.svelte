@@ -10,14 +10,14 @@
 </script>
 
 <div
-  class="subtitle m-auto mb-24 flex w-4/5 items-center justify-between overflow-hidden rounded-md bg-white p-8 font-Poppins shadow-md dark:bg-neutral-900 {even
+  class="subtitle font-Poppins m-auto mb-24 flex w-4/5 items-center justify-between overflow-hidden rounded-md bg-white p-8 shadow-md dark:bg-neutral-900 {even
     ? ''
     : 'flex-row-reverse'}"
 >
   <div>
     <div>
       <div class="flex items-center">
-        <span class="title-text font-Poppins text-neutral-800 dark:text-neutral-100">{name}</span>
+        <span class="font-Poppins text-neutral-800 dark:text-neutral-100">{name}</span>
         <div class="ml-4 h-11 w-11">
           <img
             src={logo}
@@ -45,7 +45,7 @@
           </div>
           <ul class="flex flex-wrap">
             {#each frontEnd as tech}
-              <li class="ml-1 mr-3 mt-2 text-neutral-800 dark:text-neutral-100">
+              <li class="mt-2 mr-3 ml-1 text-neutral-800 dark:text-neutral-100">
                 <div class="rounded-lg bg-slate-200 px-2 py-0.5 dark:bg-slate-700">
                   {tech}
                 </div>
@@ -62,7 +62,7 @@
           </div>
           <ul class="flex flex-wrap">
             {#each backEnd as tech}
-              <li class="mr-3 mt-2 text-neutral-800 dark:text-neutral-100">
+              <li class="mt-2 mr-3 text-neutral-800 dark:text-neutral-100">
                 <div class="rounded-lg bg-slate-200 px-2 py-0.5 dark:bg-slate-700">
                   {tech}
                 </div>
@@ -79,7 +79,7 @@
           </div>
           <ul class="flex flex-wrap">
             {#each tools as tech}
-              <li class="mr-3 mt-2 text-neutral-800 dark:text-neutral-100">
+              <li class="mt-2 mr-3 text-neutral-800 dark:text-neutral-100">
                 <div class="rounded-lg bg-slate-200 px-2 py-0.5 dark:bg-slate-700">
                   {tech}
                 </div>
@@ -92,7 +92,7 @@
   </div>
   <div>
     <img
-      class="rounded-lg align-middle shadow-sm"
+      class="rounded-lg align-middle shadow-xs"
       src={image}
       alt={`${name} logo`}
       width={450}

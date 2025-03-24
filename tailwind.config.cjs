@@ -18,8 +18,7 @@ module.exports = {
       "5xl": "3rem",
       "6xl": "4rem",
       "7xl": "5rem",
-      "8xl": "6rem",
-      mediumTitle: ["2rem", "1.15"]
+      "8xl": "6rem"
     },
     screens: {
       sm: "375px",
@@ -43,14 +42,13 @@ module.exports = {
       purple: colors.purple,
       slate: colors.slate,
       teal: colors.teal,
-      darkFromColor: `#8797e8 30%`,
-      darkViaColor1: `#a162e8 50%`,
-      darkViaColor2: `#f093b0 70%`,
-      darkToColor: `#dab56c 94%`,
-      lightViaColor2: `#e47c9d 70%`,
-      lightToColor: `#dd9f22 94%`,
-      textLight: "#FCFCFC",
-      progressBarBlue: "#BF41E0"
+      "hero-color-1": `#8797e8`,
+      "hero-color-2": `#a162e8`,
+      "hero-color-3": `#f093b0`,
+      "hero-color-4": `#dab56c`,
+      "hero-color-5": `#e47c9d`,
+      "hero-color-6": `#dd9f22`,
+      "progress-bar-blue": "#BF41E0"
     },
     fontFamily: {
       Cormorant: ["Cormorant", "serif"],
@@ -66,9 +64,9 @@ module.exports = {
         "4xl": "2rem"
       },
       gridTemplateColumns: {
-        articlesSm: "repeat(auto-fill, minmax(200px, 1fr))",
-        articlesMd: "repeat(auto-fill, minmax(250px, 1fr))",
-        articlesLg: "repeat(auto-fill, minmax(300px, 1fr))"
+        "articles-sm": "repeat(auto-fill, minmax(200px, 1fr))",
+        "articles-md": "repeat(auto-fill, minmax(250px, 1fr))",
+        "articles-lg": "repeat(auto-fill, minmax(300px, 1fr))"
       },
       lineHeight: {
         standard: "1.15",
