@@ -1,10 +1,12 @@
+import path from "path";
+
 const config = {
   extensions: [".svelte.md", ".md", ".svx"],
   smartypants: {
     dashes: "oldschool"
   },
   layout: {
-    development: "./src/lib/blog/_post.svelte"
+    development: path.resolve("src/lib/blog/_post.svelte")
   },
   remarkPlugins: [],
   rehypePlugins: []
