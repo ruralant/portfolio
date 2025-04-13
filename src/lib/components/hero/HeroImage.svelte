@@ -1,13 +1,11 @@
 <script>
-  import meImage from "$lib/assets/images/home/me-b-and-w.jpg";
-  import meImageWebp from "$lib/assets/images/home/me-b-w.webp";
-  import meImageAvif from "$lib/assets/images/home/me-b-w.avif";
+  import meImage from "$lib/assets/images/home/me-b-and-w.jpg?enhanced&w=400&h=400";
   import Image from "$lib/components/Image.svelte";
 
   let { width, height, classes } = $props();
 </script>
 
-<Image
+<!-- <Image
   wepImage={meImageWebp}
   jpegImage={meImage}
   avifImage={meImageAvif}
@@ -16,4 +14,5 @@
   {height}
   loading={"eager"}
   {classes}
-/>
+/> -->
+<enhanced:img src={meImage} alt="myself speaking in public" class={classes} />
