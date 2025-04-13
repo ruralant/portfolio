@@ -26,7 +26,7 @@
 <div
   in:fade={{ duration: 150, delay: 100 }}
   out:fade={{ duration: 150 }}
-  class="prose font-Roboto dark:prose-invert lg:prose-xl prose-a:text-teal-400 prose-code:bg-neutral-200 prose-code:text-neutral-700 prose-pre:min-w-full prose-pre:max-w-xs prose-pre:whitespace-pre-wrap prose-pre:bg-neutral-200 prose-pre:text-left prose-pre:text-neutral-700 dark:prose-code:bg-neutral-800 dark:prose-code:text-neutral-100 dark:prose-pre:bg-neutral-800 dark:prose-pre:text-neutral-100 md:prose-pre:max-w-full font-normal tracking-wide text-neutral-900 dark:text-neutral-100"
+  class="prose font-Roboto dark:prose-invert prose-lg prose-a:text-teal-400 prose-code:bg-neutral-200 prose-code:text-neutral-700 prose-pre:min-w-full prose-pre:max-w-xs prose-pre:whitespace-pre-wrap prose-pre:bg-neutral-200 prose-pre:text-left prose-pre:text-neutral-700 dark:prose-code:bg-neutral-800 dark:prose-code:text-neutral-100 dark:prose-pre:bg-neutral-800 dark:prose-pre:text-neutral-100 md:prose-pre:max-w-full prose-h3:font-medium text-neutral-900 dark:text-neutral-100"
 >
   <div class="mt-10 flex flex-row items-center justify-between md:mt-0">
     <a class="font-Poppins inline-block text-white! no-underline" href={`/blog`}>
@@ -37,7 +37,7 @@
     </p>
     <div class="w-6"></div>
   </div>
-  <h1 class="mb-4 text-center text-4xl font-normal tracking-normal">
+  <h1 class="text-4x3 mb-4 text-center font-normal tracking-normal">
     {title}
   </h1>
   <h2 class="mt-0 text-center text-xl font-normal tracking-normal">

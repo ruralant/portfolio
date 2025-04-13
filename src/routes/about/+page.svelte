@@ -1,8 +1,6 @@
-<!-- @migration-task Error while migrating Svelte code: `<tr>` cannot be a child of `<table>`. `<table>` only allows these children: `<caption>`, `<colgroup>`, `<tbody>`, `<thead>`, `<tfoot>`, `<style>`, `<script>`, `<template>`. The browser will 'repair' the HTML (by moving, removing, or inserting elements) which breaks Svelte's assumptions about the structure of your components.
-https://svelte.dev/e/node_invalid_placement -->
 <script>
   import Skill from "$lib/components/about/Skill.svelte";
-  import HeroImage from "$lib/components/hero/HeroImage.svelte";
+  import meImage from "$lib/assets/images/home/me-b-w.jpg?enhanced&w=300&h=300&quality=100";
   import { calculateExperience } from "$lib/utils/utils.js";
   import { calculatePastExperience } from "$lib/utils/utils.js";
 
@@ -42,7 +40,11 @@ https://svelte.dev/e/node_invalid_placement -->
   class="font-Roboto dark:prose-invert lg:prose-xl prose-a:text-teal-400 prose-code:bg-neutral-200 prose-code:text-neutral-700 prose-pre:min-w-full prose-pre:max-w-xs prose-pre:whitespace-pre-wrap prose-pre:bg-neutral-200 prose-pre:text-left prose-pre:text-neutral-700 dark:prose-code:bg-neutral-800 dark:prose-code:text-neutral-100 dark:prose-pre:bg-neutral-800 dark:prose-pre:text-neutral-100 md:prose-pre:max-w-full max-w-prose leading-relaxed font-normal tracking-wide text-neutral-900 dark:text-neutral-100"
 >
   <div class="mb-10 bg-clip-content md:float-right md:mb-0">
-    <HeroImage classes="rounded-full overflow-hidden md:ml-5" width="300" height="300" />
+    <enhanced:img
+      src={meImage}
+      alt="myself speaking in public"
+      class="overflow-hidden rounded-full md:ml-5"
+    />
   </div>
   <p class="max-w-prose">
     My name is <span

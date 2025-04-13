@@ -9,29 +9,7 @@ date: 2023-12-27
 layout: development
 ---
 
-<script>
-  import Image from '$lib/components/Image.svelte';
-  import mainImage from '$lib/assets/images/blog/priority.jpg?w=1000&h=600';
-  import mainImageWebP from '$lib/assets/images/blog/priority.jpg?w=1000&h=600&format=webp&srcset';
-	import PriorityHigh from '$lib/assets/images/blog/priority-high.png?w=1000&h=600';
-	import PriorityHighWebP from '$lib/assets/images/blog/priority-high.png?w=1000&h=600&format=webp&srcset';
-	import PriorityLowHigh from '$lib/assets/images/blog/priority-low-high.png?w=1000&h=600';
-	import PriorityLowHighWebP from '$lib/assets/images/blog/priority-low-high.png?w=1000&h=600&format=webp&srcset';
-	import PriorityHighHigh from '$lib/assets/images/blog/priority-high-high.png?w=1000&h=600';
-	import PriorityHighHighWebP from '$lib/assets/images/blog/priority-high-high.png?w=1000&h=600&format=webp&srcset';
-</script>
-
-<Image
-	wepImage={mainImageWebP}
-	jpegImage={mainImage}
-	alt='the start line of a running track'
-	width={1000}
-	height={600}
-	placeholder='blur'
-	classes='mt-6 mb-8 rounded-lg drop-shadow-md'
-	loading='eager'
-	feedImage=true
-/>
+<enhanced:img src='$lib/assets/images/blog/priority.jpg?enhanced&w=1000&h=600' alt='the start line of a running track' class='mt-6 mb-8 rounded-lg drop-shadow-md' />
 
 Today I want to dive into Fetch Priority and Largest Contentful Paint (LCP). LCP is a Core Web Vitals metric that measures the time it takes for the largest content element to become visible within the viewport. It is a good indicator of when the main content of the page is loaded and is used to measure the perceived loading speed of a page.
 
@@ -55,29 +33,11 @@ Because images are expensive to display, the browser waits until it really needs
 
 If you go to the browser network tab and you reload the page, you will probably see that the first image is set to **_high_** priority.
 
-<Image
-wepImage={PriorityHighWebP}
-jpegImage={PriorityHigh}
-alt='devtool showing priority changing from low to high'
-width={1000}
-height={600}
-placeholder='blur'
-classes='mt-6 mb-8 rounded-lg drop-shadow-md'
-loading='lazy'
-/>
+<enhanced:img src="$lib/assets/images/blog/priority-high.png?enhanced&w=1000&h=600" alt="devtool showing priority changing from low to high" class="mt-6 mb-8 rounded-lg drop-shadow-md" lazy="true" />
 
 However, it you toggle to the **_Slow 3G_** network in the Throttling dropdown, you will see that, at first, the image is set in **_low_** priority. And after a few milliseconds, the priority is changed to **_high_** as the browser realizes that the image is in the viewport (if you can't see this because it happens too fast, you can tick the **_Big request row_** checkbox).
 
-<Image
-wepImage={PriorityLowHighWebP}
-jpegImage={PriorityLowHigh}
-alt='devtool showing priority changing from low to high'
-width={1000}
-height={600}
-placeholder='blur'
-classes='mt-6 mb-8 rounded-lg drop-shadow-md'
-loading='lazy'
-/>
+<enhanced:img src="$lib/assets/images/blog/priority-low-high.png?enhanced&w=1000&h=600" alt="devtool showing priority changing from low to high" class="mt-6 mb-8 rounded-lg drop-shadow-md" lazy="true" />
 
 ### How can I decide the priority of an element?
 
@@ -97,16 +57,7 @@ We can do it using the `fetchpriority` attribute in the following way:
 
 and the result would be the following:
 
-<Image
-wepImage={PriorityHighHighWebP}
-jpegImage={PriorityHighHigh}
-alt='devtool showing priority not changing from high'
-width={1000}
-height={600}
-placeholder='blur'
-classes='mt-6 mb-8 rounded-lg drop-shadow-md'
-loading='lazy'
-/>
+<enhanced:img src="$lib/assets/images/blog/priority-high-high.png?enhanced&w=1000&h=600" alt="devtool showing priority not changing from high" class="mt-6 mb-8 rounded-lg drop-shadow-md" lazy="true" />
 
 If you decide to add the `fetchpriority` attribute to an element, make sure you do not have the `loading` attribute set to `lazy`. You don't want it anyway if the image is the LCP element.
 
