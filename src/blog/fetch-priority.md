@@ -10,14 +10,10 @@ layout: development
 ---
 
 <script>
-  // import Image from '$lib/components/Image.svelte';
   import mainImage from '$lib/assets/images/blog/priority.jpg?enhanced&w=1000&h=600&quality=50';
 	import PriorityHigh from '$lib/assets/images/blog/priority-high.png?enhanced&w=1000&h=600quality=50&lazy=true';
-	// import PriorityHighWebP from '$lib/assets/images/blog/priority-high.png?w=1000&h=600&format=webp&srcset';
 	import PriorityLowHigh from '$lib/assets/images/blog/priority-low-high.png?enhanced&w=1000&h=600quality=50&lazy=true';
-	// import PriorityLowHighWebP from '$lib/assets/images/blog/priority-low-high.png?w=1000&h=600&format=webp&srcset';
 	import PriorityHighHigh from '$lib/assets/images/blog/priority-high-high.png?enhanced&w=1000&h=600quality=50&lazy=true';
-	// import PriorityHighHighWebP from '$lib/assets/images/blog/priority-high-high.png?w=1000&h=600&format=webp&srcset';
 </script>
 
 <enhanced:img
