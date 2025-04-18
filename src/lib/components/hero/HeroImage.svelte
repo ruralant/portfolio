@@ -1,18 +1,6 @@
 <script>
-  import meImage from "$lib/assets/images/home/me-b-and-w.jpg?enhanced&w=400&h=400";
-  import Image from "$lib/components/Image.svelte";
-
+  import meImage from "$lib/assets/images/home/me-b-w.jpg?enhanced&w=400&h=400&quality=100";
   let { width, height, classes } = $props();
 </script>
 
-<!-- <Image
-  wepImage={meImageWebp}
-  jpegImage={meImage}
-  avifImage={meImageAvif}
-  alt={"myself speaking in public"}
-  {width}
-  {height}
-  loading={"eager"}
-  {classes}
-/> -->
 <enhanced:img src={meImage} alt="myself speaking in public" class={classes} />
