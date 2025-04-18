@@ -1,5 +1,5 @@
 <script>
-  import HeroImage from "$lib/components/hero/HeroImage.svelte";
+  import meImage from "$lib/assets/images/home/me-b-w.jpg?enhanced&w=400&h=400&quality=100";
 </script>
 
 <div class="flex flex-wrap items-center justify-center pt-10 sm:pt-9">
@@ -26,9 +26,9 @@
       </p>
     </div>
   </div>
-  <HeroImage
-    width="400"
-    height="400"
-    classes="rounded-full overflow-hidden mt-10 xl:mt-0 lg:ml-20"
+  <enhanced:img
+    src={meImage}
+    alt="myself speaking in public"
+    class="mt-10 overflow-hidden rounded-full lg:ml-20 xl:mt-0"
   />
 </div>
