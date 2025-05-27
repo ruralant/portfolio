@@ -42,6 +42,7 @@ module.exports = {
       purple: colors.purple,
       slate: colors.slate,
       teal: colors.teal,
+      blue: colors.blue,
       "hero-color-1": `#8797e8`,
       "hero-color-2": `#a162e8`,
       "hero-color-3": `#f093b0`,
