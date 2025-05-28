@@ -1,6 +1,6 @@
 <script>
   import Skill from "$lib/components/about/Skill.svelte";
-  import meImage from "$lib/assets/images/home/me-b-w.jpg?enhanced&w=300&h=300&quality=100";
+  import meImage from "$lib/assets/images/home/me-b-and-w.jpg?enhanced&w=300&h=300&quality=50";
   import { calculateExperience } from "$lib/utils/utils.js";
   import { calculatePastExperience } from "$lib/utils/utils.js";
 
