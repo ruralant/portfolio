@@ -1,5 +1,5 @@
 <script>
-  import meImage from "$lib/assets/images/home/me-b-w.jpg?enhanced&w=400&h=400&quality=100";
+  import meImage from "$lib/assets/images/home/me-b-and-w.jpg?enhanced&w=600&h=600&quality=50";
 </script>
 
 <div class="flex flex-wrap items-center justify-center pt-10 sm:pt-9">
