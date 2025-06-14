@@ -1,5 +1,5 @@
 <script>
-  import meImage from "$lib/assets/images/home/me-b-and-w.jpg?enhanced&w=300&h=300&quality=50";
+  import meImage from "$lib/assets/images/home/me-b-and-w.jpg?enhanced&w=450&h=450&quality=50";
 </script>
 
 <div class="flex flex-wrap items-center justify-center pt-10 sm:pt-9">
@@ -26,9 +26,11 @@
       </p>
     </div>
   </div>
-  <enhanced:img
-    src={meImage}
-    alt="myself speaking in public"
-    class="mt-10 overflow-hidden rounded-full lg:ml-20 xl:mt-0"
-  />
+  <div class="h-[300px] w-[300px]">
+    <enhanced:img
+      src={meImage}
+      alt="myself speaking in public"
+      class="mt-10 overflow-hidden rounded-full lg:ml-20 xl:mt-0"
+    />
+  </div>
 </div>
