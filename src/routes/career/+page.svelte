@@ -43,7 +43,7 @@
 <h4 class="flex w-full justify-center pt-10 pb-20">
   <span class="text-5xl">👨‍💻</span>
 </h4>
-<div class="flex flex-col pb-10 pb-10">
+<div class="flex flex-col pb-10">
   {#each companies as company, i}
     <Company {company} index={i} />
   {/each}
