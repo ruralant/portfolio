@@ -15,7 +15,7 @@ export const GET = async () => {
 
 const xml = (
   posts
-) => `<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:webfeeds="http://webfeeds.org/rss/1.0">
+) => `<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:webfeeds="http://webfeeds.org/rss/1.0" xmlns:media="http://search.yahoo.com/mrss/">
   <channel>
     <title>Antonio Rossi Website</title>
     <link href="https://www.antoniorossi.net/rss.xml" rel="self"/>
@@ -43,7 +43,8 @@ const xml = (
           <link>
             https://www.antoniorossi.net/blog/${post.slug}
           </link>
-          <description>${post.subtitle}</description>
+          <description><![CDATA[<img src="https://www.antoniorossi.net${post.image}" alt="${post.title}" style="max-width:100%;height:auto;" /><br/>${post.subtitle}]]></description>
+          <media:content url="https://www.antoniorossi.net${post.image}" type="image/jpeg" medium="image" />
           <pubDate>${post.date}</pubDate>
         </item>
       `
