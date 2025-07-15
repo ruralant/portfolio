@@ -3,7 +3,6 @@
   import Instagram from "$lib/components/icons/Instagram.svelte";
   import LinkedIn from "$lib/components/icons/LinkedIn.svelte";
   import Rss from "$lib/components/icons/Rss.svelte";
-  import Twitter from "$lib/components/icons/Twitter.svelte";
 </script>
 
 <div class="bg-space-white dark:bg-space-grey flex flex-col flex-wrap items-center justify-center">
@@ -29,28 +28,12 @@
     <div class="mt-5 flex justify-center">
       <a
         class="mr-4 text-neutral-800 dark:text-neutral-100"
-        href="https://twitter.com/antoniorossidev/"
-        target="_blank"
-        rel="noopener noreferrer"
-        aria-label="Twitter logo"
-      >
-        <Twitter />
-      </a>
-      <a
-        class="mr-4 text-neutral-800 dark:text-neutral-100"
         href="https://www.linkedin.com/in/antoniorossii/"
         target="_blank"
         rel="noopener noreferrer"
         aria-label="LinkedIn logo"
       >
         <LinkedIn />
-      </a>
-      <a
-        class="mr-4 text-neutral-800 dark:text-neutral-100"
-        href="https://www.instagram.com/antoniorossidigital/"
-        aria-label="instagram logo"
-      >
-        <Instagram />
       </a>
       <a
         class="-mt-[1px] mr-4 text-neutral-800 dark:text-neutral-100"
