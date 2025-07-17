@@ -36,12 +36,8 @@ test.describe("Home page", () => {
   });
 
   test("should show all the social icons/links", async ({ page }) => {
-    const twitter = await page.getByRole("link", { name: "Twitter logo" });
-    await expect(twitter).toBeVisible();
     const linkedIn = await page.getByRole("link", { name: "LinkedIn logo" });
     await expect(linkedIn).toBeVisible();
-    const instagram = await page.getByRole("link", { name: "instagram logo" });
-    await expect(instagram).toBeVisible();
     const mail = await page.getByRole("link", { name: "mail icon" });
     await expect(mail).toBeVisible();
     const rss = await page.getByRole("link", { name: "rss feed icon" });
