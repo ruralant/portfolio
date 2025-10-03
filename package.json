@@ -1,6 +1,6 @@
 {
   "name": "personal-website",
-  "version": "3.3.5",
+  "version": "3.3.6",
   "scripts": {
     "dev": "vite dev",
     "build": "vite build",
@@ -12,15 +12,15 @@
     "prepare": "husky"
   },
   "devDependencies": {
-    "@commitlint/cli": "^19.8.1",
-    "@commitlint/config-conventional": "^19.8.1",
-    "@playwright/test": "^1.55.0",
-    "@sveltejs/adapter-netlify": "^5.2.3",
-    "@sveltejs/enhanced-img": "^0.8.1",
-    "@sveltejs/kit": "^2.42.2",
-    "@sveltejs/vite-plugin-svelte": "^6.2.0",
-    "@tailwindcss/postcss": "^4.1.13",
-    "@tailwindcss/typography": "^0.5.18",
+    "@commitlint/cli": "^20.1.0",
+    "@commitlint/config-conventional": "^20.0.0",
+    "@playwright/test": "^1.55.1",
+    "@sveltejs/adapter-netlify": "^5.2.4",
+    "@sveltejs/enhanced-img": "^0.8.3",
+    "@sveltejs/kit": "^2.43.8",
+    "@sveltejs/vite-plugin-svelte": "^6.2.1",
+    "@tailwindcss/postcss": "^4.1.14",
+    "@tailwindcss/typography": "^0.5.19",
     "autoprefixer": "^10.4.21",
     "eslint": "^9.36.0",
     "eslint-config-prettier": "^10.1.8",
@@ -31,10 +31,10 @@
     "prettier-plugin-svelte": "^3.4.0",
     "prettier-plugin-tailwindcss": "^0.6.14",
     "prism-themes": "^1.9.0",
-    "svelte": "^5.39.3",
-    "svelte-check": "^4.3.1",
-    "tailwindcss": "^4.1.13",
-    "vite": "^7.1.6"
+    "svelte": "^5.39.8",
+    "svelte-check": "^4.3.2",
+    "tailwindcss": "^4.1.14",
+    "vite": "^7.1.9"
   },
   "type": "module"
 }
