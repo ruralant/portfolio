@@ -4,10 +4,11 @@ test.describe("Blog page", () => {
   test("has a title and image", async ({ page }) => {
     await page.goto("/blog");
 
-    const posts = await page.$$(
-      'a[class="font-Poppins mt-5 flex w-full items-center justify-between overflow-hidden rounded-md bg-white p-4 text-left shadow-md transition duration-300 ease-in-out hover:scale-105 md:w-full dark:bg-neutral-900"]'
-    );
-    const firstPost = posts[0];
+    // Wait for posts to be rendered
+    await page.waitForSelector("ul.flex.flex-col");
+
+    const firstPost = page.locator("a.font-Poppins").first();
+    await expect(firstPost).toBeVisible();
 
     await firstPost.click();
 
