@@ -8,6 +8,12 @@ const config = {
   layout: {
     development: path.resolve("src/lib/blog/_post.svelte")
   },
+  highlight: {
+    alias: {
+      js: "javascript",
+      ts: "typescript"
+    }
+  },
   remarkPlugins: [],
   rehypePlugins: []
 };

@@ -1,6 +1,6 @@
 <script>
   let { total, nextPosts, currentPage } = $props();
-  const pages = Math.ceil(total / 10);
+  const pages = $derived(Math.ceil(total / 10));
 </script>
 
 <div>

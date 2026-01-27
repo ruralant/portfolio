@@ -10,7 +10,7 @@ export const GET = async () => {
       return {
         meta: metadata,
         path: path.slice(2, -3),
-        image: metadata.image || "/default-blog-image.jpg"
+        image: metadata?.mainImage || metadata?.image || "/default-blog-image.jpg"
       };
     })
   );
@@ -18,7 +18,7 @@ export const GET = async () => {
   // Chain operations efficiently and be explicit with types
   return json(
     posts
-      .filter((post) => post.meta.published)
+      .filter((post) => post.meta && post.meta.published)
       .sort((a, b) => Date.parse(b.meta.date) - Date.parse(a.meta.date))
       .slice(0, 6)
   );
