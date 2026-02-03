@@ -18,7 +18,8 @@
     </a>
     <nav class="flex flex-row space-x-4">
       <NavItem text={"Blog"} url={"/blog"} />
-      <NavItem text={"About Me"} url={"/about"} />
+      <NavItem text={"Career"} url={"/career"} />
+      <NavItem text={"About Me"} mobileText={"About"} url={"/about"} />
     </nav>
   </div>
   <div class="flex-0">

@@ -45,6 +45,7 @@ const xml = (
           </link>
           <description><![CDATA[<img src="https://www.antoniorossi.net${post.image}" alt="${post.title}" style="max-width:100%;height:auto;" /><br/>${post.subtitle}]]></description>
           <media:content url="https://www.antoniorossi.net${post.image}" type="image/jpeg" medium="image" />
+          <media:thumbnail url="https://www.antoniorossi.net${post.image}" />
           <pubDate>${post.date}</pubDate>
         </item>
       `

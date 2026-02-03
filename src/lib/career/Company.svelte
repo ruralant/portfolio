@@ -1,103 +1,99 @@
 <script>
-  import Database from "$lib/components/icons/Database.svelte";
-  import Desktop from "../components/icons/Desktop.svelte";
-  import Server from "$lib/components/icons/Server.svelte";
+  import Tag from "$lib/components/blog/Tag.svelte";
 
-  let { company, index } = $props();
-  const even = index % 2 == 0;
-  const { name, from, to, position, techStack, location, logo, image } = company;
-  const { frontEnd, backEnd, tools } = techStack;
+  let { company } = $props();
+
+  // Combine all tech stack items into one array
+  const allTech = $derived([
+    ...company.techStack.frontEnd,
+    ...company.techStack.backEnd,
+    ...company.techStack.tools
+  ]);
 </script>
 
-<div
-  class="subtitle font-Poppins m-auto mb-24 flex w-4/5 items-center justify-between overflow-hidden rounded-md bg-white p-8 shadow-md dark:bg-neutral-900 {even
-    ? ''
-    : 'flex-row-reverse'}"
->
-  <div>
-    <div>
-      <div class="flex items-center">
-        <span class="font-Poppins text-neutral-800 dark:text-neutral-100">{name}</span>
-        <div class="ml-4 h-11 w-11">
-          <img
-            src={logo}
-            alt=""
-            class="w-full rounded-full"
-            height={20}
-            width={20}
-            placeholder="blur"
-          />
-        </div>
-      </div>
-      <p class="text-neutral-800 dark:text-neutral-100">
-        {position}, {location}
-      </p>
-      <p class="mb-6 text-xl text-neutral-800 dark:text-neutral-100">
-        {from} - {to}
-      </p>
-    </div>
-    <div class="flex flex-col text-base">
-      {#if frontEnd.length}
-        <div class="mb-4 flex-1">
-          <div class="flex flex-row">
-            <Desktop />
-            <p class="icon-text ml-1 text-neutral-800 dark:text-neutral-100">Front End</p>
-          </div>
-          <ul class="flex flex-wrap">
-            {#each frontEnd as tech}
-              <li class="mt-2 mr-3 ml-1 text-neutral-800 dark:text-neutral-100">
-                <div class="rounded-lg bg-slate-200 px-2 py-0.5 dark:bg-slate-700">
-                  {tech}
-                </div>
-              </li>
-            {/each}
-          </ul>
-        </div>
-      {/if}
-      {#if backEnd.length}
-        <div class="mb-4 flex-1">
-          <div class="flex flex-row">
-            <Server />
-            <p class="backend-icon-text ml-1 text-neutral-800 dark:text-neutral-100">Back End</p>
-          </div>
-          <ul class="flex flex-wrap">
-            {#each backEnd as tech}
-              <li class="mt-2 mr-3 text-neutral-800 dark:text-neutral-100">
-                <div class="rounded-lg bg-slate-200 px-2 py-0.5 dark:bg-slate-700">
-                  {tech}
-                </div>
-              </li>
-            {/each}
-          </ul>
-        </div>
-      {/if}
-      {#if tools.length}
-        <divc class="flex-1">
-          <div class="flex flex-row items-center">
-            <Database />
-            <p class="tools-icon-text ml-1 text-neutral-800 dark:text-neutral-100">Other Tools</p>
-          </div>
-          <ul class="flex flex-wrap">
-            {#each tools as tech}
-              <li class="mt-2 mr-3 text-neutral-800 dark:text-neutral-100">
-                <div class="rounded-lg bg-slate-200 px-2 py-0.5 dark:bg-slate-700">
-                  {tech}
-                </div>
-              </li>
-            {/each}
-          </ul>
-        </divc>
-      {/if}
-    </div>
+<a href={company.url} target="_blank" rel="noopener noreferrer" class="experience-item group">
+  <div class="date-column">
+    <p class="text-xs font-semibold tracking-wide text-neutral-500 uppercase dark:text-neutral-400">
+      {company.from} — {company.to === "Present" ? "Present" : company.to}
+    </p>
   </div>
-  <div>
-    <img
-      class="rounded-lg align-middle shadow-xs"
-      src={image}
-      alt={`${name} logo`}
-      width={450}
-      height={450}
-      placeholder="blur"
-    />
+
+  <div class="content-column">
+    <h3 class="mb-2">
+      <span
+        class="job-title font-medium text-neutral-800 group-hover:text-teal-600 dark:text-neutral-100 dark:group-hover:text-teal-400"
+      >
+        {company.position} · {company.name}
+      </span>
+    </h3>
+
+    <ul
+      class="description-list mb-4 space-y-2 text-sm leading-normal text-neutral-600 dark:text-neutral-400"
+    >
+      {#each company.description as point}
+        <li class="pl-0">{point}</li>
+      {/each}
+    </ul>
+
+    {#if allTech.length > 0}
+      <ul class="flex flex-wrap gap-2">
+        {#each allTech as tech}
+          <li>
+            <Tag tagName={tech} url={undefined} />
+          </li>
+        {/each}
+      </ul>
+    {/if}
   </div>
-</div>
+</a>
+
+<style>
+  .experience-item {
+    display: grid;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+    grid-template-columns: 150px 1fr;
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: 0.5rem;
+    transition: background-color 0.2s ease;
+  }
+
+  .experience-item:hover {
+    background-color: rgba(203, 213, 225, 0.1);
+  }
+
+  :global(.dark) .experience-item:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+  }
+
+  .date-column {
+    padding-top: 0.25rem;
+  }
+
+  .content-column {
+    min-width: 0;
+  }
+
+  .job-title {
+    transition: color 0.2s ease;
+  }
+
+  .description-list {
+    list-style-type: disc;
+    padding-left: 1.25rem;
+  }
+
+  .description-list li {
+    padding-left: 0.25rem;
+  }
+
+  @media (max-width: 640px) {
+    .experience-item {
+      grid-template-columns: 1fr;
+      gap: 0.5rem;
+      padding: 0.75rem;
+    }
+  }
+</style>
