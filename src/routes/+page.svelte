@@ -3,7 +3,6 @@
   import Contacts from "$lib/index/Contacts.svelte";
   import Articles from "$lib/index/Articles/Articles.svelte";
   let { data } = $props();
-  let { posts } = data;
 </script>
 
 <svelte:head>
@@ -26,6 +25,6 @@
 
 <Hero />
 {#if data.posts}
-  <Articles {posts} />
+  <Articles posts={data.posts} />
 {/if}
 <Contacts />

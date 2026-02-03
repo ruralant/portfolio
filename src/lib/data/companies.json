@@ -1,49 +1,81 @@
 {
   "companies": [
     {
+      "name": "Gentrack",
+      "from": "Mar 2022",
+      "to": "Present",
+      "location": "Global (Remote)",
+      "position": "Senior Software Engineer",
+      "techStack": {
+        "frontEnd": ["React", "TypeScript", "Redux", "Konva", "RTK Query"],
+        "backEnd": ["AWS", "WebSockets", "Node"],
+        "tools": ["Jest", "Playwright"]
+      },
+      "description": [
+        "Working in the R&D department developing clean-tech solutions for energy and utility companies. Products range from distributed energy systems to energy forecasting applications and meter reading solutions.",
+        "Had a key role in developing the first new product the company released in 5 years using a new stack (React, AWS) and upskilled two teams.",
+        "The product is now used by clients in the UK, Europe, Australia and New Zealand.",
+        "Architected the data orchestration pipeline for the most data-intensive workflow, handling millions of meter readings across the globe."
+      ],
+      "url": "https://www.gentrack.com/"
+    },
+    {
       "name": "Fika Community",
       "from": "Jan 2021",
-      "to": "Feb 2022",
+      "to": "Mar 2022",
       "location": "UK (Remote)",
-      "position": "Software Engineer",
+      "position": "Senior Software Engineer",
       "techStack": {
         "frontEnd": ["React", "React Native", "NextJS", "GatsbyJS", "Redux"],
         "backEnd": ["GCP", "Cloud Functions", "Pub-Sub", "Firebase", "Firestore"],
         "tools": ["Jest", "Chai", "Playwright", "Sanity"]
       },
-      "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. At maxime molestiae, velit deleniti dolorum accusantium sed adipisci magnam esse praesentium quisquam corporis ad tempore dolorem laborum tenetur explicabo laudantium nisi.",
-      "logoUrl": "$lib/assets/logos/fika-logo.svg",
-      "imageUrl": "$lib/assets/images/fika.png"
+      "description": [
+        "Mental fitness platform for companies and education institutions with proven science to prevent business risks associated with mental health decline.",
+        "Joined as the second in-house software engineer working on all company products: the React Native mobile application (serving tens of thousands of users) and the Next.js client dashboard (handling hundreds of thousands of data points).",
+        "Developed the recommendation engine and the logic to handle A/B testing for every content of the mobile application.",
+        "Assisted with onboarding and coaching new team members as the team more than doubled."
+      ],
+      "url": "https://www.linkedin.com/company/fika-community/"
     },
     {
       "name": "Jayex Technology",
       "from": "Nov 2016",
-      "to": "Jan 2021",
+      "to": "Dec 2020",
       "location": "London (Remote)",
-      "position": "Full Stack Developer",
+      "position": "Senior Full Stack Developer & Interim Product Manager",
       "techStack": {
         "frontEnd": ["Angular", "PWA", "RxJS", "NativeScript", "UiKit"],
         "backEnd": ["Node", "Express", "PM2", "MongoDB", "Docker", "Kubernetes"],
         "tools": ["Typescript", "Puppeteer", "Mailgun", "Twilio", "Stripe"]
       },
-      "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. At maxime molestiae, velit deleniti dolorum accusantium sed adipisci magnam esse praesentium quisquam corporis ad tempore dolorem laborum tenetur explicabo laudantium nisi.",
-      "logoUrl": "$lib/assets/logos/jayex-logo.jpeg",
-      "imageUrl": "$lib/assets/images/jayex.png"
+      "description": [
+        "Developed web and mobile applications for the UK and Australian healthcare sector.",
+        "Joined as the first engineer of a new team hired to rewrite all legacy applications with modern technologies. Built all products from scratch using Angular, Node, MongoDB, Docker and Kubernetes.",
+        "Implemented several customer-facing products including a WebRTC conference call platform and a NativeScript mobile application serving millions of patients in Australia.",
+        "Over 40% of surgeries in the UK in 2026 still use the kiosk application developed (with no updates since).",
+        "Managed the dev team and worked on the product roadmap following the departure of the CTO."
+      ],
+      "url": "https://www.jayex.com/"
     },
     {
       "name": "Seedrs",
       "location": "London",
       "from": "Jul 2017",
       "to": "Sep 2017",
-      "position": "Software Engineer",
+      "position": "Junior Software Engineer",
       "techStack": {
         "frontEnd": ["React", "Haml", "Sass"],
         "backEnd": ["Ruby on Rails", "MySQL"],
         "tools": ["Stripe", "MailChimp", "Salesforce", "Vimeo", "Cucumber"]
       },
-      "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. At maxime molestiae, velit deleniti dolorum accusantium sed adipisci magnam esse praesentium quisquam corporis ad tempore dolorem laborum tenetur explicabo laudantium nisi.",
-      "logoUrl": "$lib/assets/logos/seedrs-logo.jpeg",
-      "imageUrl": "$lib/assets/images/seedrs.png"
+      "description": [
+        "The most active equity crowdfunding platform in the UK and Europe.",
+        "Worked on improving the scalability of the monolith Ruby on Rails application.",
+        "Involved in the redesign of the front-end using newer and more flexible technologies.",
+        "Transitioned the test and build environments from local machines to a cloud-based system in AWS."
+      ],
+      "url": "https://europe.republic.com/"
     },
     {
       "name": "Booking.com",
@@ -56,9 +88,15 @@
         "backEnd": [],
         "tools": []
       },
-      "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. At maxime molestiae, velit deleniti dolorum accusantium sed adipisci magnam esse praesentium quisquam corporis ad tempore dolorem laborum tenetur explicabo laudantium nisi.",
-      "logoUrl": "$lib/assets/logos/booking-logo.jpeg",
-      "imageUrl": "$lib/assets/images/booking.png"
+      "description": [
+        "Assisted Hotels and Accommodations during the registration process and performed risk checks to ensure security and quality standards.",
+        "Helped establish a system that completely excluded security risks caused by fraudulent properties.",
+        "Risk mitigation through detection of fraudulent activity and security checks for hotels and accommodations registering worldwide.",
+        "Verified that new property web pages had accurate information and developed the quality and quantity of the company's portfolio.",
+        "Delivered training to partners on various topics including Extranet interface, rates and prices, and availability system.",
+        "Contributed to bug-reporting, operational and procedural improvements, and SEO enhancements."
+      ],
+      "url": "https://www.booking.com/"
     },
     {
       "name": "Anglia Ruskin University",
@@ -71,9 +109,15 @@
         "backEnd": [],
         "tools": []
       },
-      "description": "Lorem ipsum dolor sit amet consectetur, adipisicing elit. At maxime molestiae, velit deleniti dolorum accusantium sed adipisci magnam esse praesentium quisquam corporis ad tempore dolorem laborum tenetur explicabo laudantium nisi.",
-      "logoUrl": "$lib/assets/logos/aru-logo.jpeg",
-      "imageUrl": "$lib/assets/images/aru.png"
+      "description": [
+        "Research Project: The Mutual Shaping of the Technological and the Social: Mobile Apps in the Self-Management of Type I and II Diabetes.",
+        "Focused on the use of mobile apps on iOS and Android platforms for diabetes management in healthcare delivery programs.",
+        "Identified best practices through analysis of market leader apps code lines.",
+        "Implemented different APIs allowing communication between the app and external devices.",
+        "Collected and analyzed data/information to identify potential opportunities and issues.",
+        "Updated information and formatted research documents."
+      ],
+      "url": "https://aru.ac.uk/"
     }
   ]
 }

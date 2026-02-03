@@ -4,8 +4,13 @@
   import Pagination from "$lib/components/blog/Pagination.svelte";
   let { data } = $props();
 
-  const postsToDisplay = writable(data.posts.slice(0, 10));
+  const postsToDisplay = writable([]);
   const currentPage = writable(1);
+
+  // Initialize with first 10 posts
+  $effect(() => {
+    postsToDisplay.set(data.posts.slice(0, 10));
+  });
 
   const nextPosts = (start, end) => {
     postsToDisplay.set(data.posts.slice(start, end));
