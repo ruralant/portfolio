@@ -5,7 +5,8 @@
       "from": "Mar 2022",
       "to": "Present",
       "location": "Global (Remote)",
-      "position": "Senior Software Engineer",
+      "sector": "Clean Tech / Energy",
+      "role": "Senior Software Engineer",
       "techStack": {
         "frontEnd": ["React", "TypeScript", "Redux", "Konva", "RTK Query"],
         "backEnd": ["AWS", "WebSockets", "Node"],
@@ -24,7 +25,8 @@
       "from": "Jan 2021",
       "to": "Mar 2022",
       "location": "UK (Remote)",
-      "position": "Senior Software Engineer",
+      "sector": "Mental Health / Wellness",
+      "role": "Senior Software Engineer",
       "techStack": {
         "frontEnd": ["React", "React Native", "NextJS", "GatsbyJS", "Redux"],
         "backEnd": ["GCP", "Cloud Functions", "Pub-Sub", "Firebase", "Firestore"],
@@ -43,7 +45,8 @@
       "from": "Nov 2016",
       "to": "Dec 2020",
       "location": "London (Remote)",
-      "position": "Senior Full Stack Developer & Interim Product Manager",
+      "sector": "Healthcare",
+      "role": "Software Engineer",
       "techStack": {
         "frontEnd": ["Angular", "PWA", "RxJS", "NativeScript", "UiKit"],
         "backEnd": ["Node", "Express", "PM2", "MongoDB", "Docker", "Kubernetes"],
@@ -63,7 +66,8 @@
       "location": "London",
       "from": "Jul 2017",
       "to": "Sep 2017",
-      "position": "Junior Software Engineer",
+      "role": "Junior Software Engineer",
+      "sector": "Finance / Equity Crowdfunding",
       "techStack": {
         "frontEnd": ["React", "Haml", "Sass"],
         "backEnd": ["Ruby on Rails", "MySQL"],
@@ -82,7 +86,8 @@
       "from": "Aug 2014",
       "to": "Jul 2016",
       "location": "Cambridge",
-      "position": "Partner Support Representative",
+      "sector": "Travel / Hospitality",
+      "role": "Partner Support Representative",
       "techStack": {
         "frontEnd": [],
         "backEnd": [],
@@ -103,7 +108,8 @@
       "from": "Jan 2014",
       "to": "Aug 2014",
       "location": "Cambridge",
-      "position": "Research Assistant",
+      "role": "Research Assistant",
+      "sector": "Education / Research",
       "techStack": {
         "frontEnd": [],
         "backEnd": [],
