@@ -16,6 +16,16 @@
     <p class="text-xs font-semibold tracking-wide text-neutral-500 uppercase dark:text-neutral-400">
       {company.from} — {company.to === "Present" ? "Present" : company.to}
     </p>
+    {#if company.location || company.sector}
+      <div class="mt-2 space-y-1 text-xs text-neutral-500 dark:text-neutral-500">
+        {#if company.location}
+          <p>{company.location}</p>
+        {/if}
+        {#if company.sector}
+          <p>{company.sector}</p>
+        {/if}
+      </div>
+    {/if}
   </div>
 
   <div class="content-column">
@@ -23,7 +33,7 @@
       <span
         class="job-title font-medium text-neutral-800 group-hover:text-teal-600 dark:text-neutral-100 dark:group-hover:text-teal-400"
       >
-        {company.position} · {company.name}
+        {company.role} · {company.name}
       </span>
     </h3>
 
