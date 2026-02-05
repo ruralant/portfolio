@@ -5,7 +5,7 @@
 {#if skill && percentage}
   <div>
     <div class="flex items-center justify-between">
-      <span class="mr-2">{skill.name}</span>
+      <span class="mr-2 text-neutral-800 dark:text-neutral-100">{skill.name}</span>
     </div>
     <div class="progress-bar h-4 w-full bg-slate-200 dark:bg-neutral-800">
       <div class="progress-bar-fill bg-progress-bar-blue" style={`width: ${percentage}%`}></div>

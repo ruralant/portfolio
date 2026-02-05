@@ -11,8 +11,13 @@
   ]);
 </script>
 
-<a href={company.url} target="_blank" rel="noopener noreferrer" class="experience-item group">
-  <div class="date-column">
+<a
+  href={company.url}
+  target="_blank"
+  rel="noopener noreferrer"
+  class="group bg-almost-white dark:bg-light-space-grey grid cursor-pointer grid-cols-1 gap-2 rounded-lg p-3 no-underline shadow-md transition-colors duration-200 md:grid-cols-[150px_1fr] md:gap-4 md:p-4"
+>
+  <div class="pt-1 text-center md:text-left">
     <p class="text-xs font-semibold tracking-wide text-neutral-500 uppercase dark:text-neutral-400">
       {company.from} — {company.to === "Present" ? "Present" : company.to}
     </p>
@@ -28,20 +33,20 @@
     {/if}
   </div>
 
-  <div class="content-column">
+  <div class="min-w-0 text-left sm:text-center md:text-left">
     <h3 class="mb-2">
       <span
-        class="job-title font-medium text-neutral-800 group-hover:text-teal-600 dark:text-neutral-100 dark:group-hover:text-teal-400"
+        class="font-medium text-neutral-800 transition-colors duration-200 group-hover:text-teal-600 dark:text-neutral-100 dark:group-hover:text-teal-400"
       >
         {company.role} · {company.name}
       </span>
     </h3>
 
     <ul
-      class="description-list mb-4 space-y-2 text-sm leading-normal text-neutral-600 dark:text-neutral-400"
+      class="mb-4 list-inside list-disc space-y-2 pl-0 text-sm leading-normal text-neutral-600 sm:list-outside sm:pl-5 dark:text-neutral-400"
     >
       {#each company.description as point}
-        <li class="pl-0">{point}</li>
+        <li class="pl-1">{point}</li>
       {/each}
     </ul>
 
@@ -56,54 +61,3 @@
     {/if}
   </div>
 </a>
-
-<style>
-  .experience-item {
-    display: grid;
-    text-decoration: none;
-    color: inherit;
-    cursor: pointer;
-    grid-template-columns: 150px 1fr;
-    gap: 1rem;
-    padding: 1rem;
-    border-radius: 0.5rem;
-    transition: background-color 0.2s ease;
-  }
-
-  .experience-item:hover {
-    background-color: rgba(203, 213, 225, 0.1);
-  }
-
-  :global(.dark) .experience-item:hover {
-    background-color: rgba(255, 255, 255, 0.05);
-  }
-
-  .date-column {
-    padding-top: 0.25rem;
-  }
-
-  .content-column {
-    min-width: 0;
-  }
-
-  .job-title {
-    transition: color 0.2s ease;
-  }
-
-  .description-list {
-    list-style-type: disc;
-    padding-left: 1.25rem;
-  }
-
-  .description-list li {
-    padding-left: 0.25rem;
-  }
-
-  @media (max-width: 640px) {
-    .experience-item {
-      grid-template-columns: 1fr;
-      gap: 0.5rem;
-      padding: 0.75rem;
-    }
-  }
-</style>

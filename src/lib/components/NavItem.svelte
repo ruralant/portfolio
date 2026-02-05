@@ -7,26 +7,9 @@
   href={url}
 >
   {#if mobileText}
-    <span class="nav-mobile-label">{mobileText}</span>
-    <span class="nav-desktop-label">{text}</span>
+    <span class="md:hidden">{mobileText}</span>
+    <span class="hidden md:inline">{text}</span>
   {:else}
     {text}
   {/if}
 </a>
-
-<style>
-  .nav-mobile-label {
-    display: none;
-  }
-  .nav-desktop-label {
-    display: inline;
-  }
-  @media (max-width: 639px) {
-    .nav-mobile-label {
-      display: inline;
-    }
-    .nav-desktop-label {
-      display: none;
-    }
-  }
-</style>

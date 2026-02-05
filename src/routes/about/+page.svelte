@@ -32,111 +32,101 @@
   const halfWayExperience = Math.round(maxExperience / 2);
 </script>
 
-<h1 class="font-Cormorant m-0 pt-10 pb-5 text-5xl text-neutral-800 md:pt-0 dark:text-neutral-100">
+<h1
+  class="font-Cormorant m-0 pt-10 pb-8 text-5xl text-neutral-800 md:pt-0 md:text-6xl dark:text-neutral-100"
+>
   About me
 </h1>
 
-<div
-  class="font-Roboto dark:prose-invert lg:prose-xl prose-a:text-teal-400 prose-code:bg-neutral-200 prose-code:text-neutral-700 prose-pre:min-w-full prose-pre:max-w-xs prose-pre:whitespace-pre-wrap prose-pre:bg-neutral-200 prose-pre:text-left prose-pre:text-neutral-700 dark:prose-code:bg-neutral-800 dark:prose-code:text-neutral-100 dark:prose-pre:bg-neutral-800 dark:prose-pre:text-neutral-100 md:prose-pre:max-w-full max-w-prose leading-relaxed font-normal tracking-wide text-neutral-900 dark:text-neutral-100"
->
-  <div class="mb-10 bg-clip-content md:float-right md:mb-0">
+<div class="font-Roboto max-w-3xl">
+  <div class="mb-12 bg-clip-content md:float-right md:mb-6 md:ml-8">
     <enhanced:img
       src={meImage}
       alt="myself speaking in public"
-      class="overflow-hidden rounded-full md:ml-5"
+      class="overflow-hidden rounded-full"
     />
   </div>
-  <p class="max-w-prose">
-    My name is <span
-      class="bg-gradient-to-r from-purple-600 to-red-500 bg-clip-text text-transparent dark:from-purple-500 dark:to-red-400"
-      >Antonio</span
-    > and I am a software engineer with a passion for developing green software.
-  </p>
-  <p class="mt-5">
-    I specialise in <span
-      class="bg-gradient-to-r from-purple-600 to-red-500 bg-clip-text text-transparent dark:from-purple-500 dark:to-red-400"
-      >React</span
-    >,
-    <span
-      class="bg-gradient-to-r from-purple-600 to-red-500 bg-clip-text text-transparent dark:from-purple-500 dark:to-red-400"
-      >Svelte</span
-    >,
-    <span
-      class="bg-gradient-to-r from-purple-600 to-red-500 bg-clip-text text-transparent dark:from-purple-500 dark:to-red-400"
-      >Node</span
-    >,
-    <span
-      class="bg-gradient-to-r from-purple-600 to-red-500 bg-clip-text text-transparent dark:from-purple-500 dark:to-red-400"
-      >AWS</span
-    >, and
-    <span
-      class="bg-gradient-to-r from-purple-600 to-red-500 bg-clip-text text-transparent dark:from-purple-500 dark:to-red-400"
-      >Typescript</span
-    >, and I have years of experience developing efficient and sustainable software solutions.
-  </p>
 
-  <p class="mt-5">
-    I strongly believe in the importance of creating software that is environmentally responsible,
-    and I am committed to incorporating eco-friendly practices into my work whenever possible. By
-    focusing on reducing energy consumption, minimising waste, and using sustainable resources, <span
-      class="bg-gradient-to-r from-purple-600 to-red-500 bg-clip-text text-transparent dark:from-purple-500 dark:to-red-400"
-      >I strive to create software that is efficient, cost-effective and environmentally conscious.</span
-    >
-  </p>
+  <div class="space-y-6 text-lg leading-8 text-neutral-700 dark:text-neutral-300">
+    <p>
+      My name is <span
+        class="bg-gradient-to-r from-purple-600 to-red-500 bg-clip-text font-medium text-transparent dark:from-purple-500 dark:to-red-400"
+        >Antonio</span
+      > and I am a software engineer with a passion for developing green software.
+    </p>
 
-  <p class="mt-5">
-    When I'm not coding, you usually find me trail running in the countryside or climbing. I have a
-    deep appreciation for nature and enjoy spending time in the great outdoors. I enjoy traveling
-    slow, by train, bicycle, or on foot. I did the Camino de Santiago and several other
-    long-distance walks and hikes.
-  </p>
+    <p>
+      I specialise in <span class="font-medium text-neutral-900 dark:text-neutral-100"
+        >React, Svelte, Node, AWS, and Typescript</span
+      >, and I have years of experience developing efficient and sustainable software solutions.
+    </p>
 
-  <p class="mt-5">
-    In my free time, I also grow my own food in an allotment, which allows me to practice
-    sustainable living and connect with the earth.
-  </p>
+    <p>
+      I strongly believe in the importance of creating software that is environmentally responsible,
+      and I am committed to incorporating eco-friendly practices into my work whenever possible. By
+      focusing on reducing energy consumption, minimising waste, and using sustainable resources,
+      <span class="font-medium text-neutral-900 dark:text-neutral-100"
+        >I strive to create software that is efficient, cost-effective and environmentally
+        conscious.</span
+      >
+    </p>
 
-  <p class="mt-5">
-    Thank you for taking your time to learn a little but more about myself. If you have any
-    questions, if we have passions in common, or if you just want to say hi, do not hesitate to
-    contact me at
-    <a href="mailto:hello@antoniorossi.net">
-      <span
-        class="via-hero-color-2 via-hero-color-5 from-hero-color-1 to-hero-color-6 dark:from-hero-color-1 dark:via-hero-color-2 dark:via-hero-color-3 dark:to-hero-color-4 m-0 bg-linear-to-l from-30% via-50% via-70% to-94% bg-clip-text leading-[1.15] text-transparent dark:from-30% dark:via-50% dark:via-70% dark:to-94%"
-        >hello@antoniorossi.net
-      </span>
-    </a>
-  </p>
-  <div>
-    <h2 class="mt-5 mb-0! text-xl font-normal tracking-normal">Skills and Experience</h2>
-    <div class="flex justify-between text-base">
-      <span class="mt-5 mb-0 flex-1 text-neutral-400 dark:text-neutral-600">YEARS</span>
-      <span class="mt-5 mb-0 flex flex-1 justify-center text-neutral-400 dark:text-neutral-600"
+    <p>
+      When I'm not coding, you usually find me trail running in the countryside or climbing. I have
+      a deep appreciation for nature and enjoy spending time in the great outdoors. I enjoy
+      traveling slow, by train, bicycle, or on foot. I did the Camino de Santiago and several other
+      long-distance walks and hikes.
+    </p>
+
+    <p>
+      In my free time, I also grow my own food in an allotment, which allows me to practice
+      sustainable living and connect with the earth.
+    </p>
+
+    <p>
+      Thank you for taking your time to learn a little but more about myself. If you have any
+      questions, if we have passions in common, or if you just want to say hi, do not hesitate to
+      contact me at
+      <a
+        href="mailto:hello@antoniorossi.net"
+        class="font-medium text-teal-600 underline decoration-teal-600/30 underline-offset-4 transition-colors hover:text-teal-500 hover:decoration-teal-500/50 dark:text-teal-400 dark:decoration-teal-400/30 dark:hover:text-teal-300 dark:hover:decoration-teal-300/50"
+      >
+        hello@antoniorossi.net
+      </a>
+    </p>
+  </div>
+
+  <div class="clear-both mt-16">
+    <h2 class="font-Cormorant mb-8 text-3xl font-medium text-neutral-800 dark:text-neutral-100">
+      Skills and Experience
+    </h2>
+    <div class="mb-4 flex justify-between text-sm font-medium tracking-wider uppercase">
+      <span class="flex-1 text-neutral-400 dark:text-neutral-600">Years</span>
+      <span class="flex flex-1 justify-center text-neutral-400 dark:text-neutral-600"
         ><span
-          class="flex h-7 w-7 items-center justify-center rounded-full border-2 border-solid border-neutral-200 dark:border-neutral-800"
+          class="flex h-8 w-8 items-center justify-center rounded-full border-2 border-solid border-neutral-300 text-base dark:border-neutral-700"
           >{halfWayExperience}
         </span></span
       >
-      <span
-        class="mt-5 mb-0 flex flex-1 justify-end text-left text-neutral-400 dark:text-neutral-600"
+      <span class="flex flex-1 justify-end text-neutral-400 dark:text-neutral-600"
         ><span
-          class="flex h-7 w-7 items-center justify-center rounded-full border-2 border-solid border-neutral-200 dark:border-neutral-800"
+          class="flex h-8 w-8 items-center justify-center rounded-full border-2 border-solid border-neutral-300 text-base dark:border-neutral-700"
           >{maxExperience}</span
         >
       </span>
     </div>
-    <div style="margin-top: -1px" class="grid grid-cols-1 grid-rows-1">
-      <table style="grid-column: 1; grid-row: 1;">
+    <div class="grid grid-cols-1 grid-rows-1">
+      <table class="col-start-1 row-start-1">
         <tbody>
           <tr>
             <td
-              class="w-6/12 border-r-2 border-l-0 border-solid border-neutral-200 dark:border-neutral-800"
+              class="w-6/12 border-r-2 border-l-0 border-solid border-neutral-300 dark:border-neutral-700"
             ></td>
-            <td class="w-6/12 border-solid border-neutral-200 dark:border-neutral-800"></td>
+            <td class="w-6/12 border-solid border-neutral-300 dark:border-neutral-700"></td>
           </tr>
         </tbody>
       </table>
-      <div style="grid-column: 1; grid-row: 1;">
+      <div class="col-start-1 row-start-1">
         {#each orderedSkills as skill}
           <Skill {skill} percentage={(skill.value / orderedSkills[0].value) * 100} />
         {/each}

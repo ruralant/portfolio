@@ -7,7 +7,7 @@ test.beforeEach(async ({ page }) => {
 test.describe("Career page", () => {
   test("should show the main page title", async ({ page }) => {
     const mainTitle = await page.getByRole("heading", {
-      name: "👨‍💻 The cool things I built and where 👨‍💻"
+      name: "The cool things I built and where"
     });
     await expect(mainTitle).toBeVisible();
   });
