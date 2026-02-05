@@ -33,8 +33,8 @@
     {/if}
   </div>
 
-  <div class="min-w-0 text-left sm:text-center md:text-left">
-    <h3 class="mb-2">
+  <div class="min-w-0 text-left">
+    <h3 class="mb-2 sm:text-center md:text-left">
       <span
         class="font-medium text-neutral-800 transition-colors duration-200 group-hover:text-teal-600 dark:text-neutral-100 dark:group-hover:text-teal-400"
       >
