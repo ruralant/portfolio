@@ -16,13 +16,13 @@
     <a class="flex items-center text-neutral-800 no-underline dark:text-neutral-100" href="/">
       <Logo />
     </a>
-    <nav class="flex flex-row space-x-4">
+    <nav class="flex flex-row justify-center space-x-4">
       <NavItem text={"Blog"} url={"/blog"} />
       <NavItem text={"Career"} url={"/career"} />
       <NavItem text={"About Me"} mobileText={"About"} url={"/about"} />
     </nav>
   </div>
-  <div class="flex-0">
+  <div class="flex items-center justify-end">
     <a
       href="/app/theme"
       class="block"
