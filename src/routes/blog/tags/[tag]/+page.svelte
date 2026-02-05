@@ -5,7 +5,9 @@
 
 <div class="w-full text-neutral-800 sm:my-9 dark:text-neutral-100">
   <div class="flex items-center md:justify-center">
-    <h1 class="font-Cormorant m-0 pl-4 text-center text-3xl leading-[1.15]">
+    <h1
+      class="font-Cormorant m-0 pt-10 pb-8 text-center text-4xl leading-tight font-medium md:pt-0 md:text-5xl dark:text-neutral-100"
+    >
       This is what I wrote about <span class="capitalize">{data.tag}</span>
     </h1>
   </div>
