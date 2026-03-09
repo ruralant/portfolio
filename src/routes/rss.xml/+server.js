@@ -13,6 +13,14 @@ export const GET = async () => {
   return new Response(body, options);
 };
 
+const escapeXml = (str) =>
+  str
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&apos;");
+
 const xml = (
   posts
 ) => `<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:webfeeds="http://webfeeds.org/rss/1.0" xmlns:media="http://search.yahoo.com/mrss/">
@@ -36,16 +44,16 @@ const xml = (
         (post) =>
           `
         <item>
-          <guid isPermaLink="true">
-            https://www.antoniorossi.net/blog/${post.slug}
-          </guid>
-          <title>${post.title}</title>
-          <link>
-            https://www.antoniorossi.net/blog/${post.slug}
-          </link>
-          <description><![CDATA[<img src="https://www.antoniorossi.net${post.image}" alt="${post.title}" style="max-width:100%;height:auto;" /><br/>${post.subtitle}]]></description>
-          <media:content url="https://www.antoniorossi.net${post.image}" type="image/jpeg" medium="image" />
-          <media:thumbnail url="https://www.antoniorossi.net${post.image}" />
+          <guid isPermaLink="true">https://www.antoniorossi.net/blog/${post.slug}</guid>
+          <title>${escapeXml(post.title)}</title>
+          <link>https://www.antoniorossi.net/blog/${post.slug}</link>
+          <description><![CDATA[${post.mainImage ? `<img src="${post.mainImage}" alt="${escapeXml(post.title)}" style="max-width:100%;height:auto;" /><br/>` : ""}${post.subtitle}]]></description>${
+            post.mainImage
+              ? `
+          <media:content url="${post.mainImage}" type="image/jpeg" medium="image" />
+          <media:thumbnail url="${post.mainImage}" />`
+              : ""
+          }
           <pubDate>${post.date}</pubDate>
         </item>
       `
