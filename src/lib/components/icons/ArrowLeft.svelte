@@ -3,7 +3,7 @@
   height="24"
   stroke-width="1.5"
   viewBox="0 0 24 24"
-  class="stroke-grey-800 h-6 w-6 stroke-current dark:stroke-white"
+  class="h-6 w-6 stroke-current stroke-gray-800 dark:stroke-white"
   fill="none"
   xmlns="http://www.w3.org/2000/svg"
 >
