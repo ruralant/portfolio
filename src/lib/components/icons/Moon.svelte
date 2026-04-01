@@ -2,7 +2,7 @@
   width="24"
   height="24"
   viewBox="0 0 24 24"
-  class="stroke-grey-800 h-6 w-6"
+  class="h-6 w-6 stroke-gray-800"
   fill="none"
   xmlns="http://www.w3.org/2000/svg"
 >

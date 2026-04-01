@@ -1,6 +1,6 @@
 {
   "name": "professional-website",
-  "version": "3.6.0",
+  "version": "3.7.0",
   "scripts": {
     "dev": "vite dev",
     "build": "vite build",
@@ -12,29 +12,28 @@
     "prepare": "husky"
   },
   "devDependencies": {
-    "@commitlint/cli": "^20.4.3",
-    "@commitlint/config-conventional": "^20.4.3",
-    "@playwright/test": "^1.58.2",
+    "@commitlint/cli": "^20.5.0",
+    "@commitlint/config-conventional": "^20.5.0",
+    "@playwright/test": "^1.59.0",
     "@sveltejs/adapter-netlify": "^6.0.4",
-    "@sveltejs/enhanced-img": "^0.10.3",
-    "@sveltejs/kit": "^2.53.4",
-    "@sveltejs/vite-plugin-svelte": "^6.2.4",
-    "@tailwindcss/postcss": "^4.2.1",
+    "@sveltejs/enhanced-img": "^0.10.4",
+    "@sveltejs/kit": "^2.55.0",
+    "@sveltejs/vite-plugin-svelte": "^7.0.0",
     "@tailwindcss/typography": "^0.5.19",
-    "autoprefixer": "^10.4.27",
-    "eslint": "^10.0.3",
+    "@tailwindcss/vite": "^4.2.2",
+    "eslint": "^10.1.0",
     "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-svelte": "^3.15.1",
+    "eslint-plugin-svelte": "^3.16.0",
     "husky": "^9.1.7",
     "mdsvex": "^0.12.7",
     "prettier": "^3.8.1",
     "prettier-plugin-svelte": "^3.5.1",
     "prettier-plugin-tailwindcss": "^0.7.2",
     "prism-themes": "^1.9.0",
-    "svelte": "^5.53.8",
-    "svelte-check": "^4.4.5",
-    "tailwindcss": "^4.2.1",
-    "vite": "^7.3.1"
+    "svelte": "^5.55.1",
+    "svelte-check": "^4.4.6",
+    "tailwindcss": "^4.2.2",
+    "vite": "^8.0.3"
   },
   "type": "module"
 }

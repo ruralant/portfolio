@@ -1,6 +1,57 @@
 @import "tailwindcss";
 
-@config "../tailwind.config.cjs";
+@plugin "@tailwindcss/typography";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  /* Clear default breakpoints and define custom ones */
+  --breakpoint-*: initial;
+  --breakpoint-sm: 375px;
+  --breakpoint-md: 550px;
+  --breakpoint-md2: 600px;
+  --breakpoint-md3: 800px;
+  --breakpoint-lg: 1000px;
+  --breakpoint-xl: 1385px;
+  --breakpoint-xl2: 3000px;
+
+  /* Custom colors (standard palette colors like neutral, red, purple, slate, teal, blue are included by default) */
+  --color-space-grey: #111111;
+  --color-light-space-grey: #151a1a;
+  --color-space-white: #fafafc;
+  --color-almost-white: #fefefe;
+  --color-hero-color-1: #8797e8;
+  --color-hero-color-2: #a162e8;
+  --color-hero-color-3: #f093b0;
+  --color-hero-color-4: #dab56c;
+  --color-hero-color-5: #e47c9d;
+  --color-hero-color-6: #dd9f22;
+  --color-progress-bar-blue: #bf41e0;
+
+  /* Clear default font families and define custom ones */
+  --font-*: initial;
+  --font-Cormorant: "Cormorant", serif;
+  --font-Poppins: "Poppins", sans-serif;
+  --font-Roboto: "Roboto Serif", serif;
+
+  /* Override font sizes that differ from TW v4 defaults */
+  --text-6xl: 4rem;
+  --text-7xl: 5rem;
+  --text-8xl: 6rem;
+}
+
+/* Custom grid-template-columns utilities */
+@utility grid-cols-articles-sm {
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+
+@utility grid-cols-articles-md {
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+}
+
+@utility grid-cols-articles-lg {
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+}
 
 /*
   The default border color has changed to `currentColor` in Tailwind CSS v4,
@@ -17,6 +68,14 @@
   ::backdrop,
   ::file-selector-button {
     border-color: var(--color-gray-200, currentColor);
+  }
+
+  /* Remove default backtick decoration from prose code elements */
+  .prose :where(code)::before {
+    content: none;
+  }
+  .prose :where(code)::after {
+    content: none;
   }
 }
 
