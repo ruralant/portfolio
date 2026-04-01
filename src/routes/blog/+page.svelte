@@ -1,15 +1,13 @@
 <script>
-  import { writable } from "svelte/store";
   import BlogListItem from "$lib/components/blog/BlogListItem.svelte";
   import Pagination from "$lib/components/blog/Pagination.svelte";
   let { data } = $props();
 
-  const postsToDisplay = writable(data.posts.slice(0, 10));
-  const currentPage = writable(1);
+  let currentPage = $state(1);
+  const postsToDisplay = $derived(data.posts.slice((currentPage - 1) * 10, currentPage * 10));
 
-  const nextPosts = (start, end) => {
-    postsToDisplay.set(data.posts.slice(start, end));
-    currentPage.set(end / 10);
+  const goToPage = (page) => {
+    currentPage = page;
   };
 </script>
 
@@ -22,11 +20,11 @@
     </h1>
   </div>
   <ul class="flex flex-col items-center md:mt-5">
-    {#each $postsToDisplay as post}
+    {#each postsToDisplay as post}
       <BlogListItem {post} />
     {/each}
     {#if data.posts.length > 10}
-      <Pagination total={data.posts.length} {nextPosts} {currentPage} />
+      <Pagination total={data.posts.length} {goToPage} {currentPage} />
     {/if}
   </ul>
 </div>
