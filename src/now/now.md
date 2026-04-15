@@ -13,8 +13,7 @@ layout: now
 
 ## Reading
 
-- _Transformative Adaptation_ by Rupert Read, Morgan Phillips and Amanda Scott.
-- _Compost_ by Charles Dowding.
+- _From Source to Sea_ by David Grimes — a fascinating exploration of the Thames and its history.
 
 ## Outside work
 
