@@ -1,6 +1,6 @@
 {
   "name": "professional-website",
-  "version": "3.7.0",
+  "version": "3.7.1",
   "scripts": {
     "dev": "vite dev",
     "build": "vite build",
@@ -17,23 +17,23 @@
     "@playwright/test": "^1.59.0",
     "@sveltejs/adapter-netlify": "^6.0.4",
     "@sveltejs/enhanced-img": "^0.10.4",
-    "@sveltejs/kit": "^2.55.0",
+    "@sveltejs/kit": "^2.57.1",
     "@sveltejs/vite-plugin-svelte": "^7.0.0",
     "@tailwindcss/typography": "^0.5.19",
     "@tailwindcss/vite": "^4.2.2",
-    "eslint": "^10.1.0",
+    "eslint": "^10.2.0",
     "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-svelte": "^3.16.0",
+    "eslint-plugin-svelte": "^3.17.0",
     "husky": "^9.1.7",
     "mdsvex": "^0.12.7",
-    "prettier": "^3.8.1",
+    "prettier": "^3.8.3",
     "prettier-plugin-svelte": "^3.5.1",
     "prettier-plugin-tailwindcss": "^0.7.2",
     "prism-themes": "^1.9.0",
-    "svelte": "^5.55.1",
+    "svelte": "^5.55.4",
     "svelte-check": "^4.4.6",
     "tailwindcss": "^4.2.2",
-    "vite": "^8.0.3"
+    "vite": "^8.0.8"
   },
   "type": "module"
 }
