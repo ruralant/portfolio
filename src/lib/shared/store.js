@@ -1,6 +1,6 @@
 import { writable } from "svelte/store";
 
-export const createWritableStore = (key, startValue) => {
+const createWritableStore = (key, startValue) => {
   const { subscribe, set } = writable(startValue);
 
   return {

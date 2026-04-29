@@ -10,6 +10,7 @@ node_modules
 /.claude
 /.vscode
 /.netlify
+/.fallow
 /test-results/
 /playwright-report/
 /playwright/.cache/

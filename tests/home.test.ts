@@ -1,4 +1,5 @@
 import { expect, test } from "@playwright/test";
+import { testThemeToggle } from "./helpers.js";
 
 test.beforeEach(async ({ page }) => {
   await page.goto("/");
@@ -44,17 +45,5 @@ test.describe("Home page", () => {
     await expect(rss).toBeVisible();
   });
 
-  test("should be able to toggle the theme", async ({ page }) => {
-    const themeToggleIcon = await page.getByRole("link", { name: "toggle light and dark mode" });
-    await themeToggleIcon.click();
-    const darkBackgroundColor = await page.getByRole("main").evaluate((main) => {
-      return window.getComputedStyle(main).getPropertyValue("background-color");
-    });
-    await expect(darkBackgroundColor).toEqual("rgb(17, 17, 17)");
-    await themeToggleIcon.click();
-    const clearBackgroundColor = await page.getByRole("main").evaluate((main) => {
-      return window.getComputedStyle(main).getPropertyValue("background-color");
-    });
-    await expect(clearBackgroundColor).toEqual("rgb(250, 250, 252)");
-  });
+  test("should be able to toggle the theme", ({ page }) => testThemeToggle(page));
 });
