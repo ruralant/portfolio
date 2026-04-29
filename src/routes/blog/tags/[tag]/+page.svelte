@@ -13,7 +13,7 @@
   </div>
   <ul class="flex flex-col items-center md:mt-5">
     {#each data.posts as post}
-      <BlogListItem post={post.meta} />
+      <BlogListItem {post} />
     {/each}
   </ul>
 </div>

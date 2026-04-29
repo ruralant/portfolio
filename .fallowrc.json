@@ -1,0 +1,10 @@
+{
+  "$schema": "https://cdn.fallow.tools/schema/fallowrc.json",
+  "ignoreDependencies": ["@tailwindcss/typography"],
+  "dynamicallyLoaded": [
+    "src/lib/blog/_post.svelte",
+    "src/lib/now/_now.svelte",
+    "src/lib/components/icons/ArrowLeft.svelte",
+    "src/lib/components/Image.svelte"
+  ]
+}
