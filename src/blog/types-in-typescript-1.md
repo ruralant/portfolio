@@ -10,22 +10,16 @@ layout: development
 ---
 
 <script>
+  import mainImage from '$lib/assets/images/blog/types-typewriter.jpg?enhanced';
   import Image from '$lib/components/Image.svelte';
-  import mainImage from '$lib/assets/images/blog/types-typewriter.jpg?w=1000&h=600';
-  import mainImageWebP from '$lib/assets/images/blog/types-typewriter.jpg?w=1000&h=600&format=webp&srcset';
-  import mainImageSrcset from '$lib/assets/images/blog/types-typewriter.jpg?w=1000&h=600&srcset';
 </script>
 
 <Image
-  wepImage={mainImageWebP}
-  jpegImage={mainImage}
-  alt='old typewriter'
-  width={1000}
-  height={600}
-  placeholder='blur'
-  classes='mt-6 mb-8 rounded-lg drop-shadow-md'
-  loading='eager'
-  feedImage=true
+  src={mainImage}
+  alt="old typewriter"
+  fetchpriority="high"
+  feedImage={true}
+  sizes="(min-width: 800px) 720px, 100vw"
 />
 
 I recently joined a new company where we make extensive use of TypeScript in both the front end (React) and the backend (Node.js/AWS Lambda functions). So I decided to write a few articles of my journey in re-learning TypeScript.

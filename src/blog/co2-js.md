@@ -10,22 +10,16 @@ layout: development
 ---
 
 <script>
+  import mainImage from '$lib/assets/images/blog/co2.jpg?enhanced';
   import Image from '$lib/components/Image.svelte';
-  import mainImage from '$lib/assets/images/blog/co2.jpg?w=1000&h=600';
-  import mainImageWebP from '$lib/assets/images/blog/co2.jpg?w=1000&h=600&format=webp&srcset';
-  import mainImageSrcset from '$lib/assets/images/blog/co2.jpg?w=1000&h=600&srcset';
 </script>
 
 <Image
-	wepImage={mainImageWebP}
-	jpegImage={mainImage}
-	alt='a stormtrooper picking up a flower'
-	width={1000}
-	height={600}
-	placeholder='blur'
-	classes='mt-6 mb-8 rounded-lg drop-shadow-md'
-	loading='eager'
-	feedImage=true
+  src={mainImage}
+  alt="a stormtrooper picking up a flower"
+  fetchpriority="high"
+  feedImage={true}
+  sizes="(min-width: 800px) 720px, 100vw"
 />
 
 The world wide web is a major contributor to climate change. In fact, it is estimated that the internet accounts for about 2% of global carbon emissions. This is due to the energy required to power data centers, transmit data over networks, and cool servers.
