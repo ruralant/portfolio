@@ -10,26 +10,17 @@ layout: development
 ---
 
 <script>
+  import mainImage from '$lib/assets/images/blog/isolation.jpg?enhanced';
+  import pricingUiImage from '$lib/assets/images/blog/pricing-ui.jpg?enhanced';
   import Image from '$lib/components/Image.svelte';
-  import mainImage from '$lib/assets/images/blog/isolation.jpg?w=1000&h=600';
-  import mainImageWebP from '$lib/assets/images/blog/isolation.jpg?w=1000&h=600&format=webp&srcset';
-  import mainImageSrcset from '$lib/assets/images/blog/isolation.jpg?w=1000&h=600&srcset';
-
-  import pricingUi from '$lib/assets/images/blog/pricing-ui.jpg?w=1000&h=600';
-  import pricingUiWebP from '$lib/assets/images/blog/pricing-ui.jpg?w=1000&h=600&format=webp&srcset';
-  import pricingUiSrcset from '$lib/assets/images/blog/pricing-ui.jpg?w=1000&h=600&srcset';
 </script>
 
 <Image
-  wepImage={mainImageWebP}
-  jpegImage={mainImage}
-  alt='an isolated chair in the middle of a road'
-  width={1000}
-  height={600}
-  placeholder='blur'
-  classes='mt-6 mb-8 rounded-lg drop-shadow-md'
-  loading='eager'
-  feedImage=true
+  src={mainImage}
+  alt="an isolated chair in the middle of a road"
+  fetchpriority="high"
+  feedImage={true}
+  sizes="(min-width: 800px) 720px, 100vw"
 />
 
 In large projects, or in projects that span across months or years, it's common to start to loose track of `z-indexes`.
@@ -43,13 +34,10 @@ In the past I built a few websites for companies and local businesses and a lot 
 Something like this one:
 
 <Image
-wepImage={pricingUiWebP}
-jpegImage={pricingUi}
-alt='old carbon score'
-width={1000}
-height={600}
-placeholder='blur'
-classes='mt-6 mb-8 rounded-lg drop-shadow-md'
+  src={pricingUiImage}
+  alt="old carbon score"
+  loading="lazy"
+  sizes="(min-width: 800px) 720px, 100vw"
 />
 
 Let's assume the website had a sticky navigation bar on the top of the screen with the company logo and the links to different pages (yes, yes, old school, I know!)

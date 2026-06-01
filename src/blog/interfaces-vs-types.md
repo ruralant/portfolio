@@ -10,22 +10,16 @@ layout: development
 ---
 
 <script>
+  import mainImage from '$lib/assets/images/blog/pondering.jpg?enhanced';
   import Image from '$lib/components/Image.svelte';
-  import mainImage from '$lib/assets/images/blog/pondering.jpg?w=1000&h=600';
-  import mainImageWebP from '$lib/assets/images/blog/pondering.jpg?w=1000&h=600&format=webp&srcset';
-  import mainImageSrcset from '$lib/assets/images/blog/pondering.jpg?w=1000&h=600&srcset';
 </script>
 
 <Image
-  wepImage={mainImageWebP}
-  jpegImage={mainImage}
-  alt='old typewriter'
-  width={1000}
-  height={600}
-  placeholder='blur'
-  classes='mt-6 mb-8 rounded-lg drop-shadow-md'
-  loading='eager'
-  feedImage=true
+  src={mainImage}
+  alt="old typewriter"
+  fetchpriority="high"
+  feedImage={true}
+  sizes="(min-width: 800px) 720px, 100vw"
 />
 
 TypeScript provides two ways to define types: `interfaces` and `types`. They are very similar and it's not always clear which one to use. In this article, we will explore the differences between the two and when to use one over the other.

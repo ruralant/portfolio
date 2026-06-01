@@ -1,36 +1,32 @@
 <script>
   /**
    * @typedef {Object} Props
-   * @property {any} jpegImage
-   * @property {any} wepImage
-   * @property {any} avifImage
-   * @property {any} alt
-   * @property {any} width
-   * @property {any} height
-   * @property {any} classes
+   * @property {any} src
+   * @property {string} alt
+   * @property {string} [class]
    * @property {boolean} [feedImage]
+   * @property {string} [fetchpriority]
    * @property {string} [loading]
+   * @property {string} [sizes]
    */
 
   /** @type {Props} */
   let {
-    jpegImage,
-    wepImage,
-    avifImage,
+    src,
     alt,
-    width,
-    height,
-    classes,
+    class: cls = "mt-6 mb-8 rounded-lg drop-shadow-md",
     feedImage = false,
-    loading = "lazy"
+    fetchpriority,
+    loading,
+    sizes
   } = $props();
 </script>
 
-<picture class={`${feedImage ? "webfeedsFeaturedVisual" : null} flex justify-center`}>
-  {#if avifImage}
-    <source srcset={avifImage} type="image/avif" {width} {height} />
-  {/if}
-  <source srcset={wepImage} type="image/webp" {width} {height} />
-  <source srcset={jpegImage} type="image/jpeg" {width} {height} />
-  <img class={classes} {alt} {loading} decoding="async" {width} {height} src={jpegImage} />
-</picture>
+<enhanced:img
+  {src}
+  {alt}
+  class={feedImage ? `webfeedsFeaturedVisual ${cls}` : cls}
+  {fetchpriority}
+  {loading}
+  {sizes}
+/>
