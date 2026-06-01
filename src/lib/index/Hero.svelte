@@ -25,12 +25,20 @@
         <span class="w-[200px] md:font-bold">climate adaptation.</span>
       </p>
     </div>
-    <a
-      href="/now"
-      class="font-Poppins mt-1 inline-block text-xs font-light text-neutral-400 no-underline transition-colors hover:text-teal-500 dark:text-neutral-500 dark:hover:text-teal-400"
-    >
-      What I'm up to now →
-    </a>
+    <div class="mt-1 flex flex-row items-center gap-3">
+      <a
+        href="/now"
+        class="font-Poppins inline-block text-xs font-light text-neutral-400 no-underline transition-colors hover:text-teal-500 dark:text-neutral-500 dark:hover:text-teal-400"
+      >
+        What I'm up to now →
+      </a>
+      <a
+        href="/colophon"
+        class="font-Poppins inline-block text-xs font-light text-neutral-400 no-underline transition-colors hover:text-teal-500 dark:text-neutral-500 dark:hover:text-teal-400"
+      >
+        Colophon →
+      </a>
+    </div>
   </div>
   <div class="h-[300px] w-[300px]">
     <enhanced:img
