@@ -7,7 +7,8 @@ const config = {
   },
   layout: {
     development: path.resolve("src/lib/blog/_post.svelte"),
-    now: path.resolve("src/lib/now/_now.svelte")
+    now: path.resolve("src/lib/now/_now.svelte"),
+    colophon: path.resolve("src/lib/colophon/_colophon.svelte")
   },
   highlight: {
     alias: {
