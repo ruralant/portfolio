@@ -10,22 +10,16 @@ layout: development
 ---
 
 <script>
+  import mainImage from '$lib/assets/images/blog/2023.jpg?enhanced';
   import Image from '$lib/components/Image.svelte';
-  import mainImage from '$lib/assets/images/blog/2023.jpg?w=1000&h=600';
-  import mainImageWebP from '$lib/assets/images/blog/2023.jpg?w=1000&h=600&format=webp&srcset';
-  import mainImageSrcset from '$lib/assets/images/blog/2023.jpg?w=1000&h=600&srcset';
 </script>
 
 <Image
-	wepImage={mainImageWebP}
-	jpegImage={mainImage}
-	alt='a new desktop folder called 2023'
-	width={1000}
-	height={600}
-	placeholder='blur'
-	classes='mt-6 mb-8 rounded-lg drop-shadow-md'
-	loading='eager'
-	feedImage=true
+  src={mainImage}
+  alt="a new desktop folder called 2023"
+  fetchpriority="high"
+  feedImage={true}
+  sizes="(min-width: 800px) 720px, 100vw"
 />
 
 ECMAScript 2023 is the next version of the JavaScript language. It was released in June 2023 and it is the 14th edition of the ECMAScript standard. As JavaScript (and Typescript) developers, it's important to keep up with the latest changes in the language. In this blog post, we'll take a look at some of the new features that are coming in ECMAScript 2023.

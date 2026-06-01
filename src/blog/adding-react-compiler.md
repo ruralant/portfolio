@@ -10,22 +10,16 @@ layout: development
 ---
 
 <script>
+  import mainImage from '$lib/assets/images/blog/evolution.jpg?enhanced';
   import Image from '$lib/components/Image.svelte';
-  import mainImage from '$lib/assets/images/blog/evolution.jpg?w=1000&h=600';
-  import mainImageWebP from '$lib/assets/images/blog/evolution.jpg?w=1000&h=600&format=webp&srcset';
-  import mainImageSrcset from '$lib/assets/images/blog/evolution.jpg?w=1000&h=600&srcset';
 </script>
 
 <Image
-	wepImage={mainImageWebP}
-	jpegImage={mainImage}
-	alt='a stormtrooper picking up a flower'
-	width={1000}
-	height={600}
-	placeholder='blur'
-	classes='mt-6 mb-8 rounded-lg drop-shadow-md'
-	loading='eager'
-	feedImage=true
+  src={mainImage}
+  alt="a stormtrooper picking up a flower"
+  fetchpriority="high"
+  feedImage={true}
+  sizes="(min-width: 800px) 720px, 100vw"
 />
 
 I recently had the opportunity to do some front end work after months of focusing on back end and infrastructure. In my current company we had the need to improve the stability and performance of our front end codebase, which is a large React application using React 17 and Webpack (not yet using fancy new stuff like React 19 or Vite).

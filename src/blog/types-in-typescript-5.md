@@ -10,22 +10,16 @@ layout: development
 ---
 
 <script>
+  import mainImage from '$lib/assets/images/blog/types-mug.jpg?enhanced';
   import Image from '$lib/components/Image.svelte';
-  import mainImage from '$lib/assets/images/blog/types-mug.jpg?w=1000&h=600';
-  import mainImageWebP from '$lib/assets/images/blog/types-mug.jpg?w=1000&h=600&format=webp&srcset';
-  import mainImageSrcset from '$lib/assets/images/blog/types-mug.jpg?w=1000&h=600&srcset';
 </script>
 
 <Image
-  wepImage={mainImageWebP}
-  jpegImage={mainImage}
-  alt='mug with a lake in the background'
-  width={1000}
-  height={600}
-  placeholder='blur'
-  classes='mt-6 mb-8 rounded-lg drop-shadow-md'
-  loading='eager'
-  feedImage=true
+  src={mainImage}
+  alt="mug with a lake in the background"
+  fetchpriority="high"
+  feedImage={true}
+  sizes="(min-width: 800px) 720px, 100vw"
 />
 
 The type `never` is not as popular as the other types we discussed in the previous articles. Personally speaking, before realised it existed, it took me more than an year. And, even after that, I used it a handful of times.
