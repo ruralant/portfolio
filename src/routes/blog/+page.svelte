@@ -20,7 +20,7 @@
     </h1>
   </div>
   <ul class="flex flex-col items-center md:mt-5">
-    {#each postsToDisplay as post}
+    {#each postsToDisplay as post (post.slug)}
       <BlogListItem {post} />
     {/each}
     {#if data.posts.length > 10}

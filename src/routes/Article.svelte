@@ -1,5 +1,6 @@
 <!-- @migration-task Error while migrating Svelte code: Encountered an export declaration pattern that is not supported for automigration. -->
 <script>
+  import { resolve } from "$app/paths";
   import Tag from "$lib/components/Tag.svelte";
   export let postData;
   export let postPath;
@@ -9,7 +10,7 @@
 <li
   class="bg-almost-white dark:bg-light-space-grey h-72 w-full max-w-sm overflow-hidden rounded-md p-6 shadow-md"
 >
-  <a class="flex h-full flex-col justify-between no-underline" href={postPath}>
+  <a class="flex h-full flex-col justify-between no-underline" href={resolve(postPath)}>
     <div>
       <div
         class="font-Cormorant mb-2 bg-gradient-to-r from-purple-600 to-red-500 bg-clip-text text-[1.7rem] font-bold text-transparent dark:from-purple-500 dark:to-red-400"
@@ -21,7 +22,7 @@
       </p>
     </div>
     <div>
-      {#each tags as tag}
+      {#each tags as tag (tag)}
         <Tag tagName={tag} url={`/blog/tags/${tag}`} />
       {/each}
     </div>

@@ -1,6 +1,5 @@
 <script>
   import Email from "$lib/components/icons/Email.svelte";
-  import Instagram from "$lib/components/icons/Instagram.svelte";
   import LinkedIn from "$lib/components/icons/LinkedIn.svelte";
   import Rss from "$lib/components/icons/Rss.svelte";
 </script>
@@ -17,13 +16,12 @@
     class="font-Poppins mt-5 text-center text-2xl leading-[1.7] font-light text-neutral-800 md:text-3xl dark:text-neutral-100"
   >
     <p>
-      Pop me an email at{" "}
+      Pop me an email at
       <a
         class="text-[1.7rem] font-extrabold text-neutral-800 dark:text-neutral-100"
         href="mailto:hello@antoniorossi.net">hello@antoniorossi.net</a
       >
     </p>
-    {" "}
     <p>or give me a shout on social media</p>
     <div class="mt-5 flex justify-center">
       <a
