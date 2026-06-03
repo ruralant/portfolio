@@ -2,11 +2,11 @@
   import { preventDefault } from "svelte/legacy";
 
   import "prism-themes/themes/prism-one-dark.min.css";
-  import { theme } from "$lib/shared/store";
-  import { toggleTheme } from "$lib/shared/theme";
+  import { theme } from "$lib/stores/store";
+  import { toggleTheme } from "$lib/stores/theme";
   import { Sun, Moon } from "$lib/components/icons/index.js";
-  import Logo from "./components/Logo.svelte";
-  import NavItem from "./components/NavItem.svelte";
+  import Logo from "./Logo.svelte";
+  import NavItem from "./NavItem.svelte";
 </script>
 
 <header

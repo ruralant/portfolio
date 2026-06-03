@@ -1,6 +1,6 @@
 <script>
   import { companies } from "$lib/data/companies.json";
-  import Timeline from "$lib/career/Timeline.svelte";
+  import Timeline from "./Timeline.svelte";
 </script>
 
 <div class="w-full text-neutral-800 sm:my-9 dark:text-neutral-100">

@@ -1,6 +1,6 @@
 <script>
-  import BlogListItem from "$lib/components/blog/BlogListItem.svelte";
-  import Pagination from "$lib/components/blog/Pagination.svelte";
+  import BlogListItem from "./BlogListItem.svelte";
+  import Pagination from "./Pagination.svelte";
   let { data } = $props();
 
   let currentPage = $state(1);
