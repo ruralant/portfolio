@@ -1,5 +1,5 @@
 <script>
-  import BlogListItem from "$lib/components/blog/BlogListItem.svelte";
+  import BlogListItem from "../../BlogListItem.svelte";
   let { data } = $props();
 </script>
 

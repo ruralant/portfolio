@@ -1,6 +1,6 @@
 <script>
-  import ArrowRight from "../icons/ArrowRight.svelte";
-  import Tag from "./Tag.svelte";
+  import ArrowRight from "$lib/components/icons/ArrowRight.svelte";
+  import Tag from "$lib/components/Tag.svelte";
   let { post } = $props();
 </script>
 

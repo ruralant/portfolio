@@ -1,6 +1,6 @@
 <!-- @migration-task Error while migrating Svelte code: Encountered an export declaration pattern that is not supported for automigration. -->
 <script>
-  import Tag from "$lib/components/blog/Tag.svelte";
+  import Tag from "$lib/components/Tag.svelte";
   export let postData;
   export let postPath;
   export let { title, subtitle, tags } = postData;

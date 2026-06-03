@@ -1,5 +1,5 @@
 <script>
-  import Tag from "$lib/components/blog/Tag.svelte";
+  import Tag from "$lib/components/Tag.svelte";
 
   let { company } = $props();
 

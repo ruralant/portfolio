@@ -6,9 +6,9 @@ const config = {
     dashes: "oldschool"
   },
   layout: {
-    development: path.resolve("src/lib/blog/_post.svelte"),
-    now: path.resolve("src/lib/now/_now.svelte"),
-    colophon: path.resolve("src/lib/colophon/_colophon.svelte")
+    development: path.resolve("src/lib/layouts/Post.svelte"),
+    now: path.resolve("src/lib/layouts/Now.svelte"),
+    colophon: path.resolve("src/lib/layouts/Colophon.svelte")
   },
   highlight: {
     alias: {
