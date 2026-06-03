@@ -127,7 +127,7 @@
         </tbody>
       </table>
       <div class="col-start-1 row-start-1">
-        {#each orderedSkills as skill}
+        {#each orderedSkills as skill (skill.name)}
           <Skill {skill} percentage={(skill.value / orderedSkills[0].value) * 100} />
         {/each}
       </div>

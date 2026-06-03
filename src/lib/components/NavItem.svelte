@@ -1,10 +1,12 @@
 <script>
+  import { resolve } from "$app/paths";
+
   let { text, url, mobileText } = $props();
 </script>
 
 <a
   class="rounded-md bg-white px-4 py-2 text-sm font-normal text-neutral-600 shadow-xs dark:bg-neutral-800 dark:text-neutral-300"
-  href={url}
+  href={resolve(url)}
 >
   {#if mobileText}
     <span class="md:hidden">{mobileText}</span>
