@@ -1,9 +1,9 @@
 <script>
   import { onMount } from "svelte";
   import { fade } from "svelte/transition";
-  import { theme } from "$lib/shared/store";
-  import Header from "$lib/Header.svelte";
-  import Footer from "$lib/Footer.svelte";
+  import { theme } from "$lib/stores/store";
+  import Header from "$lib/components/Header.svelte";
+  import Footer from "$lib/components/Footer.svelte";
   import "../tailwind.css";
   let { data = $bindable(), children } = $props();
 
