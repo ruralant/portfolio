@@ -10,7 +10,7 @@
   <ul
     class="articles-container grid-cols-articles-sm md:grid-cols-articles-md lg:grid-cols-articles-lg grid list-none justify-items-center gap-4 py-0 lg:gap-10 lg:px-0"
   >
-    {#each posts as post}
+    {#each posts as post (post.path)}
       <Article postData={post.meta} postPath={post.path} />
     {/each}
   </ul>

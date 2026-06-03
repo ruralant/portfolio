@@ -12,7 +12,7 @@
     </h1>
   </div>
   <ul class="flex flex-col items-center md:mt-5">
-    {#each data.posts as post}
+    {#each data.posts as post (post.slug)}
       <BlogListItem {post} />
     {/each}
   </ul>

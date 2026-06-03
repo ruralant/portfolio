@@ -11,6 +11,8 @@
   ]);
 </script>
 
+<!-- company.url is an external link from data, so it is not resolvable as an internal route -->
+<!-- eslint-disable svelte/no-navigation-without-resolve -->
 <a
   href={company.url}
   target="_blank"
@@ -45,14 +47,14 @@
     <ul
       class="mb-4 list-inside list-disc space-y-2 pl-0 text-sm leading-normal text-neutral-600 sm:list-outside sm:pl-5 dark:text-neutral-400"
     >
-      {#each company.description as point}
+      {#each company.description as point (point)}
         <li class="pl-1">{point}</li>
       {/each}
     </ul>
 
     {#if allTech.length > 0}
       <ul class="flex flex-wrap gap-2">
-        {#each allTech as tech}
+        {#each allTech as tech (tech)}
           <li>
             <Tag tagName={tech} url={undefined} />
           </li>
@@ -61,3 +63,4 @@
     {/if}
   </div>
 </a>
+<!-- eslint-enable svelte/no-navigation-without-resolve -->

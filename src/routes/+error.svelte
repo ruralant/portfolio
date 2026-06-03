@@ -1,4 +1,5 @@
 <script>
+  import { resolve } from "$app/paths";
   import { page } from "$app/stores";
 
   const {
@@ -21,8 +22,9 @@
     website.
   </h2>
   <h2 class="text-xl text-neutral-800 dark:text-neutral-100">
-    You can find all the blog posts <a class="font-medium text-teal-500 underline" href="/blog"
-      >here</a
+    You can find all the blog posts <a
+      class="font-medium text-teal-500 underline"
+      href={resolve("/blog")}>here</a
     >.
   </h2>
 </div>

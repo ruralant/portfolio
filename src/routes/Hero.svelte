@@ -1,4 +1,5 @@
 <script>
+  import { resolve } from "$app/paths";
   import meImage from "$lib/assets/images/home/me-b-and-w.jpg?enhanced&w=450&h=450&quality=50";
 </script>
 
@@ -20,20 +21,20 @@
     </div>
     <div class="font-Poppins text-xl leading-[1.7] font-light md:text-2xl">
       <p class="text-neutral-800 dark:text-neutral-100">
-        I'm interested in{" "}
+        I'm interested in
         <span class="w-[200px] md:font-bold">green software</span> and
         <span class="w-[200px] md:font-bold">climate adaptation.</span>
       </p>
     </div>
     <div class="mt-1 flex flex-row items-center gap-3">
       <a
-        href="/now"
+        href={resolve("/now")}
         class="font-Poppins inline-block text-xs font-light text-neutral-400 no-underline transition-colors hover:text-teal-500 dark:text-neutral-500 dark:hover:text-teal-400"
       >
         What I'm up to now →
       </a>
       <a
-        href="/colophon"
+        href={resolve("/colophon")}
         class="font-Poppins inline-block text-xs font-light text-neutral-400 no-underline transition-colors hover:text-teal-500 dark:text-neutral-500 dark:hover:text-teal-400"
       >
         Colophon →

@@ -1,4 +1,5 @@
 <script>
+  import { resolve } from "$app/paths";
   import ArrowRight from "$lib/components/icons/ArrowRight.svelte";
   import Tag from "$lib/components/Tag.svelte";
   let { post } = $props();
@@ -6,7 +7,7 @@
 
 <a
   class="font-Poppins group mt-5 flex w-full items-center justify-between overflow-hidden rounded-lg bg-white p-6 text-left shadow-md transition duration-300 ease-in-out hover:scale-105 hover:shadow-lg md:w-full dark:bg-neutral-900"
-  href={`/blog/${post.slug}`}
+  href={resolve("/blog/[slug]", { slug: post.slug })}
 >
   <div>
     <h2
@@ -15,7 +16,7 @@
       {post.title}
     </h2>
     <div class="mt-3 mb-4 flex">
-      {#each post.tags as tag}
+      {#each post.tags as tag (tag)}
         <Tag tagName={tag} url={`/blog/tags/${tag}`} />
       {/each}
     </div>
