@@ -33,16 +33,21 @@ Personal portfolio + blog (antoniorossi.net). Static, fully prerendered SvelteKi
 - **Tailwind-first.** Reach for a scoped `<style>` block only for `@keyframes`, complex grid, or hover states that need a `:global(.dark)` wrapper.
 - Type component props with a JSDoc `@typedef {Object} Props` block above `let { ... } = $props()`.
 - Import order: external deps → `$lib/*` → relative. `$lib` → `src/lib` (only custom alias).
-- No code comments unless the *why* is non-obvious.
+- No code comments unless the _why_ is non-obvious.
 
 ## Where things live
 
-- `src/routes/` — file-based pages + `+server.js` API (`api/posts.json`, `api/tags`, `api/tags/[tag]`, `rss.xml`)
-- `src/lib/components/` — reusable components (`about/`, `blog/`, `icons/`); `src/lib/index/` — home-page sections; `src/lib/Header.svelte` / `Footer.svelte`
+**Rule:** `$lib` holds only shared/cross-page code. A component used by exactly one page lives next to that page's route (non-`+` files in a route folder aren't routes).
+
+- `src/routes/` — file-based pages + `+server.js` API (`api/posts.json`, `api/tags`, `api/tags/[tag]`, `rss.xml`). Page-only components colocate here: `Hero`/`Contacts`/`Articles`/`Article` (home) at the root, `about/Skill.svelte`, `career/{Company,Timeline}.svelte`, `blog/{BlogListItem,Pagination}.svelte`.
+- `src/lib/components/` — shared cross-page components: `Header`, `Footer`, `Image`, `Logo`, `NavItem`, `Tag` (general pill, used by blog/career/home), plus `icons/`
+- `src/lib/layouts/` — mdsvex layouts (`Post.svelte`, `Now.svelte`, `Colophon.svelte`)
+- `src/lib/blog/posts.js` — canonical post loader (`getPosts()`), used by API + RSS
 - `src/blog/*.md` — blog posts (see Content)
-- `src/now/now.md` — "now" page content
+- `src/now/now.md` — "now" page content; `src/colophon/colophon.md` — colophon content
 - `src/lib/data/companies.json` — career / CV data
-- `src/lib/shared/` — theme: `store.js` holds a localStorage-backed writable factory (module-private `createWritableStore`; only the `theme` store is exported — follow that pattern for new persisted stores) and `theme.js` has `toggleTheme`. Default mode **dark**.
+- `src/lib/utils.js` — date / experience helpers
+- `src/lib/stores/` — theme: `store.js` holds a localStorage-backed writable factory (module-private `createWritableStore`; only the `theme` store is exported — follow that pattern for new persisted stores) and `theme.js` has `toggleTheme`. Default mode **dark**.
 - `src/tailwind.css` — all Tailwind theme configuration
 
 ## Tailwind theme (`src/tailwind.css`) — non-default, read before styling
@@ -55,6 +60,6 @@ Personal portfolio + blog (antoniorossi.net). Static, fully prerendered SvelteKi
 ## Content (mdsvex)
 
 - **Blog:** add a `.md` to `src/blog/`. Required frontmatter: `title, slug, subtitle, category, tags: [..], published: true, date: YYYY-MM-DD, layout: development`.
-- `layout` maps to an mdsvex layout in `mdsvex.config.js`: `development` → `src/lib/blog/_post.svelte`, `now` → `src/lib/now/_now.svelte`.
+- `layout` maps to an mdsvex layout in `mdsvex.config.js`: `development` → `src/lib/layouts/Post.svelte`, `now` → `src/lib/layouts/Now.svelte`, `colophon` → `src/lib/layouts/Colophon.svelte`.
 - Only `published: true` posts are listed; sorted by `date` descending. Canonical loader: `getPosts()` in `src/lib/blog/posts.js`.
 - In-post images: `<enhanced:img src="$lib/assets/images/blog/foo.jpg?enhanced&w=1000&h=600" ... />`.
