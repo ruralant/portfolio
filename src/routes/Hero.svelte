@@ -29,13 +29,13 @@
     <div class="mt-1 flex flex-row items-center gap-3">
       <a
         href={resolve("/now")}
-        class="font-Poppins inline-block text-xs font-light text-neutral-400 no-underline transition-colors hover:text-teal-500 dark:text-neutral-500 dark:hover:text-teal-400"
+        class="font-Poppins inline-block text-xs font-light text-neutral-500 no-underline transition-colors hover:text-teal-500 dark:text-neutral-400 dark:hover:text-teal-400"
       >
         What I'm up to now →
       </a>
       <a
         href={resolve("/colophon")}
-        class="font-Poppins inline-block text-xs font-light text-neutral-400 no-underline transition-colors hover:text-teal-500 dark:text-neutral-500 dark:hover:text-teal-400"
+        class="font-Poppins inline-block text-xs font-light text-neutral-500 no-underline transition-colors hover:text-teal-500 dark:text-neutral-400 dark:hover:text-teal-400"
       >
         Colophon →
       </a>
@@ -46,6 +46,8 @@
       src={meImage}
       alt="myself speaking in public"
       class="mt-10 overflow-hidden rounded-full lg:ml-20 xl:mt-0"
+      fetchpriority="high"
+      loading="eager"
     />
   </div>
 </div>
