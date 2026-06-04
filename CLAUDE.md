@@ -9,7 +9,7 @@ Personal portfolio + blog (antoniorossi.net). Static, fully prerendered SvelteKi
 - SvelteKit 2 + **Svelte 5 (runes mode)** — `$props()`, `$state()`, `$derived()`, `$effect()`, `$bindable()`; render children with `{@render children?.()}`. Do **not** use legacy `export let`, `<slot>`, or `$:` reactive statements.
 - **Tailwind CSS v4** — CSS-first config, **no `tailwind.config.js`** (all theme lives in `src/tailwind.css`).
 - **mdsvex** for markdown content.
-- **JavaScript + JSDoc** (not TypeScript; TS only for tests/config). `jsconfig` has `checkJs:false`, but `svelte-check` still type-checks.
+- **TypeScript** — source is `.ts` + `<script lang="ts">`; `tsconfig` is `strict` with `checkJs` for remaining `.js` config files. `svelte-check` runs in CI (`npm run check`, fails on warnings). Type component props with a TS `interface Props` and annotate `$props()` (`let { ... }: Props = $props()`); type route `load`/`+server` handlers with the generated `./$types` (`PageLoad`, `LayoutLoad`, `RequestHandler`). Shared app types live in `src/lib/types.ts`; ambient module declarations (`*.md`, enhanced images) live in `src/app.d.ts`.
 - Vite 8, Node 22, `adapter-netlify`.
 
 ## Commands
@@ -31,7 +31,7 @@ Personal portfolio + blog (antoniorossi.net). Static, fully prerendered SvelteKi
 - **Commits: Conventional Commits** (`feat:`, `fix:`, `chore:`, …) — enforced by commitlint + husky `commit-msg`; non-conforming messages are rejected.
 - Prettier (`.prettierrc`): 2-space indent, **double quotes** (JS and HTML attrs), **no trailing commas**, printWidth 100, automatic Tailwind class sorting. Run `npm run format` before committing.
 - **Tailwind-first.** Reach for a scoped `<style>` block only for `@keyframes`, complex grid, or hover states that need a `:global(.dark)` wrapper.
-- Type component props with a JSDoc `@typedef {Object} Props` block above `let { ... } = $props()`.
+- Type component props with a TS `interface Props` block above `let { ... }: Props = $props()`. Use `import type` for type-only imports (`verbatimModuleSyntax` is on).
 - Import order: external deps → `$lib/*` → relative. `$lib` → `src/lib` (only custom alias).
 - No code comments unless the _why_ is non-obvious.
 

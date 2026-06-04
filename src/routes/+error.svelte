@@ -1,11 +1,9 @@
-<script>
+<script lang="ts">
   import { resolve } from "$app/paths";
   import { page } from "$app/stores";
 
-  const {
-    status,
-    error: { message }
-  } = $page;
+  const status = $page.status;
+  const message = $page.error?.message;
   const title = `${status}: ${message}`;
 </script>
 

@@ -1,7 +1,12 @@
-<script>
+<script lang="ts">
   import Tag from "$lib/components/Tag.svelte";
+  import type { Company } from "$lib/types";
 
-  let { company } = $props();
+  interface Props {
+    company: Company;
+  }
+
+  let { company }: Props = $props();
 
   // Combine all tech stack items into one array
   const allTech = $derived([
