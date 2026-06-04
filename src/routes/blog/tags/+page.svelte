@@ -1,6 +1,8 @@
-<script>
+<script lang="ts">
   import Tag from "$lib/components/Tag.svelte";
-  let { data } = $props();
+  import type { PageData } from "./$types";
+
+  let { data }: { data: PageData } = $props();
 </script>
 
 <div class="w-full text-neutral-800 sm:my-9 dark:text-neutral-100">

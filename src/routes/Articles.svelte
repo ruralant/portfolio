@@ -1,6 +1,12 @@
-<script>
+<script lang="ts">
   import Article from "./Article.svelte";
-  let { posts } = $props();
+  import type { PostSummary } from "$lib/types";
+
+  interface Props {
+    posts: PostSummary[];
+  }
+
+  let { posts }: Props = $props();
 </script>
 
 <div class="m-auto flex w-full max-w-6xl flex-col py-20 lg:py-20">

@@ -1,5 +1,11 @@
-<script>
-  let { total, goToPage, currentPage } = $props();
+<script lang="ts">
+  interface Props {
+    total: number;
+    goToPage: (page: number) => void;
+    currentPage: number;
+  }
+
+  let { total, goToPage, currentPage }: Props = $props();
   const pages = $derived(Math.ceil(total / 10));
 </script>
 

@@ -1,8 +1,10 @@
-<script>
+<script lang="ts">
   import Hero from "./Hero.svelte";
   import Contacts from "./Contacts.svelte";
   import Articles from "./Articles.svelte";
-  let { data } = $props();
+  import type { PageData } from "./$types";
+
+  let { data }: { data: PageData } = $props();
 </script>
 
 <svelte:head>

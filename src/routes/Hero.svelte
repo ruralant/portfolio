@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import { resolve } from "$app/paths";
   import meImage from "$lib/assets/images/home/me-b-and-w.jpg?enhanced&w=450&h=450&quality=50";
 </script>

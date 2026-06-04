@@ -1,4 +1,9 @@
-export const calculateExperience = (start) => {
+export interface Experience {
+  text: string;
+  value: number;
+}
+
+export const calculateExperience = (start: string): Experience => {
   const now = new Date();
   const startDate = new Date(start);
   const totalMonths =
@@ -8,7 +13,7 @@ export const calculateExperience = (start) => {
 };
 
 // calculate time difference between two dates in years and months
-export const calculatePastExperience = (start, end) => {
+export const calculatePastExperience = (start: string, end: string): Experience => {
   const startDate = new Date(start);
   const endDate = new Date(end);
   const totalMonths =

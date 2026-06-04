@@ -1,9 +1,9 @@
-<script>
+<script lang="ts">
   import { resolve } from "$app/paths";
   import "prism-themes/themes/prism-one-dark.min.css";
   import { theme } from "$lib/stores/store";
   import { toggleTheme } from "$lib/stores/theme";
-  import { Sun, Moon } from "$lib/components/icons/index.js";
+  import { Sun, Moon } from "$lib/components/icons";
   import Logo from "./Logo.svelte";
   import NavItem from "./NavItem.svelte";
 </script>

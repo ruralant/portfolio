@@ -1,12 +1,12 @@
-<script>
+<script lang="ts">
   import { fade } from "svelte/transition";
-  /**
-   * @typedef {Object} Props
-   * @property {import('svelte').Snippet} [children]
-   */
+  import type { Snippet } from "svelte";
 
-  /** @type {Props} */
-  let { children } = $props();
+  interface Props {
+    children?: Snippet;
+  }
+
+  let { children }: Props = $props();
 </script>
 
 <div in:fade={{ duration: 150, delay: 100 }} out:fade={{ duration: 150 }}>

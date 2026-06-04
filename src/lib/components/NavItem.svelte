@@ -1,7 +1,14 @@
-<script>
+<script lang="ts">
   import { resolve } from "$app/paths";
+  import type { Pathname } from "$lib/types";
 
-  let { text, url, mobileText } = $props();
+  interface Props {
+    text: string;
+    url: Pathname;
+    mobileText?: string;
+  }
+
+  let { text, url, mobileText }: Props = $props();
 </script>
 
 <a

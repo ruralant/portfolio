@@ -1,6 +1,7 @@
 import { writable } from "svelte/store";
+import type { ThemeState } from "$lib/types";
 
-const createWritableStore = (key, startValue) => {
+const createWritableStore = (key: string, startValue: ThemeState) => {
   const { subscribe, set } = writable(startValue);
 
   return {

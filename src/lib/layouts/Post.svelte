@@ -1,9 +1,20 @@
-<script>
+<script lang="ts">
   import { fade } from "svelte/transition";
   import { resolve } from "$app/paths";
   import ArrowLeft from "$lib/components/icons/ArrowLeft.svelte";
+  import type { Snippet } from "svelte";
 
-  let { category, title, subtitle, mainImage, mainImageAlt, slug, children } = $props();
+  interface Props {
+    category: string;
+    title: string;
+    subtitle: string;
+    mainImage?: string;
+    mainImageAlt?: string;
+    slug: string;
+    children?: Snippet;
+  }
+
+  let { category, title, subtitle, mainImage, mainImageAlt, slug, children }: Props = $props();
 </script>
 
 <svelte:head>

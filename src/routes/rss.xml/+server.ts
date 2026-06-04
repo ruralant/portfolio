@@ -1,6 +1,8 @@
 import { getPosts } from "$lib/blog/posts";
+import type { RequestHandler } from "./$types";
+import type { PostMetadata } from "$lib/types";
 
-export const GET = async () => {
+export const GET: RequestHandler = async () => {
   const posts = await getPosts();
   const body = xml(posts);
 
@@ -13,7 +15,7 @@ export const GET = async () => {
   return new Response(body, options);
 };
 
-const escapeXml = (str) =>
+const escapeXml = (str: string) =>
   str
     .replace(/&/g, "&amp;")
     .replace(/</g, "&lt;")
@@ -22,7 +24,7 @@ const escapeXml = (str) =>
     .replace(/'/g, "&apos;");
 
 const xml = (
-  posts
+  posts: PostMetadata[]
 ) => `<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:webfeeds="http://webfeeds.org/rss/1.0" xmlns:media="http://search.yahoo.com/mrss/">
   <channel>
     <title>Antonio Rossi Website</title>
