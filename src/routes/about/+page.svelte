@@ -1,10 +1,10 @@
-<script>
+<script lang="ts">
   import Skill from "./Skill.svelte";
   import meImage from "$lib/assets/images/home/me-b-and-w.jpg?enhanced&w=300&h=300&quality=50";
-  import { calculateExperience } from "$lib/utils.js";
-  import { calculatePastExperience } from "$lib/utils.js";
+  import { calculateExperience } from "$lib/utils";
+  import { calculatePastExperience } from "$lib/utils";
 
-  const skills = [
+  const skills: { name: string; start: string; end?: string }[] = [
     { name: "React", start: "2020-01-01" },
     { name: "Svelte", start: "2020-12-01" },
     { name: "Node.js", start: "2016-05-01" },

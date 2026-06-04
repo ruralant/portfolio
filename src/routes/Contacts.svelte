@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import Email from "$lib/components/icons/Email.svelte";
   import LinkedIn from "$lib/components/icons/LinkedIn.svelte";
   import Rss from "$lib/components/icons/Rss.svelte";

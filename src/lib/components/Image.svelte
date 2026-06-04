@@ -1,16 +1,14 @@
-<script>
-  /**
-   * @typedef {Object} Props
-   * @property {any} src
-   * @property {string} alt
-   * @property {string} [class]
-   * @property {boolean} [feedImage]
-   * @property {string} [fetchpriority]
-   * @property {string} [loading]
-   * @property {string} [sizes]
-   */
+<script lang="ts">
+  interface Props {
+    src: any;
+    alt: string;
+    class?: string;
+    feedImage?: boolean;
+    fetchpriority?: "auto" | "high" | "low";
+    loading?: "eager" | "lazy";
+    sizes?: string;
+  }
 
-  /** @type {Props} */
   let {
     src,
     alt,
@@ -19,7 +17,7 @@
     fetchpriority,
     loading,
     sizes
-  } = $props();
+  }: Props = $props();
 </script>
 
 <enhanced:img

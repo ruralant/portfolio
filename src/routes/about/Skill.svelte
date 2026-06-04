@@ -1,5 +1,10 @@
-<script>
-  let { skill, percentage } = $props();
+<script lang="ts">
+  interface Props {
+    skill: { name: string };
+    percentage: number;
+  }
+
+  let { skill, percentage }: Props = $props();
 </script>
 
 {#if skill && percentage}

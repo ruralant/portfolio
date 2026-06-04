@@ -1,7 +1,7 @@
 import { expect, type Page } from "@playwright/test";
 
 export async function testThemeToggle(page: Page) {
-  const themeToggleIcon = page.getByRole("link", { name: "toggle light and dark mode" });
+  const themeToggleIcon = page.getByRole("button", { name: "toggle light and dark mode" });
   await themeToggleIcon.click();
   const darkBackgroundColor = await page.getByRole("main").evaluate((main) => {
     return window.getComputedStyle(main).getPropertyValue("background-color");

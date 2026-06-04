@@ -1,6 +1,7 @@
 import { redirect } from "@sveltejs/kit";
+import type { PageLoad } from "./$types";
 
-export async function load() {
+export const load: PageLoad = async () => {
   try {
     const Post = await import("../../colophon/colophon.md");
 
@@ -11,4 +12,4 @@ export async function load() {
     console.error(e);
     redirect(307, "/");
   }
-}
+};

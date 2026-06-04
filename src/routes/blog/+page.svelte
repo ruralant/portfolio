@@ -1,12 +1,14 @@
-<script>
+<script lang="ts">
   import BlogListItem from "./BlogListItem.svelte";
   import Pagination from "./Pagination.svelte";
-  let { data } = $props();
+  import type { PageData } from "./$types";
+
+  let { data }: { data: PageData } = $props();
 
   let currentPage = $state(1);
   const postsToDisplay = $derived(data.posts.slice((currentPage - 1) * 10, currentPage * 10));
 
-  const goToPage = (page) => {
+  const goToPage = (page: number) => {
     currentPage = page;
   };
 </script>

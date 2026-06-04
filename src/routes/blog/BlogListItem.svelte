@@ -1,8 +1,14 @@
-<script>
+<script lang="ts">
   import { resolve } from "$app/paths";
   import ArrowRight from "$lib/components/icons/ArrowRight.svelte";
   import Tag from "$lib/components/Tag.svelte";
-  let { post } = $props();
+  import type { PostMetadata } from "$lib/types";
+
+  interface Props {
+    post: PostMetadata;
+  }
+
+  let { post }: Props = $props();
 </script>
 
 <a

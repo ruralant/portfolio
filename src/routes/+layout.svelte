@@ -1,11 +1,14 @@
-<script>
+<script lang="ts">
   import { onMount } from "svelte";
   import { fade } from "svelte/transition";
   import { theme } from "$lib/stores/store";
   import Header from "$lib/components/Header.svelte";
   import Footer from "$lib/components/Footer.svelte";
   import "../tailwind.css";
-  let { data = $bindable(), children } = $props();
+  import type { Snippet } from "svelte";
+  import type { LayoutData } from "./$types";
+
+  let { data = $bindable(), children }: { data: LayoutData; children?: Snippet } = $props();
 
   onMount(() => {
     if (!("theme" in localStorage)) {
