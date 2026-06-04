@@ -1,10 +1,17 @@
-<!-- @migration-task Error while migrating Svelte code: Encountered an export declaration pattern that is not supported for automigration. -->
-<script>
+<script lang="ts">
   import { resolve } from "$app/paths";
   import Tag from "$lib/components/Tag.svelte";
-  export let postData;
-  export let postPath;
-  export let { title, subtitle, tags } = postData;
+  import type { PostMetadata, Pathname } from "$lib/types";
+
+  interface Props {
+    postData: PostMetadata;
+    postPath: Pathname;
+  }
+
+  let { postData, postPath }: Props = $props();
+  const title = $derived(postData.title);
+  const subtitle = $derived(postData.subtitle);
+  const tags = $derived(postData.tags);
 </script>
 
 <li

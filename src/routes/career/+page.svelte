@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import { companies } from "$lib/data/companies.json";
   import Timeline from "./Timeline.svelte";
 </script>
