@@ -60,6 +60,7 @@ export default ts.config(
       ".vscode/",
       ".netlify/",
       ".fallow/",
+      "static/admin/sveltia-cms.js",
       "test-results/",
       "playwright-report/",
       "blob-report/",
