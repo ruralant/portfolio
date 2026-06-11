@@ -6,8 +6,8 @@
     "build": "vite build",
     "preview": "vite preview",
     "check": "svelte-check --fail-on-warnings",
-    "lint": "prettier --ignore-path .gitignore --check . && eslint .",
-    "format": "prettier --ignore-path .gitignore --write .",
+    "lint": "prettier --ignore-path .gitignore --ignore-path .prettierignore --check . && eslint .",
+    "format": "prettier --ignore-path .gitignore --ignore-path .prettierignore --write .",
     "prettier:check": "prettier --check .",
     "prepare": "husky"
   },

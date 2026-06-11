@@ -1,0 +1,113 @@
+# Sveltia CMS configuration — https://sveltiacms.app/en/docs
+#
+# The widget schema below mirrors the frontmatter contract documented in
+# CLAUDE.md (title, slug, subtitle, category, tags, published, date, layout).
+# The CMS conforms to the site: do not add/rename fields here without
+# updating the posts that the loader (src/lib/blog/posts.ts) consumes.
+
+backend:
+  name: github
+  repo: ruralant/portfolio
+  branch: main
+  # Self-hosted OAuth relay (Cloudflare Worker) shared with outer-reach —
+  # the relay is repo-agnostic, so both sites authenticate through the same
+  # Worker. Source + setup instructions live in the outer-reach repo under
+  # infra/sveltia-auth/. If ALLOWED_DOMAINS is ever enabled on the Worker,
+  # add www.antoniorossi.net to the list.
+  base_url: https://sveltia-auth.outerreach.workers.dev
+  auth_endpoint: auth
+
+# Uploads land next to the other blog images so they can be wired through
+# the enhanced-image pipeline. NOTE: this site renders post images via
+# <Image>/<enhanced:img> imported in an mdsvex <script> block (see existing
+# posts in src/blog/), not plain markdown images — use the media library to
+# upload, then reference the file with the Image component in the body.
+media_folder: src/lib/assets/images/blog
+public_folder: $lib/assets/images/blog
+
+# Match the YAML style already used in the repo (unquoted scalars, flow-style
+# tag lists), and never write out empty optional fields.
+output:
+  omit_empty_optional_fields: true
+  yaml:
+    quote: none
+    indent_size: 2
+
+collections:
+  - name: blog
+    label: Blog
+    label_singular: Post
+    folder: src/blog
+    create: true
+    extension: md
+    format: yaml-frontmatter
+    # Filename follows the explicit slug field, matching the existing
+    # convention where the filename and frontmatter slug are identical.
+    slug: "{{fields.slug}}"
+    sortable_fields: [date, title]
+    fields:
+      - { name: title, label: Title, widget: string }
+      - {
+          name: slug,
+          label: Slug,
+          widget: string,
+          pattern: ["^[a-z0-9]+(-[a-z0-9]+)*$", "lowercase letters, numbers and hyphens only"],
+          hint: Must match the filename; used as the URL (/blog/<slug>)
+        }
+      - { name: subtitle, label: Subtitle, widget: text }
+      - {
+          name: category,
+          label: Category,
+          widget: string,
+          hint: "Existing categories include: front end, javascript, programming, green software, dev ops, testing, career, life, energy"
+        }
+      - { name: tags, label: Tags, widget: list, required: false, default: [] }
+      - { name: published, label: Published, widget: boolean, default: false }
+      - { name: date, label: Date, widget: datetime, format: "YYYY-MM-DD", time_format: false }
+      # Maps to the mdsvex layout in mdsvex.config.js; blog posts always use
+      # the development layout.
+      - { name: layout, label: Layout, widget: hidden, default: development }
+      - { name: body, label: Body, widget: markdown }
+
+  # Single-page markdown files rendered through their own mdsvex layouts.
+  - name: pages
+    label: Pages
+    files:
+      - name: now
+        label: Now
+        file: src/now/now.md
+        fields:
+          - { name: title, label: Title, widget: string, default: Now }
+          - { name: subtitle, label: Subtitle, widget: string }
+          - {
+              name: lastUpdated,
+              label: Last updated,
+              widget: string,
+              hint: 'Free text, e.g. "June 2026"'
+            }
+          - { name: layout, label: Layout, widget: hidden, default: now }
+          - { name: body, label: Body, widget: markdown }
+      - name: colophon
+        label: Colophon
+        file: src/colophon/colophon.md
+        fields:
+          - { name: title, label: Title, widget: string, default: Colophon }
+          - { name: subtitle, label: Subtitle, widget: string }
+          - {
+              name: lastUpdated,
+              label: Last updated,
+              widget: string,
+              hint: 'Free text, e.g. "June 2026"'
+            }
+          - { name: layout, label: Layout, widget: hidden, default: colophon }
+          - { name: body, label: Body, widget: markdown }
+
+# ---------------------------------------------------------------------------
+# Editorial workflow (draft-as-PR) is NOT yet supported by Sveltia CMS — it is
+# on their roadmap for v1.0. Until then, the equivalent keyed to this site's
+# existing markers is the `published` toggle above: published: false commits
+# to main but hides the entry from all listings/RSS (see getPosts()).
+# When Sveltia 1.0 ships, draft-as-PR becomes a one-line opt-in here:
+#
+# publish_mode: editorial_workflow
+# ---------------------------------------------------------------------------
