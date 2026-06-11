@@ -9,11 +9,9 @@ backend:
   name: github
   repo: ruralant/portfolio
   branch: main
-  # Self-hosted OAuth relay (Cloudflare Worker) shared with outer-reach —
-  # the relay is repo-agnostic, so both sites authenticate through the same
-  # Worker. Source + setup instructions live in the outer-reach repo under
-  # infra/sveltia-auth/. If ALLOWED_DOMAINS is ever enabled on the Worker,
-  # add www.antoniorossi.net to the list.
+  # Self-hosted OAuth relay (Cloudflare Worker), shared across sites.
+  # Source + setup instructions: https://github.com/ruralant/sveltia-auth
+  # New hosts must be added to ALLOWED_DOMAINS in that repo's wrangler.toml.
   base_url: https://sveltia-auth.outerreach.workers.dev
   auth_endpoint: auth
 
