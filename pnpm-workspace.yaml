@@ -1,3 +1,4 @@
+strictPeerDependencies: true
 allowBuilds:
   esbuild: false
   sharp: false
