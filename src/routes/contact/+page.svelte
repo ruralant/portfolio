@@ -1,5 +1,4 @@
 <script lang="ts">
-  import LinkedIn from "$lib/components/icons/LinkedIn.svelte";
   import ContactForm from "./ContactForm.svelte";
 </script>
 
@@ -43,21 +42,4 @@
   </p>
 
   <ContactForm />
-
-  <div
-    class="mt-12 flex items-center gap-4 border-t border-neutral-200 pt-8 dark:border-neutral-800"
-  >
-    <a
-      class="text-neutral-800 dark:text-neutral-100"
-      href="https://www.linkedin.com/in/antoniorossii/"
-      target="_blank"
-      rel="noopener noreferrer"
-      aria-label="LinkedIn logo"
-    >
-      <LinkedIn />
-    </a>
-    <p class="font-Poppins text-sm text-neutral-600 dark:text-neutral-400">
-      Messages are checked for spam by Cloudflare Turnstile. No tracking cookies are set.
-    </p>
-  </div>
 </div>

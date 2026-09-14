@@ -18,6 +18,8 @@ const expectPrerendered = async (request: APIRequestContext, path: string) => {
   const response = await request.get(path);
   expect(response.ok(), `${path} responded ${response.status()}`).toBe(true);
   expect(response.headers()["x-sveltekit-page"], `${path} was rendered on request`).toBeUndefined();
+  // $env/dynamic/public makes every page fetch /_app/env.js from the Netlify function.
+  expect(await response.text(), `${path} imports _app/env.js`).not.toContain("_app/env.js");
 };
 
 test.describe("Prerendering", () => {
