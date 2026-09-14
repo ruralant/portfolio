@@ -1,10 +1,9 @@
 <script lang="ts">
-  import { env } from "$env/dynamic/public";
   import Turnstile from "./Turnstile.svelte";
 
-  /** Cloudflare's "always passes" site key, so `npm run dev` works with no setup. */
+  /** Cloudflare's "always passes" site key, for local, preview and CI builds without a real key. */
   const DEV_SITE_KEY = "1x00000000000000000000AA";
-  const siteKey = env.PUBLIC_TURNSTILE_SITE_KEY || DEV_SITE_KEY;
+  const siteKey = __TURNSTILE_SITE_KEY__ || DEV_SITE_KEY;
 
   const fieldClass =
     "font-Poppins w-full rounded-md border border-neutral-300 bg-white px-4 py-3 text-base text-neutral-800 shadow-xs transition-colors outline-none placeholder:text-neutral-400 focus-visible:border-teal-600 focus-visible:ring-2 focus-visible:ring-teal-600/40 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100 dark:placeholder:text-neutral-500 dark:focus-visible:border-teal-400 dark:focus-visible:ring-teal-400/40";

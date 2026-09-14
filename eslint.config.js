@@ -16,7 +16,8 @@ export default ts.config(
       globals: {
         ...globals.browser,
         ...globals.node,
-        __APP_VERSION__: "readonly"
+        __APP_VERSION__: "readonly",
+        __TURNSTILE_SITE_KEY__: "readonly"
       },
       ecmaVersion: 2020,
       sourceType: "module"
