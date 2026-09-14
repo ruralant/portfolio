@@ -61,7 +61,7 @@
       <ul class="flex flex-wrap gap-2">
         {#each allTech as tech (tech)}
           <li>
-            <Tag tagName={tech} url={undefined} />
+            <Tag tagName={tech} />
           </li>
         {/each}
       </ul>

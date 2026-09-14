@@ -7,7 +7,7 @@ test.describe("Blog page", () => {
     // Wait for posts to be rendered
     await page.waitForSelector("ul.flex.flex-col");
 
-    const firstPost = page.locator("a.font-Poppins").first();
+    const firstPost = page.getByRole("listitem").first().getByRole("link").first();
     await expect(firstPost).toBeVisible();
 
     await firstPost.click();

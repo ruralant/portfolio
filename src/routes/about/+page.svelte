@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { resolve } from "$app/paths";
   import Skill from "./Skill.svelte";
   import meImage from "$lib/assets/images/home/me-b-and-w.jpg?enhanced&w=300&h=300&quality=50";
   import { calculateExperience } from "$lib/utils";
@@ -86,13 +87,11 @@
     <p>
       Thank you for taking your time to learn a little but more about myself. If you have any
       questions, if we have passions in common, or if you just want to say hi, do not hesitate to
-      contact me at
       <a
-        href="mailto:hello@antoniorossi.net"
+        href={resolve("/contact")}
         class="font-medium text-teal-600 underline decoration-teal-600/30 underline-offset-4 transition-colors hover:text-teal-500 hover:decoration-teal-500/50 dark:text-teal-400 dark:decoration-teal-400/30 dark:hover:text-teal-300 dark:hover:decoration-teal-300/50"
-      >
-        hello@antoniorossi.net
-      </a>
+        >send me a message</a
+      >.
     </p>
   </div>
 

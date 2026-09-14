@@ -39,10 +39,16 @@ test.describe("Home page", () => {
   test("should show all the social icons/links", async ({ page }) => {
     const linkedIn = await page.getByRole("link", { name: "LinkedIn logo" });
     await expect(linkedIn).toBeVisible();
-    const mail = await page.getByRole("link", { name: "mail icon" });
+    const mail = await page.getByRole("link", { name: "send me a message" });
     await expect(mail).toBeVisible();
     const rss = await page.getByRole("link", { name: "rss feed icon" });
     await expect(rss).toBeVisible();
+  });
+
+  test("should link to the contact form", async ({ page }) => {
+    await page.getByRole("link", { name: "Open the contact form" }).click();
+    await expect(page).toHaveURL(/\/contact$/);
+    await expect(page.getByRole("heading", { name: "Get in touch" })).toBeVisible();
   });
 
   test("should be able to toggle the theme", ({ page }) => testThemeToggle(page));

@@ -14,7 +14,7 @@
   </div>
   <ul class="flex flex-wrap items-center justify-around gap-4 md:mt-5">
     {#each data.tags as tag (tag)}
-      <Tag tagName={tag} url={`/blog/tags/${tag}`} />
+      <li><Tag tagName={tag} url={`/blog/tags/${encodeURIComponent(tag)}`} /></li>
     {/each}
   </ul>
 </div>

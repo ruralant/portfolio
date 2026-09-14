@@ -11,3 +11,8 @@ export async function getPosts(): Promise<PostMetadata[]> {
 
   return posts;
 }
+
+export async function getTags(): Promise<string[]> {
+  const posts = await getPosts();
+  return [...new Set(posts.flatMap((post) => post.tags))].sort((a, b) => a.localeCompare(b));
+}

@@ -55,7 +55,7 @@ read more about that in my writing on
 I aim to meet [WCAG 2.2](https://www.w3.org/TR/WCAG22/) Level AA: semantic HTML,
 sufficient colour contrast, keyboard navigation and respect for reduced-motion
 preferences. If something doesn't work for you, please
-[let me know](mailto:info@antoniorossi.net) — I'd genuinely like to fix it.
+[let me know](/contact) — I'd genuinely like to fix it.
 
 ## Privacy
 

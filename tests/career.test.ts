@@ -30,10 +30,10 @@ test.describe("Career page", () => {
   });
 
   test("should show tech stack information", async ({ page }) => {
-    const react = await page.getByRole("button", { name: "React" }).first();
+    const react = await page.getByText("React", { exact: true }).first();
     await expect(react).toBeVisible();
 
-    const typescript = await page.getByRole("button", { name: "TypeScript" }).first();
+    const typescript = await page.getByText("TypeScript", { exact: true }).first();
     await expect(typescript).toBeVisible();
   });
 
