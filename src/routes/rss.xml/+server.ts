@@ -2,6 +2,8 @@ import { getPosts } from "$lib/blog/posts";
 import type { RequestHandler } from "./$types";
 import type { PostMetadata } from "$lib/types";
 
+export const prerender = true;
+
 export const GET: RequestHandler = async () => {
   const posts = await getPosts();
   const body = xml(posts);
