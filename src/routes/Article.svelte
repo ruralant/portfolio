@@ -15,23 +15,26 @@
 </script>
 
 <li
-  class="bg-almost-white dark:bg-light-space-grey h-72 w-full max-w-sm overflow-hidden rounded-md p-6 shadow-md"
+  class="bg-almost-white dark:bg-light-space-grey relative flex h-72 w-full max-w-sm flex-col justify-between overflow-hidden rounded-md p-6 shadow-md"
 >
-  <a class="flex h-full flex-col justify-between no-underline" href={resolve(postPath)}>
-    <div>
+  <div>
+    <a
+      class="no-underline after:absolute after:inset-0 focus-visible:outline-none focus-visible:after:ring-2 focus-visible:after:ring-teal-600 focus-visible:after:ring-inset dark:focus-visible:after:ring-teal-400"
+      href={resolve(postPath)}
+    >
       <div
         class="font-Cormorant mb-2 bg-gradient-to-r from-purple-600 to-red-500 bg-clip-text text-[1.7rem] font-bold text-transparent dark:from-purple-500 dark:to-red-400"
       >
         {title}
       </div>
-      <p class="font-text-neutral-800 font-Poppins dark:text-neutral-100">
-        {subtitle}
-      </p>
-    </div>
-    <div>
-      {#each tags as tag (tag)}
-        <Tag tagName={tag} url={`/blog/tags/${tag}`} />
-      {/each}
-    </div>
-  </a>
+    </a>
+    <p class="font-text-neutral-800 font-Poppins dark:text-neutral-100">
+      {subtitle}
+    </p>
+  </div>
+  <div>
+    {#each tags as tag (tag)}
+      <Tag tagName={tag} url={`/blog/tags/${encodeURIComponent(tag)}`} />
+    {/each}
+  </div>
 </li>

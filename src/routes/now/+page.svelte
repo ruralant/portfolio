@@ -1,7 +1,5 @@
 <script lang="ts">
-  import type { PageData } from "./$types";
-
-  let { data }: { data: PageData } = $props();
+  import Now from "../../now/now.md";
 </script>
 
-<data.Post />
+<Now />
