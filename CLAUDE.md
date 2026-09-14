@@ -31,7 +31,7 @@ Personal portfolio + blog (antoniorossi.net). SvelteKit site deployed to Netlify
 - `handleHttpError` is left at its default, so a broken internal link or a page that throws fails the build.
 - Endpoints don't inherit the layout's `prerender`, so `rss.xml`, `api/posts.json`, `api/tags.json` and `api/tags/[tag].json` each export it, the last with its own `entries`. A server loader's `fetch` doesn't write the endpoint's response to disk, so an endpoint that doesn't opt in lands in the Netlify function. Endpoints sharing a path prefix need a file extension (`tags.json` beside `tags/`), or the build fails on a file/directory clash.
 - Keep `export const prerender = false` in `src/routes/api/contact/+server.ts`. SvelteKit refuses to prerender a `+server` file with a `POST` handler.
-- `tests/prerender.test.ts` fails if any page, published post or tag page is rendered on request instead of served as a static file, or if the JSON API stops being written to `build/`.
+- `tests/prerender.test.ts` fails if any page, published post or tag page is rendered on request instead of served as a static file, if any page imports `/_app/env.js`, or if the JSON API stops being written to `build/`.
 
 ## Project values (these drive most decisions)
 
@@ -83,5 +83,5 @@ Personal portfolio + blog (antoniorossi.net). SvelteKit site deployed to Netlify
 
 - `/contact` posts JSON to `src/routes/api/contact/+server.ts`. The endpoint validates the fields, verifies the Cloudflare Turnstile token, then forwards the message as form-encoded data to `/__forms.html`, where Netlify Forms collects it.
 - `static/__forms.html` exists only so Netlify's build-time parser registers the `contact` form. Keep its field names in sync with the endpoint.
-- Env vars (see `.env.example`): `PUBLIC_TURNSTILE_SITE_KEY` falls back to Cloudflare's always-pass test key when unset, and is baked into the prerendered `/contact` page, so changing it needs a new deploy. `TURNSTILE_SECRET_KEY` is read by the function on each request and falls back only in `npm run dev`; in production a missing secret makes the endpoint return 503. `npm run dev` always skips the Netlify hand-off and logs the submission instead.
+- Env vars (see `.env.example`): `vite.config.js` inlines `PUBLIC_TURNSTILE_SITE_KEY` at build time as `__TURNSTILE_SITE_KEY__`, falls back to Cloudflare's always-pass test key when it's unset, and fails a Netlify production build (`CONTEXT=production`) without it. Never read it through `$env/dynamic/public`: that makes every prerendered page fetch `/_app/env.js` from the Netlify function on each visit. `TURNSTILE_SECRET_KEY` is read by the function on each request and falls back only in `npm run dev`; in production a missing secret makes the endpoint return 503. `npm run dev` always skips the Netlify hand-off and logs the submission instead.
 - Messages only arrive if Netlify form detection is enabled for the site and both keys are set in Netlify's environment variables.
