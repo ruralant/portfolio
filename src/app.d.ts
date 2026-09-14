@@ -24,6 +24,27 @@ declare global {
     const value: Picture;
     export default value;
   }
+
+  interface TurnstileRenderOptions {
+    sitekey: string;
+    action?: string;
+    theme?: "light" | "dark" | "auto";
+    size?: "normal" | "flexible" | "compact";
+    callback?: (token: string) => void;
+    "expired-callback"?: () => void;
+    "timeout-callback"?: () => void;
+    "error-callback"?: () => void;
+  }
+
+  interface Turnstile {
+    render: (element: HTMLElement, options: TurnstileRenderOptions) => string | undefined;
+    remove: (widgetId: string) => void;
+    reset: (widgetId?: string) => void;
+  }
+
+  interface Window {
+    turnstile?: Turnstile;
+  }
 }
 
 export {};

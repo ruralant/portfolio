@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { resolve } from "$app/paths";
   import Email from "$lib/components/icons/Email.svelte";
   import LinkedIn from "$lib/components/icons/LinkedIn.svelte";
   import Rss from "$lib/components/icons/Rss.svelte";
@@ -15,14 +16,16 @@
   <div
     class="font-Poppins mt-5 text-center text-2xl leading-[1.7] font-light text-neutral-800 md:text-3xl dark:text-neutral-100"
   >
-    <p>
-      Pop me an email at
+    <p>Send me a message and I'll get back to you</p>
+    <div class="mt-6 flex justify-center">
       <a
-        class="text-[1.7rem] font-extrabold text-neutral-800 dark:text-neutral-100"
-        href="mailto:hello@antoniorossi.net">hello@antoniorossi.net</a
+        class="font-Poppins rounded-md bg-teal-600 px-6 py-3 text-base font-medium text-white no-underline shadow-xs transition-colors hover:bg-teal-500 focus-visible:ring-2 focus-visible:ring-teal-600/40 focus-visible:outline-none dark:bg-teal-500 dark:text-neutral-900 dark:hover:bg-teal-400"
+        href={resolve("/contact")}
       >
-    </p>
-    <p>or give me a shout on social media</p>
+        Open the contact form
+      </a>
+    </div>
+    <p class="mt-6">or give me a shout on social media</p>
     <div class="mt-5 flex justify-center">
       <a
         class="mr-4 text-neutral-800 dark:text-neutral-100"
@@ -35,8 +38,8 @@
       </a>
       <a
         class="-mt-[1px] mr-4 text-neutral-800 dark:text-neutral-100"
-        href="mailto:hello@antoniorossi.net"
-        aria-label="mail icon"
+        href={resolve("/contact")}
+        aria-label="send me a message"
       >
         <Email />
       </a>
