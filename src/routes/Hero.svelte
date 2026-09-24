@@ -1,6 +1,6 @@
 <script lang="ts">
   import { resolve } from "$app/paths";
-  import meImage from "$lib/assets/images/home/me-b-and-w.jpg?enhanced&w=450&h=450&quality=50";
+  import SolarpunkHouse from "./SolarpunkHouse.svelte";
 </script>
 
 <div class="flex flex-wrap items-center justify-center pt-10 sm:pt-9">
@@ -41,13 +41,7 @@
       </a>
     </div>
   </div>
-  <div class="h-[300px] w-[300px]">
-    <enhanced:img
-      src={meImage}
-      alt="myself speaking in public"
-      class="mt-10 overflow-hidden rounded-full lg:ml-20 xl:mt-0"
-      fetchpriority="high"
-      loading="eager"
-    />
+  <div class="mt-6 lg:ml-16 xl:mt-0">
+    <SolarpunkHouse />
   </div>
 </div>
