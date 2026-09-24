@@ -36,6 +36,7 @@ Personal portfolio + blog (antoniorossi.net). SvelteKit site deployed to Netlify
 ## Project values (these drive most decisions)
 
 - **Energy efficiency / green software** is a stated core value. Images: use `<enhanced:img>` (or the `Image.svelte` wrapper) via `@sveltejs/enhanced-img`; set `quality=50`, prefer AVIF→WebP→JPEG, always `loading="lazy"` + `decoding="async"` + explicit `width`/`height`. Minimize JS, keep every page prerendered (see Rendering), avoid unnecessary deps.
+- **Keep the external stylesheet and don't preload fonts**, even though Lighthouse's unscored "Network dependency tree" insight stays red: it flags any critical request chained off the HTML, so the stylesheet alone trips it. Turning it green needs the CSS inlined (`kit.inlineStyleThreshold`) plus font preloads, which adds ~9.5 KB brotli to every HTML page in place of a 9.6 KB stylesheet that is cached after the first visit. Preloading fonts alone saves no bytes and slowed first paint by 90–165 ms in throttled tests (September 2026).
 - **Accessibility is required** — descriptive `alt` on images, `width`/`height` to prevent layout shift, `aria-label` on icon buttons, semantic HTML (`<nav>`/`<main>`/`<footer>`, proper heading order), keyboard navigation.
 - **Never publish an email address** in pages, posts or feeds; link to `/contact` instead. `tests/no-email-address.test.ts` fails if `mailto:` or `@antoniorossi.net` appears in any HTML, XML, JSON or text file in `build/`.
 

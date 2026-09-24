@@ -21,9 +21,9 @@ test.describe("Home page", () => {
     await expect(subtitleLine2).toBeVisible();
   });
 
-  test("should show the homepage photo", async ({ page }) => {
-    const image = await page.getByRole("img", { name: "myself speaking in public" });
-    await expect(image).toBeVisible();
+  test("should show the solarpunk house model", async ({ page }) => {
+    const model = await page.getByRole("img", { name: /solarpunk house/ });
+    await expect(model).toBeVisible();
   });
 
   test("Latest Articles section should show at least one post", async ({ page }) => {
