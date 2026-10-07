@@ -30,8 +30,8 @@ In short, `never` is an empty set of values. The first time I read this definiti
 
 The idea is that `never` can't have any value, not even `any`.
 
-```
-const value: never = any
+```ts
+const value: never = any;
 // Error: type 'any' is not assignable to type 'never'
 ```
 
@@ -39,7 +39,7 @@ As you can see from the example above, it's not super frequent to have the need 
 
 I'll give you an example:
 
-```
+```ts
 const doNotCookInMicrowave = (food: never): never {
     thrown new Error('You can't cook that it in the microwave!')
 }
@@ -65,41 +65,41 @@ const cookInMicrowave(food: Food): string {
 
 It can also be used with unions and intersections and it can in the same way 0 works in math:
 
-```
+```ts
 type Value = never | string;
 // string
 ```
 
-```
+```ts
 type Value = never & string;
 // never
 ```
 
 There are several advance cases and one example could be **partially disallow structural typing**
 
-```
+```ts
 type A = {
-    a: string
-}
+  a: string;
+};
 
 type: B = {
-    b: boolean
-}
+  b: boolean
+};
 
-declare function randomFunction(arg: A | B): void
+declare function randomFunction(arg: A | B): void;
 
 const test = {
-    a: 'test',
-    b: 1
-}
+  a: "test",
+  b: 1
+};
 
-randomFunction()
+randomFunction();
 // ... nothing, no complains from TypeScript
 ```
 
 However, using `never` we can overwrite this behavior:
 
-```
+```ts
 type A = {
     a: string
     b?: never
