@@ -30,9 +30,9 @@ Let's have a look at each one in more details:
 
 The `map` array method allows you to iterate over an array and modify each element using a callback function.
 
-```
+```js
 const array = [3, 4, 5, 6];
-const modifiedArray = arr.map(item => item * 3);
+const modifiedArray = arr.map((item) => item * 3);
 
 console.log(array); // [3, 4, 5, 6]
 console.log(modifiedArray); // [9, 12, 15, 18]
@@ -44,7 +44,7 @@ As you can see, the `map()` method does not modify the original array but it ret
 
 The `filter()` method works in a similar way but it returns all the items that match the condition of the callback.
 
-```
+```js
 const array = [3, 4, 5, 6];
 const evenNumbersArray = arr.filter(item => item x % 2 === 0);
 
@@ -56,8 +56,8 @@ console.log(evenNumbersArray); // [4, 6]
 
 Let's look at one last method, this time a String method (just to show a similar behavior of a non-array prototype). The `slice()` method returns a new string that is a section of the original one.
 
-```
-const text = 'Hello world';
+```js
+const text = "Hello world";
 
 const truncatedText = text.slice(0, 5);
 
@@ -75,16 +75,16 @@ The fact that JavaScript provides us with such methods is nice. However, as deve
 
 A pure function is a function that it always returns the same result if the same input is provided and it has no side effects. With no side effect, I mean that the function is not changing other attributes of the code that are outside the function itself (for example a global variable).
 
-```
+```js
 const lessThanTenValue = 8;
 const moreThanTenValue = 15;
 
-const isMoreThanTen = (number) => number > 10 ? true : false;
+const isMoreThanTen = (number) => (number > 10 ? true : false);
 
-console.log(isMoreThanTen(lessThanTenValue)) // false
-console.log(isMoreThanTen(moreThanTenValue)) // true
-console.log(lessThanTenValue) // 8
-console.log(moreThanTenValue) // 15
+console.log(isMoreThanTen(lessThanTenValue)); // false
+console.log(isMoreThanTen(moreThanTenValue)); // true
+console.log(lessThanTenValue); // 8
+console.log(moreThanTenValue); // 15
 ```
 
 #### High-order functions
@@ -93,16 +93,16 @@ A high-order function is a function that takes another function as an argument.
 
 If we combine a high-order function with a pure function, we can write pretty much every algorithm in a functional-programming way.
 
-```
+```js
 const givenNumbers = [3, 4, 7];
 const isMoreThanTen = (array) => {
-  const sum = array.reduce((total, number) => total + number)
-  return sum > 10 ? true : false
-}
+  const sum = array.reduce((total, number) => total + number);
+  return sum > 10 ? true : false;
+};
 const createAlert = (result) => {
   if (result) {
-    alert('Yes, it is more than 10')
-  };
+    alert("Yes, it is more than 10");
+  }
 };
 
 createAlert(isMoreThanTen(givenNumbers));

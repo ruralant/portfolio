@@ -26,20 +26,20 @@ layout: development
 
 The best use of `enum` is when a procedure accept a limited set of variables.
 
-```
+```ts
 enum CardinalDirections {
-    North,
-    East,
-    South,
-    West
+  North,
+  East,
+  South,
+  West
 }
 ```
 
 Once the `enum` has been declare, you it can be used in the following way:
 
-```
+```ts
 const shipDirection = CardinalDirections.South;
-console.log(shipDirection)
+console.log(shipDirection);
 // 2
 ```
 
@@ -47,22 +47,22 @@ By default, the values of `enum` starts at 0. In the above example, `CardinalDir
 
 This behavior can be overwritten. Is it possible to specify the start value in the following way:
 
-```
+```ts
 enum CardinalDirections {
-    North = 2,
-    East,
-    South,
-    West
+  North = 2,
+  East,
+  South,
+  West
 }
 
 const shipDirection = CardinalDirections.South;
-console.log(shipDirection)
+console.log(shipDirection);
 // 4
 ```
 
 `enum` can also accept strings:
 
-```
+```ts
 enum CardinalDirections {
     North = 'Buccaneer, let's go north!'
     East = 'Freebooter, let's go east!'

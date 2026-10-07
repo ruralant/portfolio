@@ -68,8 +68,8 @@ They are the most common one and they might not sound new to you.
 
 If you have any basic experience of coding, you might be able to guess the values of this datatype. Boolean values can be either `true` or `false`
 
-```
-const x: boolean = true
+```ts
+const x: boolean = true;
 const y: boolean = false;
 ```
 
@@ -77,15 +77,15 @@ const y: boolean = false;
 
 Another easy type to remember is the `string` type, a sequence of Unicode UTF-16 code units, or simply, a piece of text surrounded by quotes.
 
-```
-const x = 'hello'
-const z = "hi"
-const y = ""
+```ts
+const x = "hello";
+const z = "hi";
+const y = "";
 ```
 
 In TypeScript you can also use template strings, strings that can be embedded and that can span in multiple lines. To create a template string, you just need to surround it with backtick. On how to embed them, refer to the following example:
 
-```
+```ts
 const greetings: string = 'meow meow'
 const sentence: string = `At 5 am the cat said ${greetings}`
 
@@ -104,16 +104,16 @@ const poem: string = `I wonder thro' each charter'd street
 In TypeScript, numbers are either floating points values or BigIntegers.
 Floating point values (`number`) are numbers without a fixed number of digits before and after the decimal point.
 
-```
-const x: number = 1
-const y: number = 0.1
-const z: number = 123.456
+```ts
+const x: number = 1;
+const y: number = 0.1;
+const z: number = 123.456;
 ```
 
 `bigInt` are numbers that are larger than `9007199254740991` (9 quadrillions) or ``. In JavaScrip this limit can be retrieved using `Number.MAX_SAFE_INTEGER`.
 
-```
-const bigNumber: bigint = 150n
+```ts
+const bigNumber: bigint = 150n;
 ```
 
 #### Enum Type
