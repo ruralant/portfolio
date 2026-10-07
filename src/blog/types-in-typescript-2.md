@@ -32,19 +32,19 @@ The `any` type can represent any JavaScript value and it can be useful in severa
 - when expecting values from a user input
 - when you're gradually migrating from JavaScript
 
-```
-let value: any = 'hey!'
-value = true
-value = 1
+```ts
+let value: any = "hey!";
+value = true;
+value = 1;
 ```
 
 The aforementioned code, won't throw any error at compilation time. The reason is that the type `any` skip the type checking.
 
 Obviously, errors runtime errors will be triggers depending on the datatype and the assumption.
 
-```
+```ts
 let value: any = true;
-value.toUpperCase()
+value.toUpperCase();
 // Uncaught TypeError: value.toUpperCase is not a function
 ```
 
@@ -56,20 +56,19 @@ The recently added `unknown` type try to solve such problems. It can be assign t
 
 An example of `unknown` in action, along side the `any` type:
 
-```
-let value: any = 'hello'
-value.toUpperCase()
+```ts
+let value: any = "hello";
+value.toUpperCase();
 // 'HELLO
 
-value.map(e => console.log(e));
+value.map((e) => console.log(e));
 // value.map is not a function
 
-
-let secondValue: unknown = 'world'
-secondValue.toUpperCase()
+let secondValue: unknown = "world";
+secondValue.toUpperCase();
 // Error: Object is of type unknown
 
-value.map(e => console.log(e));
+value.map((e) => console.log(e));
 // Error: Object is of type unknown
 ```
 
