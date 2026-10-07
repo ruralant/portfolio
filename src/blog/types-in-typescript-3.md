@@ -30,13 +30,13 @@ Alongside the two types (but in particular `any`), to avoid errors at runtime, i
 
 This is an example of type assertion:
 
-```
+```ts
 (value as string).toUpperCase();
 ```
 
 or
 
-```
+```ts
 (<string>value).toUpperCase();
 ```
 
@@ -50,7 +50,7 @@ A type guard is a type check (used, for example, alongside an if statement), to 
 
 Guards can be used really effectively in combination with assertions in the following way:
 
-```
+```ts
 let value: unknown = 'true
 
 value = 100

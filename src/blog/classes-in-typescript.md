@@ -46,7 +46,7 @@ You can think at the properties of a class as rthe raw data that is passed to th
 
 The property of the Car class are those that apply to any class, regardless from the specific make or model (color, number of door). And thanks to TypeScript, you can also apply type attributes to the properties.
 
-```
+```ts
 class Car {
   _manufacturer: string;
   _color: string;
@@ -75,7 +75,7 @@ The construtor initialise the properties of the class ans has three parts:
 
 Going back to the class we created earlier:
 
-```
+```ts
 constructor(make: string, color: string, doors = 4) {
     this._make = make;
     this._color = color;
@@ -91,7 +91,7 @@ However, TypeScript supports getter and setters as a way to intercepting access 
 
 For example:
 
-```
+```ts
 get color() {
     return 'The color of the car is ' + this._color;
 }
@@ -117,7 +117,7 @@ As you can see, both the get and set accessors can manipulate the class properti
 
 Any TypeScript finction can ve defined within a class and they can be called as a method or from another function within the class.
 
-```
+```ts
 // Methods
 accelerate(speed: number): string {
     return `${this.worker()} is accelerating to ${speed} MPH.`
