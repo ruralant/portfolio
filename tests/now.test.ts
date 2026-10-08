@@ -27,7 +27,7 @@ test.describe("Now page", () => {
     await page.goto("/now");
     const workingOn = page.getByRole("heading", { name: "Working on" });
     await expect(workingOn).toBeVisible();
-    const reading = page.getByRole("heading", { name: "Reading" });
+    const reading = page.getByRole("heading", { name: "Reading and playing" });
     await expect(reading).toBeVisible();
     const outsideWork = page.getByRole("heading", { name: "Outside work" });
     await expect(outsideWork).toBeVisible();
