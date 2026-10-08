@@ -18,9 +18,9 @@ same way I do — incrementally, and with intention.
 
 ## Technology
 
-- **Framework**: [SvelteKit](https://kit.svelte.dev) with [Svelte 5](https://svelte.dev) and its runes.
+- **Framework**: [SvelteKit 3](https://svelte.dev/docs/kit) with [Svelte 5](https://svelte.dev) and its runes, written in [TypeScript](https://www.typescriptlang.org).
 - **Content**: written in Markdown and processed with [mdsvex](https://mdsvex.pngwn.io), so posts and pages like this one are just files.
-- **Images**: optimised at build time with [`@sveltejs/enhanced-img`](https://kit.svelte.dev/docs/images).
+- **Images**: optimised at build time with [`@sveltejs/enhanced-img`](https://svelte.dev/docs/kit/images) into AVIF and WebP, in several widths sized to the column they sit in.
 - **Code highlighting**: [Prism](https://prismjs.com) with the One Dark theme.
 - **Hosting**: deployed on [Netlify](https://www.netlify.com).
 - **Tooling**: [Vite](https://vite.dev), [ESLint](https://eslint.org) and [Prettier](https://prettier.io) keep the codebase tidy.
@@ -39,17 +39,28 @@ local fallback resized to match its metrics, so the text doesn't jump when the w
 
 ## Design
 
-- **Styling**: [Tailwind CSS](https://tailwindcss.com) with the typography plugin.
+- **Styling**: [Tailwind CSS](https://tailwindcss.com) v4 with the typography plugin.
 - **Colour**: warm paper and ink, hairline rules instead of shadows, and a single terracotta accent
   borrowed from the lit windows of the solarpunk house on the home page, in both light and dark
   modes.
+- **Illustration**: the solarpunk house on the home page is drawn by a small script that models the
+  island in 3D and projects it to a flat SVG. Day and night share one cached file, and the moving
+  parts animate only position and opacity, which are cheap for the browser to draw.
 - The aim is calm, readable, and out of the way of the words.
 
 ## Energy & performance
 
 This site is built to be light. There's very little JavaScript shipped to the
-browser, media is compressed, fonts are subsetted, and pages are pre-rendered to
-static HTML wherever possible. I care about the energy cost of the web — you can
+browser, fonts are subsetted, and every page is pre-rendered to static HTML at
+build time, so nothing runs on a server when you visit. The only exception is
+the contact form, which needs one small function to send a message.
+
+Images are compressed hard and served in the size your screen actually needs: a
+phone gets the narrow version instead of the desktop one. Sizing them to the
+article column cut the images for reading every post on a typical phone from
+about 1 MB to 330 KB.
+
+I care about the energy cost of the web — you can
 read more about that in my writing on
 [sustainable](/blog/sustainable-web-manifesto) and
 [regenerative](/blog/designing-regenerative-technologies) software.
@@ -65,6 +76,12 @@ preferences. If something doesn't work for you, please
 
 No invasive analytics, no advertising, no tracking cookies. I don't want your
 data — I just want the site to be useful.
+
+The one third-party script is on the [contact page](/contact):
+[Cloudflare Turnstile](https://www.cloudflare.com/application-services/products/turnstile/)
+checks that a message comes from a person rather than a bot, without a puzzle to
+solve. Messages are then stored with [Netlify Forms](https://docs.netlify.com/forms/setup/),
+and only I read them.
 
 ---
 
