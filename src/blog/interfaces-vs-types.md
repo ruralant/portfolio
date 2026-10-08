@@ -10,8 +10,8 @@ layout: development
 ---
 
 <script>
-  import mainImage from '$lib/assets/images/blog/pondering.jpg?enhanced';
-  import Image from '$lib/components/Image.svelte';
+  import mainImage from '#lib/assets/images/blog/pondering.jpg?enhanced&w=1344;1080;720;540&quality=50';
+  import Image from '#lib/components/Image.svelte';
 </script>
 
 <Image
@@ -19,7 +19,6 @@ layout: development
   alt="old typewriter"
   fetchpriority="high"
   feedImage={true}
-  sizes="(min-width: 800px) 720px, 100vw"
 />
 
 TypeScript provides two ways to define types: `interfaces` and `types`. They are very similar and it's not always clear which one to use. In this article, we will explore the differences between the two and when to use one over the other.

@@ -14,7 +14,7 @@ test.describe("Career page", () => {
   });
 
   test("should display at least one company", async ({ page }) => {
-    const companies = await page.locator("a.rounded-lg.shadow-md").count();
+    const companies = await page.getByRole("article").count();
     await expect(companies).toBeGreaterThan(0);
   });
 

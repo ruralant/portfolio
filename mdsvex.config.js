@@ -17,6 +17,7 @@ function highlighter(code, lang) {
   return `<pre class="language-${language}">{@html \`<code class="language-${language}">${html}</code>\`}</pre>`;
 }
 
+/** @satisfies {import("mdsvex").MdsvexOptions} */
 const config = {
   extensions: [".svelte.md", ".md", ".svx"],
   smartypants: {

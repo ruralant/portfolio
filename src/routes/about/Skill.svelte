@@ -1,38 +1,43 @@
 <script lang="ts">
   interface Props {
-    skill: { name: string };
+    skill: { name: string; end?: string; value: number };
     percentage: number;
   }
 
   let { skill, percentage }: Props = $props();
+
+  const years = $derived(Math.max(1, Math.round(skill.value / 12)));
+  const past = $derived(Boolean(skill.end));
 </script>
 
-{#if skill && percentage}
-  <div>
-    <div class="flex items-center justify-between">
-      <span class="mr-2 text-neutral-800 dark:text-neutral-100">{skill.name}</span>
-    </div>
-    <div class="progress-bar h-4 w-full bg-slate-200 dark:bg-neutral-800">
-      <div class="progress-bar-fill bg-progress-bar-blue" style={`width: ${percentage}%`}></div>
-    </div>
-  </div>
-  <style>
-    .progress-bar {
-      border-radius: 0.25rem;
-      margin-bottom: 1rem;
+<li
+  class="md2:grid-cols-[9rem_minmax(0,1fr)_4rem] border-line grid grid-cols-[7rem_minmax(0,1fr)_3.5rem] items-center gap-4 border-t py-3 text-[0.9375rem]"
+>
+  <span class={past ? "text-muted" : "text-ink"}>{skill.name}</span>
+  <span class="bg-line relative h-px" aria-hidden="true">
+    <span
+      class={[
+        "bar absolute -top-px left-0 h-[3px] rounded-full",
+        past ? "bg-line-strong" : "bg-ink"
+      ]}
+      style:width="{percentage}%"
+    ></span>
+  </span>
+  <span class="text-muted text-right text-sm tabular-nums">
+    {years}
+    {years === 1 ? "yr" : "yrs"}<span class="sr-only">{past ? ", in the past" : ""}</span>
+  </span>
+</li>
+
+<style>
+  .bar {
+    transform-origin: left;
+    animation: grow 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  }
+
+  @keyframes grow {
+    from {
+      transform: scaleX(0);
     }
-    .progress-bar-fill {
-      height: 100%;
-      border-radius: 0.25rem;
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
-      animation: progress 1s ease-in-out forwards;
-    }
-    @keyframes progress {
-      0% {
-        width: 0%;
-      }
-    }
-  </style>
-{/if}
+  }
+</style>

@@ -1,15 +1,19 @@
 <script lang="ts">
-  import { companies } from "$lib/data/companies.json";
+  import { companies } from "#lib/data/companies.json";
+  import PageHeader from "#lib/components/PageHeader.svelte";
   import Timeline from "./Timeline.svelte";
 </script>
 
-<div class="w-full text-neutral-800 sm:my-9 dark:text-neutral-100">
-  <div class="flex items-center justify-center">
-    <h1
-      class="font-Cormorant m-0 pt-10 pb-8 text-center text-5xl leading-tight font-medium text-neutral-800 md:pt-0 md:text-6xl dark:text-neutral-100"
-    >
-      The cool things I built and where
-    </h1>
-  </div>
-</div>
+<svelte:head>
+  <title>Career · Antonio Rossi</title>
+  <meta
+    name="description"
+    content="Where Antonio Rossi has worked as a software engineer, what he built there and the tools he used."
+  />
+</svelte:head>
+
+<PageHeader eyebrow="Career" title="The cool things I built and where">
+  Where I’ve worked, what I built there and the tools I used along the way.
+</PageHeader>
+
 <Timeline {companies} />

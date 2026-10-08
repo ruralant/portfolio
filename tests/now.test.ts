@@ -1,9 +1,11 @@
 import { expect, test } from "@playwright/test";
 
 test.describe("Now page", () => {
-  test("should be accessible from the home page easter egg link", async ({ page }) => {
+  test("should be linked from the main navigation", async ({ page }) => {
     await page.goto("/");
-    const nowLink = page.getByRole("link", { name: "What I'm up to now →" });
+    const nowLink = page
+      .getByRole("navigation", { name: "Main" })
+      .getByRole("link", { name: "Now" });
     await expect(nowLink).toBeVisible();
     await nowLink.click();
     await expect(page).toHaveURL("/now");
@@ -17,7 +19,7 @@ test.describe("Now page", () => {
 
   test("should show the last updated date", async ({ page }) => {
     await page.goto("/now");
-    const lastUpdated = page.getByText("Last updated:");
+    const lastUpdated = page.getByRole("term").filter({ hasText: "Last updated" });
     await expect(lastUpdated).toBeVisible();
   });
 
@@ -31,9 +33,10 @@ test.describe("Now page", () => {
     await expect(outsideWork).toBeVisible();
   });
 
-  test("should have a back arrow linking to home", async ({ page }) => {
+  test("should have a back link to home", async ({ page }) => {
     await page.goto("/now");
-    const backLink = page.locator("a[href='/']").first();
+    const backLink = page.getByRole("main").getByRole("link", { name: "Home" }).first();
     await expect(backLink).toBeVisible();
+    await expect(backLink).toHaveAttribute("href", "/");
   });
 });

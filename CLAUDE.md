@@ -6,11 +6,11 @@ Personal portfolio + blog (antoniorossi.net). SvelteKit site deployed to Netlify
 
 ## Stack
 
-- SvelteKit 2 + **Svelte 5 (runes mode)** — `$props()`, `$state()`, `$derived()`, `$effect()`, `$bindable()`; render children with `{@render children?.()}`. Do **not** use legacy `export let`, `<slot>`, or `$:` reactive statements.
+- SvelteKit 3 + **Svelte 5 (runes mode)** — `$props()`, `$state()`, `$derived()`, `$effect()`, `$bindable()`; render children with `{@render children?.()}`. Do **not** use legacy `export let`, `<slot>`, or `$:` reactive statements.
 - **Tailwind CSS v4** — CSS-first config, **no `tailwind.config.js`** (all theme lives in `src/tailwind.css`).
 - **mdsvex** for markdown content.
-- **TypeScript** — source is `.ts` + `<script lang="ts">`; `tsconfig` is `strict` with `checkJs` for remaining `.js` config files. Type component props with a TS `interface Props` and annotate `$props()` (`let { ... }: Props = $props()`); type route `load`/`+server` handlers with the generated `./$types` (`PageServerLoad`, `LayoutServerLoad`, `PageLoad`, `RequestHandler`, `EntryGenerator`). Shared app types live in `src/lib/types.ts`; ambient declarations (`*.md`, enhanced images, `window.turnstile`) live in `src/app.d.ts`.
-- Vite 8, Node 24 (`.nvmrc`, `engines`), `adapter-netlify`.
+- **TypeScript** — source is `.ts` + `<script lang="ts">`; `tsconfig` is `strict` with `checkJs` for remaining `.js` config files. Type component props with a TS `interface Props` and annotate `$props()` (`let { ... }: Props = $props()`); type route `load`/`+server` handlers with the generated `./$types` (`PageServerLoad`, `LayoutServerLoad`, `PageLoad`, `RequestHandler`, `EntryGenerator`). `tsconfig.json` extends the generated `$app/tsconfig`. Shared app types live in `src/lib/types.ts`; ambient declarations (`*.md`, enhanced images, `window.turnstile`) live in `src/app.d.ts`.
+- Vite 8, Node 24 (`.nvmrc`, `engines`), `adapter-netlify`. There is **no `svelte.config.js`**: the adapter, preprocessors, extensions and `prerender` options are passed to `sveltekit({...})` in `vite.config.js`.
 - **pnpm** is the package manager (`packageManager` in `package.json`). CI and Netlify install from `pnpm-lock.yaml` with a frozen lockfile, so add or update dependencies with `pnpm`, never `npm install`.
 
 ## Commands
@@ -20,7 +20,7 @@ Personal portfolio + blog (antoniorossi.net). SvelteKit site deployed to Netlify
 - `npm run check` — svelte-check, **fails on warnings** (keep it clean). No CI job or active git hook runs it (`.husky/_pre-push` is not a hook name husky v9 runs), so run it yourself.
 - `npm run lint` — prettier check + eslint. Also not run in CI.
 - `npm run format` — prettier write
-- `npx playwright test` — E2E tests (no npm script; auto-runs `build && preview`). Single file: `npx playwright test tests/home.test.ts`. Specs live in `tests/`. This is the only thing CI runs (`.github/workflows/playwright.yml`).
+- `npx playwright test` — E2E tests (no npm script; auto-runs `build && preview`, but reuses anything already listening on `:4173`, so stop a running preview first or it tests a stale build). Single file: `npx playwright test tests/home.test.ts`. Specs live in `tests/`. This is the only thing CI runs (`.github/workflows/playwright.yml`). If your local `.env` holds the real `PUBLIC_TURNSTILE_SITE_KEY`, the contact "send a message" test fails on localhost; run with `PUBLIC_TURNSTILE_SITE_KEY=1x00000000000000000000AA npx playwright test` to match CI.
 
 ## Rendering
 
@@ -46,16 +46,18 @@ Personal portfolio + blog (antoniorossi.net). SvelteKit site deployed to Netlify
 - Prettier (`.prettierrc`): 2-space indent, **double quotes** (JS and HTML attrs), **no trailing commas**, printWidth 100, automatic Tailwind class sorting. The husky `pre-commit` hook runs `prettier:check` and rejects unformatted files, so run `npm run format` before committing.
 - **Tailwind-first.** Reach for a scoped `<style>` block only for `@keyframes`, complex grid, or hover states that need a `:global(.dark)` wrapper.
 - Type component props with a TS `interface Props` block above `let { ... }: Props = $props()`. Use `import type` for type-only imports (`verbatimModuleSyntax` is on).
-- Import order: external deps → `$lib/*` → relative. `$lib` → `src/lib` (only custom alias).
-- **Never nest links.** Post cards (`Article.svelte`, `BlogListItem.svelte`) make the title the only card link and stretch it over the card with `after:absolute after:inset-0`; the `Tag` links inside sit above it. Internal `href`s go through `resolve()` from `$app/paths` (enforced by eslint).
+- Import order: external deps → `#lib/*` → relative. `#lib/*` → `src/lib/*` is a Node subpath import declared in `package.json` `imports` (the only custom alias); write the extension (`#lib/utils.js` for `utils.ts`, `#lib/components/Tag.svelte`).
+- **Never nest links.** Post rows (`PostListItem.svelte`) make the title the only row link and stretch it over the card with `after:absolute after:inset-0`; the `Tag` links inside sit above it. Internal `href`s go through `resolve()` from `$app/paths` (enforced by eslint).
 - No code comments unless the _why_ is non-obvious.
 
 ## Where things live
 
-**Rule:** `$lib` holds only shared/cross-page code. A component used by exactly one page lives next to that page's route (non-`+` files in a route folder aren't routes).
+**Rule:** `#lib` holds only shared/cross-page code. A component used by exactly one page lives next to that page's route (non-`+` files in a route folder aren't routes).
 
-- `src/routes/` — file-based pages + `+server.ts` API (`api/posts.json`, `api/tags.json`, `api/tags/[tag].json`, `api/contact`, `rss.xml`). Page-only components colocate here: `Hero`/`Contacts`/`Articles`/`Article` (home) at the root, `about/Skill.svelte`, `career/{Company,Timeline}.svelte`, `blog/{BlogListItem,Pagination}.svelte`, `contact/{ContactForm,Turnstile}.svelte`.
-- `src/lib/components/` — shared cross-page components: `Header`, `Footer`, `Image`, `Logo`, `NavItem`, `Tag` (pill; a link when given `url`, otherwise a plain `<span>`), plus `icons/`
+- `src/routes/` — file-based pages + `+server.ts` API (`api/posts.json`, `api/tags.json`, `api/tags/[tag].json`, `api/contact`, `rss.xml`). Page-only components colocate here: `Hero`/`SolarpunkHouse`/`Articles`/`Contacts` (home) at the root, `about/Skill.svelte`, `career/{Company,Timeline}.svelte`, `contact/{ContactForm,Turnstile}.svelte`.
+- `scripts/solarpunk-house.js` — draws the home page illustration. It models the island in 3D, projects it from a fixed camera and writes `src/routes/solarpunk.svg` plus the `layout` block between the `// generated` markers in `SolarpunkHouse.svelte`; never hand-edit either. Run `node scripts/solarpunk-house.js` after changing it. The SVG holds both palettes: the component loads it twice, the second time as `solarpunk.svg#night`, which makes the file's wrapping group `:target` and switches it to the night colours, so both themes cost one cached download. The moving parts (rotor, clouds, stars, fireflies, bees, water) are HTML layers in the component that animate only `transform`/`opacity`.
+- `src/lib/components/` — shared cross-page components: `Header` (inline nav from `md2`, a full-screen `popover` menu below it; `afterNavigate` closes it), `Footer`, `Image`, `Logo` (the wordmark link), `NavItem`, `PageHeader` (eyebrow + serif `h1` + optional lede, used by every non-article page), `PostListItem` (one row in the home, blog and tag lists), `Longform` (the shared article layout behind the three mdsvex layouts), `Tag` (pill; a link when given `url`, otherwise a plain `<span>`), plus `icons/`
+- `src/lib/navigation.ts` — the header, mobile menu and footer links, in one list
 - `src/lib/layouts/` — mdsvex layouts (`Post.svelte`, `Now.svelte`, `Colophon.svelte`)
 - `src/lib/blog/posts.ts` — canonical post loader (`getPosts()`) plus `getTags()`, used by the API endpoints, RSS, the blog list loader and prerender `entries`
 - `src/blog/*.md` — blog posts (see Content)
@@ -69,20 +71,22 @@ Personal portfolio + blog (antoniorossi.net). SvelteKit site deployed to Netlify
 ## Tailwind theme (`src/tailwind.css`) — non-default, read before styling
 
 - **Breakpoints are custom** (TW defaults cleared): `sm 375 · md 550 · md2 600 · md3 800 · lg 1000 · xl 1385 · xl2 3000`. Never assume stock Tailwind breakpoints.
-- Custom colors: `space-grey` / `space-white`, `hero-color-1..6`, `progress-bar-blue`, etc.
-- Custom fonts only: `font-Cormorant` (serif, headings), `font-Poppins` (sans), `font-Roboto` (serif, body).
-- Dark mode = `.dark` class variant (`dark:` prefix). Custom utilities: `grid-cols-articles-{sm,md,lg}`.
+- **Colours are theme tokens**: `paper` (background), `surface`, `ink` (text), `ink-soft` (body copy), `muted` (meta), `line` / `line-strong` (hairlines), `field` (form borders, kept at 3:1 contrast) and a single `accent` (terracotta). The `.dark` block in `@layer base` redefines every one, so write `bg-paper text-muted`, not `dark:` pairs. A bare `border` draws a `line` hairline. Use hairlines, not shadows.
+- Fonts: `font-serif` (Instrument Serif, regular + italic, for titles and headings; it has a single weight, so never `font-medium`/`font-bold` it) and `font-sans` (Geist variable 400–600, the default). Each has a metric-matched local fallback `@font-face`. The serif subsets have no arrow glyphs, so put `→ ← ↗` in sans text.
+- Custom utilities: `eyebrow` (small uppercase label), `link` (inline text link with an accent underline), `btn` (the slim ink pill for primary actions). `max-w-content` is the shared page width.
+- Long-form colours come from the typography plugin's `--tw-prose-*` variables, pointed at the tokens in `tailwind.css`, so use plain `prose` (no `prose-invert`, no `prose-a:` colour classes).
+- Dark mode = `.dark` class variant (`dark:` prefix), needed only for the few things tokens can't express (the theme icons, `SolarpunkHouse`).
 
 ## Content (mdsvex)
 
 - **Blog:** add a `.md` to `src/blog/`. Required frontmatter: `title, slug, subtitle, category, tags: [..], published: true, date: YYYY-MM-DD, layout: development`. The filename must equal `slug`, and any value containing `: ` must be quoted, or the frontmatter fails to parse and the post silently drops out of every listing.
 - `layout` maps to an mdsvex layout in `mdsvex.config.js`: `development` → `src/lib/layouts/Post.svelte`, `now` → `src/lib/layouts/Now.svelte`, `colophon` → `src/lib/layouts/Colophon.svelte`.
 - Only `published: true` posts are listed; sorted by `date` descending. Canonical loader: `getPosts()` in `src/lib/blog/posts.ts`.
-- In-post images: import them in a `<script>` block (`import cover from "$lib/assets/images/blog/foo.jpg?enhanced";`) and render them with the `Image` component (`<Image src={cover} alt="…" />`). Most posts and the CMS config use this pattern; `fetch-priority.md` is the one post that writes `<enhanced:img src="$lib/assets/images/blog/…" />` straight into the markdown.
+- In-post images: import them in a `<script>` block with explicit widths and quality (`import cover from "#lib/assets/images/blog/foo.jpg?enhanced&w=1344;1080;720;540&quality=50";`) and render them with the `Image` component (`<Image src={cover} alt="…" />`). Without `w=`, enhanced-img only builds 1x/2x variants for an imported image, browsers ignore `sizes`, and every phone downloads the full-size file. `Image` sets `sizes` to the measured width of the `Longform` article column, so posts don't pass one; update it if that column changes. The widths cover a 672px column at 1x/2x and phones at 2x/3x; enhanced-img never upscales past the source width. Give the first image `fetchpriority="high"` and `feedImage={true}`, and the rest `loading="lazy"`.
 
 ## Contact form
 
 - `/contact` posts JSON to `src/routes/api/contact/+server.ts`. The endpoint validates the fields, verifies the Cloudflare Turnstile token, then forwards the message as form-encoded data to `/__forms.html`, where Netlify Forms collects it.
 - `static/__forms.html` exists only so Netlify's build-time parser registers the `contact` form. Keep its field names in sync with the endpoint.
-- Env vars (see `.env.example`): `vite.config.js` inlines `PUBLIC_TURNSTILE_SITE_KEY` at build time as `__TURNSTILE_SITE_KEY__`, falls back to Cloudflare's always-pass test key when it's unset, and fails a Netlify production build (`CONTEXT=production`) without it. Never read it through `$env/dynamic/public`: that makes every prerendered page fetch `/_app/env.js` from the Netlify function on each visit. `TURNSTILE_SECRET_KEY` is read by the function on each request and falls back only in `npm run dev`; in production a missing secret makes the endpoint return 503. `npm run dev` always skips the Netlify hand-off and logs the submission instead.
+- Env vars (see `.env.example`): `vite.config.js` inlines `PUBLIC_TURNSTILE_SITE_KEY` at build time as `__TURNSTILE_SITE_KEY__`, falls back to Cloudflare's always-pass test key when it's unset, and fails a Netlify production build (`CONTEXT=production`) without it. Never read it through `$env/dynamic/public`: that makes every prerendered page fetch `/_app/env.js` from the Netlify function on each visit. `TURNSTILE_SECRET_KEY` is declared in `src/env.ts` (dynamic, so it is read by the function on each request, never inlined) and imported from `$app/env/private`; it falls back only in `npm run dev`; in production a missing secret makes the endpoint return 503. `npm run dev` always skips the Netlify hand-off and logs the submission instead.
 - Messages only arrive if Netlify form detection is enabled for the site and both keys are set in Netlify's environment variables.

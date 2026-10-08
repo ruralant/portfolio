@@ -1,6 +1,5 @@
-import { json } from "@sveltejs/kit";
-import { dev } from "$app/environment";
-import { env } from "$env/dynamic/private";
+import { dev } from "$app/env";
+import { TURNSTILE_SECRET_KEY } from "$app/env/private";
 import type { RequestHandler } from "./$types";
 
 export const prerender = false;
@@ -36,7 +35,7 @@ const readField = (value: unknown, field: Field) => {
   return trimmed;
 };
 
-const fail = (message: string, status: number) => json({ message }, { status });
+const fail = (message: string, status: number) => Response.json({ message }, { status });
 
 export const POST: RequestHandler = async ({ request, url, fetch, getClientAddress }) => {
   let payload: ContactPayload;
@@ -49,7 +48,7 @@ export const POST: RequestHandler = async ({ request, url, fetch, getClientAddre
 
   // A filled honeypot means a bot walked the form: accept and drop it silently.
   if (typeof payload.botField === "string" && payload.botField.trim()) {
-    return json({ message: "Thanks, your message is on its way." });
+    return Response.json({ message: "Thanks, your message is on its way." });
   }
 
   const name = readField(payload.name, "name");
@@ -65,7 +64,7 @@ export const POST: RequestHandler = async ({ request, url, fetch, getClientAddre
     return fail("Please complete the anti-spam check and try again.", 400);
   }
 
-  const secret = env.TURNSTILE_SECRET_KEY || (dev ? DEV_SECRET_KEY : "");
+  const secret = TURNSTILE_SECRET_KEY || (dev ? DEV_SECRET_KEY : "");
 
   if (!secret) {
     console.error("TURNSTILE_SECRET_KEY is not set, refusing the submission.");
@@ -99,7 +98,7 @@ export const POST: RequestHandler = async ({ request, url, fetch, getClientAddre
   // static/__forms.html. There is no such interceptor in front of `vite dev`.
   if (dev) {
     console.info(`[dev] contact submission from ${name} <${email}>: ${subject}`);
-    return json({ message: "Thanks, your message is on its way." });
+    return Response.json({ message: "Thanks, your message is on its way." });
   }
 
   try {
@@ -118,5 +117,5 @@ export const POST: RequestHandler = async ({ request, url, fetch, getClientAddre
     return fail("Your message could not be delivered. Please try again later.", 502);
   }
 
-  return json({ message: "Thanks, your message is on its way." });
+  return Response.json({ message: "Thanks, your message is on its way." });
 };

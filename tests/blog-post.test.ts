@@ -4,10 +4,12 @@ test.describe("Blog page", () => {
   test("has a title and image", async ({ page }) => {
     await page.goto("/blog");
 
-    // Wait for posts to be rendered
-    await page.waitForSelector("ul.flex.flex-col");
-
-    const firstPost = page.getByRole("listitem").first().getByRole("link").first();
+    const firstPost = page
+      .getByRole("main")
+      .getByRole("listitem")
+      .first()
+      .getByRole("link")
+      .first();
     await expect(firstPost).toBeVisible();
 
     await firstPost.click();

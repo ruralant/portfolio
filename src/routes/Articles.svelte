@@ -1,6 +1,7 @@
 <script lang="ts">
-  import Article from "./Article.svelte";
-  import type { PostSummary } from "$lib/types";
+  import { resolve } from "$app/paths";
+  import PostListItem from "#lib/components/PostListItem.svelte";
+  import type { PostSummary } from "#lib/types.js";
 
   interface Props {
     posts: PostSummary[];
@@ -9,15 +10,24 @@
   let { posts }: Props = $props();
 </script>
 
-<div class="m-auto flex w-full max-w-6xl flex-col py-20 lg:py-20">
-  <p class="font-Cormorant m-0 pb-5 text-center text-3xl text-neutral-800 dark:text-neutral-100">
-    Latest Articles
-  </p>
-  <ul
-    class="articles-container grid-cols-articles-sm md:grid-cols-articles-md lg:grid-cols-articles-lg grid list-none justify-items-center gap-4 py-0 lg:gap-10 lg:px-0"
-  >
+<section aria-labelledby="latest-articles" class="md3:py-16 py-12">
+  <div class="flex flex-wrap items-end justify-between gap-x-6 gap-y-3 pb-8">
+    <div>
+      <p class="eyebrow">Writing</p>
+      <h2
+        id="latest-articles"
+        class="md2:text-5xl text-ink mt-3 font-serif text-4xl leading-none tracking-tight"
+      >
+        Latest articles
+      </h2>
+    </div>
+    <a class="link text-ink text-[0.9375rem]" href={resolve("blog")}>
+      All articles<span aria-hidden="true"> →</span>
+    </a>
+  </div>
+  <ul>
     {#each posts as post (post.path)}
-      <Article postData={post.meta} postPath={post.path} />
+      <PostListItem post={post.meta} />
     {/each}
   </ul>
-</div>
+</section>
