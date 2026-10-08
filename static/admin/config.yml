@@ -19,7 +19,8 @@ backend:
 # the enhanced-image pipeline. NOTE: this site renders post images via
 # <Image>/<enhanced:img> imported in an mdsvex <script> block (see existing
 # posts in src/blog/), not plain markdown images — use the media library to
-# upload, then reference the file with the Image component in the body.
+# upload, then reference the file with the Image component in the body,
+# importing it with `?enhanced&w=1344;1080;720;540&quality=50` like the others.
 media_folder: src/lib/assets/images/blog
 public_folder: "#lib/assets/images/blog"
 

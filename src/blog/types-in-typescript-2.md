@@ -10,7 +10,7 @@ layout: development
 ---
 
 <script>
-  import mainImage from '#lib/assets/images/blog/types-mug.jpg?enhanced';
+  import mainImage from '#lib/assets/images/blog/types-mug.jpg?enhanced&w=1344;1080;720;540&quality=50';
   import Image from '#lib/components/Image.svelte';
 </script>
 
@@ -19,7 +19,6 @@ layout: development
   alt="mug with a lake in the background"
   fetchpriority="high"
   feedImage={true}
-  sizes="(min-width: 800px) 720px, 100vw"
 />
 
 Sometimes, when you write code in a typed language, you have to work with values that are unknown to you at the time you write the code. When that happen, you can use `any` and `unknown` and you can use **type guards** to maintain control of what types your code can handle.

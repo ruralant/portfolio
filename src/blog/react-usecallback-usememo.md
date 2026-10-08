@@ -10,7 +10,7 @@ layout: development
 ---
 
 <script>
-  import mainImage from '#lib/assets/images/blog/react-memo.jpg?enhanced';
+  import mainImage from '#lib/assets/images/blog/react-memo.jpg?enhanced&w=1344;1080;720;540&quality=50';
   import Image from '#lib/components/Image.svelte';
 </script>
 
@@ -19,7 +19,6 @@ layout: development
   alt="analog camera with pictures"
   fetchpriority="high"
   feedImage={true}
-  sizes="(min-width: 800px) 720px, 100vw"
 />
 
 Memorization in React is a form of caching. The basic idea is that, once a piece of code runs, the output is going to me memorised and, if the same input is provided, the recalculation is avoided and the same outout will be instantly provided. React has a _size 1_ cache, this means that only the most recent input/output is stored.
