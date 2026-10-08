@@ -20,7 +20,7 @@
   </div>
 
   <div class="flex flex-wrap items-center gap-x-7 gap-y-4">
-    <a class="btn group" href={resolve("/contact")}>
+    <a class="btn group" href={resolve("contact")}>
       Send me a message
       <span aria-hidden="true" class="transition-transform group-hover:translate-x-0.5">→</span>
     </a>
@@ -33,7 +33,7 @@
       >
         LinkedIn<span aria-hidden="true"> ↗</span><span class="sr-only"> (opens in a new tab)</span>
       </a>
-      <a class="link text-ink text-[0.9375rem]" href={resolve("/rss.xml")}>RSS</a>
+      <a class="link text-ink text-[0.9375rem]" href={resolve("rss.xml")}>RSS</a>
     </div>
   </div>
 </section>

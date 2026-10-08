@@ -1,6 +1,6 @@
-import { getPosts } from "$lib/blog/posts";
+import { getPosts } from "#lib/blog/posts.js";
 import type { RequestHandler } from "./$types";
-import type { PostMetadata } from "$lib/types";
+import type { PostMetadata } from "#lib/types.js";
 
 export const prerender = true;
 

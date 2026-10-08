@@ -1,9 +1,9 @@
 <script lang="ts">
   import { onMount } from "svelte";
   import { onNavigate } from "$app/navigation";
-  import { theme } from "$lib/stores/store";
-  import Header from "$lib/components/Header.svelte";
-  import Footer from "$lib/components/Footer.svelte";
+  import { theme } from "#lib/stores/store.js";
+  import Header from "#lib/components/Header.svelte";
+  import Footer from "#lib/components/Footer.svelte";
   import "../tailwind.css";
   import type { Snippet } from "svelte";
   import type { LayoutData } from "./$types";

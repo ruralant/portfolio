@@ -6,11 +6,11 @@ Personal portfolio + blog (antoniorossi.net). SvelteKit site deployed to Netlify
 
 ## Stack
 
-- SvelteKit 2 + **Svelte 5 (runes mode)** — `$props()`, `$state()`, `$derived()`, `$effect()`, `$bindable()`; render children with `{@render children?.()}`. Do **not** use legacy `export let`, `<slot>`, or `$:` reactive statements.
+- SvelteKit 3 + **Svelte 5 (runes mode)** — `$props()`, `$state()`, `$derived()`, `$effect()`, `$bindable()`; render children with `{@render children?.()}`. Do **not** use legacy `export let`, `<slot>`, or `$:` reactive statements.
 - **Tailwind CSS v4** — CSS-first config, **no `tailwind.config.js`** (all theme lives in `src/tailwind.css`).
 - **mdsvex** for markdown content.
-- **TypeScript** — source is `.ts` + `<script lang="ts">`; `tsconfig` is `strict` with `checkJs` for remaining `.js` config files. Type component props with a TS `interface Props` and annotate `$props()` (`let { ... }: Props = $props()`); type route `load`/`+server` handlers with the generated `./$types` (`PageServerLoad`, `LayoutServerLoad`, `PageLoad`, `RequestHandler`, `EntryGenerator`). Shared app types live in `src/lib/types.ts`; ambient declarations (`*.md`, enhanced images, `window.turnstile`) live in `src/app.d.ts`.
-- Vite 8, Node 24 (`.nvmrc`, `engines`), `adapter-netlify`.
+- **TypeScript** — source is `.ts` + `<script lang="ts">`; `tsconfig` is `strict` with `checkJs` for remaining `.js` config files. Type component props with a TS `interface Props` and annotate `$props()` (`let { ... }: Props = $props()`); type route `load`/`+server` handlers with the generated `./$types` (`PageServerLoad`, `LayoutServerLoad`, `PageLoad`, `RequestHandler`, `EntryGenerator`). `tsconfig.json` extends the generated `$app/tsconfig`. Shared app types live in `src/lib/types.ts`; ambient declarations (`*.md`, enhanced images, `window.turnstile`) live in `src/app.d.ts`.
+- Vite 8, Node 24 (`.nvmrc`, `engines`), `adapter-netlify`. There is **no `svelte.config.js`**: the adapter, preprocessors, extensions and `prerender` options are passed to `sveltekit({...})` in `vite.config.js`.
 - **pnpm** is the package manager (`packageManager` in `package.json`). CI and Netlify install from `pnpm-lock.yaml` with a frozen lockfile, so add or update dependencies with `pnpm`, never `npm install`.
 
 ## Commands
@@ -46,13 +46,13 @@ Personal portfolio + blog (antoniorossi.net). SvelteKit site deployed to Netlify
 - Prettier (`.prettierrc`): 2-space indent, **double quotes** (JS and HTML attrs), **no trailing commas**, printWidth 100, automatic Tailwind class sorting. The husky `pre-commit` hook runs `prettier:check` and rejects unformatted files, so run `npm run format` before committing.
 - **Tailwind-first.** Reach for a scoped `<style>` block only for `@keyframes`, complex grid, or hover states that need a `:global(.dark)` wrapper.
 - Type component props with a TS `interface Props` block above `let { ... }: Props = $props()`. Use `import type` for type-only imports (`verbatimModuleSyntax` is on).
-- Import order: external deps → `$lib/*` → relative. `$lib` → `src/lib` (only custom alias).
+- Import order: external deps → `#lib/*` → relative. `#lib/*` → `src/lib/*` is a Node subpath import declared in `package.json` `imports` (the only custom alias); write the extension (`#lib/utils.js` for `utils.ts`, `#lib/components/Tag.svelte`).
 - **Never nest links.** Post rows (`PostListItem.svelte`) make the title the only row link and stretch it over the card with `after:absolute after:inset-0`; the `Tag` links inside sit above it. Internal `href`s go through `resolve()` from `$app/paths` (enforced by eslint).
 - No code comments unless the _why_ is non-obvious.
 
 ## Where things live
 
-**Rule:** `$lib` holds only shared/cross-page code. A component used by exactly one page lives next to that page's route (non-`+` files in a route folder aren't routes).
+**Rule:** `#lib` holds only shared/cross-page code. A component used by exactly one page lives next to that page's route (non-`+` files in a route folder aren't routes).
 
 - `src/routes/` — file-based pages + `+server.ts` API (`api/posts.json`, `api/tags.json`, `api/tags/[tag].json`, `api/contact`, `rss.xml`). Page-only components colocate here: `Hero`/`SolarpunkHouse`/`Articles`/`Contacts` (home) at the root, `about/Skill.svelte`, `career/{Company,Timeline}.svelte`, `contact/{ContactForm,Turnstile}.svelte`.
 - `scripts/solarpunk-house.js` — draws the home page illustration. It models the island in 3D, projects it from a fixed camera and writes `src/routes/solarpunk.svg` plus the `layout` block between the `// generated` markers in `SolarpunkHouse.svelte`; never hand-edit either. Run `node scripts/solarpunk-house.js` after changing it. The SVG holds both palettes: the component loads it twice, the second time as `solarpunk.svg#night`, which makes the file's wrapping group `:target` and switches it to the night colours, so both themes cost one cached download. The moving parts (rotor, clouds, stars, fireflies, bees, water) are HTML layers in the component that animate only `transform`/`opacity`.
@@ -82,11 +82,11 @@ Personal portfolio + blog (antoniorossi.net). SvelteKit site deployed to Netlify
 - **Blog:** add a `.md` to `src/blog/`. Required frontmatter: `title, slug, subtitle, category, tags: [..], published: true, date: YYYY-MM-DD, layout: development`. The filename must equal `slug`, and any value containing `: ` must be quoted, or the frontmatter fails to parse and the post silently drops out of every listing.
 - `layout` maps to an mdsvex layout in `mdsvex.config.js`: `development` → `src/lib/layouts/Post.svelte`, `now` → `src/lib/layouts/Now.svelte`, `colophon` → `src/lib/layouts/Colophon.svelte`.
 - Only `published: true` posts are listed; sorted by `date` descending. Canonical loader: `getPosts()` in `src/lib/blog/posts.ts`.
-- In-post images: import them in a `<script>` block (`import cover from "$lib/assets/images/blog/foo.jpg?enhanced";`) and render them with the `Image` component (`<Image src={cover} alt="…" />`). Most posts and the CMS config use this pattern; `fetch-priority.md` is the one post that writes `<enhanced:img src="$lib/assets/images/blog/…" />` straight into the markdown.
+- In-post images: import them in a `<script>` block (`import cover from "#lib/assets/images/blog/foo.jpg?enhanced";`) and render them with the `Image` component (`<Image src={cover} alt="…" />`). Most posts and the CMS config use this pattern; `fetch-priority.md` is the one post that writes `<enhanced:img src="#lib/assets/images/blog/…" />` straight into the markdown.
 
 ## Contact form
 
 - `/contact` posts JSON to `src/routes/api/contact/+server.ts`. The endpoint validates the fields, verifies the Cloudflare Turnstile token, then forwards the message as form-encoded data to `/__forms.html`, where Netlify Forms collects it.
 - `static/__forms.html` exists only so Netlify's build-time parser registers the `contact` form. Keep its field names in sync with the endpoint.
-- Env vars (see `.env.example`): `vite.config.js` inlines `PUBLIC_TURNSTILE_SITE_KEY` at build time as `__TURNSTILE_SITE_KEY__`, falls back to Cloudflare's always-pass test key when it's unset, and fails a Netlify production build (`CONTEXT=production`) without it. Never read it through `$env/dynamic/public`: that makes every prerendered page fetch `/_app/env.js` from the Netlify function on each visit. `TURNSTILE_SECRET_KEY` is read by the function on each request and falls back only in `npm run dev`; in production a missing secret makes the endpoint return 503. `npm run dev` always skips the Netlify hand-off and logs the submission instead.
+- Env vars (see `.env.example`): `vite.config.js` inlines `PUBLIC_TURNSTILE_SITE_KEY` at build time as `__TURNSTILE_SITE_KEY__`, falls back to Cloudflare's always-pass test key when it's unset, and fails a Netlify production build (`CONTEXT=production`) without it. Never read it through `$env/dynamic/public`: that makes every prerendered page fetch `/_app/env.js` from the Netlify function on each visit. `TURNSTILE_SECRET_KEY` is declared in `src/env.ts` (dynamic, so it is read by the function on each request, never inlined) and imported from `$app/env/private`; it falls back only in `npm run dev`; in production a missing secret makes the endpoint return 503. `npm run dev` always skips the Netlify hand-off and logs the submission instead.
 - Messages only arrive if Netlify form detection is enabled for the site and both keys are set in Netlify's environment variables.

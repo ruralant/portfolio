@@ -18,11 +18,11 @@
       <span class="text-ink">climate adaptation</span>.
     </p>
     <div class="mt-10 flex flex-wrap items-center gap-x-7 gap-y-4">
-      <a class="btn group" href={resolve("/blog")}>
+      <a class="btn group" href={resolve("blog")}>
         Read the blog
         <span aria-hidden="true" class="transition-transform group-hover:translate-x-0.5">→</span>
       </a>
-      <a class="link text-ink text-[0.9375rem]" href={resolve("/about")}>More about me</a>
+      <a class="link text-ink text-[0.9375rem]" href={resolve("about")}>More about me</a>
     </div>
   </div>
   <div

@@ -1,12 +1,12 @@
 <script lang="ts">
   import { resolve } from "$app/paths";
   import type { Snippet } from "svelte";
-  import type { Pathname } from "$lib/types";
+  import type { Path } from "$app/types";
 
   interface Props {
     title: string;
     subtitle: string;
-    back: { url: Pathname; text: string };
+    back: { url: Path; text: string };
     /** Short line above the title on small screens, where the side column is hidden */
     eyebrow: string;
     /** Definition-list rows for the side column */

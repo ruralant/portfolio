@@ -1,5 +1,5 @@
 import type { LayoutServerLoad } from "./$types";
-import type { ThemeState } from "$lib/types";
+import type { ThemeState } from "#lib/types.js";
 
 export const prerender = true;
 

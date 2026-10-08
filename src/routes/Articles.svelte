@@ -1,7 +1,7 @@
 <script lang="ts">
   import { resolve } from "$app/paths";
-  import PostListItem from "$lib/components/PostListItem.svelte";
-  import type { PostSummary } from "$lib/types";
+  import PostListItem from "#lib/components/PostListItem.svelte";
+  import type { PostSummary } from "#lib/types.js";
 
   interface Props {
     posts: PostSummary[];
@@ -21,7 +21,7 @@
         Latest articles
       </h2>
     </div>
-    <a class="link text-ink text-[0.9375rem]" href={resolve("/blog")}>
+    <a class="link text-ink text-[0.9375rem]" href={resolve("blog")}>
       All articles<span aria-hidden="true"> →</span>
     </a>
   </div>

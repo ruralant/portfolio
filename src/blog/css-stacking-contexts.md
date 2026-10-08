@@ -10,9 +10,9 @@ layout: development
 ---
 
 <script>
-  import mainImage from '$lib/assets/images/blog/isolation.jpg?enhanced';
-  import pricingUiImage from '$lib/assets/images/blog/pricing-ui.jpg?enhanced';
-  import Image from '$lib/components/Image.svelte';
+  import mainImage from '#lib/assets/images/blog/isolation.jpg?enhanced';
+  import pricingUiImage from '#lib/assets/images/blog/pricing-ui.jpg?enhanced';
+  import Image from '#lib/components/Image.svelte';
 </script>
 
 <Image

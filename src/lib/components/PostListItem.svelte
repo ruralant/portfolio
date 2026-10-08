@@ -1,8 +1,8 @@
 <script lang="ts">
   import { resolve } from "$app/paths";
-  import { formatDate, isoDate } from "$lib/utils";
+  import { formatDate, isoDate } from "#lib/utils.js";
   import Tag from "./Tag.svelte";
-  import type { PostMetadata } from "$lib/types";
+  import type { PostMetadata } from "#lib/types.js";
 
   interface Props {
     post: PostMetadata;
@@ -44,7 +44,7 @@
     {#if showTags && post.tags.length > 0}
       <ul class="relative mt-4 flex flex-wrap gap-2" aria-label="Tags">
         {#each post.tags as tag (tag)}
-          <li><Tag tagName={tag} url={`/blog/tags/${encodeURIComponent(tag)}`} /></li>
+          <li><Tag tagName={tag} url={`blog/tags/${encodeURIComponent(tag)}`} /></li>
         {/each}
       </ul>
     {/if}

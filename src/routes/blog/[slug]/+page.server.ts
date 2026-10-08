@@ -1,4 +1,4 @@
-import { getPosts } from "$lib/blog/posts";
+import { getPosts } from "#lib/blog/posts.js";
 import type { EntryGenerator } from "./$types";
 
 // Lives here, not in +page.ts: importing getPosts there would ship every post to the browser.

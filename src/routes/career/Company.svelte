@@ -1,6 +1,6 @@
 <script lang="ts">
-  import Tag from "$lib/components/Tag.svelte";
-  import type { Company } from "$lib/types";
+  import Tag from "#lib/components/Tag.svelte";
+  import type { Company } from "#lib/types.js";
 
   interface Props {
     company: Company;

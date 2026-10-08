@@ -1,10 +1,10 @@
 <script lang="ts">
   import { resolve } from "$app/paths";
-  import PageHeader from "$lib/components/PageHeader.svelte";
+  import PageHeader from "#lib/components/PageHeader.svelte";
   import Skill from "./Skill.svelte";
-  import meImage from "$lib/assets/images/home/me-b-and-w.jpg?enhanced&w=300&h=300&quality=50";
-  import { calculateExperience } from "$lib/utils";
-  import { calculatePastExperience } from "$lib/utils";
+  import meImage from "#lib/assets/images/home/me-b-and-w.jpg?enhanced&w=300&h=300&quality=50";
+  import { calculateExperience } from "#lib/utils.js";
+  import { calculatePastExperience } from "#lib/utils.js";
 
   const skills: { name: string; start: string; end?: string }[] = [
     { name: "React", start: "2020-01-01" },
@@ -87,7 +87,7 @@
     <p>
       Thank you for taking your time to learn a little but more about myself. If you have any
       questions, if we have passions in common, or if you just want to say hi, do not hesitate to
-      <a href={resolve("/contact")} class="link text-ink">send me a message</a>.
+      <a href={resolve("contact")} class="link text-ink">send me a message</a>.
     </p>
   </div>
 </div>
