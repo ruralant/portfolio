@@ -80,7 +80,10 @@ collections:
     # The filename is the archive URL (/now/2026-10-08), fixed when the entry is created.
     slug: "{{year}}-{{month}}-{{day}}"
     summary: "{{date}} — {{subtitle}}"
-    sortable_fields: [date]
+    # Newest first, so the live update tops the list and the archive follows it.
+    sortable_fields:
+      fields: [date]
+      default: { field: date, direction: descending }
     fields:
       - { name: title, label: Title, widget: string, default: Now }
       - { name: subtitle, label: Subtitle, widget: string, default: "What I'm currently up to" }
@@ -93,7 +96,30 @@ collections:
           hint: The newest date is the one shown at /now
         }
       - { name: layout, label: Layout, widget: hidden, default: now }
-      - { name: body, label: Body, widget: markdown }
+      # A new update starts from the page's four sections and closing line.
+      - name: body
+        label: Body
+        widget: markdown
+        default: |
+          ## Working on
+
+          -
+
+          ## Reading and playing
+
+          -
+
+          ## Outside work
+
+          -
+
+          ## Thinking about
+
+          -
+
+          ---
+
+          _This is a [now page](https://nownownow.com/about). If you have one too, let me know!_
 
   # Single-page markdown files rendered through their own mdsvex layouts.
   - name: pages
