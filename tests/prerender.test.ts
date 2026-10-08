@@ -46,6 +46,12 @@ test.describe("Prerendering", () => {
     for (const path of tags) await expectPrerendered(request, path);
   });
 
+  test("should serve every archived now update as static HTML", async ({ request }) => {
+    const updates = await pathsLinkedFrom(request, "/now", /href="([^"]*\/now\/\d[^"]*)"/g);
+    expect(updates.length).toBeGreaterThan(0);
+    for (const path of updates) await expectPrerendered(request, path);
+  });
+
   // Endpoint responses look the same over HTTP either way, so check what the build wrote.
   test("should write the JSON API as static files", () => {
     const api = fileURLToPath(new URL("../build/api/", import.meta.url));

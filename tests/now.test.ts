@@ -39,4 +39,19 @@ test.describe("Now page", () => {
     await expect(backLink).toBeVisible();
     await expect(backLink).toHaveAttribute("href", "/");
   });
+
+  test("should list previous updates that open as archived pages", async ({ page }) => {
+    await page.goto("/now");
+    const previous = page.getByRole("region", { name: "Previous updates" }).getByRole("link");
+    await expect(previous.first()).toBeVisible();
+    await previous.first().click();
+    await expect(page).toHaveURL(/\/now\/\d{4}-\d{2}-\d{2}$/);
+
+    await expect(page.getByRole("heading", { name: "Now", level: 1 })).toBeVisible();
+    await expect(page.getByRole("term").filter({ hasText: "Archived update" })).toBeVisible();
+    await expect(page.getByRole("link", { name: /up to now/ })).toHaveAttribute("href", "/now");
+    await expect(
+      page.getByRole("region", { name: "Previous updates" }).locator("[aria-current=page]")
+    ).toHaveCount(1);
+  });
 });
