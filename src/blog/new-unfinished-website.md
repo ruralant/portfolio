@@ -10,10 +10,10 @@ layout: development
 ---
 
 <script>
-  import mainImage from '#lib/assets/images/blog/home-page.png?enhanced';
-  import oldCarbonScore from '#lib/assets/images/blog/old-website-carbon.png?enhanced';
-  import newCarbonScore from '#lib/assets/images/blog/new-website-carbon.png?enhanced';
-  import lightHouseScore from '#lib/assets/images/blog/lighthouse-score.png?enhanced';
+  import mainImage from '#lib/assets/images/blog/home-page.png?enhanced&w=1344;1080;720;540&quality=50';
+  import oldCarbonScore from '#lib/assets/images/blog/old-website-carbon.png?enhanced&w=1344;1080;720;540&quality=50';
+  import newCarbonScore from '#lib/assets/images/blog/new-website-carbon.png?enhanced&w=1344;1080;720;540&quality=50';
+  import lightHouseScore from '#lib/assets/images/blog/lighthouse-score.png?enhanced&w=1344;1080;720;540&quality=50';
   import Image from '#lib/components/Image.svelte';
 </script>
 
@@ -22,7 +22,6 @@ layout: development
   alt="analog camera with pictures"
   fetchpriority="high"
   feedImage={true}
-  sizes="(min-width: 800px) 720px, 100vw"
 />
 
 Hello fellow cyber-wanderer, welcome to my humble (and recently renovated) cyber-home.
@@ -55,14 +54,12 @@ They are all sections and pages that I'm going to add in the next few week. Befo
   src={oldCarbonScore}
   alt="old carbon score"
   loading="lazy"
-  sizes="(min-width: 800px) 720px, 100vw"
 />
 
 <Image
   src={newCarbonScore}
   alt="new carbon score"
   loading="lazy"
-  sizes="(min-width: 800px) 720px, 100vw"
 />
 
 The website is rated as more efficient than the 96% of the world wide web. I achieve it with a combination of assets optimisation, server side rendering and an extremely small amount of JavaScript shipped to the client. Svelte (the framework that I used) really helped me with that.
@@ -75,7 +72,6 @@ The website has a perfect Lighthouse score. In simple terms, it loads fast also 
   src={lightHouseScore}
   alt="light house score"
   loading="lazy"
-  sizes="(min-width: 800px) 720px, 100vw"
 />
 
 ### It feature a blog

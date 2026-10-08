@@ -10,8 +10,8 @@ layout: development
 ---
 
 <script>
-  import mainImage from '#lib/assets/images/blog/isolation.jpg?enhanced';
-  import pricingUiImage from '#lib/assets/images/blog/pricing-ui.jpg?enhanced';
+  import mainImage from '#lib/assets/images/blog/isolation.jpg?enhanced&w=1344;1080;720;540&quality=50';
+  import pricingUiImage from '#lib/assets/images/blog/pricing-ui.jpg?enhanced&w=1344;1080;720;540&quality=50';
   import Image from '#lib/components/Image.svelte';
 </script>
 
@@ -20,7 +20,6 @@ layout: development
   alt="an isolated chair in the middle of a road"
   fetchpriority="high"
   feedImage={true}
-  sizes="(min-width: 800px) 720px, 100vw"
 />
 
 In large projects, or in projects that span across months or years, it's common to start to loose track of `z-indexes`.
@@ -37,7 +36,6 @@ Something like this one:
   src={pricingUiImage}
   alt="old carbon score"
   loading="lazy"
-  sizes="(min-width: 800px) 720px, 100vw"
 />
 
 Let's assume the website had a sticky navigation bar on the top of the screen with the company logo and the links to different pages (yes, yes, old school, I know!)

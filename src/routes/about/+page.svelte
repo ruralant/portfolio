@@ -2,7 +2,7 @@
   import { resolve } from "$app/paths";
   import PageHeader from "#lib/components/PageHeader.svelte";
   import Skill from "./Skill.svelte";
-  import meImage from "#lib/assets/images/home/me-b-and-w.jpg?enhanced&w=300&h=300&quality=50";
+  import meImage from "#lib/assets/images/home/me-b-and-w.jpg?enhanced&w=600;400;300&quality=50";
   import { calculateExperience } from "#lib/utils.js";
   import { calculatePastExperience } from "#lib/utils.js";
 
@@ -48,6 +48,7 @@
     <enhanced:img
       src={meImage}
       alt="Antonio speaking in public"
+      sizes="(min-width: 1000px) 288px, (min-width: 800px) 240px, 192px"
       class="md3:w-full aspect-square w-48 rounded-2xl object-cover grayscale"
     />
   </div>

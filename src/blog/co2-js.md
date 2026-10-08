@@ -10,7 +10,7 @@ layout: development
 ---
 
 <script>
-  import mainImage from '#lib/assets/images/blog/co2.jpg?enhanced';
+  import mainImage from '#lib/assets/images/blog/co2.jpg?enhanced&w=1344;1080;720;540&quality=50';
   import Image from '#lib/components/Image.svelte';
 </script>
 
@@ -19,7 +19,6 @@ layout: development
   alt="a stormtrooper picking up a flower"
   fetchpriority="high"
   feedImage={true}
-  sizes="(min-width: 800px) 720px, 100vw"
 />
 
 The world wide web is a major contributor to climate change. In fact, it is estimated that the internet accounts for about 2% of global carbon emissions. This is due to the energy required to power data centers, transmit data over networks, and cool servers.

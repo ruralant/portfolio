@@ -10,7 +10,7 @@ layout: development
 ---
 
 <script>
-  import mainImage from '#lib/assets/images/blog/types-typewriter.jpg?enhanced';
+  import mainImage from '#lib/assets/images/blog/types-typewriter.jpg?enhanced&w=1344;1080;720;540&quality=50';
   import Image from '#lib/components/Image.svelte';
 </script>
 
@@ -19,7 +19,6 @@ layout: development
   alt="old typewriter"
   fetchpriority="high"
   feedImage={true}
-  sizes="(min-width: 800px) 720px, 100vw"
 />
 
 I recently joined a new company where we make extensive use of TypeScript in both the front end (React) and the backend (Node.js/AWS Lambda functions). So I decided to write a few articles of my journey in re-learning TypeScript.

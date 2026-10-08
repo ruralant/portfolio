@@ -10,7 +10,7 @@ layout: development
 ---
 
 <script>
-  import mainImage from '#lib/assets/images/blog/evolution.jpg?enhanced';
+  import mainImage from '#lib/assets/images/blog/evolution.jpg?enhanced&w=1344;1080;720;540&quality=50';
   import Image from '#lib/components/Image.svelte';
 </script>
 
@@ -19,7 +19,6 @@ layout: development
   alt="a stormtrooper picking up a flower"
   fetchpriority="high"
   feedImage={true}
-  sizes="(min-width: 800px) 720px, 100vw"
 />
 
 I recently had the opportunity to do some front end work after months of focusing on back end and infrastructure. In my current company we had the need to improve the stability and performance of our front end codebase, which is a large React application using React 17 and Webpack (not yet using fancy new stuff like React 19 or Vite).

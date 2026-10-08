@@ -10,7 +10,7 @@ layout: development
 ---
 
 <script>
-  import mainImage from '#lib/assets/images/blog/2022.jpg?enhanced';
+  import mainImage from '#lib/assets/images/blog/2022.jpg?enhanced&w=1344;1080;720;540&quality=50';
   import Image from '#lib/components/Image.svelte';
 </script>
 
@@ -19,7 +19,6 @@ layout: development
   alt="a new desktop folder called 2023"
   fetchpriority="high"
   feedImage={true}
-  sizes="(min-width: 800px) 720px, 100vw"
 />
 
 Due to the discussions and interests sparked by my previous article about ECMAScript 2023 (at least within my friends and colleagues 😃), I decided to write a follow up article to cover what was added to the language in the 2022 version.
