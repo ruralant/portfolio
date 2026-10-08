@@ -6,9 +6,8 @@
   const siteKey = __TURNSTILE_SITE_KEY__ || DEV_SITE_KEY;
 
   const fieldClass =
-    "font-Poppins w-full rounded-md border border-neutral-300 bg-white px-4 py-3 text-base text-neutral-800 shadow-xs transition-colors outline-none placeholder:text-neutral-400 focus-visible:border-teal-600 focus-visible:ring-2 focus-visible:ring-teal-600/40 dark:border-neutral-700 dark:bg-neutral-800 dark:text-neutral-100 dark:placeholder:text-neutral-500 dark:focus-visible:border-teal-400 dark:focus-visible:ring-teal-400/40";
-  const labelClass =
-    "font-Poppins mb-2 block text-sm font-medium text-neutral-700 dark:text-neutral-300";
+    "w-full rounded-xl border border-field bg-transparent px-4 py-3 text-base text-ink transition-[border-color,box-shadow] placeholder:text-muted hover:border-ink focus-visible:border-accent focus-visible:ring-4 focus-visible:ring-accent/15 focus-visible:outline-none";
+  const labelClass = "mb-2 block text-sm font-medium text-ink";
 
   let name = $state("");
   let email = $state("");
@@ -129,19 +128,14 @@
 
   <Turnstile bind:this={turnstile} {siteKey} onToken={(value) => (token = value)} />
 
-  <div class="md2:flex-row md2:items-center flex flex-col gap-4">
-    <button
-      class="font-Poppins inline-flex cursor-pointer items-center justify-center rounded-md bg-teal-600 px-6 py-3 text-base font-medium text-white shadow-xs transition-colors hover:bg-teal-500 focus-visible:ring-2 focus-visible:ring-teal-600/40 focus-visible:outline-none disabled:cursor-not-allowed disabled:opacity-60 dark:bg-teal-500 dark:text-neutral-900 dark:hover:bg-teal-400"
-      type="submit"
-      disabled={sending}
-    >
+  <div class="md2:flex-row md2:items-center flex flex-col items-start gap-4">
+    <button class="btn group" type="submit" disabled={sending}>
       {sending ? "Sending…" : "Send message"}
+      <span aria-hidden="true" class="transition-transform group-hover:translate-x-0.5">→</span>
     </button>
 
     <p
-      class="font-Poppins text-sm {failed
-        ? 'text-red-600 dark:text-red-400'
-        : 'text-teal-700 dark:text-teal-300'}"
+      class={["text-sm", failed ? "text-red-700 dark:text-red-400" : "text-ink"]}
       role="status"
       aria-live="polite"
       aria-atomic="true"

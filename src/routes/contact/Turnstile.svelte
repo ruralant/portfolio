@@ -85,7 +85,7 @@
 <div>
   <div bind:this={container} class="min-h-[65px]" data-testid="turnstile"></div>
   {#if unavailable}
-    <p class="font-Poppins text-sm text-red-600 dark:text-red-400">
+    <p class="text-sm text-red-700 dark:text-red-400">
       The anti-spam check could not load, so the form cannot be sent. A content blocker or an
       offline connection is the usual cause.
     </p>

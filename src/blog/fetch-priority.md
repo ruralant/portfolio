@@ -12,7 +12,7 @@ layout: development
 <enhanced:img
 src="$lib/assets/images/blog/priority.jpg"
 alt="the start line of a running track"
-class="webfeedsFeaturedVisual mt-6 mb-8 rounded-lg drop-shadow-md"
+class="webfeedsFeaturedVisual rounded-xl"
 fetchpriority="high"
 sizes="(min-width: 800px) 720px, 100vw"
 />
@@ -42,7 +42,7 @@ If you go to the browser network tab and you reload the page, you will probably 
 <enhanced:img
 src="$lib/assets/images/blog/priority-high.png"
 alt="devtool showing priority changing from low to high"
-class="mt-6 mb-8 rounded-lg drop-shadow-md"
+class="rounded-xl"
 loading="lazy"
 sizes="(min-width: 800px) 720px, 100vw"
 />
@@ -52,7 +52,7 @@ However, it you toggle to the **_Slow 3G_** network in the Throttling dropdown, 
 <enhanced:img
 src="$lib/assets/images/blog/priority-low-high.png"
 alt="devtool showing priority changing from low to high"
-class="mt-6 mb-8 rounded-lg drop-shadow-md"
+class="rounded-xl"
 loading="lazy"
 sizes="(min-width: 800px) 720px, 100vw"
 />
@@ -78,7 +78,7 @@ and the result would be the following:
 <enhanced:img
 src="$lib/assets/images/blog/priority-high-high.png"
 alt="devtool showing priority not changing from high"
-class="mt-6 mb-8 rounded-lg drop-shadow-md"
+class="rounded-xl"
 loading="lazy"
 sizes="(min-width: 800px) 720px, 100vw"
 />

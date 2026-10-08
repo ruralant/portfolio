@@ -1,4 +1,5 @@
 <script lang="ts">
+  import PageHeader from "$lib/components/PageHeader.svelte";
   import ContactForm from "./ContactForm.svelte";
 </script>
 
@@ -20,26 +21,18 @@
   />
 </svelte:head>
 
-<h1
-  class="font-Cormorant m-0 pt-10 pb-8 text-5xl text-neutral-800 md:pt-0 md:text-6xl dark:text-neutral-100"
->
-  Get in touch
-</h1>
+<PageHeader eyebrow="Contact" title="Get in touch">
+  Fill in the form and your message lands straight in my inbox. I read everything and I reply to
+  anything that is not a sales pitch. If you would rather talk somewhere else, I am on
+  <a
+    href="https://www.linkedin.com/in/antoniorossii/"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="link text-ink">LinkedIn<span class="sr-only"> (opens in a new tab)</span></a
+  >
+  too.
+</PageHeader>
 
-<div class="font-Roboto max-w-2xl">
-  <p class="mb-10 text-lg leading-relaxed text-neutral-700 dark:text-neutral-300">
-    Fill in the form and your message lands straight in my inbox. I read everything and I reply to
-    anything that is not a sales pitch. If you would rather talk somewhere else, I am on
-    <a
-      href="https://www.linkedin.com/in/antoniorossii/"
-      target="_blank"
-      rel="noopener noreferrer"
-      class="font-medium text-teal-600 underline decoration-teal-600/30 underline-offset-4 transition-colors hover:text-teal-500 hover:decoration-teal-500/50 dark:text-teal-400 dark:decoration-teal-400/30 dark:hover:text-teal-300 dark:hover:decoration-teal-300/50"
-    >
-      LinkedIn
-    </a>
-    too.
-  </p>
-
+<div class="border-line max-w-2xl border-t pt-10">
   <ContactForm />
 </div>

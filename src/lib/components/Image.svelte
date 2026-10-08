@@ -12,7 +12,7 @@
   let {
     src,
     alt,
-    class: cls = "mt-6 mb-8 rounded-lg drop-shadow-md",
+    class: cls = "rounded-xl",
     feedImage = false,
     fetchpriority,
     loading,
