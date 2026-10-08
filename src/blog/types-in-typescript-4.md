@@ -10,8 +10,8 @@ layout: development
 ---
 
 <script>
-  import mainImage from '$lib/assets/images/blog/types-mug.jpg?enhanced';
-  import Image from '$lib/components/Image.svelte';
+  import mainImage from '#lib/assets/images/blog/types-mug.jpg?enhanced&w=1344;1080;720;540&quality=50';
+  import Image from '#lib/components/Image.svelte';
 </script>
 
 <Image
@@ -19,7 +19,6 @@ layout: development
   alt="mug with a lake in the background"
   fetchpriority="high"
   feedImage={true}
-  sizes="(min-width: 800px) 720px, 100vw"
 />
 
 `enum` is a data type that can use to create a set of constants to be used with variables and properties.

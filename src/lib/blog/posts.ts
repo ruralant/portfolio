@@ -1,4 +1,4 @@
-import type { PostMetadata } from "$lib/types";
+import type { PostMetadata } from "#lib/types.js";
 
 export async function getPosts(): Promise<PostMetadata[]> {
   const modules = import.meta.glob<{ metadata: PostMetadata }>("../../blog/*.md", {

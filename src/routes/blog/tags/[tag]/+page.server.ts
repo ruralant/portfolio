@@ -1,5 +1,5 @@
-import { getTags } from "$lib/blog/posts";
-import type { PostMetadata } from "$lib/types";
+import { getTags } from "#lib/blog/posts.js";
+import type { PostMetadata } from "#lib/types.js";
 import type { EntryGenerator, PageServerLoad } from "./$types";
 
 export const entries: EntryGenerator = async () => (await getTags()).map((tag) => ({ tag }));

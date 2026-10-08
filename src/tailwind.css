@@ -15,56 +15,148 @@
   --breakpoint-xl: 1385px;
   --breakpoint-xl2: 3000px;
 
-  /* Custom colors (standard palette colors like neutral, red, purple, slate, teal, blue are included by default) */
-  --color-space-grey: #111111;
-  --color-light-space-grey: #151a1a;
-  --color-space-white: #fafafc;
-  --color-almost-white: #fefefe;
-  --color-hero-color-1: #8797e8;
-  --color-hero-color-2: #a162e8;
-  --color-hero-color-3: #f093b0;
-  --color-hero-color-4: #dab56c;
-  --color-hero-color-5: #e47c9d;
-  --color-hero-color-6: #dd9f22;
-  --color-progress-bar-blue: #bf41e0;
+  /*
+    Light theme. The .dark block in @layer base redefines every one of these, so utilities
+    such as bg-paper or text-muted follow the theme without a dark: variant.
+  */
+  --color-paper: #f7f6f2;
+  --color-surface: #efede7;
+  --color-ink: #1c1b18;
+  --color-ink-soft: #45433d;
+  --color-muted: #6d6a62;
+  --color-line: #e3e0d8;
+  --color-line-strong: #cfcbc1;
+  /* Form field borders identify the control, so they need 3:1 against the paper (WCAG 1.4.11) */
+  --color-field: #8c887e;
+  /* Taken from the lit windows of the solarpunk house */
+  --color-accent: #a24f27;
 
-  /* Clear default font families and define custom ones */
   --font-*: initial;
-  --font-Cormorant: "Cormorant", serif;
-  --font-Poppins: "Poppins", sans-serif;
-  --font-Roboto: "Roboto Serif", serif;
+  --font-serif: "Instrument Serif", "Instrument Serif Fallback", Georgia, serif;
+  --font-sans: "Geist", "Geist Fallback", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
 
-  /* Override font sizes that differ from TW v4 defaults */
+  /*
+    Instrument Serif is condensed: tight tracking suits it only at display sizes (the hero,
+    page titles). Smaller serif text such as article titles and the wordmark gets this instead.
+  */
+  --tracking-title: 0.015em;
+
+  /* Width of the header, footer and every page, so their edges line up */
+  --container-content: 64rem;
+
   --text-6xl: 4rem;
   --text-7xl: 5rem;
   --text-8xl: 6rem;
 }
 
-/* Custom grid-template-columns utilities */
-@utility grid-cols-articles-sm {
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+/* Small uppercase label above page titles and section headings */
+@utility eyebrow {
+  font-size: 0.75rem;
+  line-height: 1rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-muted);
 }
 
-@utility grid-cols-articles-md {
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+/* Inline text link: ink text with a soft accent underline that fills in on hover */
+@utility link {
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.22em;
+  text-decoration-color: color-mix(in oklab, var(--color-accent) 55%, transparent);
+  transition-property: color, text-decoration-color;
+  transition-duration: 150ms;
+
+  &:hover {
+    color: var(--color-accent);
+    text-decoration-color: var(--color-accent);
+  }
 }
 
-@utility grid-cols-articles-lg {
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+/* Slim ink pill for the few primary actions (contact, send, read the blog) */
+@utility btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  height: 2.75rem;
+  padding-inline: 1.375rem;
+  border-radius: 9999px;
+  background-color: var(--color-ink);
+  color: var(--color-paper);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 150ms;
+
+  &:hover {
+    background-color: color-mix(in oklab, var(--color-ink) 80%, var(--color-paper));
+  }
+
+  &:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
 }
 
-/*
-  The default border color has changed to `currentColor` in Tailwind CSS v4,
-  so we've added these compatibility styles to make sure everything still
-  looks the same as it did with Tailwind CSS v3.
-
-  If we ever want to remove these styles, we need to add an explicit border
-  color utility to any element that depends on these defaults.
-*/
 @layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  .dark {
+    color-scheme: dark;
+    --color-paper: #121211;
+    --color-surface: #1b1b19;
+    --color-ink: #edebe5;
+    --color-ink-soft: #bdbab1;
+    --color-muted: #8f8c84;
+    --color-line: #282825;
+    --color-line-strong: #3a3935;
+    --color-field: #6c6a63;
+    --color-accent: #eba27a;
+  }
+
+  html {
+    /* Keeps the page from shifting sideways between short and long pages */
+    scrollbar-gutter: stable;
+    /* macOS otherwise thickens light text on dark backgrounds, which blurs it */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* The mobile menu covers the page, so the page behind it shouldn't scroll */
+  html:has(#site-menu:popover-open) {
+    overflow: hidden;
+  }
+
+  body {
+    background-color: var(--color-paper);
+    color: var(--color-ink);
+  }
+
+  ::selection {
+    background-color: color-mix(in oklab, var(--color-accent) 24%, transparent);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+  }
+
   img {
     max-width: 100%;
     height: auto;
+  }
+
+  /* Page cross-fade (see onNavigate in the root layout), shorter than the browser default */
+  ::view-transition-old(root),
+  ::view-transition-new(root) {
+    animation-duration: 180ms;
   }
 
   @media (prefers-reduced-motion: reduce) {
@@ -74,59 +166,188 @@
       transition-duration: 0.01ms !important;
       scroll-behavior: auto !important;
     }
+
+    ::view-transition-group(*),
+    ::view-transition-old(*),
+    ::view-transition-new(*) {
+      animation: none !important;
+    }
   }
 
+  /* Tailwind v4 defaults borders to currentColor; a bare `border` here draws a hairline */
   *,
   ::after,
   ::before,
   ::backdrop,
   ::file-selector-button {
-    border-color: var(--color-gray-200, currentColor);
-  }
-
-  /* Remove default backtick decoration from prose code elements */
-  .prose :where(code)::before {
-    content: none;
-  }
-  .prose :where(code)::after {
-    content: none;
+    border-color: var(--color-line, currentColor);
   }
 }
 
-/* cormorant-700 - latin */
-@font-face {
-  font-family: "Cormorant";
-  font-style: normal;
-  font-weight: 700;
-  font-display: swap;
-  src: url("/fonts/cormorant-v21-latin-700-subset.woff2") format("woff2");
+/*
+  Long-form text (posts, now, colophon). The typography plugin reads its colours from these
+  variables, so pointing them at the theme tokens covers both themes without prose-invert.
+  These rules sit outside @layer so they beat the plugin's own.
+*/
+.prose {
+  --tw-prose-body: var(--color-ink-soft);
+  --tw-prose-headings: var(--color-ink);
+  --tw-prose-lead: var(--color-ink-soft);
+  --tw-prose-links: var(--color-ink);
+  --tw-prose-bold: var(--color-ink);
+  --tw-prose-counters: var(--color-muted);
+  --tw-prose-bullets: var(--color-muted);
+  --tw-prose-hr: var(--color-line);
+  --tw-prose-quotes: var(--color-ink);
+  --tw-prose-quote-borders: var(--color-accent);
+  --tw-prose-captions: var(--color-muted);
+  --tw-prose-kbd: var(--color-ink);
+  --tw-prose-code: var(--color-ink);
+  --tw-prose-th-borders: var(--color-line-strong);
+  --tw-prose-td-borders: var(--color-line);
 }
 
-/* poppins-300 - latin */
-@font-face {
-  font-family: "Poppins";
-  font-style: normal;
-  font-weight: 300;
-  font-display: swap;
-  src: url("/fonts/poppins-v20-latin-300-subset.woff2") format("woff2");
+.prose a {
+  font-weight: inherit;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.22em;
+  text-decoration-color: color-mix(in oklab, var(--color-accent) 55%, transparent);
+  transition-property: color, text-decoration-color;
+  transition-duration: 150ms;
 }
 
-/* roboto-serif-regular - latin */
+.prose a:hover {
+  color: var(--color-accent);
+  text-decoration-color: var(--color-accent);
+}
+
+/* Instrument Serif has a single weight, so a bolder heading would be faked by the browser */
+.prose h1 {
+  font-family: var(--font-serif);
+  font-weight: 400;
+  letter-spacing: var(--tracking-title);
+}
+
+.prose h2 {
+  margin-top: 2.2em;
+  margin-bottom: 0.6em;
+  font-family: var(--font-serif);
+  font-size: 1.9em;
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: var(--tracking-title);
+}
+
+.prose > :first-child {
+  margin-top: 0;
+}
+
+.prose h3 {
+  font-size: 1.15em;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.prose h4 {
+  font-weight: 600;
+}
+
+.prose strong {
+  font-weight: 600;
+}
+
+.prose blockquote {
+  padding-left: 1.1em;
+  border-left-width: 2px;
+  font-family: var(--font-serif);
+  font-size: 1.35em;
+  font-weight: 400;
+  line-height: 1.45;
+}
+
+.prose blockquote p:first-of-type::before,
+.prose blockquote p:last-of-type::after,
+.prose :where(code)::before,
+.prose :where(code)::after {
+  content: none;
+}
+
+.prose :not(pre) > code {
+  padding: 0.12em 0.4em;
+  border: 1px solid var(--color-line);
+  border-radius: 0.375rem;
+  background-color: var(--color-surface);
+  font-size: 0.85em;
+  font-weight: 400;
+}
+
+.prose pre,
+.prose img {
+  border-radius: 0.75rem;
+}
+
+.prose hr {
+  margin-block: 3em;
+}
+
+/* instrument-serif-400 - latin */
 @font-face {
-  font-family: "Roboto Serif";
+  font-family: "Instrument Serif";
   font-style: normal;
   font-weight: 400;
   font-display: swap;
-  src: url("/fonts/roboto-serif-v13-latin-400-subset.woff2") format("woff2");
+  src: url("/fonts/instrument-serif-latin-400-subset.woff2") format("woff2");
 }
 
-/* roboto-serif-500 - latin */
+/* instrument-serif-400-italic - basic latin, used for accents only */
 @font-face {
-  font-family: "Roboto Serif";
-  font-style: normal;
-  font-weight: 500;
+  font-family: "Instrument Serif";
+  font-style: italic;
+  font-weight: 400;
   font-display: swap;
-  src: url("/fonts/roboto-serif-v13-latin-500-subset.woff2") format("woff2");
+  src: url("/fonts/instrument-serif-latin-400-italic-subset.woff2") format("woff2");
+}
+
+/* geist-400..600 (variable) - latin */
+@font-face {
+  font-family: "Geist";
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url("/fonts/geist-latin-400-600-subset.woff2") format("woff2");
+}
+
+/*
+  Local fonts resized to the web fonts' metrics, so text doesn't jump when the web fonts
+  swap in. Values come from comparing average glyph widths and vertical metrics with fontTools.
+*/
+@font-face {
+  font-family: "Instrument Serif Fallback";
+  font-style: normal;
+  src: local("Times New Roman"), local("TimesNewRomanPSMT");
+  size-adjust: 83.58%;
+  ascent-override: 118.45%;
+  descent-override: 37.09%;
+  line-gap-override: 0%;
+}
+
+@font-face {
+  font-family: "Instrument Serif Fallback";
+  font-style: italic;
+  src: local("Times New Roman Italic"), local("TimesNewRomanPS-ItalicMT");
+  size-adjust: 87.99%;
+  ascent-override: 112.51%;
+  descent-override: 35.23%;
+  line-gap-override: 0%;
+}
+
+@font-face {
+  font-family: "Geist Fallback";
+  src: local("Arial"), local("ArialMT");
+  size-adjust: 104.55%;
+  ascent-override: 96.13%;
+  descent-override: 28.22%;
+  line-gap-override: 0%;
 }
 
 /* Prism One Dark theme (inlined from prism-themes) */
@@ -135,7 +356,7 @@ pre[class*="language-"] {
   background: hsl(220, 13%, 18%);
   color: hsl(220, 14%, 71%);
   text-shadow: 0 1px rgba(0, 0, 0, 0.3);
-  font-family: "Fira Code", "Fira Mono", Menlo, Consolas, "DejaVu Sans Mono", monospace;
+  font-family: var(--font-mono);
   direction: ltr;
   text-align: left;
   white-space: pre;
@@ -168,10 +389,10 @@ pre[class*="language-"] *::selection {
 }
 
 pre[class*="language-"] {
-  padding: 1em;
+  padding: 1.25em 1.5em;
   margin: 0.5em 0;
   overflow: auto;
-  border-radius: 0.3em;
+  border-radius: 0.75rem;
 }
 
 :not(pre) > code[class*="language-"] {

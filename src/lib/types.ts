@@ -1,7 +1,3 @@
-import type { AppTypes } from "$app/types";
-
-export type Pathname = ReturnType<AppTypes["Pathname"]>;
-
 export interface PostMetadata {
   title: string;
   slug: string;
@@ -17,7 +13,7 @@ export interface PostMetadata {
 
 export interface PostSummary {
   meta: PostMetadata;
-  path: Pathname;
+  path: string;
 }
 
 export interface TechStack {

@@ -12,11 +12,12 @@
   let {
     src,
     alt,
-    class: cls = "mt-6 mb-8 rounded-lg drop-shadow-md",
+    class: cls = "rounded-xl",
     feedImage = false,
     fetchpriority,
     loading,
-    sizes
+    // The article column (Longform): 42rem wide from `lg`, beside a 12rem column from `md3`
+    sizes = "(min-width: 1000px) 672px, (min-width: 800px) calc(100vw - 272px), (min-width: 600px) calc(100vw - 64px), calc(100vw - 40px)"
   }: Props = $props();
 </script>
 

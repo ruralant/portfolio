@@ -1,20 +1,32 @@
 <script lang="ts">
-  import { fade } from "svelte/transition";
-  import { resolve } from "$app/paths";
-  import ArrowLeft from "$lib/components/icons/ArrowLeft.svelte";
+  import Longform from "#lib/components/Longform.svelte";
+  import Tag from "#lib/components/Tag.svelte";
+  import { formatDate, isoDate } from "#lib/utils.js";
   import type { Snippet } from "svelte";
 
   interface Props {
     category: string;
     title: string;
     subtitle: string;
+    date: string | Date;
+    tags?: string[];
     mainImage?: string;
     mainImageAlt?: string;
     slug: string;
     children?: Snippet;
   }
 
-  let { category, title, subtitle, mainImage, mainImageAlt, slug, children }: Props = $props();
+  let {
+    category,
+    title,
+    subtitle,
+    date,
+    tags = [],
+    mainImage,
+    mainImageAlt,
+    slug,
+    children
+  }: Props = $props();
 </script>
 
 <svelte:head>
@@ -35,36 +47,32 @@
   <meta name="twitter:site" content="@ruralant" />
 </svelte:head>
 
-<div
-  in:fade={{ duration: 150, delay: 100 }}
-  out:fade={{ duration: 150 }}
-  class="prose font-Roboto prose-lg dark:prose-invert prose-headings:font-Cormorant prose-h2:text-3xl prose-h2:font-medium prose-h3:text-2xl prose-h3:font-medium prose-p:text-lg prose-p:leading-8 prose-p:text-neutral-700 dark:prose-p:text-neutral-300 prose-a:font-medium prose-a:text-teal-600 prose-a:underline prose-a:decoration-teal-600/30 prose-a:underline-offset-4 prose-a:transition-colors hover:prose-a:text-teal-500 hover:prose-a:decoration-teal-500/50 dark:prose-a:text-teal-400 dark:prose-a:decoration-teal-400/30 dark:hover:prose-a:text-teal-300 dark:hover:prose-a:decoration-teal-300/50 prose-code:rounded prose-code:bg-neutral-200 prose-code:px-1.5 prose-code:py-0.5 prose-code:text-sm prose-code:text-neutral-700 prose-pre:min-w-full prose-pre:max-w-xs prose-pre:whitespace-pre-wrap prose-pre:rounded-lg prose-pre:bg-neutral-200 prose-pre:text-left prose-pre:text-neutral-700 dark:prose-code:bg-neutral-800 dark:prose-code:text-neutral-100 dark:prose-pre:bg-neutral-800 dark:prose-pre:text-neutral-100 md:prose-pre:max-w-full prose-li:text-lg prose-li:leading-8 prose-li:text-neutral-700 dark:prose-li:text-neutral-300 max-w-3xl text-neutral-900 dark:text-neutral-100"
+<Longform
+  {title}
+  {subtitle}
+  back={{ url: "blog", text: "All articles" }}
+  eyebrow="{category} · {formatDate(date)}"
 >
-  <div class="mt-10 flex flex-row items-center justify-between md:mt-0">
-    <a class="font-Poppins inline-block text-white! no-underline" href={resolve("/blog")}>
-      <ArrowLeft />
-    </a>
-    <p
-      class="text-center text-sm font-medium tracking-wider text-neutral-500 uppercase dark:text-neutral-400"
-    >
-      {category}
-    </p>
-    <div class="w-6"></div>
-  </div>
-  <h1
-    class="font-Cormorant mt-8 mb-4 text-center text-5xl leading-tight font-medium tracking-normal text-neutral-800 sm:mt-2 sm:text-4xl md:text-6xl dark:text-neutral-100"
-  >
-    {title}
-  </h1>
-  <h2
-    class="mt-4 mb-12 text-center text-base leading-relaxed font-normal tracking-normal text-neutral-600 sm:text-lg md:text-xl dark:text-neutral-400"
-  >
-    {subtitle}
-  </h2>
-  <article>
-    {@render children?.()}
-  </article>
-  <a class="font-Poppins my-10 inline-block text-white! no-underline" href={resolve("/blog")}>
-    <ArrowLeft />
-  </a>
-</div>
+  {#snippet meta()}
+    <div>
+      <dt class="eyebrow">Published</dt>
+      <dd class="text-ink mt-2"><time datetime={isoDate(date)}>{formatDate(date)}</time></dd>
+    </div>
+    <div>
+      <dt class="eyebrow">Category</dt>
+      <dd class="text-ink mt-2 capitalize">{category}</dd>
+    </div>
+    {#if tags.length > 0}
+      <div>
+        <dt class="eyebrow">Tags</dt>
+        <dd class="mt-3 flex flex-wrap gap-1.5">
+          {#each tags as tag (tag)}
+            <Tag tagName={tag} url={`blog/tags/${encodeURIComponent(tag)}`} />
+          {/each}
+        </dd>
+      </div>
+    {/if}
+  {/snippet}
+
+  {@render children?.()}
+</Longform>

@@ -1,28 +1,17 @@
 <script lang="ts">
   import { resolve } from "$app/paths";
-  import { page } from "$app/stores";
+  import { page } from "$app/state";
+  import PageHeader from "#lib/components/PageHeader.svelte";
 
-  const status = $page.status;
-  const message = $page.error?.message;
-  const title = `${status}: ${message}`;
+  const title = $derived(`${page.status}: ${page.error?.message}`);
 </script>
 
 <svelte:head>
   <title>{title}</title>
 </svelte:head>
-<div class="flex flex-col items-center justify-center">
-  <div class="mt-10 mb-5 text-4xl md:mb-10 md:text-5xl">😱</div>
-  <h1 class="mb-3 text-center text-3xl text-neutral-800 md:text-4xl dark:text-neutral-100">
-    Oops, Something weird happened
-  </h1>
-  <h2 class="mb-3 text-center text-2xl text-neutral-800 md:text-3xl dark:text-neutral-100">
-    If you were looking for a blog post, I recently made some changes on the structure of the
-    website.
-  </h2>
-  <h2 class="text-xl text-neutral-800 dark:text-neutral-100">
-    You can find all the blog posts <a
-      class="font-medium text-teal-500 underline"
-      href={resolve("/blog")}>here</a
-    >.
-  </h2>
-</div>
+
+<PageHeader eyebrow="Error {page.status}" title="Oops, something weird happened">
+  If you were looking for a blog post, I recently made some changes to the structure of the website.
+  You can find all the blog posts <a class="link text-ink" href={resolve("blog")}>here</a>, or head
+  back <a class="link text-ink" href={resolve("/")}>home</a>.
+</PageHeader>

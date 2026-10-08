@@ -10,8 +10,8 @@ layout: development
 ---
 
 <script>
-  import mainImage from '$lib/assets/images/blog/leaves-middle.jpg?enhanced';
-  import Image from '$lib/components/Image.svelte';
+  import mainImage from '#lib/assets/images/blog/leaves-middle.jpg?enhanced&w=1344;1080;720;540&quality=50';
+  import Image from '#lib/components/Image.svelte';
 </script>
 
 <Image
@@ -19,7 +19,6 @@ layout: development
   alt="green leaves surrounded by yellow ones"
   fetchpriority="high"
   feedImage={true}
-  sizes="(min-width: 800px) 720px, 100vw"
 />
 
 Recently I had the necessity to store the request payloads hitting our lambdas in a S3 bucket (do not ask me why :D).

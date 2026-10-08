@@ -1,16 +1,16 @@
 <svg
-  width="24"
-  height="24"
-  class="h-6 w-6 stroke-white"
+  width="18"
+  height="18"
   viewBox="0 0 24 24"
-  xmlns="http://www.w3.org/2000/svg"
+  fill="none"
+  stroke="currentColor"
+  stroke-width="1.5"
+  stroke-linecap="round"
+  stroke-linejoin="round"
+  aria-hidden="true"
 >
-  <title id="sun-title">Sun icon</title>
-  <desc id="sun-desc">A minimalistic icon representing a sun</desc>
+  <circle cx="12" cy="12" r="4" />
   <path
-    d="M12 3V4M12 20V21M21 12H20M4 12H3M18.364 18.364L17.6569 17.6569M6.34315 6.34315L5.63604 5.63604M18.364 5.63609L17.6569 6.3432M6.3432 17.6569L5.63609 18.364M16 12C16 14.2091 14.2091 16 12 16C9.79086 16 8 14.2091 8 12C8 9.79086 9.79086 8 12 8C14.2091 8 16 9.79086 16 12Z"
-    stroke-width="2"
-    stroke-linecap="round"
-    stroke-linejoin="round"
+    d="M12 2.5v1.5M12 20v1.5M21.5 12H20M4 12H2.5M18.7 5.3l-1.06 1.06M6.36 17.64 5.3 18.7M18.7 18.7l-1.06-1.06M6.36 6.36 5.3 5.3"
   />
 </svg>

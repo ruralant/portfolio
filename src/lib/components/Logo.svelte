@@ -1,5 +1,10 @@
-<div
-  class="bg-space-grey dark:bg-space-white mr-5 flex h-10 w-10 items-center justify-center rounded-full"
+<script lang="ts">
+  import { resolve } from "$app/paths";
+</script>
+
+<a
+  href={resolve("/")}
+  class="text-ink hover:text-accent tracking-title font-serif text-[1.4rem] leading-none no-underline transition-colors"
 >
-  <p class="font-Cormorant mb-0.5 text-xl text-white dark:text-black">Ar</p>
-</div>
+  Antonio Rossi
+</a>

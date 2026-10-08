@@ -10,8 +10,8 @@ layout: development
 ---
 
 <script>
-  import mainImage from '$lib/assets/images/blog/evolution.jpg?enhanced';
-  import Image from '$lib/components/Image.svelte';
+  import mainImage from '#lib/assets/images/blog/evolution.jpg?enhanced&w=1344;1080;720;540&quality=50';
+  import Image from '#lib/components/Image.svelte';
 </script>
 
 <Image
@@ -19,7 +19,6 @@ layout: development
   alt="a stormtrooper picking up a flower"
   fetchpriority="high"
   feedImage={true}
-  sizes="(min-width: 800px) 720px, 100vw"
 />
 
 With this post I want to emphasise the importance of keeping up with the evolution of the programming languages we use. I will use JavaScript as an example.
