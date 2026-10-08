@@ -9,7 +9,7 @@
   let { companies }: Props = $props();
 </script>
 
-<div class="mx-auto flex max-w-[900px] flex-col gap-8 px-4 sm:gap-12">
+<div class="border-line border-b">
   {#each companies as company (company.name)}
     <Company {company} />
   {/each}

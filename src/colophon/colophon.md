@@ -1,7 +1,7 @@
 ---
 title: Colophon
 subtitle: A designer-y word for "how it's made"
-lastUpdated: "June 2026"
+lastUpdated: "October 2026"
 layout: colophon
 ---
 
@@ -28,17 +28,21 @@ same way I do — incrementally, and with intention.
 
 ## Typography
 
-- **Headings**: [Cormorant](https://fonts.google.com/specimen/Cormorant), a high-contrast serif.
-- **Body**: [Roboto Serif](https://fonts.google.com/specimen/Roboto+Serif), for comfortable long-form reading.
-- **Accents**: [Poppins](https://fonts.google.com/specimen/Poppins).
+- **Display**: [Instrument Serif](https://fonts.google.com/specimen/Instrument+Serif), a condensed,
+  editorial serif for titles and headings, with its italic for the odd accent.
+- **Text**: [Geist](https://fonts.google.com/specimen/Geist), a clean sans-serif for everything you
+  read.
 
-All fonts are self-hosted as subsetted `woff2` files, so there's no third-party
-request and only the glyphs the site actually needs are downloaded.
+Both are self-hosted as subsetted `woff2` files, about 53 KB for all three, so there's no
+third-party request and only the glyphs the site actually needs are downloaded. Each font has a
+local fallback resized to match its metrics, so the text doesn't jump when the web fonts arrive.
 
 ## Design
 
 - **Styling**: [Tailwind CSS](https://tailwindcss.com) with the typography plugin.
-- **Colour**: a restrained, mostly neutral palette with teal accents, in both light and dark modes.
+- **Colour**: warm paper and ink, hairline rules instead of shadows, and a single terracotta accent
+  borrowed from the lit windows of the solarpunk house on the home page, in both light and dark
+  modes.
 - The aim is calm, readable, and out of the way of the words.
 
 ## Energy & performance

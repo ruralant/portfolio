@@ -7,7 +7,7 @@ test.beforeEach(async ({ page }) => {
 
 test.describe("Home page", () => {
   test("should show the main page title", async ({ page }) => {
-    const mainTitle = await page.getByText("Hi, I'm Antonio 👋");
+    const mainTitle = page.getByRole("heading", { level: 1, name: "Hi, I’m Antonio." });
     await expect(mainTitle).toBeVisible();
   });
 
@@ -15,7 +15,7 @@ test.describe("Home page", () => {
     const subtitleLine1 = await page.getByText("Software engineer based in Reading, UK.");
     await expect(subtitleLine1).toBeVisible();
     const subtitleLine2 = await page.getByText(
-      "I'm interested in green software and climate adaptation."
+      "I’m interested in green software and climate adaptation."
     );
     await expect(subtitleLine1).toBeVisible();
     await expect(subtitleLine2).toBeVisible();
@@ -32,21 +32,19 @@ test.describe("Home page", () => {
   });
 
   test("should show the Contact section", async ({ page }) => {
-    const contactTitle = await page.getByRole("heading", { name: "I'm always up for a chat." });
+    const contactTitle = await page.getByRole("heading", { name: "I’m always up for a chat." });
     await expect(contactTitle).toBeVisible();
   });
 
-  test("should show all the social icons/links", async ({ page }) => {
-    const linkedIn = await page.getByRole("link", { name: "LinkedIn logo" });
-    await expect(linkedIn).toBeVisible();
-    const mail = await page.getByRole("link", { name: "send me a message" });
-    await expect(mail).toBeVisible();
-    const rss = await page.getByRole("link", { name: "rss feed icon" });
-    await expect(rss).toBeVisible();
+  test("should show all the contact and social links", async ({ page }) => {
+    const contact = page.getByRole("region", { name: "I’m always up for a chat." });
+    await expect(contact.getByRole("link", { name: "Send me a message" })).toBeVisible();
+    await expect(contact.getByRole("link", { name: /LinkedIn/ })).toBeVisible();
+    await expect(contact.getByRole("link", { name: "RSS" })).toBeVisible();
   });
 
   test("should link to the contact form", async ({ page }) => {
-    await page.getByRole("link", { name: "Open the contact form" }).click();
+    await page.getByRole("link", { name: "Send me a message" }).click();
     await expect(page).toHaveURL(/\/contact$/);
     await expect(page.getByRole("heading", { name: "Get in touch" })).toBeVisible();
   });

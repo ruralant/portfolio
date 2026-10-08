@@ -20,7 +20,7 @@ Personal portfolio + blog (antoniorossi.net). SvelteKit site deployed to Netlify
 - `npm run check` — svelte-check, **fails on warnings** (keep it clean). No CI job or active git hook runs it (`.husky/_pre-push` is not a hook name husky v9 runs), so run it yourself.
 - `npm run lint` — prettier check + eslint. Also not run in CI.
 - `npm run format` — prettier write
-- `npx playwright test` — E2E tests (no npm script; auto-runs `build && preview`). Single file: `npx playwright test tests/home.test.ts`. Specs live in `tests/`. This is the only thing CI runs (`.github/workflows/playwright.yml`).
+- `npx playwright test` — E2E tests (no npm script; auto-runs `build && preview`, but reuses anything already listening on `:4173`, so stop a running preview first or it tests a stale build). Single file: `npx playwright test tests/home.test.ts`. Specs live in `tests/`. This is the only thing CI runs (`.github/workflows/playwright.yml`). If your local `.env` holds the real `PUBLIC_TURNSTILE_SITE_KEY`, the contact "send a message" test fails on localhost; run with `PUBLIC_TURNSTILE_SITE_KEY=1x00000000000000000000AA npx playwright test` to match CI.
 
 ## Rendering
 
@@ -47,15 +47,17 @@ Personal portfolio + blog (antoniorossi.net). SvelteKit site deployed to Netlify
 - **Tailwind-first.** Reach for a scoped `<style>` block only for `@keyframes`, complex grid, or hover states that need a `:global(.dark)` wrapper.
 - Type component props with a TS `interface Props` block above `let { ... }: Props = $props()`. Use `import type` for type-only imports (`verbatimModuleSyntax` is on).
 - Import order: external deps → `$lib/*` → relative. `$lib` → `src/lib` (only custom alias).
-- **Never nest links.** Post cards (`Article.svelte`, `BlogListItem.svelte`) make the title the only card link and stretch it over the card with `after:absolute after:inset-0`; the `Tag` links inside sit above it. Internal `href`s go through `resolve()` from `$app/paths` (enforced by eslint).
+- **Never nest links.** Post rows (`PostListItem.svelte`) make the title the only row link and stretch it over the card with `after:absolute after:inset-0`; the `Tag` links inside sit above it. Internal `href`s go through `resolve()` from `$app/paths` (enforced by eslint).
 - No code comments unless the _why_ is non-obvious.
 
 ## Where things live
 
 **Rule:** `$lib` holds only shared/cross-page code. A component used by exactly one page lives next to that page's route (non-`+` files in a route folder aren't routes).
 
-- `src/routes/` — file-based pages + `+server.ts` API (`api/posts.json`, `api/tags.json`, `api/tags/[tag].json`, `api/contact`, `rss.xml`). Page-only components colocate here: `Hero`/`Contacts`/`Articles`/`Article` (home) at the root, `about/Skill.svelte`, `career/{Company,Timeline}.svelte`, `blog/{BlogListItem,Pagination}.svelte`, `contact/{ContactForm,Turnstile}.svelte`.
-- `src/lib/components/` — shared cross-page components: `Header`, `Footer`, `Image`, `Logo`, `NavItem`, `Tag` (pill; a link when given `url`, otherwise a plain `<span>`), plus `icons/`
+- `src/routes/` — file-based pages + `+server.ts` API (`api/posts.json`, `api/tags.json`, `api/tags/[tag].json`, `api/contact`, `rss.xml`). Page-only components colocate here: `Hero`/`SolarpunkHouse`/`Articles`/`Contacts` (home) at the root, `about/Skill.svelte`, `career/{Company,Timeline}.svelte`, `contact/{ContactForm,Turnstile}.svelte`.
+- `scripts/solarpunk-house.js` — draws the home page illustration. It models the island in 3D, projects it from a fixed camera and writes `src/routes/solarpunk.svg` plus the `layout` block between the `// generated` markers in `SolarpunkHouse.svelte`; never hand-edit either. Run `node scripts/solarpunk-house.js` after changing it. The SVG holds both palettes: the component loads it twice, the second time as `solarpunk.svg#night`, which makes the file's wrapping group `:target` and switches it to the night colours, so both themes cost one cached download. The moving parts (rotor, clouds, stars, fireflies, bees, water) are HTML layers in the component that animate only `transform`/`opacity`.
+- `src/lib/components/` — shared cross-page components: `Header` (inline nav from `md2`, a full-screen `popover` menu below it; `afterNavigate` closes it), `Footer`, `Image`, `Logo` (the wordmark link), `NavItem`, `PageHeader` (eyebrow + serif `h1` + optional lede, used by every non-article page), `PostListItem` (one row in the home, blog and tag lists), `Longform` (the shared article layout behind the three mdsvex layouts), `Tag` (pill; a link when given `url`, otherwise a plain `<span>`), plus `icons/`
+- `src/lib/navigation.ts` — the header, mobile menu and footer links, in one list
 - `src/lib/layouts/` — mdsvex layouts (`Post.svelte`, `Now.svelte`, `Colophon.svelte`)
 - `src/lib/blog/posts.ts` — canonical post loader (`getPosts()`) plus `getTags()`, used by the API endpoints, RSS, the blog list loader and prerender `entries`
 - `src/blog/*.md` — blog posts (see Content)
@@ -69,9 +71,11 @@ Personal portfolio + blog (antoniorossi.net). SvelteKit site deployed to Netlify
 ## Tailwind theme (`src/tailwind.css`) — non-default, read before styling
 
 - **Breakpoints are custom** (TW defaults cleared): `sm 375 · md 550 · md2 600 · md3 800 · lg 1000 · xl 1385 · xl2 3000`. Never assume stock Tailwind breakpoints.
-- Custom colors: `space-grey` / `space-white`, `hero-color-1..6`, `progress-bar-blue`, etc.
-- Custom fonts only: `font-Cormorant` (serif, headings), `font-Poppins` (sans), `font-Roboto` (serif, body).
-- Dark mode = `.dark` class variant (`dark:` prefix). Custom utilities: `grid-cols-articles-{sm,md,lg}`.
+- **Colours are theme tokens**: `paper` (background), `surface`, `ink` (text), `ink-soft` (body copy), `muted` (meta), `line` / `line-strong` (hairlines), `field` (form borders, kept at 3:1 contrast) and a single `accent` (terracotta). The `.dark` block in `@layer base` redefines every one, so write `bg-paper text-muted`, not `dark:` pairs. A bare `border` draws a `line` hairline. Use hairlines, not shadows.
+- Fonts: `font-serif` (Instrument Serif, regular + italic, for titles and headings; it has a single weight, so never `font-medium`/`font-bold` it) and `font-sans` (Geist variable 400–600, the default). Each has a metric-matched local fallback `@font-face`. The serif subsets have no arrow glyphs, so put `→ ← ↗` in sans text.
+- Custom utilities: `eyebrow` (small uppercase label), `link` (inline text link with an accent underline), `btn` (the slim ink pill for primary actions). `max-w-content` is the shared page width.
+- Long-form colours come from the typography plugin's `--tw-prose-*` variables, pointed at the tokens in `tailwind.css`, so use plain `prose` (no `prose-invert`, no `prose-a:` colour classes).
+- Dark mode = `.dark` class variant (`dark:` prefix), needed only for the few things tokens can't express (the theme icons, `SolarpunkHouse`).
 
 ## Content (mdsvex)
 

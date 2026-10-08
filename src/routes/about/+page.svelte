@@ -1,5 +1,6 @@
 <script lang="ts">
   import { resolve } from "$app/paths";
+  import PageHeader from "$lib/components/PageHeader.svelte";
   import Skill from "./Skill.svelte";
   import meImage from "$lib/assets/images/home/me-b-and-w.jpg?enhanced&w=300&h=300&quality=50";
   import { calculateExperience } from "$lib/utils";
@@ -28,45 +29,44 @@
   });
 
   orderedSkills.sort((a, b) => b.value - a.value);
-
-  const maxExperience = Math.round(orderedSkills[0].value / 12);
-  const halfWayExperience = Math.round(maxExperience / 2);
 </script>
 
-<h1
-  class="font-Cormorant m-0 pt-10 pb-8 text-5xl text-neutral-800 md:pt-0 md:text-6xl dark:text-neutral-100"
->
-  About me
-</h1>
+<svelte:head>
+  <title>About · Antonio Rossi</title>
+  <meta
+    name="description"
+    content="Antonio Rossi is a software engineer in Reading, UK, who builds efficient, sustainable software and grows his own food."
+  />
+</svelte:head>
 
-<div class="font-Roboto max-w-3xl">
-  <div class="mb-12 bg-clip-content md:float-right md:mb-6 md:ml-8">
+<PageHeader eyebrow="About" title="About me" />
+
+<div
+  class="md3:grid-cols-[minmax(0,1fr)_15rem] md3:gap-16 grid gap-10 lg:grid-cols-[minmax(0,1fr)_18rem]"
+>
+  <div class="md3:order-last md3:pt-1">
     <enhanced:img
       src={meImage}
-      alt="myself speaking in public"
-      class="overflow-hidden rounded-full"
+      alt="Antonio speaking in public"
+      class="md3:w-full aspect-square w-48 rounded-2xl object-cover grayscale"
     />
   </div>
 
-  <div class="space-y-6 text-lg leading-8 text-neutral-700 dark:text-neutral-300">
-    <p>
-      My name is <span
-        class="bg-gradient-to-r from-purple-600 to-red-500 bg-clip-text font-medium text-transparent dark:from-purple-500 dark:to-red-400"
-        >Antonio</span
-      > and I am a software engineer with a passion for developing green software.
+  <div class="md2:text-xl text-ink-soft max-w-2xl space-y-6 text-lg leading-relaxed text-pretty">
+    <p class="text-ink">
+      My name is Antonio and I am a software engineer with a passion for developing green software.
     </p>
 
     <p>
-      I specialise in <span class="font-medium text-neutral-900 dark:text-neutral-100"
-        >React, Svelte, Node, AWS, and Typescript</span
-      >, and I have years of experience developing efficient and sustainable software solutions.
+      I specialise in <span class="text-ink">React, Svelte, Node, AWS, and Typescript</span>, and I
+      have years of experience developing efficient and sustainable software solutions.
     </p>
 
     <p>
       I strongly believe in the importance of creating software that is environmentally responsible,
       and I am committed to incorporating eco-friendly practices into my work whenever possible. By
       focusing on reducing energy consumption, minimising waste, and using sustainable resources,
-      <span class="font-medium text-neutral-900 dark:text-neutral-100"
+      <span class="text-ink"
         >I strive to create software that is efficient, cost-effective and environmentally
         conscious.</span
       >
@@ -87,49 +87,27 @@
     <p>
       Thank you for taking your time to learn a little but more about myself. If you have any
       questions, if we have passions in common, or if you just want to say hi, do not hesitate to
-      <a
-        href={resolve("/contact")}
-        class="font-medium text-teal-600 underline decoration-teal-600/30 underline-offset-4 transition-colors hover:text-teal-500 hover:decoration-teal-500/50 dark:text-teal-400 dark:decoration-teal-400/30 dark:hover:text-teal-300 dark:hover:decoration-teal-300/50"
-        >send me a message</a
-      >.
+      <a href={resolve("/contact")} class="link text-ink">send me a message</a>.
     </p>
   </div>
-
-  <div class="clear-both mt-16">
-    <h2 class="font-Cormorant mb-8 text-3xl font-medium text-neutral-800 dark:text-neutral-100">
-      Skills and Experience
-    </h2>
-    <div class="mb-4 flex justify-between text-sm font-medium tracking-wider uppercase">
-      <span class="flex-1 text-neutral-400 dark:text-neutral-600">Years</span>
-      <span class="flex flex-1 justify-center text-neutral-400 dark:text-neutral-600"
-        ><span
-          class="flex h-8 w-8 items-center justify-center rounded-full border-2 border-solid border-neutral-300 text-base dark:border-neutral-700"
-          >{halfWayExperience}
-        </span></span
-      >
-      <span class="flex flex-1 justify-end text-neutral-400 dark:text-neutral-600"
-        ><span
-          class="flex h-8 w-8 items-center justify-center rounded-full border-2 border-solid border-neutral-300 text-base dark:border-neutral-700"
-          >{maxExperience}</span
-        >
-      </span>
-    </div>
-    <div class="grid grid-cols-1 grid-rows-1">
-      <table class="col-start-1 row-start-1">
-        <tbody>
-          <tr>
-            <td
-              class="w-6/12 border-r-2 border-l-0 border-solid border-neutral-300 dark:border-neutral-700"
-            ></td>
-            <td class="w-6/12 border-solid border-neutral-300 dark:border-neutral-700"></td>
-          </tr>
-        </tbody>
-      </table>
-      <div class="col-start-1 row-start-1">
-        {#each orderedSkills as skill (skill.name)}
-          <Skill {skill} percentage={(skill.value / orderedSkills[0].value) * 100} />
-        {/each}
-      </div>
-    </div>
-  </div>
 </div>
+
+<section
+  aria-labelledby="skills"
+  class="md3:mt-28 md3:grid-cols-[12rem_minmax(0,1fr)] border-line mt-20 grid gap-x-12 gap-y-8 border-t pt-12"
+>
+  <div>
+    <p class="eyebrow">Toolbox</p>
+    <h2 id="skills" class="text-ink tracking-title mt-3 font-serif text-4xl leading-none">
+      Skills and experience
+    </h2>
+    <p class="text-muted mt-4 text-sm leading-relaxed">
+      Years with each tool. The faded ones are tools I used to work with.
+    </p>
+  </div>
+  <ul class="border-line border-b">
+    {#each orderedSkills as skill (skill.name)}
+      <Skill {skill} percentage={(skill.value / orderedSkills[0].value) * 100} />
+    {/each}
+  </ul>
+</section>

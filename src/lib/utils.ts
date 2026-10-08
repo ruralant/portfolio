@@ -22,3 +22,15 @@ export const calculatePastExperience = (start: string, end: string): Experience 
   const text = `${Math.floor(totalMonths / 12)} years and ${totalMonths % 12} months`;
   return { text, value: totalMonths };
 };
+
+const MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+// Frontmatter dates reach components as ISO strings or Date objects depending on how they
+// were serialised. Reading them in UTC keeps the prerendered day and the hydrated day equal.
+export const formatDate = (date: string | Date, withYear = true): string => {
+  const parsed = new Date(date);
+  const day = `${parsed.getUTCDate()} ${MONTHS[parsed.getUTCMonth()]}`;
+  return withYear ? `${day} ${parsed.getUTCFullYear()}` : day;
+};
+
+export const isoDate = (date: string | Date): string => new Date(date).toISOString().slice(0, 10);
