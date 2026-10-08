@@ -11,6 +11,18 @@ export interface PostMetadata {
   mainImageAlt?: string;
 }
 
+export interface NowMetadata {
+  title: string;
+  subtitle: string;
+  date: string;
+  layout: string;
+}
+
+/** A now page entry; `slug` is its filename and its URL under /now */
+export interface NowUpdate extends NowMetadata {
+  slug: string;
+}
+
 export interface PostSummary {
   meta: PostMetadata;
   path: string;
