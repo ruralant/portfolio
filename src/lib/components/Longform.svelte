@@ -11,10 +11,12 @@
     eyebrow: string;
     /** Definition-list rows for the side column */
     meta: Snippet;
+    /** Rendered after the article body, outside the prose styles */
+    appendix?: Snippet;
     children?: Snippet;
   }
 
-  let { title, subtitle, back, eyebrow, meta, children }: Props = $props();
+  let { title, subtitle, back, eyebrow, meta, appendix, children }: Props = $props();
 
   const backLink = "text-sm text-muted no-underline transition-colors hover:text-ink";
 </script>
@@ -48,6 +50,8 @@
     <div class="prose prose-lg mt-10 max-w-none">
       {@render children?.()}
     </div>
+
+    {@render appendix?.()}
 
     <footer class="border-line mt-16 border-t pt-8">
       <a class={backLink} href={resolve(back.url)}>
