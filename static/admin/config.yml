@@ -68,24 +68,37 @@ collections:
       - { name: layout, label: Layout, widget: hidden, default: development }
       - { name: body, label: Body, widget: markdown }
 
+  # One file per now page update. The newest (by date) is shown at /now; older ones stay
+  # online at /now/<filename>. To start from the previous update, open it and use Duplicate.
+  - name: now
+    label: Now
+    label_singular: Now update
+    folder: src/now
+    create: true
+    extension: md
+    format: yaml-frontmatter
+    # The filename is the archive URL (/now/2026-10-08), fixed when the entry is created.
+    slug: "{{year}}-{{month}}-{{day}}"
+    summary: "{{date}} — {{subtitle}}"
+    sortable_fields: [date]
+    fields:
+      - { name: title, label: Title, widget: string, default: Now }
+      - { name: subtitle, label: Subtitle, widget: string, default: "What I'm currently up to" }
+      - {
+          name: date,
+          label: Date,
+          widget: datetime,
+          format: "YYYY-MM-DD",
+          time_format: false,
+          hint: The newest date is the one shown at /now
+        }
+      - { name: layout, label: Layout, widget: hidden, default: now }
+      - { name: body, label: Body, widget: markdown }
+
   # Single-page markdown files rendered through their own mdsvex layouts.
   - name: pages
     label: Pages
     files:
-      - name: now
-        label: Now
-        file: src/now/now.md
-        fields:
-          - { name: title, label: Title, widget: string, default: Now }
-          - { name: subtitle, label: Subtitle, widget: string }
-          - {
-              name: lastUpdated,
-              label: Last updated,
-              widget: string,
-              hint: 'Free text, e.g. "June 2026"'
-            }
-          - { name: layout, label: Layout, widget: hidden, default: now }
-          - { name: body, label: Body, widget: markdown }
       - name: colophon
         label: Colophon
         file: src/colophon/colophon.md
