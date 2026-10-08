@@ -1,8 +1,8 @@
 <script lang="ts">
   import { resolve } from "$app/paths";
-  import PageHeader from "$lib/components/PageHeader.svelte";
-  import PostListItem from "$lib/components/PostListItem.svelte";
-  import type { PostMetadata } from "$lib/types";
+  import PageHeader from "#lib/components/PageHeader.svelte";
+  import PostListItem from "#lib/components/PostListItem.svelte";
+  import type { PostMetadata } from "#lib/types.js";
   import type { PageData } from "./$types";
 
   let { data }: { data: PageData } = $props();
@@ -29,7 +29,7 @@
 
 <PageHeader eyebrow="Writing" title="Latest Articles">
   Notes on green software, web performance, TypeScript and React, plus the occasional life update.
-  <a class="link text-ink" href={resolve("/blog/tags")}>Browse by tag</a>.
+  <a class="link text-ink" href={resolve("blog/tags")}>Browse by tag</a>.
 </PageHeader>
 
 <div class="space-y-4">

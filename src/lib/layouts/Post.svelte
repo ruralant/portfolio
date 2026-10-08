@@ -1,7 +1,7 @@
 <script lang="ts">
-  import Longform from "$lib/components/Longform.svelte";
-  import Tag from "$lib/components/Tag.svelte";
-  import { formatDate, isoDate } from "$lib/utils";
+  import Longform from "#lib/components/Longform.svelte";
+  import Tag from "#lib/components/Tag.svelte";
+  import { formatDate, isoDate } from "#lib/utils.js";
   import type { Snippet } from "svelte";
 
   interface Props {
@@ -50,7 +50,7 @@
 <Longform
   {title}
   {subtitle}
-  back={{ url: "/blog", text: "All articles" }}
+  back={{ url: "blog", text: "All articles" }}
   eyebrow="{category} · {formatDate(date)}"
 >
   {#snippet meta()}
@@ -67,7 +67,7 @@
         <dt class="eyebrow">Tags</dt>
         <dd class="mt-3 flex flex-wrap gap-1.5">
           {#each tags as tag (tag)}
-            <Tag tagName={tag} url={`/blog/tags/${encodeURIComponent(tag)}`} />
+            <Tag tagName={tag} url={`blog/tags/${encodeURIComponent(tag)}`} />
           {/each}
         </dd>
       </div>

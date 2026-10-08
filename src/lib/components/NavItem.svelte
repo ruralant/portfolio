@@ -1,16 +1,18 @@
 <script lang="ts">
   import { resolve } from "$app/paths";
   import { page } from "$app/state";
-  import type { Pathname } from "$lib/types";
+  import type { Path } from "$app/types";
 
   interface Props {
     text: string;
-    url: Pathname;
+    url: Path;
   }
 
   let { text, url }: Props = $props();
 
-  const current = $derived(page.url.pathname === url || page.url.pathname.startsWith(`${url}/`));
+  const current = $derived(
+    page.url.pathname === `/${url}` || page.url.pathname.startsWith(`/${url}/`)
+  );
 </script>
 
 <a

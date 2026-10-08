@@ -2,10 +2,11 @@
   import { afterNavigate } from "$app/navigation";
   import { resolve } from "$app/paths";
   import { page } from "$app/state";
-  import { theme } from "$lib/stores/store";
-  import { toggleTheme } from "$lib/stores/theme";
-  import { Sun, Moon } from "$lib/components/icons";
-  import { navigation } from "$lib/navigation";
+  import type { Path } from "$app/types";
+  import { theme } from "#lib/stores/store.js";
+  import { toggleTheme } from "#lib/stores/theme.js";
+  import { Sun, Moon } from "#lib/components/icons/index.js";
+  import { navigation } from "#lib/navigation.js";
   import Logo from "./Logo.svelte";
   import NavItem from "./NavItem.svelte";
 
@@ -16,8 +17,8 @@
     if (menu?.matches(":popover-open")) menu.hidePopover();
   });
 
-  const isCurrent = (url: string) =>
-    page.url.pathname === url || page.url.pathname.startsWith(`${url}/`);
+  const isCurrent = (url: Path) =>
+    page.url.pathname === `/${url}` || page.url.pathname.startsWith(`/${url}/`);
 </script>
 
 <header
@@ -93,7 +94,7 @@
     </nav>
 
     <div class="menu-link mt-auto flex flex-wrap items-center gap-x-6 gap-y-4 pt-12" style:--i={6}>
-      <a class="btn group" href={resolve("/contact")}>
+      <a class="btn group" href={resolve("contact")}>
         Get in touch
         <span aria-hidden="true" class="transition-transform group-hover:translate-x-0.5">→</span>
       </a>

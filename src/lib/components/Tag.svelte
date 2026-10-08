@@ -1,10 +1,10 @@
 <script lang="ts">
   import { resolve } from "$app/paths";
-  import type { Pathname } from "$lib/types";
+  import type { Path } from "$app/types";
 
   interface Props {
     tagName: string;
-    url?: Pathname;
+    url?: Path;
   }
 
   let { tagName, url }: Props = $props();

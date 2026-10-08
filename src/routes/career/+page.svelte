@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { companies } from "$lib/data/companies.json";
-  import PageHeader from "$lib/components/PageHeader.svelte";
+  import { companies } from "#lib/data/companies.json";
+  import PageHeader from "#lib/components/PageHeader.svelte";
   import Timeline from "./Timeline.svelte";
 </script>
 

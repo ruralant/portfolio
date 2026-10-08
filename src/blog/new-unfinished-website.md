@@ -10,11 +10,11 @@ layout: development
 ---
 
 <script>
-  import mainImage from '$lib/assets/images/blog/home-page.png?enhanced';
-  import oldCarbonScore from '$lib/assets/images/blog/old-website-carbon.png?enhanced';
-  import newCarbonScore from '$lib/assets/images/blog/new-website-carbon.png?enhanced';
-  import lightHouseScore from '$lib/assets/images/blog/lighthouse-score.png?enhanced';
-  import Image from '$lib/components/Image.svelte';
+  import mainImage from '#lib/assets/images/blog/home-page.png?enhanced';
+  import oldCarbonScore from '#lib/assets/images/blog/old-website-carbon.png?enhanced';
+  import newCarbonScore from '#lib/assets/images/blog/new-website-carbon.png?enhanced';
+  import lightHouseScore from '#lib/assets/images/blog/lighthouse-score.png?enhanced';
+  import Image from '#lib/components/Image.svelte';
 </script>
 
 <Image

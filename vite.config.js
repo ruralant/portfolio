@@ -1,3 +1,7 @@
+import { mdsvex } from "mdsvex";
+import mdsvexConfig from "./mdsvex.config.js";
+import adapter from "@sveltejs/adapter-netlify";
+import { vitePreprocess } from "@sveltejs/vite-plugin-svelte";
 import { sveltekit } from "@sveltejs/kit/vite";
 import { enhancedImages } from "@sveltejs/enhanced-img";
 import tailwindcss from "@tailwindcss/vite";
@@ -17,7 +21,16 @@ export default defineConfig(({ mode }) => {
   }
 
   return {
-    plugins: [tailwindcss(), enhancedImages(), sveltekit()],
+    plugins: [
+      tailwindcss(),
+      enhancedImages(),
+      sveltekit({
+        extensions: [".svelte", ...mdsvexConfig.extensions],
+        preprocess: [vitePreprocess(), mdsvex(mdsvexConfig)],
+        adapter: adapter(),
+        prerender: { crawl: true, entries: ["*"] }
+      })
+    ],
     define: {
       __APP_VERSION__: JSON.stringify(pkg.version),
       __TURNSTILE_SITE_KEY__: JSON.stringify(PUBLIC_TURNSTILE_SITE_KEY ?? "")

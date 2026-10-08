@@ -10,8 +10,8 @@ layout: development
 ---
 
 <script>
-  import mainImage from '$lib/assets/images/blog/evolution.jpg?enhanced';
-  import Image from '$lib/components/Image.svelte';
+  import mainImage from '#lib/assets/images/blog/evolution.jpg?enhanced';
+  import Image from '#lib/components/Image.svelte';
 </script>
 
 <Image

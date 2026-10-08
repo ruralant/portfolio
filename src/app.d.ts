@@ -1,6 +1,6 @@
 import type { Component } from "svelte";
 import type { Picture } from "vite-imagetools";
-import type { PostMetadata } from "$lib/types";
+import type { PostMetadata } from "#lib/types.js";
 
 declare global {
   namespace App {
@@ -20,7 +20,7 @@ declare global {
   // `@sveltejs/enhanced-img` only ships an ambient declaration for the bare
   // `*?enhanced` specifier, which TypeScript cannot match once sizing/quality
   // directives are appended to the query. Cover those imports here.
-  declare module "$lib/assets/images/*" {
+  declare module "#lib/assets/images/*" {
     const value: Picture;
     export default value;
   }

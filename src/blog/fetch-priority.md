@@ -10,7 +10,7 @@ layout: development
 ---
 
 <enhanced:img
-src="$lib/assets/images/blog/priority.jpg"
+src="#lib/assets/images/blog/priority.jpg"
 alt="the start line of a running track"
 class="webfeedsFeaturedVisual rounded-xl"
 fetchpriority="high"
@@ -40,7 +40,7 @@ Because images are expensive to display, the browser waits until it really needs
 If you go to the browser network tab and you reload the page, you will probably see that the first image is set to **_high_** priority.
 
 <enhanced:img
-src="$lib/assets/images/blog/priority-high.png"
+src="#lib/assets/images/blog/priority-high.png"
 alt="devtool showing priority changing from low to high"
 class="rounded-xl"
 loading="lazy"
@@ -50,7 +50,7 @@ sizes="(min-width: 800px) 720px, 100vw"
 However, it you toggle to the **_Slow 3G_** network in the Throttling dropdown, you will see that, at first, the image is set in **_low_** priority. And after a few milliseconds, the priority is changed to **_high_** as the browser realizes that the image is in the viewport (if you can't see this because it happens too fast, you can tick the **_Big request row_** checkbox).
 
 <enhanced:img
-src="$lib/assets/images/blog/priority-low-high.png"
+src="#lib/assets/images/blog/priority-low-high.png"
 alt="devtool showing priority changing from low to high"
 class="rounded-xl"
 loading="lazy"
@@ -76,7 +76,7 @@ We can do it using the `fetchpriority` attribute in the following way:
 and the result would be the following:
 
 <enhanced:img
-src="$lib/assets/images/blog/priority-high-high.png"
+src="#lib/assets/images/blog/priority-high-high.png"
 alt="devtool showing priority not changing from high"
 class="rounded-xl"
 loading="lazy"

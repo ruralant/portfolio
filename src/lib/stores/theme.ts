@@ -1,4 +1,4 @@
-import type { ThemeState } from "$lib/types";
+import type { ThemeState } from "#lib/types.js";
 
 type ThemeStore = { set: (value: ThemeState) => void };
 

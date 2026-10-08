@@ -27,7 +27,7 @@
 </script>
 
 <script lang="ts">
-  import { theme } from "$lib/stores/store";
+  import { theme } from "#lib/stores/store.js";
 
   interface Props {
     siteKey: string;

@@ -1,5 +1,5 @@
 <script lang="ts">
-  import Longform from "$lib/components/Longform.svelte";
+  import Longform from "#lib/components/Longform.svelte";
   import type { Snippet } from "svelte";
 
   interface Props {
@@ -24,12 +24,7 @@
   <meta name="twitter:card" content="summary" />
 </svelte:head>
 
-<Longform
-  {title}
-  {subtitle}
-  back={{ url: "/", text: "Home" }}
-  eyebrow="Last updated: {lastUpdated}"
->
+<Longform {title} {subtitle} back={{ url: "", text: "Home" }} eyebrow="Last updated: {lastUpdated}">
   {#snippet meta()}
     <div>
       <dt class="eyebrow">Last updated</dt>

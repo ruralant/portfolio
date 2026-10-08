@@ -1,6 +1,6 @@
 <script lang="ts">
   import Company from "./Company.svelte";
-  import type { Company as CompanyType } from "$lib/types";
+  import type { Company as CompanyType } from "#lib/types.js";
 
   interface Props {
     companies: CompanyType[];

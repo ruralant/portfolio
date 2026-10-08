@@ -1,6 +1,6 @@
 <script lang="ts">
   import { resolve } from "$app/paths";
-  import { navigation } from "$lib/navigation";
+  import { navigation } from "#lib/navigation.js";
 
   const year = new Date().getFullYear();
   const footerLink = "text-ink-soft no-underline transition-colors hover:text-accent";
@@ -27,7 +27,7 @@
       <nav aria-label="Elsewhere">
         <p class="eyebrow">Elsewhere</p>
         <ul class="mt-4 space-y-2.5">
-          <li><a class={footerLink} href={resolve("/contact")}>Contact</a></li>
+          <li><a class={footerLink} href={resolve("contact")}>Contact</a></li>
           <li>
             <a
               class={footerLink}
@@ -40,7 +40,7 @@
               >
             </a>
           </li>
-          <li><a class={footerLink} href={resolve("/rss.xml")}>RSS feed</a></li>
+          <li><a class={footerLink} href={resolve("rss.xml")}>RSS feed</a></li>
         </ul>
       </nav>
     </div>

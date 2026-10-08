@@ -1,7 +1,7 @@
 <script lang="ts">
   import { resolve } from "$app/paths";
-  import PageHeader from "$lib/components/PageHeader.svelte";
-  import PostListItem from "$lib/components/PostListItem.svelte";
+  import PageHeader from "#lib/components/PageHeader.svelte";
+  import PostListItem from "#lib/components/PostListItem.svelte";
   import type { PageData } from "./$types";
 
   let { data }: { data: PageData } = $props();
@@ -18,8 +18,8 @@
   {/snippet}
   {data.posts.length}
   {data.posts.length === 1 ? "article" : "articles"}.
-  <a class="link text-ink" href={resolve("/blog/tags")}>All tags</a> ·
-  <a class="link text-ink" href={resolve("/blog")}>All articles</a>
+  <a class="link text-ink" href={resolve("blog/tags")}>All tags</a> ·
+  <a class="link text-ink" href={resolve("blog")}>All articles</a>
 </PageHeader>
 
 <ul class="border-line border-b">
