@@ -38,10 +38,10 @@ const xml = (
     <author>
       <name>Antonio Rossi</name>
     </author>
-    <webfeeds:cover image="https://www.antoniorossi.net/mstile-144x144.png" />
-    <webfeeds:icon>https://www.antoniorossi.net/mstile-144x144.png</webfeeds:icon>
-    <webfeeds:logo>https://www.antoniorossi.net/mstile-144x144.png</webfeeds:logo>
-    <webfeeds:accentColor>000000</webfeeds:accentColor>
+    <webfeeds:cover image="https://www.antoniorossi.net/android-chrome-192x192.png" />
+    <webfeeds:icon>https://www.antoniorossi.net/android-chrome-192x192.png</webfeeds:icon>
+    <webfeeds:logo>https://www.antoniorossi.net/android-chrome-192x192.png</webfeeds:logo>
+    <webfeeds:accentColor>a24f27</webfeeds:accentColor>
     <webfeeds:related layout="card" target="browser"/>
     ${posts
       .map(

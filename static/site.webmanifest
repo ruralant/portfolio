@@ -1,6 +1,6 @@
 {
   "name": "Antonio Rossi Personal Website",
-  "short_name": "Antonio Rossi Website",
+  "short_name": "Antonio Rossi",
   "icons": [
     {
       "src": "/android-chrome-192x192.png",
@@ -13,11 +13,13 @@
       "type": "image/png"
     },
     {
-      "src": "/android-chrome-192x192.png",
-      "sizes": "192x192",
+      "src": "/android-chrome-maskable-512x512.png",
+      "sizes": "512x512",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "maskable"
     }
   ],
+  "theme_color": "#121211",
+  "background_color": "#121211",
   "display": "standalone"
 }
