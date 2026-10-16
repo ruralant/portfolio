@@ -13,6 +13,22 @@
       <p class="text-muted mt-3 max-w-xs text-sm leading-relaxed">
         Software engineer in Reading, UK, writing about green software and a lighter web.
       </p>
+      <a
+        class="group border-line-strong hover:border-ink mt-6 inline-flex items-stretch overflow-hidden rounded-full border text-xs leading-none no-underline transition-colors"
+        href="https://www.websitecarbon.com/website/antoniorossi-net/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <span class="text-ink-soft px-3 py-2 tabular-nums">0.01 g CO<sub>2</sub>/view</span>
+        <span
+          class="border-line-strong bg-surface text-ink group-hover:border-ink group-hover:text-accent border-l px-3 py-2 font-medium transition-colors"
+        >
+          Website Carbon<span aria-hidden="true"> ↗</span><span class="sr-only">
+            (opens in a new tab)</span
+          >
+        </span>
+      </a>
+      <p class="text-muted mt-2 text-xs">Cleaner than 98% of pages tested</p>
     </div>
 
     <div class="grid grid-cols-2 gap-x-16 gap-y-8 text-sm">
