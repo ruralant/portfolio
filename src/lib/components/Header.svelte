@@ -35,7 +35,7 @@
 
     <button
       type="button"
-      class="text-muted hover:bg-surface hover:text-ink grid size-9 cursor-pointer place-items-center rounded-full transition-colors"
+      class="text-muted hover:bg-surface hover:text-ink grid size-9 cursor-pointer place-items-center rounded transition-colors"
       aria-label="toggle light and dark mode"
       onclick={() => toggleTheme(theme, $theme)}
     >
@@ -46,7 +46,7 @@
     <button
       type="button"
       popovertarget="site-menu"
-      class="md2:hidden text-ink hover:bg-surface h-9 cursor-pointer rounded-full px-3 text-[0.9375rem] transition-colors"
+      class="md2:hidden text-ink hover:bg-surface h-9 cursor-pointer rounded px-3 text-[0.9375rem] transition-colors"
     >
       Menu
     </button>
@@ -66,7 +66,7 @@
         type="button"
         popovertarget="site-menu"
         popovertargetaction="hide"
-        class="text-ink hover:bg-surface h-9 cursor-pointer rounded-full px-3 text-[0.9375rem] transition-colors"
+        class="text-ink hover:bg-surface h-9 cursor-pointer rounded px-3 text-[0.9375rem] transition-colors"
       >
         Close
       </button>
@@ -104,7 +104,9 @@
         target="_blank"
         rel="noopener noreferrer"
       >
-        LinkedIn<span aria-hidden="true"> ↗</span><span class="sr-only"> (opens in a new tab)</span>
+        LinkedIn<span aria-hidden="true">&nbsp;↗</span><span class="sr-only">
+          (opens in a new tab)</span
+        >
       </a>
     </div>
   </div>

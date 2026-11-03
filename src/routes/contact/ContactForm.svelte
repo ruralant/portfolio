@@ -6,7 +6,7 @@
   const siteKey = __TURNSTILE_SITE_KEY__ || DEV_SITE_KEY;
 
   const fieldClass =
-    "w-full rounded-xl border border-field bg-transparent px-4 py-3 text-base text-ink transition-[border-color,box-shadow] placeholder:text-muted hover:border-ink focus-visible:border-accent focus-visible:ring-4 focus-visible:ring-accent/15 focus-visible:outline-none";
+    "w-full rounded border border-field bg-transparent px-4 py-3 text-base text-ink transition-[border-color,box-shadow] placeholder:text-muted hover:border-ink focus-visible:border-accent focus-visible:ring-4 focus-visible:ring-accent/15 focus-visible:outline-none";
   const labelClass = "mb-2 block text-sm font-medium text-ink";
 
   let name = $state("");

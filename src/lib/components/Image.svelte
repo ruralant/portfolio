@@ -12,7 +12,7 @@
   let {
     src,
     alt,
-    class: cls = "rounded-xl",
+    class: cls = "rounded",
     feedImage = false,
     fetchpriority,
     loading,
