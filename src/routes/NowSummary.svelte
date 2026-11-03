@@ -26,15 +26,23 @@
     </a>
   </div>
 
-  <dl class="md2:grid-cols-3 grid gap-x-10 gap-y-7">
+  <dl class="md2:grid-cols-2 grid gap-x-10 gap-y-8">
     {#each now.sections as section (section.heading)}
       <div>
         <dt class="text-accent font-serif text-[1.375rem] leading-tight italic">
           {section.heading}
         </dt>
-        <dd class="text-ink-soft mt-2.5 text-[0.9375rem] leading-relaxed text-pretty">
-          {#each section.point as part, i (i)}{#if part.emphasis}<em>{part.text}</em
-              >{:else}{part.text}{/if}{/each}
+        <dd class="mt-2.5">
+          <ul
+            class="text-ink-soft marker:text-muted list-disc space-y-1.5 pl-4 text-[0.9375rem] leading-relaxed text-pretty"
+          >
+            {#each section.points as point, i (i)}
+              <li>
+                {#each point as part, j (j)}{#if part.emphasis}<em>{part.text}</em
+                    >{:else}{part.text}{/if}{/each}
+              </li>
+            {/each}
+          </ul>
         </dd>
       </div>
     {/each}

@@ -29,10 +29,10 @@ export interface TextPart {
   emphasis: boolean;
 }
 
-/** The newest now update, cut down to the first point under each of its headings */
+/** The newest now update's bullet points, grouped by heading */
 export interface NowSummary {
   date: string;
-  sections: { heading: string; point: TextPart[] }[];
+  sections: { heading: string; points: TextPart[][] }[];
 }
 
 export interface PostSummary {
