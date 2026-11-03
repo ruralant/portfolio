@@ -66,7 +66,7 @@
 <div id="core" class={[data.localTheme, "flex min-h-dvh flex-col"]}>
   <a
     href="#main"
-    class="bg-ink text-paper sr-only z-50 rounded-full px-4 py-2 text-sm focus:not-sr-only focus:fixed focus:top-4 focus:left-4"
+    class="bg-ink text-paper sr-only z-50 rounded px-4 py-2 text-sm focus:not-sr-only focus:fixed focus:top-4 focus:left-4"
   >
     Skip to content
   </a>

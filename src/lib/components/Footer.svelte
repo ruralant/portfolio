@@ -14,7 +14,7 @@
         Software engineer in Reading, UK, writing about green software and a lighter web.
       </p>
       <a
-        class="group border-line-strong hover:border-ink mt-6 inline-flex items-stretch overflow-hidden rounded-full border text-xs leading-none no-underline transition-colors"
+        class="group border-line-strong hover:border-ink mt-6 inline-flex items-stretch overflow-hidden rounded border text-xs leading-none no-underline transition-colors"
         href="https://www.websitecarbon.com/website/antoniorossi-net/"
         target="_blank"
         rel="noopener noreferrer"
@@ -23,7 +23,7 @@
         <span
           class="border-line-strong bg-surface text-ink group-hover:border-ink group-hover:text-accent border-l px-3 py-2 font-medium transition-colors"
         >
-          Website Carbon<span aria-hidden="true"> ↗</span><span class="sr-only">
+          Website Carbon<span aria-hidden="true">&nbsp;↗</span><span class="sr-only">
             (opens in a new tab)</span
           >
         </span>
@@ -51,7 +51,7 @@
               target="_blank"
               rel="noopener noreferrer"
             >
-              LinkedIn<span aria-hidden="true"> ↗</span><span class="sr-only">
+              LinkedIn<span aria-hidden="true">&nbsp;↗</span><span class="sr-only">
                 (opens in a new tab)</span
               >
             </a>

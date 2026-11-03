@@ -2,6 +2,7 @@
   import Hero from "./Hero.svelte";
   import Contacts from "./Contacts.svelte";
   import Articles from "./Articles.svelte";
+  import NowSummary from "./NowSummary.svelte";
   import type { PageData } from "./$types";
 
   let { data }: { data: PageData } = $props();
@@ -28,5 +29,8 @@
 <Hero />
 {#if data.posts}
   <Articles posts={data.posts} />
+{/if}
+{#if data.now}
+  <NowSummary now={data.now} />
 {/if}
 <Contacts />

@@ -49,7 +49,7 @@
       src={meImage}
       alt="Antonio speaking in public"
       sizes="(min-width: 1000px) 288px, (min-width: 800px) 240px, 192px"
-      class="md3:w-full aspect-square w-48 rounded-2xl object-cover grayscale"
+      class="md3:w-full aspect-square w-48 rounded object-cover grayscale"
     />
   </div>
 

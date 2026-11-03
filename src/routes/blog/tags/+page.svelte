@@ -16,11 +16,11 @@
   <a class="link text-ink" href={resolve("blog")}>all articles</a>.
 </PageHeader>
 
-<ul class="border-line flex max-w-3xl flex-wrap gap-x-2 gap-y-3 border-t pt-10">
+<ul class="border-line md2:columns-2 md3:columns-3 max-w-3xl gap-x-10 border-t pt-8">
   {#each data.tags as tag (tag)}
-    <li>
+    <li class="break-inside-avoid py-1.5">
       <a
-        class="border-line text-ink-soft hover:border-ink hover:text-ink inline-flex items-center rounded-full border px-4 py-1.5 text-[0.9375rem] no-underline transition-colors"
+        class="link text-ink-soft text-[1.0625rem]"
         href={resolve(`blog/tags/${encodeURIComponent(tag)}`)}
       >
         {tag}

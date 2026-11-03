@@ -35,11 +35,8 @@
       <!-- company.url is an external link from data, so it is not resolvable as an internal route -->
       <!-- eslint-disable svelte/no-navigation-without-resolve -->
       <a class="link" href={company.url} target="_blank" rel="noopener noreferrer"
-        >{company.name}<span aria-hidden="true" class="text-muted font-sans text-xl"> ↗</span><span
-          class="sr-only"
-        >
-          (opens in a new tab)</span
-        ></a
+        >{company.name}<span aria-hidden="true" class="text-muted font-sans text-xl">&nbsp;↗</span
+        ><span class="sr-only"> (opens in a new tab)</span></a
       >
       <!-- eslint-enable svelte/no-navigation-without-resolve -->
     </h2>
@@ -53,7 +50,7 @@
     </ul>
 
     {#if allTech.length > 0}
-      <ul class="mt-6 flex flex-wrap gap-1.5" aria-label="Tech stack">
+      <ul class="dot-list mt-6 flex flex-wrap gap-x-2 gap-y-1 text-sm" aria-label="Tech stack">
         {#each allTech as tech (tech)}
           <li><Tag tagName={tech} /></li>
         {/each}
