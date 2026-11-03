@@ -8,18 +8,16 @@
   }
 
   let { tagName, url }: Props = $props();
-
-  const pillClass =
-    "relative inline-flex items-center rounded-full border border-line px-2.5 py-0.5 text-xs leading-5 text-muted";
 </script>
 
+<!-- Plain text sized by its list; `relative` keeps a linked tag above a stretched row link -->
 {#if url}
   <a
-    class="{pillClass} hover:border-ink hover:text-ink no-underline transition-colors"
+    class="text-ink-soft decoration-line-strong hover:text-accent hover:decoration-accent relative underline decoration-1 underline-offset-[0.22em] transition-colors"
     href={resolve(url)}
   >
     {tagName}
   </a>
 {:else}
-  <span class={pillClass}>{tagName}</span>
+  <span class="text-muted">{tagName}</span>
 {/if}

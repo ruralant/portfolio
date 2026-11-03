@@ -30,6 +30,8 @@
   --color-field: #8c887e;
   /* Taken from the lit windows of the solarpunk house */
   --color-accent: #a24f27;
+  /* Strings in code blocks, a second colour beside the accent; the olive of the house's garden */
+  --color-code-string: #56662e;
 
   --font-*: initial;
   --font-serif: "Instrument Serif", "Instrument Serif Fallback", Georgia, serif;
@@ -50,14 +52,23 @@
   --text-8xl: 6rem;
 }
 
-/* Small uppercase label above page titles and section headings */
+/* Small italic serif label above page titles and section headings, and on metadata */
 @utility eyebrow {
-  font-size: 0.75rem;
-  line-height: 1rem;
-  font-weight: 500;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
+  font-family: var(--font-serif);
+  font-size: 1.1875rem;
+  font-style: italic;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
   color: var(--color-muted);
+}
+
+/* Inline list (tags, tech stacks) whose items are separated by a middle dot */
+@utility dot-list {
+  & > li:not(:first-child)::before {
+    content: "·" / "";
+    margin-inline-end: 0.5rem;
+    color: var(--color-muted);
+  }
 }
 
 /* Inline text link: ink text with a soft accent underline that fills in on hover */
@@ -75,15 +86,15 @@
   }
 }
 
-/* Slim ink pill for the few primary actions (contact, send, read the blog) */
+/* Slim ink button for the few primary actions (contact, send, read the blog) */
 @utility btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
   height: 2.75rem;
-  padding-inline: 1.375rem;
-  border-radius: 9999px;
+  padding-inline: 1.25rem;
+  border-radius: 0.25rem;
   background-color: var(--color-ink);
   color: var(--color-paper);
   font-size: 0.9375rem;
@@ -119,6 +130,7 @@
     --color-line-strong: #3a3935;
     --color-field: #6c6a63;
     --color-accent: #eba27a;
+    --color-code-string: #b5c18c;
   }
 
   html {
@@ -203,6 +215,8 @@
   --tw-prose-captions: var(--color-muted);
   --tw-prose-kbd: var(--color-ink);
   --tw-prose-code: var(--color-ink);
+  --tw-prose-pre-code: var(--color-ink);
+  --tw-prose-pre-bg: var(--color-surface);
   --tw-prose-th-borders: var(--color-line-strong);
   --tw-prose-td-borders: var(--color-line);
 }
@@ -243,9 +257,13 @@
 }
 
 .prose h3 {
-  font-size: 1.15em;
-  font-weight: 600;
-  letter-spacing: -0.01em;
+  margin-top: 1.9em;
+  margin-bottom: 0.5em;
+  font-family: var(--font-serif);
+  font-size: 1.6em;
+  font-weight: 400;
+  line-height: 1.2;
+  letter-spacing: var(--tracking-title);
 }
 
 .prose h4 {
@@ -275,7 +293,7 @@
 .prose :not(pre) > code {
   padding: 0.12em 0.4em;
   border: 1px solid var(--color-line);
-  border-radius: 0.375rem;
+  border-radius: 0.25rem;
   background-color: var(--color-surface);
   font-size: 0.85em;
   font-weight: 400;
@@ -283,7 +301,11 @@
 
 .prose pre,
 .prose img {
-  border-radius: 0.75rem;
+  border-radius: 0.25rem;
+}
+
+.prose pre {
+  border: 1px solid var(--color-line);
 }
 
 .prose hr {
@@ -350,209 +372,90 @@
   line-gap-override: 0%;
 }
 
-/* Prism One Dark theme (inlined from prism-themes) */
+/*
+  Code blocks, highlighted by Prism. Two quiet colours on the surface instead of a dark editor
+  theme: the accent for keywords, numbers and attribute names, and an olive for strings.
+*/
 code[class*="language-"],
 pre[class*="language-"] {
-  background: hsl(220, 13%, 18%);
-  color: hsl(220, 14%, 71%);
-  text-shadow: 0 1px rgba(0, 0, 0, 0.3);
+  background: var(--color-surface);
+  color: var(--color-ink);
   font-family: var(--font-mono);
   direction: ltr;
   text-align: left;
   white-space: pre;
   word-spacing: normal;
   word-break: normal;
-  line-height: 1.5;
-  -moz-tab-size: 2;
-  -o-tab-size: 2;
+  line-height: 1.6;
   tab-size: 2;
-  -webkit-hyphens: none;
-  -moz-hyphens: none;
-  -ms-hyphens: none;
   hyphens: none;
-}
-
-code[class*="language-"]::-moz-selection,
-code[class*="language-"] *::-moz-selection,
-pre[class*="language-"] *::-moz-selection {
-  background: hsl(220, 13%, 28%);
-  color: inherit;
-  text-shadow: none;
-}
-
-code[class*="language-"]::selection,
-code[class*="language-"] *::selection,
-pre[class*="language-"] *::selection {
-  background: hsl(220, 13%, 28%);
-  color: inherit;
-  text-shadow: none;
 }
 
 pre[class*="language-"] {
   padding: 1.25em 1.5em;
   margin: 0.5em 0;
   overflow: auto;
-  border-radius: 0.75rem;
+  border: 1px solid var(--color-line);
+  border-radius: 0.25rem;
 }
 
 :not(pre) > code[class*="language-"] {
   padding: 0.2em 0.3em;
-  border-radius: 0.3em;
+  border-radius: 0.25rem;
   white-space: normal;
-}
-
-@media print {
-  code[class*="language-"],
-  pre[class*="language-"] {
-    text-shadow: none;
-  }
 }
 
 .token.comment,
 .token.prolog,
-.token.cdata {
-  color: hsl(220, 10%, 40%);
-}
-
 .token.doctype,
-.token.punctuation,
-.token.entity {
-  color: hsl(220, 14%, 71%);
-}
-
-.token.attr-name,
-.token.class-name,
-.token.boolean,
-.token.constant,
-.token.number,
-.token.atrule {
-  color: hsl(29, 54%, 61%);
-}
-
-.token.keyword {
-  color: hsl(286, 60%, 67%);
-}
-
-.token.property,
-.token.tag,
-.token.symbol,
-.token.deleted,
-.token.important {
-  color: hsl(355, 65%, 65%);
-}
-
-.token.selector,
-.token.string,
-.token.char,
-.token.builtin,
-.token.inserted,
-.token.regex,
-.token.attr-value,
-.token.attr-value > .token.punctuation {
-  color: hsl(95, 38%, 62%);
-}
-
-.token.variable,
-.token.operator,
-.token.function {
-  color: hsl(207, 82%, 66%);
-}
-
-.token.url {
-  color: hsl(187, 47%, 55%);
-}
-
-.token.attr-value > .token.punctuation.attr-equals,
-.token.special-attr > .token.attr-value > .token.value.css {
-  color: hsl(220, 14%, 71%);
-}
-
-.language-css .token.selector {
-  color: hsl(355, 65%, 65%);
-}
-
-.language-css .token.property {
-  color: hsl(220, 14%, 71%);
-}
-
-.language-css .token.function,
-.language-css .token.url > .token.function {
-  color: hsl(187, 47%, 55%);
-}
-
-.language-css .token.url > .token.string.url {
-  color: hsl(95, 38%, 62%);
-}
-
-.language-css .token.important,
-.language-css .token.atrule .token.rule {
-  color: hsl(286, 60%, 67%);
-}
-
-.language-javascript .token.operator {
-  color: hsl(286, 60%, 67%);
-}
-
-.language-javascript
-  .token.template-string
-  > .token.interpolation
-  > .token.interpolation-punctuation.punctuation {
-  color: hsl(5, 48%, 51%);
-}
-
-.language-json .token.operator {
-  color: hsl(220, 14%, 71%);
-}
-
-.language-json .token.null.keyword {
-  color: hsl(29, 54%, 61%);
-}
-
-.language-markdown .token.url,
-.language-markdown .token.url > .token.operator,
-.language-markdown .token.url-reference.url > .token.string {
-  color: hsl(220, 14%, 71%);
-}
-
-.language-markdown .token.url > .token.content {
-  color: hsl(207, 82%, 66%);
-}
-
-.language-markdown .token.url > .token.url,
-.language-markdown .token.url-reference.url {
-  color: hsl(187, 47%, 55%);
-}
-
-.language-markdown .token.blockquote.punctuation,
-.language-markdown .token.hr.punctuation {
-  color: hsl(220, 10%, 40%);
+.token.cdata {
+  color: var(--color-muted);
   font-style: italic;
 }
 
-.language-markdown .token.code-snippet {
-  color: hsl(95, 38%, 62%);
+.token.punctuation,
+.token.operator,
+.token.entity,
+.token.attr-value > .token.punctuation.attr-equals {
+  color: var(--color-muted);
 }
 
-.language-markdown .token.bold .token.content {
-  color: hsl(29, 54%, 61%);
+.token.keyword,
+.token.atrule,
+.token.important,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.attr-name,
+.token.selector,
+.token.deleted {
+  color: var(--color-accent);
 }
 
-.language-markdown .token.italic .token.content {
-  color: hsl(286, 60%, 67%);
+.token.string,
+.token.char,
+.token.regex,
+.token.inserted,
+.token.url,
+.token.attr-value,
+.token.attr-value > .token.punctuation {
+  color: var(--color-code-string);
 }
 
-.language-markdown .token.strike .token.content,
-.language-markdown .token.strike .token.punctuation,
-.language-markdown .token.list.punctuation,
-.language-markdown .token.title.important > .token.punctuation {
-  color: hsl(355, 65%, 65%);
+.token.tag,
+.token.function,
+.token.class-name,
+.token.property,
+.token.builtin,
+.token.variable {
+  color: var(--color-ink);
 }
 
 .token.bold {
-  font-weight: bold;
+  font-weight: 600;
 }
 
-.token.comment,
 .token.italic {
   font-style: italic;
 }

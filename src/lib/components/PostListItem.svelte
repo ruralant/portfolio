@@ -18,9 +18,7 @@
 <li
   class={[
     "group border-line relative grid gap-x-10 gap-y-2 border-t py-7",
-    showYear
-      ? "md3:grid-cols-[8.5rem_minmax(0,1fr)_auto]"
-      : "md3:grid-cols-[4.5rem_minmax(0,1fr)_auto]",
+    showYear ? "md3:grid-cols-[8.5rem_minmax(0,1fr)]" : "md3:grid-cols-[4.5rem_minmax(0,1fr)]",
     "md3:items-baseline"
   ]}
 >
@@ -42,18 +40,14 @@
     </svelte:element>
     <p class="text-ink-soft mt-2 max-w-2xl leading-relaxed text-pretty">{post.subtitle}</p>
     {#if showTags && post.tags.length > 0}
-      <ul class="relative mt-4 flex flex-wrap gap-2" aria-label="Tags">
+      <ul
+        class="dot-list relative mt-3 flex flex-wrap gap-x-2 gap-y-1 text-[0.8125rem]"
+        aria-label="Tags"
+      >
         {#each post.tags as tag (tag)}
           <li><Tag tagName={tag} url={`blog/tags/${encodeURIComponent(tag)}`} /></li>
         {/each}
       </ul>
     {/if}
   </div>
-
-  <span
-    aria-hidden="true"
-    class="md3:block text-muted group-hover:text-accent hidden text-lg transition group-hover:translate-x-1"
-  >
-    →
-  </span>
 </li>
