@@ -25,8 +25,8 @@ const toTextParts = (line: string): TextPart[] =>
         : { text: part, emphasis: false }
     );
 
-/** The newest update's first bullet under each `##` heading, for the home page */
-export async function getNowSummary(limit = 3): Promise<NowSummary | undefined> {
+/** The newest update's bullets, grouped under their `##` headings, for the home page */
+export async function getNowSummary(): Promise<NowSummary | undefined> {
   const [latest] = await getNowUpdates();
   if (!latest) return undefined;
 
@@ -35,16 +35,16 @@ export async function getNowSummary(limit = 3): Promise<NowSummary | undefined> 
   const body = source.replace(/^---\n[\s\S]*?\n---\n/, "");
 
   const sections: NowSummary["sections"] = [];
-  let heading: string | undefined;
+  let section: NowSummary["sections"][number] | undefined;
   for (const line of body.split("\n")) {
     const title = line.match(/^##\s+(.+)/);
     const bullet = line.match(/^[-*]\s+(.+)/);
-    if (title) heading = title[1].trim();
-    else if (bullet && heading) {
-      sections.push({ heading, point: toTextParts(bullet[1].trim()) });
-      heading = undefined;
-    }
+    if (title) {
+      section = { heading: title[1].trim(), points: [] };
+      sections.push(section);
+    } else if (/^(\*{3,}|-{3,}|_{3,})\s*$/.test(line)) section = undefined;
+    else if (bullet && section) section.points.push(toTextParts(bullet[1].trim()));
   }
 
-  return { date: latest.date, sections: sections.slice(0, limit) };
+  return { date: latest.date, sections: sections.filter((section) => section.points.length > 0) };
 }
