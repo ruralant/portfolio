@@ -65,7 +65,7 @@
     {#if tags.length > 0}
       <div>
         <dt class="eyebrow">Tags</dt>
-        <dd class="mt-3 flex flex-wrap gap-1.5">
+        <dd class="mt-2 flex flex-col items-start gap-1.5">
           {#each tags as tag (tag)}
             <Tag tagName={tag} url={`blog/tags/${encodeURIComponent(tag)}`} />
           {/each}

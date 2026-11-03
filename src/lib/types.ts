@@ -23,6 +23,18 @@ export interface NowUpdate extends NowMetadata {
   slug: string;
 }
 
+/** A run of plain or emphasised text from a markdown line */
+export interface TextPart {
+  text: string;
+  emphasis: boolean;
+}
+
+/** The newest now update, cut down to the first point under each of its headings */
+export interface NowSummary {
+  date: string;
+  sections: { heading: string; point: TextPart[] }[];
+}
+
 export interface PostSummary {
   meta: PostMetadata;
   path: string;
