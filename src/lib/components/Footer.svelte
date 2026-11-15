@@ -1,6 +1,7 @@
 <script lang="ts">
   import { resolve } from "$app/paths";
   import { navigation } from "#lib/navigation.js";
+  import GridTile from "./GridTile.svelte";
 
   const year = new Date().getFullYear();
   const footerLink = "text-ink-soft no-underline transition-colors hover:text-accent";
@@ -29,6 +30,9 @@
         </span>
       </a>
       <p class="text-muted mt-2 text-xs">Cleaner than 98% of pages tested</p>
+      <div class="mt-5">
+        <GridTile />
+      </div>
     </div>
 
     <div class="grid grid-cols-2 gap-x-16 gap-y-8 text-sm">

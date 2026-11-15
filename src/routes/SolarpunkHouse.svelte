@@ -175,6 +175,12 @@
     display: block;
   }
 
+  /* Balanced and lean modes hold the scene still, so the compositor stops drawing every frame */
+  :global([data-grid-mode="balanced"]) .scene *,
+  :global([data-grid-mode="lean"]) .scene * {
+    animation-play-state: paused;
+  }
+
   .sky,
   .rotor,
   .cloud,
