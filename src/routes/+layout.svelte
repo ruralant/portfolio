@@ -2,6 +2,8 @@
   import { onMount } from "svelte";
   import { onNavigate } from "$app/navigation";
   import { theme } from "#lib/stores/store.js";
+  import { grid, syncGrid } from "#lib/grid/state.svelte.js";
+  import GridNotice from "#lib/components/GridNotice.svelte";
   import Header from "#lib/components/Header.svelte";
   import Footer from "#lib/components/Footer.svelte";
   import "../tailwind.css";
@@ -23,11 +25,12 @@
     } else {
       theme.useLocalStorage();
     }
+    syncGrid();
   });
 
-  // Cross-fade between pages with the browser's View Transitions, where supported
+  // Cross-fade between pages with the browser's View Transitions, where supported, in full mode
   onNavigate((navigation) => {
-    if (!document.startViewTransition) return;
+    if (!document.startViewTransition || (grid.mode && grid.mode !== "full")) return;
 
     return new Promise((resolve) => {
       document.startViewTransition(async () => {
@@ -60,6 +63,11 @@
         "content",
         document.documentElement.classList.contains("dark") ? "#121211" : "#f7f6f2"
       );
+    // Without the edge function (dev, preview), apply the grid mode picked on /grid
+    if (!document.documentElement.dataset.gridMode) {
+      const choice = document.cookie.match(/(?:^|; )grid-mode=(full|balanced|lean)(?:;|$)/);
+      if (choice) document.documentElement.dataset.gridMode = choice[1];
+    }
   </script>
 </svelte:head>
 
@@ -71,6 +79,7 @@
     Skip to content
   </a>
 
+  <GridNotice />
   <Header />
 
   <main
