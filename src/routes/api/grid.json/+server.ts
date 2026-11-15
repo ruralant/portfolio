@@ -32,15 +32,29 @@ const unavailable = (): GridReading => ({
   datetime: null
 });
 
+// Netlify hands functions their environment when a deploy is built, so a key added later is
+// missing until the next deploy. Say so once per function instance, in the function log.
+let reportedMissingKey = false;
+
 export const GET: RequestHandler = async ({ fetch }) => {
-  if (!ELECTRICITY_MAPS_API_KEY) return reply(unavailable(), 60);
+  if (!ELECTRICITY_MAPS_API_KEY) {
+    if (!reportedMissingKey) {
+      console.error("ELECTRICITY_MAPS_API_KEY is not set, so the grid can't be read");
+      reportedMissingKey = true;
+    }
+    return reply(unavailable(), 60);
+  }
 
   try {
     const response = await fetch(`${API_URL}?zone=${GRID_ZONE.code}`, {
       headers: { "auth-token": ELECTRICITY_MAPS_API_KEY },
       signal: AbortSignal.timeout(4000)
     });
-    if (!response.ok) throw new Error(`Electricity Maps answered ${response.status}`);
+    if (!response.ok) {
+      // The body says why, e.g. a zone the key's plan doesn't cover; it never echoes the key
+      const reason = (await response.text()).slice(0, 300);
+      throw new Error(`Electricity Maps answered ${response.status}: ${reason}`);
+    }
 
     const body: LatestCarbonIntensity = await response.json();
     if (typeof body.carbonIntensity !== "number" || !Number.isFinite(body.carbonIntensity)) {
