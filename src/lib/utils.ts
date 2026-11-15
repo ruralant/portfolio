@@ -34,3 +34,7 @@ export const formatDate = (date: string | Date, withYear = true): string => {
 };
 
 export const isoDate = (date: string | Date): string => new Date(date).toISOString().slice(0, 10);
+
+/** A time in the visitor's own clock and locale, such as 14:00; call it only in the browser */
+export const formatTime = (date: string): string =>
+  new Date(date).toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" });

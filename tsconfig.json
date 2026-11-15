@@ -2,7 +2,9 @@
   "extends": "$app/tsconfig",
   "compilerOptions": {
     "sourceMap": true,
-    "strict": true
+    "strict": true,
+    // The Netlify edge function runs on Deno, which needs the .ts extension on local imports
+    "allowImportingTsExtensions": true
   },
-  "include": ["src", "vite.config.js", "playwright.config.ts", "tests"]
+  "include": ["src", "netlify", "vite.config.js", "playwright.config.ts", "tests"]
 }

@@ -3,7 +3,17 @@ import { join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { expect, test, type APIRequestContext } from "@playwright/test";
 
-const PAGES = ["/", "/about", "/blog", "/blog/tags", "/career", "/colophon", "/contact", "/now"];
+const PAGES = [
+  "/",
+  "/about",
+  "/blog",
+  "/blog/tags",
+  "/career",
+  "/colophon",
+  "/contact",
+  "/grid",
+  "/now"
+];
 
 // Prerendered HTML uses relative links, so resolve every match against the page it came from.
 const pathsLinkedFrom = async (request: APIRequestContext, page: string, pattern: RegExp) => {
