@@ -4,6 +4,10 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+/* Grid-aware modes, stamped on <html> by netlify/edge-functions/grid-mode.ts (see /grid) */
+@custom-variant balanced (&:where([data-grid-mode="balanced"], [data-grid-mode="balanced"] *));
+@custom-variant lean (&:where([data-grid-mode="lean"], [data-grid-mode="lean"] *));
+
 @theme {
   /* Clear default breakpoints and define custom ones */
   --breakpoint-*: initial;
@@ -131,6 +135,15 @@
     --color-field: #6c6a63;
     --color-accent: #eba27a;
     --color-code-string: #b5c18c;
+  }
+
+  /*
+    Lean mode sets the text in the metric-matched local fallbacks below. Browsers only fetch a
+    web font that some text uses, so none of the three files is downloaded.
+  */
+  [data-grid-mode="lean"] {
+    --font-serif: "Instrument Serif Fallback", Georgia, serif;
+    --font-sans: "Geist Fallback", ui-sans-serif, system-ui, sans-serif;
   }
 
   html {
