@@ -39,6 +39,7 @@
 </script>
 
 <svelte:head>
+  <link rel="terms-of-service" href="https://m4ow.uk/socw/3.txt" />
   <script>
     if (!("theme" in localStorage)) {
       if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
