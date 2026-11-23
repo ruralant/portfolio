@@ -63,7 +63,12 @@
   </div>
 
   <div class="text-muted flex flex-wrap justify-between gap-2 pb-10 text-xs tabular-nums">
-    <p>© 2016–{year} Antonio Rossi</p>
+    <p>
+      © 2016–{year} Antonio Rossi ·
+      <a class="hover:text-accent text-muted no-underline transition-colors" href={resolve("terms")}
+        >Terms</a
+      >
+    </p>
     <p>v{__APP_VERSION__}</p>
   </div>
 </footer>
