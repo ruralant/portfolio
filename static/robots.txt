@@ -1,4 +1,7 @@
-User-Agent: *
+# License https://m4ow.uk/socw/3.txt
+User-agent: *
+tdl: https://m4ow.uk/socw/3.txt
+Allow: /
 
 # Old Pages
 Disallow: /appleblog.html
@@ -8,4 +11,3 @@ Disallow: /blog/photos-2/
 Disallow: /blog/[type]
 Disallow: /blog/[type]/[slug]
 Disallow: /blog/[slug]
-
