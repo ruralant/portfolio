@@ -11,7 +11,7 @@
     <div>
       <p class="tracking-title font-serif text-[1.75rem] leading-none">Antonio Rossi</p>
       <p class="text-muted mt-3 max-w-xs text-sm leading-relaxed">
-        Software engineer in Reading, UK, writing about green software and a lighter web.
+        Software engineer in the UK, writing about green software and a lighter web.
       </p>
       <a
         class="group border-line-strong hover:border-ink mt-6 inline-flex items-stretch overflow-hidden rounded border text-xs leading-none no-underline transition-colors"

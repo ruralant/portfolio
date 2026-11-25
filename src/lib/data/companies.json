@@ -2,9 +2,8 @@
   "companies": [
     {
       "name": "Gentrack",
-      "from": "Mar 2022",
+      "from": "2022",
       "to": "Present",
-      "location": "Global (Remote)",
       "sector": "Clean Tech / Energy",
       "role": "Senior Software Engineer",
       "techStack": {
@@ -22,9 +21,8 @@
     },
     {
       "name": "Fika Community",
-      "from": "Jan 2021",
-      "to": "Mar 2022",
-      "location": "UK (Remote)",
+      "from": "2021",
+      "to": "2022",
       "sector": "Mental Health / Wellness",
       "role": "Senior Software Engineer",
       "techStack": {
@@ -42,9 +40,8 @@
     },
     {
       "name": "Jayex Technology",
-      "from": "Nov 2016",
-      "to": "Dec 2020",
-      "location": "London (Remote)",
+      "from": "2016",
+      "to": "2020",
       "sector": "Healthcare",
       "role": "Software Engineer",
       "techStack": {
@@ -63,9 +60,8 @@
     },
     {
       "name": "Seedrs",
-      "location": "London",
-      "from": "Jul 2017",
-      "to": "Sep 2017",
+      "from": "2017",
+      "to": "2017",
       "role": "Junior Software Engineer",
       "sector": "Finance / Equity Crowdfunding",
       "techStack": {
@@ -83,9 +79,8 @@
     },
     {
       "name": "Booking.com",
-      "from": "Aug 2014",
-      "to": "Jul 2016",
-      "location": "Cambridge",
+      "from": "2014",
+      "to": "2016",
       "sector": "Travel / Hospitality",
       "role": "Partner Support Representative",
       "techStack": {
@@ -105,9 +100,8 @@
     },
     {
       "name": "Anglia Ruskin University",
-      "from": "Jan 2014",
-      "to": "Aug 2014",
-      "location": "Cambridge",
+      "from": "2014",
+      "to": "2014",
       "role": "Research Assistant",
       "sector": "Education / Research",
       "techStack": {

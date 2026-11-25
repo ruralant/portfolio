@@ -13,7 +13,7 @@
       Hi, I’m <em class="text-accent">Antonio</em>.
     </h1>
     <p class="md2:text-xl text-ink-soft mt-8 max-w-md text-lg leading-relaxed text-pretty">
-      Software engineer based in Reading, UK. I’m interested in
+      Software engineer based in the UK. I’m interested in
       <span class="text-ink">green software</span> and
       <span class="text-ink">climate adaptation</span>.
     </p>

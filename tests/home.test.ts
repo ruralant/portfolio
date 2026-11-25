@@ -12,7 +12,7 @@ test.describe("Home page", () => {
   });
 
   test("should show the main page subtitle", async ({ page }) => {
-    const subtitleLine1 = await page.getByText("Software engineer based in Reading, UK.");
+    const subtitleLine1 = await page.getByText("Software engineer based in the UK.");
     await expect(subtitleLine1).toBeVisible();
     const subtitleLine2 = await page.getByText(
       "I’m interested in green software and climate adaptation."
