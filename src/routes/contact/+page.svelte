@@ -15,9 +15,12 @@
     content="Send Antonio Rossi a message about green software, climate adaptation, open source or anything else you would like to talk about."
   />
   <meta property="og:url" content="https://www.antoniorossi.net/contact" />
+  <meta property="og:image" content="https://www.antoniorossi.net/og-image.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
   <meta
-    property="og:image"
-    content="https://res.cloudinary.com/antonio-rossi/image/upload/v1633877706/myself.jpg"
+    property="og:image:alt"
+    content="The monogram AR beside the name Antonio Rossi and the line: software engineer writing about green software and climate adaptation"
   />
 </svelte:head>
 

@@ -1,10 +1,9 @@
 <script lang="ts">
   import { resolve } from "$app/paths";
   import PageHeader from "#lib/components/PageHeader.svelte";
-  import Skill from "./Skill.svelte";
-  import meImage from "#lib/assets/images/home/me-b-and-w.jpg?enhanced&w=600;400;300&quality=50";
   import { calculateExperience } from "#lib/utils.js";
   import { calculatePastExperience } from "#lib/utils.js";
+  import Skill from "./Skill.svelte";
 
   const skills: { name: string; start: string; end?: string }[] = [
     { name: "React", start: "2020-01-01" },
@@ -35,7 +34,7 @@
   <title>About · Antonio Rossi</title>
   <meta
     name="description"
-    content="Antonio Rossi is a software engineer in the UK, who builds efficient, sustainable software and grows his own food."
+    content="Antonio Rossi is a software engineer in the UK who builds efficient, sustainable software and grows his own food."
   />
 </svelte:head>
 
@@ -45,12 +44,14 @@
   class="md3:grid-cols-[minmax(0,1fr)_15rem] md3:gap-16 grid gap-10 lg:grid-cols-[minmax(0,1fr)_18rem]"
 >
   <div class="md3:order-last md3:pt-1">
-    <enhanced:img
-      src={meImage}
-      alt="Antonio speaking in public"
-      sizes="(min-width: 1000px) 288px, (min-width: 800px) 240px, 192px"
-      class="md3:w-full aspect-square w-48 rounded object-cover grayscale"
-    />
+    <div
+      aria-hidden="true"
+      class="md3:w-full bg-surface border-line text-ink @container flex aspect-square w-48 items-center justify-center rounded border font-serif"
+    >
+      <span class="text-[60cqw] leading-none tracking-[-0.03em]"
+        >A<em class="text-accent">R</em></span
+      >
+    </div>
   </div>
 
   <div class="md2:text-xl text-ink-soft max-w-2xl space-y-6 text-lg leading-relaxed text-pretty">

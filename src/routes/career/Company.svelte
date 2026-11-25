@@ -19,12 +19,11 @@
   class="md3:grid-cols-[12rem_minmax(0,1fr)] md3:py-14 border-line grid gap-x-12 gap-y-5 border-t py-10"
 >
   <div class="text-sm leading-relaxed">
-    <p class="text-ink tabular-nums">{company.from} — {company.to}</p>
-    {#if company.location}
-      <p class="text-muted mt-1">{company.location}</p>
-    {/if}
+    <p class="text-ink tabular-nums">
+      {company.from === company.to ? company.from : `${company.from} — ${company.to}`}
+    </p>
     {#if company.sector}
-      <p class="text-muted">{company.sector}</p>
+      <p class="text-muted mt-1">{company.sector}</p>
     {/if}
   </div>
 

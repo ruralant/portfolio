@@ -50,7 +50,6 @@ export interface Company {
   name: string;
   from: string;
   to: string;
-  location: string;
   sector: string;
   role: string;
   techStack: TechStack;
