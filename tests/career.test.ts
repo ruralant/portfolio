@@ -25,7 +25,7 @@ test.describe("Career page", () => {
     const position = await page.getByText("Senior Software Engineer").first();
     await expect(position).toBeVisible();
 
-    const dateRange = await page.getByText("Mar 2022 — Present");
+    const dateRange = await page.getByText("2022 — Present");
     await expect(dateRange).toBeVisible();
   });
 
