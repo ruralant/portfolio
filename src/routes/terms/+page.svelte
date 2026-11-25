@@ -26,7 +26,7 @@
 </PageHeader>
 
 <div class="border-line prose max-w-2xl border-t pt-10">
-  <p class="eyebrow">Last updated 23 November 2026</p>
+  <p class="eyebrow">Last updated 25 November 2026</p>
 
   <h2>1. Access to the Website</h2>
 
@@ -54,5 +54,23 @@
     payable in accordance with Clause 4 of the {contract}. Capitalised terms used in Clauses 1.3 and
     1.4 and not otherwise defined in these Terms and Conditions have the meanings given to them in
     the {contract}.
+  </p>
+
+  <h2 id="messages">2. Messages sent through the contact form</h2>
+
+  <p>
+    <strong>2.1</strong> The contact form collects your name, email address, subject and message. Before
+    it is sent, Cloudflare Turnstile checks that the form is being filled in by a person rather than a
+    bot.
+  </p>
+
+  <p>
+    <strong>2.2</strong> Your message is stored by Netlify, which hosts the Website, and forwarded to
+    my inbox. No other service receives it.
+  </p>
+
+  <p>
+    <strong>2.3</strong> I use your details only to read and reply to your message. I never add them to
+    a mailing list or share them. To have a message deleted, ask through the same form.
   </p>
 </div>
