@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { resolve } from "$app/paths";
   import PageHeader from "#lib/components/PageHeader.svelte";
   import ContactForm from "./ContactForm.svelte";
 </script>
@@ -38,4 +39,8 @@
 
 <div class="border-line max-w-2xl border-t pt-10">
   <ContactForm />
+  <p class="text-muted mt-8 text-sm leading-relaxed">
+    Your message is stored by Netlify, which hosts this site, and used only so I can reply.
+    <a href={resolve("terms")} class="link text-ink">How messages are handled</a>.
+  </p>
 </div>
